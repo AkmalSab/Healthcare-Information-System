@@ -10,7 +10,7 @@
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>                
                     </div>
                     <div class="m-4 d-flex flex-row">   
-                        <router-link :to="{name: 'PmsCreate'}" class="btn btn-primary w-50 mr-3">View</router-link>
+                        <router-link :to="{name: 'PmsIndex'}" class="btn btn-primary w-50 mr-3">View</router-link>
                         <router-link :to="{name: 'PmsCreate'}" class="btn btn-primary w-50">Create</router-link>
                     </div>
                 </div>
