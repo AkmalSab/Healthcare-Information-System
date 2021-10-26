@@ -32,12 +32,12 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-6">
-                                <button type="submit" class="col-12 btn btn-primary">
+                            <div class="mb-2 col-lg-6 col-md-12 col-sm-12">
+                                <button type="submit" class="col-12 btn btn-primary text-white">
                                 {{ __('Send Password Reset Link') }}
                                 </button>  
                             </div> 
-                            <div class="col-6"> 
+                            <div class="col-lg-6 col-md-12 col-sm-12"> 
                                 <button type="reset" class="col-12 btn btn-warning">
                                     {{ __('Reset') }}
                                 </button>                    
