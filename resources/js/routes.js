@@ -1,4 +1,5 @@
 import PmsIndex from './components/pms/Index';
+import pmsPatientRegister from './components/pms/RegisterPatient';
 import PmsPatientMasterIndex from './components/pms/pmi/PatientMasterIndex';
 import PmsPatientBiodata from './components/pms/pmi/PatientBiodata';
 import PmsSpouseFamilyInformation from './components/pms/pmi/SpouseFamilyInformation';
@@ -6,27 +7,32 @@ import PmsInsurancePanelInformation from './components/pms/pmi/InsurancePanelInf
 
 export const routes = [
     {
-        path: '/patientMasterSystem',
+        path: '/pms',
         name: 'PmsIndex',
         component: PmsIndex
     },
     {
-        path: '/patientMasterSystem/patientMasterIndex',
+        path: '/pms/reg-patient',
+        name: 'pmsPatientRegister',
+        component: pmsPatientRegister
+    },
+    {
+        path: '/pms/patientMasterIndex',
         name: 'PmsPatientMasterIndex',
         component: PmsPatientMasterIndex
     },
     {
-        path: '/patientMasterSystem/patientMasterIndex/patientBiodata',
+        path: '/pms/patientMasterIndex/patientBiodata',
         name: 'PmsPatientBiodata',
         component: PmsPatientBiodata
     },
     {
-        path: '/patientMasterSystem/patientMasterIndex/spouseFamilyInformation',
+        path: '/pms/patientMasterIndex/spouseFamilyInformation',
         name: 'PmsSpouseFamilyInformation',
         component: PmsSpouseFamilyInformation
     },
     {
-        path: '/patientMasterSystem/patientMasterIndex/insurancePanelInformation',
+        path: '/pms/patientMasterIndex/insurancePanelInformation',
         name: 'PmsInsurancePanelInformation',
         component: PmsInsurancePanelInformation
     },
