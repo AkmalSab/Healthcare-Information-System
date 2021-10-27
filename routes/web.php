@@ -23,6 +23,6 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-Route::get('{pms}', function(){
+Route::get('{patientMasterSystem}', function(){
     return view('pms.index');
-})->where('pms', '.*')->middleware('auth')->name('pms');
+})->where('patientMasterSystem', '.*')->middleware('auth')->name('pms');

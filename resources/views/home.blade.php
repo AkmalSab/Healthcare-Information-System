@@ -11,7 +11,7 @@
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>                
                 </div>
                 <div class="m-4">   
-                    <a href="{{ url('/pms') }}" class="btn btn-primary w-100">Visit</a>
+                    <a href="{{ url('patientMasterSystem') }}" class="btn btn-primary w-100">Visit</a>
                 </div>
             </div>
         </div>
