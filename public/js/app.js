@@ -5264,6 +5264,179 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/RegisterPatient.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/RegisterPatient.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=script&lang=js& ***!
@@ -5575,35 +5748,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "routes": () => (/* binding */ routes)
 /* harmony export */ });
 /* harmony import */ var _components_pms_Index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/pms/Index */ "./resources/js/components/pms/Index.vue");
-/* harmony import */ var _components_pms_pmi_PatientMasterIndex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/pms/pmi/PatientMasterIndex */ "./resources/js/components/pms/pmi/PatientMasterIndex.vue");
-/* harmony import */ var _components_pms_pmi_PatientBiodata__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/pms/pmi/PatientBiodata */ "./resources/js/components/pms/pmi/PatientBiodata.vue");
-/* harmony import */ var _components_pms_pmi_SpouseFamilyInformation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pms/pmi/SpouseFamilyInformation */ "./resources/js/components/pms/pmi/SpouseFamilyInformation.vue");
-/* harmony import */ var _components_pms_pmi_InsurancePanelInformation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pms/pmi/InsurancePanelInformation */ "./resources/js/components/pms/pmi/InsurancePanelInformation.vue");
+/* harmony import */ var _components_pms_RegisterPatient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/pms/RegisterPatient */ "./resources/js/components/pms/RegisterPatient.vue");
+/* harmony import */ var _components_pms_pmi_PatientMasterIndex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/pms/pmi/PatientMasterIndex */ "./resources/js/components/pms/pmi/PatientMasterIndex.vue");
+/* harmony import */ var _components_pms_pmi_PatientBiodata__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pms/pmi/PatientBiodata */ "./resources/js/components/pms/pmi/PatientBiodata.vue");
+/* harmony import */ var _components_pms_pmi_SpouseFamilyInformation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pms/pmi/SpouseFamilyInformation */ "./resources/js/components/pms/pmi/SpouseFamilyInformation.vue");
+/* harmony import */ var _components_pms_pmi_InsurancePanelInformation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pms/pmi/InsurancePanelInformation */ "./resources/js/components/pms/pmi/InsurancePanelInformation.vue");
+
 
 
 
 
 
 var routes = [{
-  path: '/patientMasterSystem',
+  path: '/pms',
   name: 'PmsIndex',
   component: _components_pms_Index__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
-  path: '/patientMasterSystem/patientMasterIndex',
+  path: '/pms/reg-patient',
+  name: 'pmsPatientRegister',
+  component: _components_pms_RegisterPatient__WEBPACK_IMPORTED_MODULE_1__["default"]
+}, {
+  path: '/pms/patientMasterIndex',
   name: 'PmsPatientMasterIndex',
-  component: _components_pms_pmi_PatientMasterIndex__WEBPACK_IMPORTED_MODULE_1__["default"]
+  component: _components_pms_pmi_PatientMasterIndex__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
-  path: '/patientMasterSystem/patientMasterIndex/patientBiodata',
+  path: '/pms/patientMasterIndex/patientBiodata',
   name: 'PmsPatientBiodata',
-  component: _components_pms_pmi_PatientBiodata__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _components_pms_pmi_PatientBiodata__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
-  path: '/patientMasterSystem/patientMasterIndex/spouseFamilyInformation',
+  path: '/pms/patientMasterIndex/spouseFamilyInformation',
   name: 'PmsSpouseFamilyInformation',
-  component: _components_pms_pmi_SpouseFamilyInformation__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _components_pms_pmi_SpouseFamilyInformation__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
-  path: '/patientMasterSystem/patientMasterIndex/insurancePanelInformation',
+  path: '/pms/patientMasterIndex/insurancePanelInformation',
   name: 'PmsInsurancePanelInformation',
-  component: _components_pms_pmi_InsurancePanelInformation__WEBPACK_IMPORTED_MODULE_4__["default"]
+  component: _components_pms_pmi_InsurancePanelInformation__WEBPACK_IMPORTED_MODULE_5__["default"]
 }];
 
 /***/ }),
@@ -41616,6 +41795,45 @@ component.options.__file = "resources/js/components/pms/Index.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/pms/RegisterPatient.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/pms/RegisterPatient.vue ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _RegisterPatient_vue_vue_type_template_id_a0d54b64___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RegisterPatient.vue?vue&type=template&id=a0d54b64& */ "./resources/js/components/pms/RegisterPatient.vue?vue&type=template&id=a0d54b64&");
+/* harmony import */ var _RegisterPatient_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegisterPatient.vue?vue&type=script&lang=js& */ "./resources/js/components/pms/RegisterPatient.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RegisterPatient_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RegisterPatient_vue_vue_type_template_id_a0d54b64___WEBPACK_IMPORTED_MODULE_0__.render,
+  _RegisterPatient_vue_vue_type_template_id_a0d54b64___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pms/RegisterPatient.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/pms/pmi/InsurancePanelInformation.vue":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/pms/pmi/InsurancePanelInformation.vue ***!
@@ -41788,6 +42006,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/pms/RegisterPatient.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/pms/RegisterPatient.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterPatient_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisterPatient.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/RegisterPatient.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterPatient_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************!*\
   !*** ./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=script&lang=js& ***!
@@ -41865,6 +42099,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_bccb4584___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_bccb4584___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=template&id=bccb4584& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/Index.vue?vue&type=template&id=bccb4584&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pms/RegisterPatient.vue?vue&type=template&id=a0d54b64&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/pms/RegisterPatient.vue?vue&type=template&id=a0d54b64& ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterPatient_vue_vue_type_template_id_a0d54b64___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterPatient_vue_vue_type_template_id_a0d54b64___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterPatient_vue_vue_type_template_id_a0d54b64___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisterPatient.vue?vue&type=template&id=a0d54b64& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/RegisterPatient.vue?vue&type=template&id=a0d54b64&");
 
 
 /***/ }),
@@ -41973,7 +42224,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "btn btn-primary w-100",
-                    attrs: { to: { name: "PmsPatientMasterIndex" } }
+                    attrs: { to: { name: "pmsPatientRegister" } }
                   },
                   [_vm._v("Visit")]
                 )
@@ -41983,7 +42234,27 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(1),
+        _c("div", { staticClass: "col mb-3" }, [
+          _c("div", { staticClass: "card h-100" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "m-4" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-primary w-100",
+                    attrs: { to: { name: "PmsPatientMasterIndex" } }
+                  },
+                  [_vm._v("Visit")]
+                )
+              ],
+              1
+            )
+          ])
+        ]),
         _vm._v(" "),
         _vm._m(2)
       ]
@@ -41996,9 +42267,29 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-body" }, [
-      _c("h5", { staticClass: "card-title" }, [
-        _vm._v("Manage Patient Master Index")
-      ]),
+      _c("h5", { staticClass: "card-title" }, [_vm._v("Register Patient")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [
+        _vm._v(
+          "\n                        i. Mobile registration with QR Code (self-registration) "
+        ),
+        _c("br"),
+        _vm._v(
+          "\n                        ii. Kiosk registration (self-registration) "
+        ),
+        _c("br"),
+        _vm._v(
+          "\n                        iii. Counter registration (register by clinic staff)\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("h5", { staticClass: "card-title" }, [_vm._v("Patient Appointment")]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
         _vm._v("\n                        i. Patient biodata "),
@@ -42018,23 +42309,9 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col mb-3" }, [
       _c("div", { staticClass: "card h-100" }, [
         _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [
-            _vm._v("Register patient via")
-          ]),
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Patient Billing")]),
           _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "\n                        i. Mobile registration with QR Code (self-registration) "
-            ),
-            _c("br"),
-            _vm._v(
-              "\n                        ii. Kiosk registration (self-registration) "
-            ),
-            _c("br"),
-            _vm._v(
-              "\n                        iii. Counter registration (register by clinic staff)\n                    "
-            )
-          ])
+          _c("p", { staticClass: "card-text" })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "m-4" }, [
@@ -42046,25 +42323,569 @@ var staticRenderFns = [
         ])
       ])
     ])
-  },
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/RegisterPatient.vue?vue&type=template&id=a0d54b64&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/RegisterPatient.vue?vue&type=template&id=a0d54b64& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col mb-3" }, [
-      _c("div", { staticClass: "card h-100" }, [
+    return _c("div", { staticClass: "container" }, [
+      _c("h1", [_vm._v("Register Patient")]),
+      _vm._v(" "),
+      _c("blockquote", { staticClass: "blockquote" }, [
+        _c("p", [_vm._v("This form is for patient registration.")])
+      ]),
+      _vm._v(" "),
+      _c("figcaption", { staticClass: "blockquote-footer" }, [
+        _vm._v("\n        Someone famous in "),
+        _c("cite", { attrs: { title: "Source Title" } }, [
+          _vm._v("Source Title")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card" }, [
         _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [_vm._v("Cash management")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "m-4" }, [
-          _c(
-            "button",
-            { staticClass: "btn btn-primary w-100", attrs: { type: "button" } },
-            [_vm._v("Visit")]
-          )
+          _c("form", [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "patName" } },
+                    [_vm._v("Name")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "patName",
+                      "aria-describedby": "patNameHelp"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "patNameHelp" } },
+                    [_vm._v("Please input patient name.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "patIC" } },
+                    [_vm._v("NRIC")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "patIC",
+                      "aria-describedby": "patICHelp"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "patICHelp" } },
+                    [_vm._v("Please input patient identification number.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "patPhone" } },
+                    [_vm._v("Phone No.")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "number",
+                      id: "patAddress2",
+                      "aria-describedby": "patPhoneHelp"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "patPhoneHelp" } },
+                    [_vm._v("Please input patient phone number.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "patMaritial" }
+                    },
+                    [_vm._v("Maritial Status")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      staticClass: "form-select",
+                      attrs: {
+                        "aria-label": "Default select example",
+                        "aria-describedby": "patMaritialHelp"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "" } }, [
+                        _vm._v("Open this select menu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Single" } }, [
+                        _vm._v("Single")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Married" } }, [
+                        _vm._v("Married")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Windowed" } }, [
+                        _vm._v("Windowed")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Divorced" } }, [
+                        _vm._v("Divorced")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "patMaritialHelp" }
+                    },
+                    [_vm._v("Please input patient maritial status.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "patDOB" } },
+                    [_vm._v("Date of Birth")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "date",
+                      id: "patDOB",
+                      "aria-describedby": "patDOBHelp"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "patDOBHelp" } },
+                    [_vm._v("Please input patient date of birth.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "patGender" } },
+                    [_vm._v("Gender")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      staticClass: "form-select",
+                      attrs: {
+                        "aria-label": "Default select example",
+                        "aria-describedby": "patGenderHelp"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "" } }, [
+                        _vm._v("Open this select menu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Male" } }, [
+                        _vm._v("Male")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Female" } }, [
+                        _vm._v("Female")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "patGenderHelp" }
+                    },
+                    [_vm._v("Please input patient gender.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "patReligion" }
+                    },
+                    [_vm._v("Religion")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      staticClass: "form-select",
+                      attrs: {
+                        "aria-label": "Default select example",
+                        "aria-describedby": "patReligionHelp"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "" } }, [
+                        _vm._v("Open this select menu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Muslim" } }, [
+                        _vm._v("Muslim")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Buddhist" } }, [
+                        _vm._v("Buddhist")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Christian" } }, [
+                        _vm._v("Christian")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Hindu" } }, [
+                        _vm._v("Hindu")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Chinese Religionist" } },
+                        [_vm._v("Chinese Religionist")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Others" } }, [
+                        _vm._v("Others")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "patReligionHelp" }
+                    },
+                    [_vm._v("Please input patient religion.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "patCountry" } },
+                    [_vm._v("Country")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      staticClass: "form-select",
+                      attrs: {
+                        "aria-label": "Default select example",
+                        "aria-describedby": "patCountryHelp"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "" } }, [
+                        _vm._v("Open this select menu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Malaysia" } }, [
+                        _vm._v("Malaysia")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "patCountryHelp" }
+                    },
+                    [_vm._v("Please input patient nationality.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "patRace" } },
+                    [_vm._v("Race")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      staticClass: "form-select",
+                      attrs: {
+                        "aria-label": "Default select example",
+                        "aria-describedby": "patRaceHelp"
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "" } }, [
+                        _vm._v("Open this select menu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Malay" } }, [
+                        _vm._v("Malay")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Chinese" } }, [
+                        _vm._v("Chinese")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Indian" } }, [
+                        _vm._v("Indian")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Others" } }, [
+                        _vm._v("Others")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "patRaceHelp" } },
+                    [_vm._v("Please input patient race.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "patAddress1" }
+                    },
+                    [_vm._v("Address 1")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "patAddress1",
+                      "aria-describedby": "patAddress1Help"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "patAddress1Help" }
+                    },
+                    [_vm._v("Please input patient address 1.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "patAddress2" }
+                    },
+                    [_vm._v("Address 2")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "patAddress2",
+                      "aria-describedby": "patAddress2Help"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "patAddress2Help" }
+                    },
+                    [_vm._v("Please input patient address 2.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "patState" } },
+                    [_vm._v("State")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "patState",
+                      "aria-describedby": "patStateHelp"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "patStateHelp" } },
+                    [_vm._v("Please input patient state address.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "patPostcode" }
+                    },
+                    [_vm._v("Postcode")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "number",
+                      id: "patPostcode",
+                      "aria-describedby": "patPostcodeHelp"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "patPostcodeHelp" }
+                    },
+                    [_vm._v("Please input postcode address.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "patCity" } },
+                    [_vm._v("City")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "patCity",
+                      "aria-describedby": "patCityHelp"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "patCityHelp" } },
+                    [_vm._v("Please input city address.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                staticStyle: { width: "100%", color: "white" },
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Submit")]
+            )
+          ])
         ])
       ])
     ])
@@ -57776,7 +58597,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\Healthcare-Information-System-ismat-branch"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\Healthcare-Information-System-ismat-branch","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\xampp\\\\htdocs\\\\Healthcare-Information-System"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\xampp\\\\htdocs\\\\Healthcare-Information-System","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
