@@ -23,7 +23,7 @@
                     <p class="card-text">This module will cater for patient registration, appointment and billing.</p>                
                 </div>
                 <div class="m-4">   
-                    <a href="{{ url('patientMasterSystem') }}" class="btn btn-primary w-100" style="color: white">Visit</a>
+                    <a href="{{ url('cis') }}" class="btn btn-primary w-100" style="color: white">Visit</a>
                 </div>
             </div>
         </div>

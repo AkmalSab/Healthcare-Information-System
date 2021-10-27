@@ -4,6 +4,7 @@ import PmsPatientMasterIndex from './components/pms/pmi/PatientMasterIndex';
 import PmsPatientBiodata from './components/pms/pmi/PatientBiodata';
 import PmsSpouseFamilyInformation from './components/pms/pmi/SpouseFamilyInformation';
 import PmsInsurancePanelInformation from './components/pms/pmi/InsurancePanelInformation';
+import cisIndex from './components/cis/Index';
 
 export const routes = [
     {
@@ -35,5 +36,10 @@ export const routes = [
         path: '/pms/patientMasterIndex/insurancePanelInformation',
         name: 'PmsInsurancePanelInformation',
         component: PmsInsurancePanelInformation
+    },
+    {
+        path: '/cis',
+        name: 'cisIndex',
+        component: cisIndex
     },
 ];
