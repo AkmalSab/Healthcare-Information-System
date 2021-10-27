@@ -5229,7 +5229,212 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      vaxInfo: []
+    };
+  },
+  mounted: function mounted() {
+    // when the Vue app is booted up, this is run automatically.
+    var self = this; // create a closure to access component in the callback below
+
+    $.getJSON('https://api.vaksincovid.gov.my/semakstatus/westfunction?name=990817146107-bsep-0172178319', function (data) {
+      self.vaxInfo = data;
+    });
+  }
+});
 
 /***/ }),
 
@@ -42314,29 +42519,510 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("h1", [_vm._v("Patient Consultation Form")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
+        _vm._m(6),
+        _vm._v(" "),
+        _vm._m(7),
+        _vm._v(" "),
+        _vm._m(8),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Name")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.vaxInfo.appt_name) +
+                  "\n                    "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Kad Pengenalan / Nombor Pasport")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.vaxInfo.appt_id) +
+                  "\n                    "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Nombor Telefon")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.vaxInfo.appt_phone) +
+                  "\n                    "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _vm._m(9),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Fasiliti Kesihatan")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.vaxInfo.appt_facility1) +
+                  "\n                    "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Lokasi Pusat Pemberian Vaksinasi")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.vaxInfo.appt_location1) +
+                  "\n                    "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Status Janji Temu")]),
+              _vm._v(" "),
+              _vm.vaxInfo.appt_complete1 == 1
+                ? _c("span", { staticClass: "badge bg-success" }, [
+                    _vm._v("Selesai")
+                  ])
+                : _vm._e()
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Tarikh janji temu")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.vaxInfo.appt_date1) +
+                  "\n                    "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Masa janji temu")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.vaxInfo.appt_time1) +
+                  "\n                    "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _vm._m(10),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Fasiliti Kesihatan")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.vaxInfo.appt_facility2) +
+                  "\n                    "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Lokasi Pusat Pemberian Vaksinasi")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.vaxInfo.appt_location2) +
+                  "\n                    "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Status Janji Temu")]),
+              _vm._v(" "),
+              _vm.vaxInfo.appt_complete2 == 1
+                ? _c("span", { staticClass: "badge bg-success" }, [
+                    _vm._v("Selesai")
+                  ])
+                : _vm._e()
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Tarikh janji temu")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.vaxInfo.appt_date2) +
+                  "\n                    "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "mt-3" }, [
+              _c("h5", [_vm._v("Masa janji temu")]),
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.vaxInfo.appt_time2) +
+                  "\n                    "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr")
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("h1", [_vm._v("Patient Consultation Form")]),
-      _vm._v(" "),
-      _c("blockquote", { staticClass: "blockquote" }, [
-        _c("p", [_vm._v("This form is for patient consultation form.")])
-      ]),
-      _vm._v(" "),
-      _c("figcaption", { staticClass: "blockquote-footer" }, [
-        _vm._v("\n        Someone famous in "),
-        _c("cite", { attrs: { title: "Source Title" } }, [
-          _vm._v("Source Title")
+    return _c("blockquote", { staticClass: "blockquote" }, [
+      _c("p", [_vm._v("This form is for patient consultation form.")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figcaption", { staticClass: "blockquote-footer" }, [
+      _vm._v("\n        Someone famous in "),
+      _c("cite", { attrs: { title: "Source Title" } }, [_vm._v("Source Title")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "mb-3" }, [
+          _c(
+            "label",
+            { staticClass: "form-label", attrs: { for: "selectPat" } },
+            [_vm._v("Select Patient")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-select",
+              attrs: {
+                "aria-label": "Default select example",
+                "aria-describedby": "selectPatHelp"
+              }
+            },
+            [
+              _c("option", { attrs: { selected: "" } }, [
+                _vm._v("Open this select menu")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "Malaysia" } }, [
+                _vm._v("Malaysia")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-text", attrs: { id: "selectPatHelp" } },
+            [_vm._v("Please choose patient.")]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col mb-3" }, [
+        _c("label", { staticClass: "form-label" }, [
+          _vm._v("Diagnosis or Problem")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-floating" }, [
+          _c("textarea", {
+            staticClass: "form-control",
+            staticStyle: { height: "100px" },
+            attrs: {
+              placeholder: "Leave a comment here",
+              id: "floatingTextarea2"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "floatingTextarea2" } }, [
+            _vm._v("Remark")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col mb-3" }, [
+        _c("label", { staticClass: "form-label" }, [
+          _vm._v("Signs and Symptoms")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-floating" }, [
+          _c("textarea", {
+            staticClass: "form-control",
+            staticStyle: { height: "100px" },
+            attrs: {
+              placeholder: "Leave a comment here",
+              id: "floatingTextarea2"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "floatingTextarea2" } }, [
+            _vm._v("Remark")
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-body" }, [_c("h1", [_vm._v("TEST")])])
+      _c("div", { staticClass: "col mb-3" }, [
+        _c("label", { staticClass: "form-label" }, [
+          _vm._v("Allergy Information")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-floating" }, [
+          _c("textarea", {
+            staticClass: "form-control",
+            staticStyle: { height: "100px" },
+            attrs: {
+              placeholder: "Leave a comment here",
+              id: "floatingTextarea2"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "floatingTextarea2" } }, [
+            _vm._v("Remark")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "mb-3" }, [
+          _c(
+            "label",
+            { staticClass: "form-label", attrs: { for: "selectBlood" } },
+            [_vm._v("Select Blood Group")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-select",
+              attrs: {
+                "aria-label": "Default select example",
+                "aria-describedby": "selectBloodHelp"
+              }
+            },
+            [
+              _c("option", { attrs: { selected: "" } }, [
+                _vm._v("Open this select menu")
+              ]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "A+" } }, [_vm._v("A+")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "A-" } }, [_vm._v("A-")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "B+" } }, [_vm._v("B+")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "B-" } }, [_vm._v("B-")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "O+" } }, [_vm._v("O+")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "O-" } }, [_vm._v("O-")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "AB+" } }, [_vm._v("AB+")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "AB-" } }, [_vm._v("AB-")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-text", attrs: { id: "selectBloodHelp" } },
+            [_vm._v("Please choose blood group.")]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col mb-3" }, [
+        _c("label", { staticClass: "form-label" }, [
+          _vm._v("Medication Information")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-floating" }, [
+          _c("textarea", {
+            staticClass: "form-control",
+            staticStyle: { height: "100px" },
+            attrs: {
+              placeholder: "Leave a comment here",
+              id: "floatingTextarea2"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "floatingTextarea2" } }, [
+            _vm._v("Remark")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-3" }, [
+      _c("div", { staticClass: "col mb-3" }, [
+        _c("label", { staticClass: "form-label" }, [_vm._v("Social History")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-floating" }, [
+          _c("textarea", {
+            staticClass: "form-control",
+            staticStyle: { height: "100px" },
+            attrs: {
+              placeholder: "Leave a comment here",
+              id: "floatingTextarea2"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "floatingTextarea2" } }, [
+            _vm._v("Remark")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col mb-3" }, [
+        _c("label", { staticClass: "form-label" }, [_vm._v("Family History")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-floating" }, [
+          _c("textarea", {
+            staticClass: "form-control",
+            staticStyle: { height: "100px" },
+            attrs: {
+              placeholder: "Leave a comment here",
+              id: "floatingTextarea2"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "floatingTextarea2" } }, [
+            _vm._v("Remark")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col mb-3" }, [
+        _c("label", { staticClass: "form-label" }, [
+          _vm._v("Disability Information")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-floating" }, [
+          _c("textarea", {
+            staticClass: "form-control",
+            staticStyle: { height: "100px" },
+            attrs: {
+              placeholder: "Leave a comment here",
+              id: "floatingTextarea2"
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "floatingTextarea2" } }, [
+            _vm._v("Remark")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h4", [
+      _vm._v("Immunisation Record (Vaccine)"),
+      _c("span", [
+        _c("button", { staticClass: "btn btn-outline-danger btn-sm ms-3" }, [
+          _vm._v("Refresh")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [
+      _c("div", { staticClass: "mt-3" }, [
+        _c("h5", [_vm._v("Janji Temu Dos-1")]),
+        _vm._v("\n                        DOS 1\n                    ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [
+      _c("div", { staticClass: "mt-3" }, [
+        _c("h5", [_vm._v("Janji Temu Dos-2")]),
+        _vm._v("\n                        DOS 2\n                    ")
       ])
     ])
   }
