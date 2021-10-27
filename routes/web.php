@@ -26,3 +26,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('{pms}', function(){
     return view('pms.index');
 })->where('pms', '.*')->middleware('auth')->name('pms');
+
+Route::get('{cis}', function(){
+    return view('cis.index');
+})->where('cis', '.*')->middleware('auth')->name('cis');
