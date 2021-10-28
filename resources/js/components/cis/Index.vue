@@ -176,7 +176,7 @@
                         />
                     </div>
                 </div>
-                <div v-if="vaxInfo.length !== 0" data-aos="fade-up">
+                <div v-if="vaxInfo.length !== 0" data-aos="fade-down">
                     <div class="row">
                         <div class="col">
                             <div class="mt-3">

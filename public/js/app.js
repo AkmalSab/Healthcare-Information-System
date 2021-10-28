@@ -43147,7 +43147,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _vm.vaxInfo.length !== 0
-          ? _c("div", { attrs: { "data-aos": "fade-up" } }, [
+          ? _c("div", { attrs: { "data-aos": "fade-down" } }, [
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col" }, [
                   _c("div", { staticClass: "mt-3" }, [
