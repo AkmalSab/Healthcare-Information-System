@@ -2,32 +2,40 @@
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 g-4">
             <div class="col mb-3">
-                <div class="card h-100">
+                <div class="card h-100">            
                     <div class="card-body">
-                        <h5 class="card-title">Manage Patient Master Index</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>                
-                    </div>
-                    <div class="m-4">   
-                        <router-link :to="{name: 'PmsCreate'}" class="btn btn-primary w-100">Visit</router-link>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Register patient via</h5>
-                        <p class="card-text">This is a short card.</p>                    
+                        <h5 class="card-title">Register Patient</h5>
+                        <p class="card-text">
+                            i. Mobile registration with QR Code (self-registration) <br>
+                            ii. Kiosk registration (self-registration) <br>
+                            iii. Counter registration (register by clinic staff)
+                        </p>                    
                     </div>
                     <div class="m-4">
-                        <button type="button" class="btn btn-primary w-100">Visit</button>
+                        <router-link :to="{name: 'pmsPatientRegister'}" class="btn btn-primary w-100">Visit</router-link>
                     </div>
                 </div>
             </div>
             <div class="col mb-3">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Cash management</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title">Patient Appointment</h5>
+                        <p class="card-text">
+                            i. Patient biodata <br>
+                            ii. Spouse/family information <br>
+                            iii. Insurance/panel information    
+                        </p>                
+                    </div>
+                    <div class="m-4">   
+                        <router-link :to="{name: 'PmsPatientMasterIndex'}" class="btn btn-primary w-100">Visit</router-link>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Patient Billing</h5>
+                        <p class="card-text"></p>
                     </div>
                     <div class="m-4">
                         <button type="button" class="btn btn-primary w-100">Visit</button>

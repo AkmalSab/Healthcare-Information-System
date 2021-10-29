@@ -7,59 +7,35 @@
             <div class="card h-100">
                 <img src="/img/s1.jpg" class="card-img-top" height="200" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Patient Management System</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>                
+                    <h5 class="card-title">Patient Management System (PMS)</h5>
+                    <p class="card-text">This module will cater for patient registration, appointment and billing.</p>                
                 </div>
                 <div class="m-4">   
-                    <a href="{{ url('/pms') }}" class="btn btn-primary w-100">Visit</a>
+                    <a href="{{ url('pms') }}" class="btn btn-primary w-100" style="color: white">Visit</a>
                 </div>
             </div>
         </div>
         <div class="col mb-3">
             <div class="card h-100">
-                <img src="/img/s2.jpg" class="card-img-top" height="200" alt="...">
+                <img src="/img/s1.jpg" class="card-img-top" height="200" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Doctor-Patient Consultation</h5>
-                    <p class="card-text">This is a short card.</p>                    
+                    <h5 class="card-title">Consultation Information System (CIS)</h5>
+                    <p class="card-text">This module will cater for patient registration, appointment and billing.</p>                
                 </div>
-                <div class="m-4">
-                    <button type="button" class="btn btn-primary w-100">Visit</button>
+                <div class="m-4">   
+                    <a href="{{ url('cis') }}" class="btn btn-primary w-100" style="color: white">Visit</a>
                 </div>
             </div>
         </div>
         <div class="col mb-3">
             <div class="card h-100">
-                <img src="/img/s3.jpg" class="card-img-top" height="200" alt="...">
+                <img src="/img/s1.jpg" class="card-img-top" height="200" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Pharmacy</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">Prescription Information System (PIS)</h5>
+                    <p class="card-text">This module will cater for patient registration, appointment and billing.</p>                
                 </div>
-                <div class="m-4">
-                    <button type="button" class="btn btn-primary w-100">Visit</button>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-3">
-            <div class="card h-100">
-                <img src="/img/s4.jpg" class="card-img-top" height="200" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Billing</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>                
-                </div>
-                <div class="m-4">
-                    <button type="button" class="btn btn-primary w-100">Visit</button>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-3">
-            <div class="card h-100">
-                <img src="/img/s5.jpg" class="card-img-top" height="200" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Calling System</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-                <div class="m-4">
-                    <button type="button" class="btn btn-primary w-100">Visit</button>
+                <div class="m-4">   
+                    <a href="{{ url('patientMasterSystem') }}" class="btn btn-primary w-100" style="color: white">Visit</a>
                 </div>
             </div>
         </div>

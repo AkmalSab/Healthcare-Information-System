@@ -10,8 +10,7 @@
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>                
                     </div>
                     <div class="m-4 d-flex flex-row">   
-                        <router-link :to="{name: 'PmsCreate'}" class="btn btn-primary w-50 mr-3">View</router-link>
-                        <router-link :to="{name: 'PmsCreate'}" class="btn btn-primary w-50">Create</router-link>
+                        <router-link :to="{name: 'PmsPatientBiodata'}" class="btn btn-primary w-100">View</router-link>
                     </div>
                 </div>
             </div>
@@ -22,7 +21,7 @@
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>                
                     </div>
                     <div class="m-4">   
-                        <router-link :to="{name: 'PmsCreate'}" class="btn btn-primary w-100">Visit</router-link>
+                        <router-link :to="{name: 'PmsSpouseFamilyInformation'}" class="btn btn-primary w-100">Visit</router-link>
                     </div>
                 </div>
             </div>
@@ -33,7 +32,7 @@
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>                
                     </div>
                     <div class="m-4">   
-                        <router-link :to="{name: 'PmsCreate'}" class="btn btn-primary w-100">Visit</router-link>
+                        <router-link :to="{name: 'PmsInsurancePanelInformation'}" class="btn btn-primary w-100">Visit</router-link>
                     </div>
                 </div>
             </div>
