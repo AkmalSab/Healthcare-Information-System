@@ -18,7 +18,7 @@
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
                                 <label for="patIC" class="form-label">NRIC</label>
-                                <input type="text" class="form-control" v-model="form.patIC" id="patIC" aria-describedby="patICHelp" maxlength="12" required>
+                                <input type="text" class="form-control" v-model="form.patIC" @keypress="isNumber($event)" id="patIC" aria-describedby="patICHelp" maxlength="12" required>
                                 <div id="patICHelp" class="form-text">Please input patient identification number.</div>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="col-sm-12 col-md-4 col-lg-4">
                             <div class="mb-3">
                                 <label for="patPhone" class="form-label">Phone No.</label>
-                                <input type="phone" class="form-control" v-model="form.patPhone" id="patPhone" aria-describedby="patPhoneHelp" maxlength="12" min="10" required>
+                                <input type="phone" class="form-control" v-model="form.patPhone" @keypress="isNumber($event)" id="patPhone" aria-describedby="patPhoneHelp" maxlength="12" min="10" required>
                                 <div id="patPhoneHelp" class="form-text">Please input patient phone number.</div>
                             </div>
                         </div>
@@ -227,14 +227,31 @@
                         <div class="col-sm-12 col-md-4 col-lg-4">
                             <div class="mb-3">
                                 <label for="patState" class="form-label">State</label>
-                                <input type="text" class="form-control" v-model="form.patState" id="patState" aria-describedby="patStateHelp" required>
+                                <select class="form-select" v-model="form.patState" id="patState" aria-label="patStateHelp" aria-describedby="patStateHelp" required>                                    
+                                    <option value="Johor">Johor</option>
+                                    <option value="Kedah">Kedah</option>
+                                    <option value="Kelantan">Kelantan</option>
+                                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                    <option value="Labuan">Labuan</option>
+                                    <option value="Melaka">Melaka</option>
+                                    <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                    <option value="Pahang">Pahang</option>
+                                    <option value="Penang">Penang</option>
+                                    <option value="Perak">Perak</option>
+                                    <option value="Perlis">Perlis</option>
+                                    <option value="Putrajaya">Putrajaya</option>
+                                    <option value="Sabah">Sabah</option>
+                                    <option value="Sarawak">Sarawak</option>
+                                    <option value="Selangor">Selangor</option>
+                                    <option value="Terengganu">Terengganu</option>
+                                </select>
                                 <div id="patStateHelp" class="form-text">Please input patient state address.</div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-4">
                             <div class="mb-3">
                                 <label for="patPostcode" class="form-label">Postcode</label>
-                                <input type="text" class="form-control" v-model="form.patPostcode" id="patPostcode" aria-describedby="patPostcodeHelp" maxlength="6" required>
+                                <input type="text" class="form-control" v-model="form.patPostcode" @keypress="isNumber($event)" id="patPostcode" aria-describedby="patPostcodeHelp" maxlength="6" required>
                                 <div id="patPostcodeHelp" class="form-text">Please input postcode address.</div>
                             </div>
                         </div>
@@ -306,6 +323,14 @@ export default {
             }).catch(error=> {
                 console.log(console.error);
             })
+        },
+        isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                evt.preventDefault();
+            }
+            return true;
         },
     }
 }

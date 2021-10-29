@@ -5,6 +5,7 @@ import PmsPatientBiodata from './components/pms/pmi/PatientBiodata';
 import PmsSpouseFamilyInformation from './components/pms/pmi/SpouseFamilyInformation';
 import PmsInsurancePanelInformation from './components/pms/pmi/InsurancePanelInformation';
 import cisIndex from './components/cis/Index';
+import pmsPatientRegisterNextofKin from './components/pms/registration/RegisterNextofKin';
 
 export const routes = [
     {
@@ -23,19 +24,24 @@ export const routes = [
         component: PmsPatientMasterIndex
     },
     {
-        path: '/pms/patientMasterIndex/patientBiodata',
+        path: '/pms/pmi/patientBiodata',
         name: 'PmsPatientBiodata',
         component: PmsPatientBiodata
     },
     {
-        path: '/pms/patientMasterIndex/spouseFamilyInformation',
+        path: '/pms/pmi/spouseFamilyInformation',
         name: 'PmsSpouseFamilyInformation',
         component: PmsSpouseFamilyInformation
     },
     {
-        path: '/pms/patientMasterIndex/insurancePanelInformation',
+        path: '/pms/pmi/insurancePanelInformation',
         name: 'PmsInsurancePanelInformation',
         component: PmsInsurancePanelInformation
+    },
+    {
+        path: '/pms/pmi/registrationNextofKin/:id',
+        name: 'pmsPatientRegisterNextofKin',
+        component: pmsPatientRegisterNextofKin
     },
     {
         path: '/cis',
