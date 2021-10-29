@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 g-4">
             <div class="col mb-3">
-                <div class="card h-100">
+                <div class="card h-100">            
                     <div class="card-body">
                         <h5 class="card-title">Register Patient</h5>
                         <p class="card-text">

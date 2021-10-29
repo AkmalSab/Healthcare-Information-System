@@ -162,7 +162,8 @@
                     <div class="col">
                         <label>Input NRIC</label>
                         <input
-                            type="number"
+                            type="text"
+                            maxlength="12"
                             class="form-control"
                             v-model="nric"
                         />
@@ -170,7 +171,8 @@
                     <div class="col">
                         <label>Input Phone No.</label>
                         <input
-                            type="number"
+                            type="text"
+                            maxlength="12"
                             class="form-control"
                             v-model="phoneNo"
                         />

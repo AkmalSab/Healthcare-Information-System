@@ -1,5 +1,5 @@
 import PmsIndex from './components/pms/Index';
-import pmsPatientRegister from './components/pms/RegisterPatient';
+import pmsPatientRegister from './components/pms/registration/RegisterPatient';
 import PmsPatientMasterIndex from './components/pms/pmi/PatientMasterIndex';
 import PmsPatientBiodata from './components/pms/pmi/PatientBiodata';
 import PmsSpouseFamilyInformation from './components/pms/pmi/SpouseFamilyInformation';
@@ -13,7 +13,7 @@ export const routes = [
         component: PmsIndex
     },
     {
-        path: '/pms/reg-patient',
+        path: '/pms/registration',
         name: 'pmsPatientRegister',
         component: pmsPatientRegister
     },
