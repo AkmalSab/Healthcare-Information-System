@@ -5751,7 +5751,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  data: function data() {
+    return {
+      patients: []
+    };
+  },
+  watch: {},
+  created: function created() {
+    this.getPatient();
+  },
+  methods: {
+    getPatient: function getPatient() {
+      var _this = this;
+
+      axios.get("/api/patient").then(function (res) {
+        _this.patients = res.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -5857,7 +5880,227 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  data: function data() {
+    return {
+      families: []
+    };
+  },
+  watch: {},
+  created: function created() {
+    this.getPatientNextofKin();
+  },
+  methods: {
+    getPatientNextofKin: function getPatientNextofKin() {
+      var _this = this;
+
+      axios.get("/api/family").then(function (res) {
+        _this.families = res.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  data: function data() {
+    return {
+      form: {
+        PatId: this.$route.params.id,
+        NokName: '',
+        NokPhone: '',
+        NokNric: '',
+        NokRelationsip: '',
+        NokNationality: 'Malaysia',
+        NokAddress1: '',
+        NokAddress2: '',
+        NokState: '',
+        NokPostcode: '',
+        NokCity: ''
+      }
+    };
+  },
+  created: function created() {},
+  methods: {
+    storePatientNextofKin: function storePatientNextofKin() {
+      var _this = this;
+
+      axios.post("/api/family", {
+        'patient_id': this.form.PatId,
+        'name': this.form.NokName,
+        'nric': this.form.NokNric,
+        'phone': this.form.NokPhone,
+        'relationship': this.form.NokRelationsip,
+        'country': this.form.NokNationality,
+        'address_1': this.form.NokAddress1,
+        'address_2': this.form.NokAddress2,
+        'state': this.form.NokState,
+        'postcode': this.form.NokPostcode,
+        'city': this.form.NokCity
+      }).then(function (res) {
+        _this.$router.push({
+          name: 'PmsIndex'
+        });
+      })["catch"](function (error) {
+        console.log(console.error);
+      });
+    },
+    isNumber: function isNumber(evt) {
+      evt = evt ? evt : window.event;
+      var charCode = evt.which ? evt.which : evt.keyCode;
+
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        evt.preventDefault();
+      }
+
+      return true;
+    }
+  }
+});
 
 /***/ }),
 
@@ -5872,6 +6115,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6186,6 +6446,16 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(console.error);
       });
+    },
+    isNumber: function isNumber(evt) {
+      evt = evt ? evt : window.event;
+      var charCode = evt.which ? evt.which : evt.keyCode;
+
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        evt.preventDefault();
+      }
+
+      return true;
     }
   }
 });
@@ -6305,6 +6575,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pms_pmi_SpouseFamilyInformation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pms/pmi/SpouseFamilyInformation */ "./resources/js/components/pms/pmi/SpouseFamilyInformation.vue");
 /* harmony import */ var _components_pms_pmi_InsurancePanelInformation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pms/pmi/InsurancePanelInformation */ "./resources/js/components/pms/pmi/InsurancePanelInformation.vue");
 /* harmony import */ var _components_cis_Index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/cis/Index */ "./resources/js/components/cis/Index.vue");
+/* harmony import */ var _components_pms_registration_RegisterNextofKin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/pms/registration/RegisterNextofKin */ "./resources/js/components/pms/registration/RegisterNextofKin.vue");
+
 
 
 
@@ -6325,17 +6597,21 @@ var routes = [{
   name: 'PmsPatientMasterIndex',
   component: _components_pms_pmi_PatientMasterIndex__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
-  path: '/pms/patientMasterIndex/patientBiodata',
+  path: '/pms/pmi/patientBiodata',
   name: 'PmsPatientBiodata',
   component: _components_pms_pmi_PatientBiodata__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
-  path: '/pms/patientMasterIndex/spouseFamilyInformation',
+  path: '/pms/pmi/spouseFamilyInformation',
   name: 'PmsSpouseFamilyInformation',
   component: _components_pms_pmi_SpouseFamilyInformation__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
-  path: '/pms/patientMasterIndex/insurancePanelInformation',
+  path: '/pms/pmi/insurancePanelInformation',
   name: 'PmsInsurancePanelInformation',
   component: _components_pms_pmi_InsurancePanelInformation__WEBPACK_IMPORTED_MODULE_5__["default"]
+}, {
+  path: '/pms/pmi/registrationNextofKin/:id',
+  name: 'pmsPatientRegisterNextofKin',
+  component: _components_pms_registration_RegisterNextofKin__WEBPACK_IMPORTED_MODULE_7__["default"]
 }, {
   path: '/cis',
   name: 'cisIndex',
@@ -42956,6 +43232,45 @@ component.options.__file = "resources/js/components/pms/pmi/SpouseFamilyInformat
 
 /***/ }),
 
+/***/ "./resources/js/components/pms/registration/RegisterNextofKin.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/pms/registration/RegisterNextofKin.vue ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _RegisterNextofKin_vue_vue_type_template_id_787c529e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RegisterNextofKin.vue?vue&type=template&id=787c529e& */ "./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=template&id=787c529e&");
+/* harmony import */ var _RegisterNextofKin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegisterNextofKin.vue?vue&type=script&lang=js& */ "./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RegisterNextofKin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RegisterNextofKin_vue_vue_type_template_id_787c529e___WEBPACK_IMPORTED_MODULE_0__.render,
+  _RegisterNextofKin_vue_vue_type_template_id_787c529e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pms/registration/RegisterNextofKin.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/pms/registration/RegisterPatient.vue":
 /*!**********************************************************************!*\
   !*** ./resources/js/components/pms/registration/RegisterPatient.vue ***!
@@ -43091,6 +43406,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterNextofKin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisterNextofKin.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterNextofKin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/pms/registration/RegisterPatient.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************!*\
   !*** ./resources/js/components/pms/registration/RegisterPatient.vue?vue&type=script&lang=js& ***!
@@ -43205,6 +43536,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SpouseFamilyInformation_vue_vue_type_template_id_14ce0c7c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SpouseFamilyInformation_vue_vue_type_template_id_14ce0c7c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SpouseFamilyInformation.vue?vue&type=template&id=14ce0c7c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/SpouseFamilyInformation.vue?vue&type=template&id=14ce0c7c&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=template&id=787c529e&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=template&id=787c529e& ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterNextofKin_vue_vue_type_template_id_787c529e___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterNextofKin_vue_vue_type_template_id_787c529e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterNextofKin_vue_vue_type_template_id_787c529e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisterNextofKin.vue?vue&type=template&id=787c529e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=template&id=787c529e&");
 
 
 /***/ }),
@@ -44103,56 +44451,97 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "table-responsive container" }, [
+    _c("table", { staticClass: "table table-bordered" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.patients, function(patient) {
+          return _c("tr", { key: patient.id }, [
+            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(patient.id))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(patient.name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(patient.nric))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(patient.phone))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(patient.birthdate))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(patient.gender))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(patient.religion))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(patient.race))]),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-primary text-white w-100",
+                    attrs: {
+                      to: {
+                        name: "pmsPatientRegisterNextofKin",
+                        params: { id: patient.id }
+                      }
+                    }
+                  },
+                  [_vm._v("Add")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-primary text-white w-100",
+                    attrs: { to: { name: "PmsPatientMasterIndex" } }
+                  },
+                  [_vm._v("Add")]
+                )
+              ],
+              1
+            )
+          ])
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("table", { staticClass: "table table-striped table-sm" }, [
-        _c("thead", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("First")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Last")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Handle")])
-          ])
-        ]),
+    return _c("thead", [
+      _c("tr", { staticClass: "table-dark" }, [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
         _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Mark")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Otto")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@mdo")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Jacob")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Thornton")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@fat")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
-            _vm._v(" "),
-            _c("td", { attrs: { colspan: "2" } }, [_vm._v("Larry the Bird")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@twitter")])
-          ])
-        ])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("NRIC")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Phone")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Birthdate")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Gender")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Religion")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Race")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Next-of-Kin")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Insurance")])
       ])
     ])
   }
@@ -44328,57 +44717,818 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "table-responsive container" }, [
+    _c("table", { staticClass: "table table-bordered" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.families, function(family) {
+          return _c("tr", { key: family.id }, [
+            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(family.id))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(family.name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(family.patient_id))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(family.nric))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(family.phone))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(family.relationship))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(family.country))]),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-secondary text-white",
+                    attrs: { to: { name: "pmsPatientRegisterNextofKin" } }
+                  },
+                  [_vm._v("Edit")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-danger text-white",
+                    attrs: { to: { name: "PmsPatientMasterIndex" } }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ],
+              1
+            )
+          ])
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("table", { staticClass: "table table-striped table-sm" }, [
-        _c("thead", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("First")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Last")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Handle")])
-          ])
-        ]),
+    return _c("thead", [
+      _c("tr", { staticClass: "table-dark" }, [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
         _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Mark")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Otto")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@mdo")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Jacob")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Thornton")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@fat")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
-            _vm._v(" "),
-            _c("td", { attrs: { colspan: "2" } }, [_vm._v("Larry the Bird")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@twitter")])
-          ])
-        ])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Patiend Id")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("NRIC")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Phone")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Relationship")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Country")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col", colspan: "2" } }, [_vm._v("Action")])
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=template&id=787c529e&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterNextofKin.vue?vue&type=template&id=787c529e& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("h1", {}, [_vm._v("Register Next of Kin")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.storePatientNextofKin.apply(null, arguments)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "PatId" } },
+                    [_vm._v("Patient id")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.PatId,
+                        expression: "form.PatId"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "PatId",
+                      "aria-describedby": "PatIdHelp",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.form.PatId },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "PatId", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "PatIdHelp" } },
+                    [_vm._v("This is patient's id.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "NokName" } },
+                    [_vm._v("Name")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.NokName,
+                        expression: "form.NokName"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "NokName",
+                      "aria-describedby": "NokNameHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.NokName },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "NokName", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "NokNameHelp" } },
+                    [_vm._v("Please input patient's emergency contact name.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "NokPhone" } },
+                    [_vm._v("Phone No.")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.NokPhone,
+                        expression: "form.NokPhone"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "phone",
+                      id: "NokPhone",
+                      "aria-describedby": "NokPhoneHelp",
+                      maxlength: "12",
+                      min: "10",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.NokPhone },
+                    on: {
+                      keypress: function($event) {
+                        return _vm.isNumber($event)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "NokPhone", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "NokPhoneHelp" } },
+                    [_vm._v("Please input patient's emergency contact number.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "NokNric" } },
+                    [_vm._v("NRIC")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.NokNric,
+                        expression: "form.NokNric"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "NokNric",
+                      "aria-describedby": "NokNricHelp",
+                      maxlength: "12",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.NokNric },
+                    on: {
+                      keypress: function($event) {
+                        return _vm.isNumber($event)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "NokNric", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "NokNricHelp" } },
+                    [
+                      _vm._v(
+                        "Please input patient's emergency contact identification number."
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "NokRelationsip" }
+                    },
+                    [_vm._v("Relationship Status")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.NokRelationsip,
+                          expression: "form.NokRelationsip"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "NokRelationsip",
+                        "aria-label": "NokRelationsipHelp",
+                        "aria-describedby": "NokRelationsipHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "NokRelationsip",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "Spouse" } }, [
+                        _vm._v("Spouse")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Parent" } }, [
+                        _vm._v("Parent")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Guardian" } }, [
+                        _vm._v("Guardian")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sibling" } }, [
+                        _vm._v("Sibling")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Friend" } }, [
+                        _vm._v("Friend")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "NokRelationsipHelp" }
+                    },
+                    [
+                      _vm._v(
+                        "Please input patient's emergency contact relationship status."
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "NokNationality" }
+                    },
+                    [_vm._v("Country")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.NokNationality,
+                        expression: "form.NokNationality"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "NokNationality",
+                      "aria-label": "NokNationality",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.form.NokNationality },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.form,
+                          "NokNationality",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "NokNationalityHelp" }
+                    },
+                    [
+                      _vm._v(
+                        "Please input patient's emergency contact nationality."
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "NokAddress1" }
+                    },
+                    [_vm._v("Address 1")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.NokAddress1,
+                        expression: "form.NokAddress1"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "NokAddress1",
+                      "aria-describedby": "NokAddress1Help",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.NokAddress1 },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "NokAddress1", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "NokAddress1Help" }
+                    },
+                    [
+                      _vm._v(
+                        "Please input patient's emergency contact address line 1."
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "NokAddress2" }
+                    },
+                    [_vm._v("Address 2")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.NokAddress2,
+                        expression: "form.NokAddress2"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "NokAddress2",
+                      "aria-describedby": "NokAddress2Help",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.NokAddress2 },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "NokAddress2", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "NokAddress2Help" }
+                    },
+                    [
+                      _vm._v(
+                        "Please input patient's emergency contact address line 2."
+                      )
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "NokState" } },
+                    [_vm._v("State")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.NokState,
+                          expression: "form.NokState"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "NokState",
+                        "aria-label": "NokStateHelp",
+                        "aria-describedby": "NokStateHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "NokState",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "Johor" } }, [
+                        _vm._v("Johor")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kedah" } }, [
+                        _vm._v("Kedah")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kelantan" } }, [
+                        _vm._v("Kelantan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kuala Lumpur" } }, [
+                        _vm._v("Kuala Lumpur")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Labuan" } }, [
+                        _vm._v("Labuan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Melaka" } }, [
+                        _vm._v("Melaka")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Negeri Sembilan" } }, [
+                        _vm._v("Negeri Sembilan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Pahang" } }, [
+                        _vm._v("Pahang")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Penang" } }, [
+                        _vm._v("Penang")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Perak" } }, [
+                        _vm._v("Perak")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Perlis" } }, [
+                        _vm._v("Perlis")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Putrajaya" } }, [
+                        _vm._v("Putrajaya")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sabah" } }, [
+                        _vm._v("Sabah")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sarawak" } }, [
+                        _vm._v("Sarawak")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Selangor" } }, [
+                        _vm._v("Selangor")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Terengganu" } }, [
+                        _vm._v("Terengganu")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "NokStateHelp" } },
+                    [_vm._v("Please input patient's emergency contact state.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "NokPostcode" }
+                    },
+                    [_vm._v("Postcode")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.NokPostcode,
+                        expression: "form.NokPostcode"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "NokPostcode",
+                      "aria-describedby": "NokPostcodeHelp",
+                      maxlength: "6",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.NokPostcode },
+                    on: {
+                      keypress: function($event) {
+                        return _vm.isNumber($event)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "NokPostcode", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "NokPostcodeHelp" }
+                    },
+                    [
+                      _vm._v(
+                        "Please input patient's emergency contact postcode."
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "NokCity" } },
+                    [_vm._v("City")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.NokCity,
+                        expression: "form.NokCity"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "NokCity",
+                      "aria-describedby": "NokCityHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.NokCity },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "NokCity", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "NokCityHelp" } },
+                    [_vm._v("Please input patient's emergency contact city.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                staticStyle: { width: "100%", color: "white" },
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Submit")]
+            )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("blockquote", { staticClass: "blockquote" }, [
+      _c("p", [_vm._v("This form is for patient's next of kin registration.")])
     ])
   }
 ]
@@ -44493,6 +45643,9 @@ var render = function() {
                     },
                     domProps: { value: _vm.form.patIC },
                     on: {
+                      keypress: function($event) {
+                        return _vm.isNumber($event)
+                      },
                       input: function($event) {
                         if ($event.target.composing) {
                           return
@@ -44540,6 +45693,9 @@ var render = function() {
                     },
                     domProps: { value: _vm.form.patPhone },
                     on: {
+                      keypress: function($event) {
+                        return _vm.isNumber($event)
+                      },
                       input: function($event) {
                         if ($event.target.composing) {
                           return
@@ -45196,32 +46352,110 @@ var render = function() {
                     [_vm._v("State")]
                   ),
                   _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.patState,
-                        expression: "form.patState"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "patState",
-                      "aria-describedby": "patStateHelp",
-                      required: ""
-                    },
-                    domProps: { value: _vm.form.patState },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.patState,
+                          expression: "form.patState"
                         }
-                        _vm.$set(_vm.form, "patState", $event.target.value)
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "patState",
+                        "aria-label": "patStateHelp",
+                        "aria-describedby": "patStateHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "patState",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
                       }
-                    }
-                  }),
+                    },
+                    [
+                      _c("option", { attrs: { value: "Johor" } }, [
+                        _vm._v("Johor")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kedah" } }, [
+                        _vm._v("Kedah")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kelantan" } }, [
+                        _vm._v("Kelantan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kuala Lumpur" } }, [
+                        _vm._v("Kuala Lumpur")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Labuan" } }, [
+                        _vm._v("Labuan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Melaka" } }, [
+                        _vm._v("Melaka")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Negeri Sembilan" } }, [
+                        _vm._v("Negeri Sembilan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Pahang" } }, [
+                        _vm._v("Pahang")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Penang" } }, [
+                        _vm._v("Penang")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Perak" } }, [
+                        _vm._v("Perak")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Perlis" } }, [
+                        _vm._v("Perlis")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Putrajaya" } }, [
+                        _vm._v("Putrajaya")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sabah" } }, [
+                        _vm._v("Sabah")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sarawak" } }, [
+                        _vm._v("Sarawak")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Selangor" } }, [
+                        _vm._v("Selangor")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Terengganu" } }, [
+                        _vm._v("Terengganu")
+                      ])
+                    ]
+                  ),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -45261,6 +46495,9 @@ var render = function() {
                     },
                     domProps: { value: _vm.form.patPostcode },
                     on: {
+                      keypress: function($event) {
+                        return _vm.isNumber($event)
+                      },
                       input: function($event) {
                         if ($event.target.composing) {
                           return

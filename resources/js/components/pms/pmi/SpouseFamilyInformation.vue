@@ -1,41 +1,67 @@
 <template>
-    <div class="container">
-        <table class="table table-striped table-sm">
+    <div class="table-responsive container">
+        <table class="table table-bordered">
             <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <tr class="table-dark">
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Patiend Id</th>
+                    <th scope="col">NRIC</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Relationship</th>
+                    <th scope="col">Country</th>
+                    <th scope="col" colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <tr v-for="family in families" :key="family.id">
+                    <th scope="row">{{ family.id }}</th>                    
+                    <td>{{ family.name }}</td>
+                    <td>{{ family.patient_id }}</td>
+                    <td>{{ family.nric }}</td>
+                    <td>{{ family.phone }}</td>
+                    <td>{{ family.relationship }}</td>
+                    <td>{{ family.country }}</td>
+                    <td>
+                        <router-link :to="{name: 'pmsPatientRegisterNextofKin'}" class="btn btn-secondary text-white">Edit</router-link>
+                    </td>   
+                    <td>
+                        <router-link :to="{name: 'PmsPatientMasterIndex'}" class="btn btn-danger text-white">Delete</router-link>
+                    </td> 
+                </tr>                
             </tbody>
         </table>
     </div>
 </template>
 
 <script>
-export default {
+    export default {
+        components:{
 
-}
+        },
+        data() {
+            return {
+                families: [],
+            }
+        },
+        watch: {
+
+        },
+        created() {
+            this.getPatientNextofKin();
+        },
+        methods: {
+            getPatientNextofKin() {
+                axios.get("/api/family")
+                .then(res => {
+                    this.families = res.data.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+            },
+        }
+    }
 </script>
 
 <style>
