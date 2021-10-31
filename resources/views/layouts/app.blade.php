@@ -11,19 +11,20 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="">
-    <div id="app">        
+    <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">Healthcare Information System</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">                   
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     @guest
                         @if (Route::has('login'))
@@ -32,7 +33,7 @@
                             </li>
                         @endif
 
-                        @if (Route::has('register'))                       
+                        @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
@@ -41,19 +42,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/home') }}">{{ __('Home') }}</a>
                         </li>
-                        <li class="nav-item dropdown">                            
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Modules
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Patient Management System</a></li>
                                 <li><a class="dropdown-item" href="#">Doctor-Patient Consultation</a></li>
-                                <li><a class="dropdown-item" href="#">Pharmacy</a></li>                                
+                                <li><a class="dropdown-item" href="#">Pharmacy</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="#">Billing</a></li>
                                 <li><a class="dropdown-item" href="#">Calling System</a></li>
                             </ul>
-                        </li>    
+                        </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,11 +70,11 @@
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
-                                    </form> 
+                                    </form>
                                 </li>
                             </ul>
                         </li>
-                    @endguest     
+                    @endguest
                     </ul>
                 </div>
             </div>

@@ -222,7 +222,7 @@
                                 <div id="patAddress2Help" class="form-text">Please input patient address line 2.</div>
                             </div>
                         </div>
-                    </div>                             
+                    </div>
                     <div class="row">
                         <div class="col-sm-12 col-md-4 col-lg-4">
                             <div class="mb-3">
@@ -319,7 +319,15 @@ export default {
                 'postcode': this.form.patPostcode,
                 'city': this.form.patCity,
             }).then(res=> {
-                this.$router.push({name: 'PmsIndex'});
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Inserted',
+                    text: 'Successfully inserted into the system!'
+                }).then(res => {
+                    if (res.isConfirmed) {
+                        this.$router.push({name: 'PmsIndex'});
+                    }
+                })
             }).catch(error=> {
                 console.log(console.error);
             })
