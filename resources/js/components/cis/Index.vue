@@ -19,9 +19,11 @@
                                 class="form-select"
                                 aria-label="Default select example"
                                 aria-describedby="selectPatHelp"
+                                @change="assignPatientData()"
+                                v-model="patientID"
                             >
                                 <option selected>Open this select menu</option>
-                                <option value="Malaysia">Malaysia</option>
+                                <option v-for="(patientNameList) in patientData" :key="patientNameList.id" :value="patientNameList.id">{{ patientNameList.name }}</option>
                             </select>
                             <div id="selectPatHelp" class="form-text">
                                 Please choose patient.
@@ -154,7 +156,7 @@
                             class="btn btn-outline-danger btn-sm ms-3"
                             @click="getVaxInfo()"
                         >
-                            Refresh
+                            Show Data
                         </button></span
                     >
                 </h4>
@@ -310,32 +312,62 @@ export default {
     data() {
         return {
             vaxInfo: [],
+            patientData: [],
+            selectedPatientData: [],
             nric: "",
-            phoneNo: ""
+            phoneNo: "",
+            patientID: ""
         };
     },
     created () {
         AOS.init({
             duration: 500,
             once: true
-        });
+        })
+        this.getPatientName()
     },
     methods: {
         getVaxInfo() {
-            this.nric = parseInt(this.nric);
-            this.phoneNo = parseInt(this.phoneNo);
+            if (this.nric.length === 0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'NRIC or Phone is empty!'
+                })
+            } else {
+                this.nric = parseInt(this.nric);
+                this.phoneNo = parseInt(this.phoneNo);
 
-            var self = this; // create a closure to access component in the callback below
-            $.getJSON(
-                "https://api.vaksincovid.gov.my/semakstatus/westfunction?name=" +
-                    this.nric +
-                    "-bsep-" +
-                    this.phoneNo +
-                    "",
-                function(data) {
-                    self.vaxInfo = data;
-                }
-            );
+                var self = this;
+                $.getJSON(
+                    "https://api.vaksincovid.gov.my/semakstatus/westfunction?name=" +
+                        this.nric +
+                        "-bsep-" +
+                        this.phoneNo +
+                        "",
+                    function(data) {
+                        self.vaxInfo = data;
+                    }
+                );
+            }
+        },
+        getPatientName() {
+            axios.get('/api/patient/patient-info')
+                .then(res => {
+                    this.patientData = res.data
+                }).catch(error => {
+                console.log(console.error())
+            })
+        },
+        assignPatientData() {
+            axios.get('/api/patient/patient-info/' + this.patientID)
+                .then(res => {
+                    this.selectedPatientData = res.data
+                    this.nric = res.data[0].nric
+                    this.phoneNo = res.data[0].phone
+                }).catch(error => {
+                console.log(console.error())
+            })
         }
     }
 };

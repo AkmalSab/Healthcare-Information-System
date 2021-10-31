@@ -24,6 +24,9 @@ class Patient extends Model
         'address_2',
         'state',
         'postcode',
-        'city'
+        'city',
+        'created_at',
+        'updated_at',
+        'deleted_at'
     ];
 }

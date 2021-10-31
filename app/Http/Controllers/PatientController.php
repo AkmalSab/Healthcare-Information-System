@@ -36,7 +36,6 @@ class PatientController extends Controller
      */
     public function store(PatientStoreRequest $request)
     {
-        //
         $patient = Patient::create($request->validated());
 
         return response()->json($patient);
