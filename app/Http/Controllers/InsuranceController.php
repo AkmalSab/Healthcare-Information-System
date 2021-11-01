@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\pms\Patient;
-use App\Http\Requests\PatientStoreRequest;
-use App\Http\Resources\PatientResource;
+use App\Models\pms\Insurance;
+use App\Http\Requests\InsuranceStoreRequest;
+use App\Http\Resources\InsuranceResource;
 
-class PatientController extends Controller
+class InsuranceController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $patient = Patient::all();
+        $insurance = Insurance::all();
 
-        return PatientResource::collection($patient);
+        return InsuranceResource::collection($insurance);
     }
 
     /**
@@ -37,11 +37,11 @@ class PatientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PatientStoreRequest $request)
+    public function store(InsuranceStoreRequest $request)
     {
-        $patient = Patient::create($request->validated());
+        $insurance = Insurance::create($request->validated());
 
-        return response()->json($patient);
+        return response()->json($insurance);
     }
 
     /**
@@ -52,10 +52,7 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-
-        $patient = Patient::findOrFail($id);
-
-        return new PatientResource($patient);
+        //
     }
 
     /**

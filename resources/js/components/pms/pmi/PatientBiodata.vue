@@ -26,7 +26,7 @@
                     <td>{{ patient.religion }}</td>
                     <td>{{ patient.race }}</td>
                     <td><router-link :to="{name: 'pmsPatientRegisterNextofKin', params: {id: patient.id}}" class="btn btn-primary text-white w-100">Add</router-link></td>
-                    <td><router-link :to="{name: 'PmsPatientMasterIndex'}" class="btn btn-primary text-white w-100">Add</router-link></td>
+                    <td><router-link :to="{name: 'pmsPatientRegisterInsurance', params: {id: patient.id}}" class="btn btn-primary text-white w-100">Add</router-link></td>
                 </tr>                
             </tbody>
         </table>

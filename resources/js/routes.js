@@ -6,6 +6,7 @@ import PmsSpouseFamilyInformation from './components/pms/pmi/SpouseFamilyInforma
 import PmsInsurancePanelInformation from './components/pms/pmi/InsurancePanelInformation';
 import cisIndex from './components/cis/Index';
 import pmsPatientRegisterNextofKin from './components/pms/registration/RegisterNextofKin';
+import pmsPatientRegisterInsurance from './components/pms/registration/RegisterInsurance';
 
 export const routes = [
     {
@@ -39,9 +40,14 @@ export const routes = [
         component: PmsInsurancePanelInformation
     },
     {
-        path: '/pms/pmi/registrationNextofKin/:id',
+        path: '/pms/pmi/registerNextofKin/:id',
         name: 'pmsPatientRegisterNextofKin',
         component: pmsPatientRegisterNextofKin
+    },
+    {
+        path: '/pms/pmi/registerInsurance/:id',
+        name: 'pmsPatientRegisterInsurance',
+        component: pmsPatientRegisterInsurance
     },
     {
         path: '/cis',

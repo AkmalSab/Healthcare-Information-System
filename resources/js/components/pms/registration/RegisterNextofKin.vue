@@ -10,9 +10,10 @@
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
-                                <label for="PatId" class="form-label">Patient id</label>
-                                <input type="text" class="form-control" v-model="form.PatId" id="PatId" aria-describedby="PatIdHelp" disabled>
-                                <div id="PatIdHelp" class="form-text">This is patient's id.</div>
+                                <label for="PatId" class="form-label">Patient name</label>
+                                <input type="hidden" class="form-control" v-model="form.PatId" id="PatId" aria-describedby="PatIdHelp" disabled>
+                                <input type="text" class="form-control" v-model="form.PatName" id="PatName" aria-describedby="PatNameHelp" disabled>
+                                <div id="PatIdHelp" class="form-text">This is patient's name.</div>
                             </div>          
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
@@ -131,7 +132,9 @@ export default {
     },
     data() {
         return {
+            patients: [],
             form: {
+                PatName: '',
                 PatId: this.$route.params.id,
                 NokName: '',
                 NokPhone: '',
@@ -147,9 +150,19 @@ export default {
         }
     },
     created() {
-
+        this.getPatient();
     },
     methods: {
+        getPatient() {
+            axios.get('/api/patient/' + this.$route.params.id)
+                .then(res => {
+                    this.patients = res.data.data;
+                    this.form.PatName = this.patients.name;
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        },
         storePatientNextofKin() {
             axios
             .post("/api/family", {
@@ -165,7 +178,7 @@ export default {
                 'postcode': this.form.NokPostcode,
                 'city': this.form.NokCity,
             }).then(res=> {
-                this.$router.push({name: 'PmsIndex'});
+                this.$router.push({name: 'PmsPatientBiodata'});
             }).catch(error=> {
                 console.log(console.error);
             })

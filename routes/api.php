@@ -3,6 +3,7 @@
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PatientCustomController;
 use App\Http\Controllers\FamilyController;
+use App\Http\Controllers\InsuranceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,4 @@ Route::get('/patient/patient-info/{patientID}', [PatientCustomController::class,
 
 Route::apiResource('patient', PatientController::class);
 Route::apiResource('family', FamilyController::class);
+Route::apiResource('insurance', InsuranceController::class);

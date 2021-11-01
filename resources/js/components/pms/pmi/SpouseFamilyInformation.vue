@@ -23,10 +23,10 @@
                     <td>{{ family.relationship }}</td>
                     <td>{{ family.country }}</td>
                     <td>
-                        <router-link :to="{name: 'pmsPatientRegisterNextofKin'}" class="btn btn-secondary text-white">Edit</router-link>
+                        <router-link :to="{name: 'pmsPatientRegisterNextofKin', params: {id: family.id}}" class="btn btn-secondary text-white">Edit</router-link>
                     </td>   
                     <td>
-                        <router-link :to="{name: 'PmsPatientMasterIndex'}" class="btn btn-danger text-white">Delete</router-link>
+                        <router-link :to="{name: 'PmsPatientMasterIndex', params: {id: family.id}}" class="btn btn-danger text-white">Delete</router-link>
                     </td> 
                 </tr>                
             </tbody>
