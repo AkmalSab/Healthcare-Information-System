@@ -1,5 +1,9 @@
 <template>
     <div class="table-responsive container">
+        <h1 class="">Insurance Information</h1>
+        <blockquote class="blockquote">
+            <p>List of registered patient's insurance.</p>
+        </blockquote>
         <table class="table table-bordered">
             <thead>
                 <tr class="table-dark">
