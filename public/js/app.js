@@ -5657,6 +5657,83 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  data: function data() {
+    return {
+      appointments: []
+    };
+  },
+  watch: {},
+  created: function created() {
+    this.getPatientAppointment();
+  },
+  methods: {
+    getPatientAppointment: function getPatientAppointment() {
+      var _this = this;
+
+      axios.get("/api/appointment").then(function (res) {
+        _this.appointments = res.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=script&lang=js& ***!
@@ -5702,7 +5779,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  data: function data() {
+    return {
+      insurances: []
+    };
+  },
+  watch: {},
+  created: function created() {
+    this.getPatientInsurances();
+  },
+  methods: {
+    getPatientInsurances: function getPatientInsurances() {
+      var _this = this;
+
+      axios.get("/api/insurance").then(function (res) {
+        _this.insurances = res.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -5717,6 +5818,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5831,6 +5938,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -5846,6 +5964,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -5902,6 +6024,333 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  data: function data() {
+    return {
+      patients: [],
+      doctors: [],
+      form: {
+        PatName: '',
+        PatId: this.$route.params.id,
+        DocName: '',
+        AppDate: '',
+        AppTime: '',
+        AppToc: '',
+        AppPur: ''
+      }
+    };
+  },
+  created: function created() {
+    this.getPatient();
+    this.getDoctor();
+  },
+  methods: {
+    getPatient: function getPatient() {
+      var _this = this;
+
+      axios.get('/api/patient/' + this.$route.params.id).then(function (res) {
+        _this.patients = res.data.data;
+        _this.form.PatName = _this.patients.name;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getDoctor: function getDoctor() {
+      var _this2 = this;
+
+      axios.get('/api/doctor/').then(function (res) {
+        _this2.doctors = res.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    storePatientAppointment: function storePatientAppointment() {
+      var _this3 = this;
+
+      axios.post("/api/appointment", {
+        'patient_id': this.form.PatId,
+        'doctor_id': this.form.DocName,
+        'date': this.form.AppDate,
+        'time': this.form.AppTime,
+        'case_type': this.form.AppToc,
+        'purpose': this.form.AppPur
+      }).then(function (res) {
+        _this3.$router.push({
+          name: 'PmsPatientBiodata'
+        });
+      })["catch"](function (error) {
+        console.log(console.error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  data: function data() {
+    return {
+      patients: [],
+      form: {
+        PatName: '',
+        PatId: this.$route.params.id,
+        InsName: '',
+        InsPhone: '',
+        InsNationality: 'Malaysia',
+        InsAddress1: '',
+        InsAddress2: '',
+        InsState: '',
+        InsPostcode: '',
+        InsCity: ''
+      }
+    };
+  },
+  created: function created() {
+    this.getPatient();
+  },
+  methods: {
+    getPatient: function getPatient() {
+      var _this = this;
+
+      axios.get('/api/patient/' + this.$route.params.id).then(function (res) {
+        _this.patients = res.data.data;
+        _this.form.PatName = _this.patients.name;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    storePatientInsurance: function storePatientInsurance() {
+      var _this2 = this;
+
+      axios.post("/api/insurance", {
+        'patient_id': this.form.PatId,
+        'name': this.form.InsName,
+        'phone': this.form.InsPhone,
+        'country': this.form.InsNationality,
+        'address_1': this.form.InsAddress1,
+        'address_2': this.form.InsAddress2,
+        'state': this.form.InsState,
+        'postcode': this.form.InsPostcode,
+        'city': this.form.InsCity
+      }).then(function (res) {
+        _this2.$router.push({
+          name: 'PmsPatientBiodata'
+        });
+      })["catch"](function (error) {
+        console.log(console.error);
+      });
+    },
+    isNumber: function isNumber(evt) {
+      evt = evt ? evt : window.event;
+      var charCode = evt.which ? evt.which : evt.keyCode;
+
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        evt.preventDefault();
+      }
+
+      return true;
     }
   }
 });
@@ -6045,11 +6494,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   data: function data() {
     return {
+      patients: [],
       form: {
+        PatName: '',
         PatId: this.$route.params.id,
         NokName: '',
         NokPhone: '',
@@ -6064,10 +6516,22 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  created: function created() {},
+  created: function created() {
+    this.getPatient();
+  },
   methods: {
-    storePatientNextofKin: function storePatientNextofKin() {
+    getPatient: function getPatient() {
       var _this = this;
+
+      axios.get('/api/patient/' + this.$route.params.id).then(function (res) {
+        _this.patients = res.data.data;
+        _this.form.PatName = _this.patients.name;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    storePatientNextofKin: function storePatientNextofKin() {
+      var _this2 = this;
 
       axios.post("/api/family", {
         'patient_id': this.form.PatId,
@@ -6082,8 +6546,8 @@ __webpack_require__.r(__webpack_exports__);
         'postcode': this.form.NokPostcode,
         'city': this.form.NokCity
       }).then(function (res) {
-        _this.$router.push({
-          name: 'PmsIndex'
+        _this2.$router.push({
+          name: 'PmsPatientBiodata'
         });
       })["catch"](function (error) {
         console.log(console.error);
@@ -6576,6 +7040,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pms_pmi_InsurancePanelInformation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pms/pmi/InsurancePanelInformation */ "./resources/js/components/pms/pmi/InsurancePanelInformation.vue");
 /* harmony import */ var _components_cis_Index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/cis/Index */ "./resources/js/components/cis/Index.vue");
 /* harmony import */ var _components_pms_registration_RegisterNextofKin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/pms/registration/RegisterNextofKin */ "./resources/js/components/pms/registration/RegisterNextofKin.vue");
+/* harmony import */ var _components_pms_registration_RegisterInsurance__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/pms/registration/RegisterInsurance */ "./resources/js/components/pms/registration/RegisterInsurance.vue");
+/* harmony import */ var _components_pms_registration_RegisterAppointment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/pms/registration/RegisterAppointment */ "./resources/js/components/pms/registration/RegisterAppointment.vue");
+/* harmony import */ var _components_pms_pmi_AppointmentInformation__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/pms/pmi/AppointmentInformation */ "./resources/js/components/pms/pmi/AppointmentInformation.vue");
+
+
+
 
 
 
@@ -6609,9 +7079,21 @@ var routes = [{
   name: 'PmsInsurancePanelInformation',
   component: _components_pms_pmi_InsurancePanelInformation__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, {
-  path: '/pms/pmi/registrationNextofKin/:id',
+  path: '/pms/pmi/registerNextofKin/:id',
   name: 'pmsPatientRegisterNextofKin',
   component: _components_pms_registration_RegisterNextofKin__WEBPACK_IMPORTED_MODULE_7__["default"]
+}, {
+  path: '/pms/pmi/registerInsurance/:id',
+  name: 'pmsPatientRegisterInsurance',
+  component: _components_pms_registration_RegisterInsurance__WEBPACK_IMPORTED_MODULE_8__["default"]
+}, {
+  path: '/pms/pmi/registerAppointment/:id',
+  name: 'pmsPatientRegisterAppointment',
+  component: _components_pms_registration_RegisterAppointment__WEBPACK_IMPORTED_MODULE_9__["default"]
+}, {
+  path: '/pms/pmi/appointmentInformation',
+  name: 'pmsPatientAppointmentInformation',
+  component: _components_pms_pmi_AppointmentInformation__WEBPACK_IMPORTED_MODULE_10__["default"]
 }, {
   path: '/cis',
   name: 'cisIndex',
@@ -43076,6 +43558,45 @@ component.options.__file = "resources/js/components/pms/Index.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/pms/pmi/AppointmentInformation.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/pms/pmi/AppointmentInformation.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AppointmentInformation_vue_vue_type_template_id_e644d098___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppointmentInformation.vue?vue&type=template&id=e644d098& */ "./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=template&id=e644d098&");
+/* harmony import */ var _AppointmentInformation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppointmentInformation.vue?vue&type=script&lang=js& */ "./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AppointmentInformation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AppointmentInformation_vue_vue_type_template_id_e644d098___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AppointmentInformation_vue_vue_type_template_id_e644d098___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pms/pmi/AppointmentInformation.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/pms/pmi/InsurancePanelInformation.vue":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/pms/pmi/InsurancePanelInformation.vue ***!
@@ -43232,6 +43753,84 @@ component.options.__file = "resources/js/components/pms/pmi/SpouseFamilyInformat
 
 /***/ }),
 
+/***/ "./resources/js/components/pms/registration/RegisterAppointment.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/pms/registration/RegisterAppointment.vue ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _RegisterAppointment_vue_vue_type_template_id_78c582aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RegisterAppointment.vue?vue&type=template&id=78c582aa& */ "./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=template&id=78c582aa&");
+/* harmony import */ var _RegisterAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegisterAppointment.vue?vue&type=script&lang=js& */ "./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RegisterAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RegisterAppointment_vue_vue_type_template_id_78c582aa___WEBPACK_IMPORTED_MODULE_0__.render,
+  _RegisterAppointment_vue_vue_type_template_id_78c582aa___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pms/registration/RegisterAppointment.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pms/registration/RegisterInsurance.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/pms/registration/RegisterInsurance.vue ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _RegisterInsurance_vue_vue_type_template_id_52691925___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RegisterInsurance.vue?vue&type=template&id=52691925& */ "./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=template&id=52691925&");
+/* harmony import */ var _RegisterInsurance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegisterInsurance.vue?vue&type=script&lang=js& */ "./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RegisterInsurance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RegisterInsurance_vue_vue_type_template_id_52691925___WEBPACK_IMPORTED_MODULE_0__.render,
+  _RegisterInsurance_vue_vue_type_template_id_52691925___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pms/registration/RegisterInsurance.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/pms/registration/RegisterNextofKin.vue":
 /*!************************************************************************!*\
   !*** ./resources/js/components/pms/registration/RegisterNextofKin.vue ***!
@@ -43342,6 +43941,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppointmentInformation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AppointmentInformation.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppointmentInformation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************!*\
   !*** ./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=script&lang=js& ***!
@@ -43403,6 +44018,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SpouseFamilyInformation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SpouseFamilyInformation.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/SpouseFamilyInformation.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SpouseFamilyInformation_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisterAppointment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterInsurance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisterInsurance.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterInsurance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -43472,6 +44119,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=template&id=e644d098&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=template&id=e644d098& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppointmentInformation_vue_vue_type_template_id_e644d098___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppointmentInformation_vue_vue_type_template_id_e644d098___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppointmentInformation_vue_vue_type_template_id_e644d098___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AppointmentInformation.vue?vue&type=template&id=e644d098& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=template&id=e644d098&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=template&id=45aa872b&":
 /*!******************************************************************************************************!*\
   !*** ./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=template&id=45aa872b& ***!
@@ -43536,6 +44200,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SpouseFamilyInformation_vue_vue_type_template_id_14ce0c7c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SpouseFamilyInformation_vue_vue_type_template_id_14ce0c7c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SpouseFamilyInformation.vue?vue&type=template&id=14ce0c7c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/SpouseFamilyInformation.vue?vue&type=template&id=14ce0c7c&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=template&id=78c582aa&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=template&id=78c582aa& ***!
+  \*********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterAppointment_vue_vue_type_template_id_78c582aa___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterAppointment_vue_vue_type_template_id_78c582aa___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterAppointment_vue_vue_type_template_id_78c582aa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisterAppointment.vue?vue&type=template&id=78c582aa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=template&id=78c582aa&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=template&id=52691925&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=template&id=52691925& ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterInsurance_vue_vue_type_template_id_52691925___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterInsurance_vue_vue_type_template_id_52691925___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterInsurance_vue_vue_type_template_id_52691925___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegisterInsurance.vue?vue&type=template&id=52691925& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=template&id=52691925&");
 
 
 /***/ }),
@@ -44359,6 +45057,136 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=template&id=e644d098&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/AppointmentInformation.vue?vue&type=template&id=e644d098& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "table-responsive container" }, [
+    _c("h1", {}, [_vm._v("Appoinment Information")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-bordered" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.appointments, function(appointment) {
+          return _c("tr", { key: appointment.id }, [
+            _c("th", { attrs: { scope: "row" } }, [
+              _vm._v(_vm._s(appointment.id))
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(appointment.patient_id))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(appointment.doctor_id))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(appointment.date))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(appointment.time))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(appointment.case_type))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(appointment.purpose))]),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-secondary text-white",
+                    attrs: {
+                      to: {
+                        name: "pmsPatientRegisterNextofKin",
+                        params: { id: appointment.id }
+                      }
+                    }
+                  },
+                  [_vm._v("Edit")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-danger text-white",
+                    attrs: {
+                      to: {
+                        name: "PmsPatientMasterIndex",
+                        params: { id: appointment.id }
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ],
+              1
+            )
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("blockquote", { staticClass: "blockquote" }, [
+      _c("p", [_vm._v("List of registered patient's appointment.")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "table-dark" }, [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Patient Id")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Doctor Id")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Date")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Time")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Type of Case")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Purpose")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col", colspan: "2" } }, [_vm._v("Action")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=template&id=45aa872b&":
 /*!*********************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/pmi/InsurancePanelInformation.vue?vue&type=template&id=45aa872b& ***!
@@ -44375,56 +45203,102 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "table-responsive container" }, [
+    _c("h1", {}, [_vm._v("Insurance Information")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-bordered" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.insurances, function(insurance) {
+          return _c("tr", { key: insurance.id }, [
+            _c("th", { attrs: { scope: "row" } }, [
+              _vm._v(_vm._s(insurance.id))
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(insurance.name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(insurance.patient_id))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(insurance.phone))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(insurance.country))]),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-secondary text-white",
+                    attrs: {
+                      to: {
+                        name: "pmsPatientRegisterNextofKin",
+                        params: { id: insurance.id }
+                      }
+                    }
+                  },
+                  [_vm._v("Edit")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-danger text-white",
+                    attrs: {
+                      to: {
+                        name: "PmsPatientMasterIndex",
+                        params: { id: insurance.id }
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ],
+              1
+            )
+          ])
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("table", { staticClass: "table table-striped table-sm" }, [
-        _c("thead", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("First")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Last")]),
-            _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Handle")])
-          ])
-        ]),
+    return _c("blockquote", { staticClass: "blockquote" }, [
+      _c("p", [_vm._v("List of registered patient's insurance.")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", { staticClass: "table-dark" }, [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
         _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Mark")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Otto")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@mdo")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Jacob")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("Thornton")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@fat")])
-          ]),
-          _vm._v(" "),
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
-            _vm._v(" "),
-            _c("td", { attrs: { colspan: "2" } }, [_vm._v("Larry the Bird")]),
-            _vm._v(" "),
-            _c("td", [_vm._v("@twitter")])
-          ])
-        ])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Patiend Id")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Phone")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Country")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col", colspan: "2" } }, [_vm._v("Action")])
       ])
     ])
   }
@@ -44452,8 +45326,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "table-responsive container" }, [
+    _c("h1", {}, [_vm._v("Patient Biodata")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
     _c("table", { staticClass: "table table-bordered" }, [
-      _vm._m(0),
+      _vm._m(1),
       _vm._v(" "),
       _c(
         "tbody",
@@ -44502,9 +45380,34 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "btn btn-primary text-white w-100",
-                    attrs: { to: { name: "PmsPatientMasterIndex" } }
+                    attrs: {
+                      to: {
+                        name: "pmsPatientRegisterInsurance",
+                        params: { id: patient.id }
+                      }
+                    }
                   },
                   [_vm._v("Add")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-primary text-white w-100",
+                    attrs: {
+                      to: {
+                        name: "pmsPatientRegisterAppointment",
+                        params: { id: patient.id }
+                      }
+                    }
+                  },
+                  [_vm._v("Create")]
                 )
               ],
               1
@@ -44517,6 +45420,14 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("blockquote", { staticClass: "blockquote" }, [
+      _c("p", [_vm._v("List of registered patient.")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -44541,7 +45452,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Next-of-Kin")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Insurance")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Insurance")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Appointment")])
       ])
     ])
   }
@@ -44590,9 +45503,9 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "btn btn-primary w-100",
-                    attrs: { to: { name: "PmsPatientBiodata" } }
+                    attrs: { to: { name: "pmsPatientAppointmentInformation" } }
                   },
-                  [_vm._v("View")]
+                  [_vm._v("Visit")]
                 )
               ],
               1
@@ -44603,6 +45516,28 @@ var render = function() {
         _c("div", { staticClass: "col mb-3" }, [
           _c("div", { staticClass: "card h-100" }, [
             _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "m-4 d-flex flex-row" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-primary w-100",
+                    attrs: { to: { name: "PmsPatientBiodata" } }
+                  },
+                  [_vm._v("Visit")]
+                )
+              ],
+              1
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col mb-3" }, [
+          _c("div", { staticClass: "card h-100" }, [
+            _vm._m(2),
             _vm._v(" "),
             _c(
               "div",
@@ -44624,7 +45559,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "col mb-3" }, [
           _c("div", { staticClass: "card h-100" }, [
-            _vm._m(2),
+            _vm._m(3),
             _vm._v(" "),
             _c(
               "div",
@@ -44648,6 +45583,20 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body" }, [
+      _c("h5", { staticClass: "card-title" }, [_vm._v("Patient appointment")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [
+        _vm._v(
+          "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        )
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -44718,8 +45667,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "table-responsive container" }, [
+    _c("h1", {}, [_vm._v("Spouse/Family Information")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
     _c("table", { staticClass: "table table-bordered" }, [
-      _vm._m(0),
+      _vm._m(1),
       _vm._v(" "),
       _c(
         "tbody",
@@ -44746,7 +45699,12 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "btn btn-secondary text-white",
-                    attrs: { to: { name: "pmsPatientRegisterNextofKin" } }
+                    attrs: {
+                      to: {
+                        name: "pmsPatientRegisterNextofKin",
+                        params: { id: family.id }
+                      }
+                    }
                   },
                   [_vm._v("Edit")]
                 )
@@ -44761,7 +45719,12 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "btn btn-danger text-white",
-                    attrs: { to: { name: "PmsPatientMasterIndex" } }
+                    attrs: {
+                      to: {
+                        name: "PmsPatientMasterIndex",
+                        params: { id: family.id }
+                      }
+                    }
                   },
                   [_vm._v("Delete")]
                 )
@@ -44776,6 +45739,14 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("blockquote", { staticClass: "blockquote" }, [
+      _c("p", [_vm._v("List of registered patient's next of kin.")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -44798,6 +45769,984 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col", colspan: "2" } }, [_vm._v("Action")])
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=template&id=78c582aa&":
+/*!************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterAppointment.vue?vue&type=template&id=78c582aa& ***!
+  \************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("h1", {}, [_vm._v("Create Appointment")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.storePatientAppointment.apply(null, arguments)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "PatId" } },
+                    [_vm._v("Patient name")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.PatId,
+                        expression: "form.PatId"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "hidden",
+                      id: "PatId",
+                      "aria-describedby": "PatIdHelp",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.form.PatId },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "PatId", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.PatName,
+                        expression: "form.PatName"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "PatName",
+                      "aria-describedby": "PatNameHelp",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.form.PatName },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "PatName", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "PatIdHelp" } },
+                    [_vm._v("This is patient's name.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "DocName" } },
+                    [_vm._v("Doctor Name")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.DocName,
+                          expression: "form.DocName"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "DocName",
+                        "aria-label": "DocNameHelp",
+                        "aria-describedby": "DocNameHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "DocName",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.doctors, function(doctor) {
+                      return _c(
+                        "option",
+                        { key: doctor.id, domProps: { value: doctor.id } },
+                        [_vm._v(_vm._s(doctor.name))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "DocNameHelp" } },
+                    [_vm._v("Please input doctor's name.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "AppDate" } },
+                    [_vm._v("Appointment Date")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.AppDate,
+                        expression: "form.AppDate"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "date",
+                      id: "AppDate",
+                      "aria-describedby": "AppDateHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.AppDate },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "AppDate", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "AppDateHelp" } },
+                    [_vm._v("Please input appointment's date.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "AppTime" } },
+                    [_vm._v("Appointment Time")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.AppTime,
+                        expression: "form.AppTime"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "time",
+                      id: "AppTime",
+                      "aria-label": "AppTimeHelp"
+                    },
+                    domProps: { value: _vm.form.AppTime },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "AppTime", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "AppTimeHelp" } },
+                    [_vm._v("Please input appointment's time.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "AppToc" } },
+                    [_vm._v("Type of Case")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.AppToc,
+                        expression: "form.AppToc"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "AppToc",
+                      "aria-describedby": "AppTocHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.AppToc },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "AppToc", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "AppTocHelp" } },
+                    [_vm._v("Please input appointment's case type.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "AppPur" } },
+                    [_vm._v("Appointment Purpose")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.AppPur,
+                        expression: "form.AppPur"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "AppPur",
+                      "aria-describedby": "AppPurHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.AppPur },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "AppPur", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "AppPurHelp" } },
+                    [_vm._v("Please input appointment's purpose.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                staticStyle: { width: "100%", color: "white" },
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Submit")]
+            )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("blockquote", { staticClass: "blockquote" }, [
+      _c("p", [_vm._v("This form is for patient's appointment creation.")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=template&id=52691925&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pms/registration/RegisterInsurance.vue?vue&type=template&id=52691925& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("h1", {}, [_vm._v("Register Insurance")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.storePatientInsurance.apply(null, arguments)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "PatId" } },
+                    [_vm._v("Patient name")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.PatId,
+                        expression: "form.PatId"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "hidden",
+                      id: "PatId",
+                      "aria-describedby": "PatIdHelp",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.form.PatId },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "PatId", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.PatName,
+                        expression: "form.PatName"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "PatName",
+                      "aria-describedby": "PatNameHelp",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.form.PatName },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "PatName", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "PatIdHelp" } },
+                    [_vm._v("This is patient's name.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "InsName" } },
+                    [_vm._v("Insurance Name")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.InsName,
+                        expression: "form.InsName"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "InsName",
+                      "aria-describedby": "InsNameHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.InsName },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "InsName", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "InsNameeHelp" } },
+                    [_vm._v("Please input insurance's name.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "InsPhone" } },
+                    [_vm._v("Insurance Phone Number")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.InsPhone,
+                        expression: "form.InsPhone"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "phone",
+                      id: "InsPhone",
+                      "aria-describedby": "InsPhoneHelp",
+                      maxlength: "12",
+                      min: "10",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.InsPhone },
+                    on: {
+                      keypress: function($event) {
+                        return _vm.isNumber($event)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "InsPhone", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "InsPhoneHelp" } },
+                    [_vm._v("Please input insurance's contact number.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "InsNationality" }
+                    },
+                    [_vm._v("Country")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.InsNationality,
+                        expression: "form.InsNationality"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "InsNationality",
+                      "aria-label": "InsNationality",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.form.InsNationality },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.form,
+                          "InsNationality",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "InsNationality" }
+                    },
+                    [_vm._v("Please input insurance's nationality.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "InsAddress1" }
+                    },
+                    [_vm._v("Address 1")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.InsAddress1,
+                        expression: "form.InsAddress1"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "InsAddress1",
+                      "aria-describedby": "InsAddress1Help",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.InsAddress1 },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "InsAddress1", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "InsAddress1Help" }
+                    },
+                    [_vm._v("Please input insurance's address line 1.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "InsAddress2" }
+                    },
+                    [_vm._v("Address 2")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.InsAddress2,
+                        expression: "form.InsAddress2"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "InsAddress2",
+                      "aria-describedby": "InsAddress2Help",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.InsAddress2 },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "InsAddress2", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "InsAddress2Help" }
+                    },
+                    [_vm._v("Please input insurance's address line 2.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "InsState" } },
+                    [_vm._v("State")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.InsState,
+                          expression: "form.InsState"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "InsState",
+                        "aria-label": "InsStateHelp",
+                        "aria-describedby": "InsStateHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "InsState",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "Johor" } }, [
+                        _vm._v("Johor")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kedah" } }, [
+                        _vm._v("Kedah")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kelantan" } }, [
+                        _vm._v("Kelantan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kuala Lumpur" } }, [
+                        _vm._v("Kuala Lumpur")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Labuan" } }, [
+                        _vm._v("Labuan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Melaka" } }, [
+                        _vm._v("Melaka")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Negeri Sembilan" } }, [
+                        _vm._v("Negeri Sembilan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Pahang" } }, [
+                        _vm._v("Pahang")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Penang" } }, [
+                        _vm._v("Penang")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Perak" } }, [
+                        _vm._v("Perak")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Perlis" } }, [
+                        _vm._v("Perlis")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Putrajaya" } }, [
+                        _vm._v("Putrajaya")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sabah" } }, [
+                        _vm._v("Sabah")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sarawak" } }, [
+                        _vm._v("Sarawak")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Selangor" } }, [
+                        _vm._v("Selangor")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Terengganu" } }, [
+                        _vm._v("Terengganu")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "InsStateHelp" } },
+                    [_vm._v("Please input insurance's state.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "InsPostcode" }
+                    },
+                    [_vm._v("Postcode")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.InsPostcode,
+                        expression: "form.InsPostcode"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "InsPostcode",
+                      "aria-describedby": "InsPostcodeHelp",
+                      maxlength: "6",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.InsPostcode },
+                    on: {
+                      keypress: function($event) {
+                        return _vm.isNumber($event)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "InsPostcode", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "InsPostcodeHelp" }
+                    },
+                    [_vm._v("Please input insurance's postcode.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "InsCity" } },
+                    [_vm._v("City")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.InsCity,
+                        expression: "form.InsCity"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "InsCity",
+                      "aria-describedby": "InsCityHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.InsCity },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "InsCity", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "InsCityHelp" } },
+                    [_vm._v("Please input insurance's city.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                staticStyle: { width: "100%", color: "white" },
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Submit")]
+            )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("blockquote", { staticClass: "blockquote" }, [
+      _c("p", [_vm._v("This form is for patient's insurance registration.")])
     ])
   }
 ]
@@ -44847,7 +46796,7 @@ var render = function() {
                   _c(
                     "label",
                     { staticClass: "form-label", attrs: { for: "PatId" } },
-                    [_vm._v("Patient id")]
+                    [_vm._v("Patient name")]
                   ),
                   _vm._v(" "),
                   _c("input", {
@@ -44861,7 +46810,7 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     attrs: {
-                      type: "text",
+                      type: "hidden",
                       id: "PatId",
                       "aria-describedby": "PatIdHelp",
                       disabled: ""
@@ -44877,10 +46826,37 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.PatName,
+                        expression: "form.PatName"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "PatName",
+                      "aria-describedby": "PatNameHelp",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.form.PatName },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "PatName", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "form-text", attrs: { id: "PatIdHelp" } },
-                    [_vm._v("This is patient's id.")]
+                    [_vm._v("This is patient's name.")]
                   )
                 ])
               ]),
@@ -62307,7 +64283,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\xampp\\\\htdocs\\\\Healthcare-Information-System"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\xampp\\\\htdocs\\\\Healthcare-Information-System","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\Healthcare-Information-System-ismat-branch"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\Healthcare-Information-System-ismat-branch","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 

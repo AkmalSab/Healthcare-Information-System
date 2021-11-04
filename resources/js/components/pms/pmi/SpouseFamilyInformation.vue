@@ -1,5 +1,9 @@
 <template>
     <div class="table-responsive container">
+        <h1 class="">Spouse/Family Information</h1>
+        <blockquote class="blockquote">
+            <p>List of registered patient's next of kin.</p>
+        </blockquote>
         <table class="table table-bordered">
             <thead>
                 <tr class="table-dark">
@@ -23,10 +27,10 @@
                     <td>{{ family.relationship }}</td>
                     <td>{{ family.country }}</td>
                     <td>
-                        <router-link :to="{name: 'pmsPatientRegisterNextofKin'}" class="btn btn-secondary text-white">Edit</router-link>
+                        <router-link :to="{name: 'pmsPatientRegisterNextofKin', params: {id: family.id}}" class="btn btn-secondary text-white">Edit</router-link>
                     </td>   
                     <td>
-                        <router-link :to="{name: 'PmsPatientMasterIndex'}" class="btn btn-danger text-white">Delete</router-link>
+                        <router-link :to="{name: 'PmsPatientMasterIndex', params: {id: family.id}}" class="btn btn-danger text-white">Delete</router-link>
                     </td> 
                 </tr>                
             </tbody>

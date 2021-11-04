@@ -1,5 +1,9 @@
 <template>
     <div class="table-responsive container">
+        <h1 class="">Patient Biodata</h1>
+        <blockquote class="blockquote">
+            <p>List of registered patient.</p>
+        </blockquote>
         <table class="table table-bordered">
             <thead>
                 <tr class="table-dark">
@@ -13,6 +17,7 @@
                     <th scope="col">Race</th>
                     <th scope="col">Next-of-Kin</th>
                     <th scope="col">Insurance</th>
+                    <th scope="col">Appointment</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +31,8 @@
                     <td>{{ patient.religion }}</td>
                     <td>{{ patient.race }}</td>
                     <td><router-link :to="{name: 'pmsPatientRegisterNextofKin', params: {id: patient.id}}" class="btn btn-primary text-white w-100">Add</router-link></td>
-                    <td><router-link :to="{name: 'PmsPatientMasterIndex'}" class="btn btn-primary text-white w-100">Add</router-link></td>
+                    <td><router-link :to="{name: 'pmsPatientRegisterInsurance', params: {id: patient.id}}" class="btn btn-primary text-white w-100">Add</router-link></td>
+                    <td><router-link :to="{name: 'pmsPatientRegisterAppointment', params: {id: patient.id}}" class="btn btn-primary text-white w-100">Create</router-link></td>
                 </tr>                
             </tbody>
         </table>

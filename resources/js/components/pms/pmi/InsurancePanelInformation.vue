@@ -1,41 +1,67 @@
 <template>
-    <div class="container">
-        <table class="table table-striped table-sm">
+    <div class="table-responsive container">
+        <h1 class="">Insurance Information</h1>
+        <blockquote class="blockquote">
+            <p>List of registered patient's insurance.</p>
+        </blockquote>
+        <table class="table table-bordered">
             <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <tr class="table-dark">
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Patiend Id</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Country</th>
+                    <th scope="col" colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <tr v-for="insurance in insurances" :key="insurance.id">
+                    <th scope="row">{{ insurance.id }}</th>                    
+                    <td>{{ insurance.name }}</td>
+                    <td>{{ insurance.patient_id }}</td>
+                    <td>{{ insurance.phone }}</td>
+                    <td>{{ insurance.country }}</td>
+                    <td>
+                        <router-link :to="{name: 'pmsPatientRegisterNextofKin', params: {id: insurance.id}}" class="btn btn-secondary text-white">Edit</router-link>
+                    </td>   
+                    <td>
+                        <router-link :to="{name: 'PmsPatientMasterIndex', params: {id: insurance.id}}" class="btn btn-danger text-white">Delete</router-link>
+                    </td> 
+                </tr>                
             </tbody>
         </table>
     </div>
 </template>
 
 <script>
-export default {
+    export default {
+        components:{
 
-}
+        },
+        data() {
+            return {
+                insurances: [],
+            }
+        },
+        watch: {
+
+        },
+        created() {
+            this.getPatientInsurances();
+        },
+        methods: {
+            getPatientInsurances() {
+                axios.get("/api/insurance")
+                .then(res => {
+                    this.insurances = res.data.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+            },
+        }
+    }
 </script>
 
 <style>

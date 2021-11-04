@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\pms\Patient;
-use App\Http\Requests\PatientStoreRequest;
-use App\Http\Resources\PatientResource;
+use App\Models\pms\Appointment;
+use App\Http\Requests\AppointmentStoreRequest;
+use App\Http\Resources\AppointmentResource;
 
-class PatientController extends Controller
+class AppointmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $patient = Patient::all();
+        $appointment = Appointment::all();
 
-        return PatientResource::collection($patient);
+        return AppointmentResource::collection($appointment);
     }
 
     /**
@@ -37,11 +37,11 @@ class PatientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PatientStoreRequest $request)
+    public function store(AppointmentStoreRequest $request)
     {
-        $patient = Patient::create($request->validated());
+        $appointment = Appointment::create($request->validated());
 
-        return response()->json($patient);
+        return response()->json($appointment);
     }
 
     /**
@@ -52,10 +52,7 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-
-        $patient = Patient::findOrFail($id);
-
-        return new PatientResource($patient);
+        //
     }
 
     /**
