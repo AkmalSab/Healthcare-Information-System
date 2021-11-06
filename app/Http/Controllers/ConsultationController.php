@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ConsultationResource;
 use App\Models\Consultation;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-        //
+        $consultation = Consultation::all();
+        return ConsultationResource::collection($consultation);
     }
 
     /**
