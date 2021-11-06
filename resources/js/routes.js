@@ -5,6 +5,7 @@ import PmsPatientBiodata from './components/pms/pmi/PatientBiodata';
 import PmsSpouseFamilyInformation from './components/pms/pmi/SpouseFamilyInformation';
 import PmsInsurancePanelInformation from './components/pms/pmi/InsurancePanelInformation';
 import cisIndex from './components/cis/Index';
+import cisConsultationHistory from './components/cis/ViewConsultation';
 import pmsPatientRegisterNextofKin from './components/pms/registration/RegisterNextofKin';
 import pmsPatientRegisterInsurance from './components/pms/registration/RegisterInsurance';
 import pmsPatientRegisterAppointment from './components/pms/registration/RegisterAppointment';
@@ -55,15 +56,20 @@ export const routes = [
         path: '/pms/pmi/registerAppointment/:id',
         name: 'pmsPatientRegisterAppointment',
         component: pmsPatientRegisterAppointment
-    },  
+    },
     {
         path: '/pms/pmi/appointmentInformation',
         name: 'pmsPatientAppointmentInformation',
         component: pmsPatientAppointmentInformation
-    },       
+    },
     {
         path: '/cis',
         name: 'cisIndex',
         component: cisIndex
     },
+    {
+        path: '/cis/consultation-history',
+        name: 'cisConsultationHistory',
+        component: cisConsultationHistory
+    }
 ];

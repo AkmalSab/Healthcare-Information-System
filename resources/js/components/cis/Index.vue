@@ -7,7 +7,11 @@
         <figcaption class="blockquote-footer">
             Someone famous in <cite title="Source Title">Source Title</cite>
         </figcaption>
+        <div v-if="showMessage" class="alert alert-success">
+            {{ message }}
+        </div>
         <div class="card">
+            <form @submit.prevent="storeConsultation">
             <div class="card-body">
                 <div class="row">
                     <div class="col">
@@ -40,6 +44,7 @@
                                 placeholder="Leave a comment here"
                                 id="floatingTextarea2"
                                 style="height: 100px"
+                                v-model="diagnose"
                             ></textarea>
                             <label for="floatingTextarea2">Remark</label>
                         </div>
@@ -54,6 +59,7 @@
                                 placeholder="Leave a comment here"
                                 id="floatingTextarea2"
                                 style="height: 100px"
+                                v-model="symptoms"
                             ></textarea>
                             <label for="floatingTextarea2">Remark</label>
                         </div>
@@ -66,6 +72,7 @@
                                 placeholder="Leave a comment here"
                                 id="floatingTextarea2"
                                 style="height: 100px"
+                                v-model="allergy"
                             ></textarea>
                             <label for="floatingTextarea2">Remark</label>
                         </div>
@@ -81,6 +88,7 @@
                                 class="form-select"
                                 aria-label="Default select example"
                                 aria-describedby="selectBloodHelp"
+                                v-model="bloodGroup"
                             >
                                 <option selected>Open this select menu</option>
                                 <option value="A+">A+</option>
@@ -107,6 +115,7 @@
                                 placeholder="Leave a comment here"
                                 id="floatingTextarea2"
                                 style="height: 100px"
+                                v-model="medication"
                             ></textarea>
                             <label for="floatingTextarea2">Remark</label>
                         </div>
@@ -121,6 +130,7 @@
                                 placeholder="Leave a comment here"
                                 id="floatingTextarea2"
                                 style="height: 100px"
+                                v-model="socialHistory"
                             ></textarea>
                             <label for="floatingTextarea2">Remark</label>
                         </div>
@@ -133,6 +143,7 @@
                                 placeholder="Leave a comment here"
                                 id="floatingTextarea2"
                                 style="height: 100px"
+                                v-model="familyHistory"
                             ></textarea>
                             <label for="floatingTextarea2">Remark</label>
                         </div>
@@ -145,6 +156,7 @@
                                 placeholder="Leave a comment here"
                                 id="floatingTextarea2"
                                 style="height: 100px"
+                                v-model="disabilityHistory"
                             ></textarea>
                             <label for="floatingTextarea2">Remark</label>
                         </div>
@@ -155,6 +167,7 @@
                         ><button
                             class="btn btn-outline-danger btn-sm ms-3"
                             @click="getVaxInfo()"
+                            type="button"
                         >
                             Show Data
                         </button></span
@@ -293,13 +306,22 @@
                     </div>
                     <hr />
                 </div>
-                <button
-                    class="btn btn-primary"
-                    style="color: white; width: 100%"
-                >
-                    Submit
-                </button>
+                <div class="row">
+                    <div class="col">
+                        <button
+                            class="btn btn-primary"
+                            style="color: white; width: 100%"
+                            type="submit"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                    <div class="col">
+                        <router-link :to="{name: 'cisConsultationHistory'}" class="btn btn-success w-100" style="color: white">Visit</router-link>
+                    </div>
+                </div>
             </div>
+            </form>
         </div>
     </div>
 </template>
@@ -311,12 +333,22 @@ import 'aos/dist/aos.css';
 export default {
     data() {
         return {
+            showMessage: false,
+            message: '',
             vaxInfo: [],
             patientData: [],
             selectedPatientData: [],
             nric: "",
             phoneNo: "",
-            patientID: ""
+            patientID: "",
+            diagnose: "",
+            symptoms: "",
+            allergy: "",
+            bloodGroup: "",
+            medication: "",
+            socialHistory: "",
+            familyHistory: "",
+            disabilityHistory: ""
         };
     },
     created () {
@@ -367,6 +399,27 @@ export default {
                     this.phoneNo = res.data[0].phone
                 }).catch(error => {
                 console.log(console.error())
+            })
+        },
+        storeConsultation() {
+            let formData = new FormData();
+
+            formData.append("patientID", this.patientID)
+            formData.append("diagnose", this.diagnose)
+            formData.append("symptoms", this.symptoms)
+            formData.append("blood", this.bloodGroup)
+            formData.append("allergy", this.allergy)
+            formData.append("medication", this.medication)
+            formData.append("socialHistory", this.socialHistory)
+            formData.append("familyHistory", this.familyHistory)
+            formData.append("disabilityHistory", this.disabilityHistory)
+
+            axios.post('/api/consultation', formData).then(res => {
+                this.showMessage = true
+                this.message = 'Successfully inserted! 💥'
+            }).catch(error => {
+                this.showMessage = true
+                this.message = error
             })
         }
     }
