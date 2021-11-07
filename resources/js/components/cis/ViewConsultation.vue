@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>View Patient Consultation History</h1>
+        <h1>Patient Consultation History</h1>
         <blockquote class="blockquote">
             <p>This form is for patient consultation form.</p>
         </blockquote>
@@ -132,6 +132,7 @@
                                 >
                                     View
                                 </button>
+                                <router-link :to="{name: 'pisCreatePrescription'}" class="btn btn-success" style="color: white">Order Prescription</router-link>
                                 <button
                                     type="button"
                                     class="btn btn-danger"

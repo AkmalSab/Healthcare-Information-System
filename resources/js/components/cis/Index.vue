@@ -317,7 +317,7 @@
                         </button>
                     </div>
                     <div class="col">
-                        <router-link :to="{name: 'cisConsultationHistory'}" class="btn btn-success w-100" style="color: white">Visit</router-link>
+                        <router-link :to="{name: 'cisConsultationHistory'}" class="btn btn-success w-100" style="color: white">View Consultation History</router-link>
                     </div>
                 </div>
             </div>

@@ -4,12 +4,16 @@ import PmsPatientMasterIndex from './components/pms/pmi/PatientMasterIndex';
 import PmsPatientBiodata from './components/pms/pmi/PatientBiodata';
 import PmsSpouseFamilyInformation from './components/pms/pmi/SpouseFamilyInformation';
 import PmsInsurancePanelInformation from './components/pms/pmi/InsurancePanelInformation';
-import cisIndex from './components/cis/Index';
-import cisConsultationHistory from './components/cis/ViewConsultation';
 import pmsPatientRegisterNextofKin from './components/pms/registration/RegisterNextofKin';
 import pmsPatientRegisterInsurance from './components/pms/registration/RegisterInsurance';
 import pmsPatientRegisterAppointment from './components/pms/registration/RegisterAppointment';
 import pmsPatientAppointmentInformation from './components/pms/pmi/AppointmentInformation';
+
+import cisIndex from './components/cis/Index';
+import cisConsultationHistory from './components/cis/ViewConsultation';
+import pisIndex from './components/pis/Index';
+import pisCreateMeds from "./components/pis/CreateMedicine";
+import pisCreatePrescription from "./components/pis/CreatePrescription";
 
 export const routes = [
     {
@@ -71,5 +75,20 @@ export const routes = [
         path: '/cis/consultation-history',
         name: 'cisConsultationHistory',
         component: cisConsultationHistory
+    },
+    {
+        path: '/pis',
+        name: 'pisIndex',
+        component: pisIndex
+    },
+    {
+        path: '/pis/create-medicine',
+        name: 'pisCreateMeds',
+        component: pisCreateMeds
+    },
+    {
+        path: '/pis/create-prescription',
+        name: 'pisCreatePrescription',
+        component: pisCreatePrescription
     }
 ];

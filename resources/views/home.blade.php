@@ -8,9 +8,9 @@
                 <img src="/img/s1.jpg" class="card-img-top" height="200" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Patient Management System (PMS)</h5>
-                    <p class="card-text">This module will cater for patient registration, appointment and billing.</p>                
+                    <p class="card-text">This module will cater for patient registration, appointment and billing.</p>
                 </div>
-                <div class="m-4">   
+                <div class="m-4">
                     <a href="{{ url('pms') }}" class="btn btn-primary w-100" style="color: white">Visit</a>
                 </div>
             </div>
@@ -20,9 +20,9 @@
                 <img src="/img/s1.jpg" class="card-img-top" height="200" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Consultation Information System (CIS)</h5>
-                    <p class="card-text">This module will cater for patient registration, appointment and billing.</p>                
+                    <p class="card-text">This module will cater for patient registration, appointment and billing.</p>
                 </div>
-                <div class="m-4">   
+                <div class="m-4">
                     <a href="{{ url('cis') }}" class="btn btn-primary w-100" style="color: white">Visit</a>
                 </div>
             </div>
@@ -32,10 +32,10 @@
                 <img src="/img/s1.jpg" class="card-img-top" height="200" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Prescription Information System (PIS)</h5>
-                    <p class="card-text">This module will cater for patient registration, appointment and billing.</p>                
+                    <p class="card-text">This module will cater for patient registration, appointment and billing.</p>
                 </div>
-                <div class="m-4">   
-                    <a href="{{ url('patientMasterSystem') }}" class="btn btn-primary w-100" style="color: white">Visit</a>
+                <div class="m-4">
+                    <a href="{{ url('pis') }}" class="btn btn-primary w-100" style="color: white">Visit</a>
                 </div>
             </div>
         </div>

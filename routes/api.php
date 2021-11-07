@@ -7,6 +7,7 @@ use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\MedicineController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,3 +35,4 @@ Route::apiResource('insurance', InsuranceController::class);
 Route::apiResource('doctor', DoctorController::class);
 Route::apiResource('appointment', AppointmentController::class);
 Route::apiResource('consultation', ConsultationController::class);
+Route::apiResource('medicine', MedicineController::class);

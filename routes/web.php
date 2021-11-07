@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -30,3 +31,7 @@ Route::get('{pms}', function(){
 Route::get('{cis}', function(){
     return view('cis.index');
 })->where('cis', '.*')->middleware('auth')->name('cis');
+
+Route::get('{pis}', function(){
+    return view('pis.index');
+})->where('pis', '.*')->middleware('auth')->name('pis');
