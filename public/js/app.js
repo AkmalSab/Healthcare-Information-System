@@ -5967,6 +5967,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 // Import Vue FilePond
  // Import FilePond styles
 
@@ -5983,7 +5987,14 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_0___default()((filepond_plu
     return {
       showMessage: false,
       message: '',
-      myFiles: []
+      myFiles: [],
+      medsName: '',
+      medsManufac: '',
+      medsCost: 0,
+      medsType: '',
+      medsDose: '',
+      medsStock: 0,
+      medsDesc: ''
     };
   },
   methods: {
@@ -5997,6 +6008,13 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_0___default()((filepond_plu
       var file = this.$refs.pond.getFiles()[0].file;
       var formData = new FormData();
       formData.append("image", file);
+      formData.append("medicineName", this.medsName);
+      formData.append("medicineManufac", this.medsManufac);
+      formData.append("medicineCost", this.medsCost);
+      formData.append("medicineType", this.medsType);
+      formData.append("medicineDose", this.medsDose);
+      formData.append("medicineStock", this.medsStock);
+      formData.append("medicineDesc", this.medsDesc);
       axios.post('/api/medicine', formData).then(function (res) {
         _this.showMessage = true;
         _this.message = 'Image successfully uploaded! 💥';
@@ -84973,6 +84991,12 @@ var render = function() {
     _vm._v(" "),
     _vm._m(1),
     _vm._v(" "),
+    _vm.showMessage
+      ? _c("div", { staticClass: "alert alert-success" }, [
+          _vm._v("\n        " + _vm._s(_vm.message) + "\n    ")
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _c("div", { staticClass: "card" }, [
       _c("div", { staticClass: "card-body" }, [
         _c(
@@ -84986,13 +85010,237 @@ var render = function() {
             }
           },
           [
-            _vm._m(2),
+            _c("div", { staticClass: "row mb-3" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("label", { staticClass: "form-label" }, [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.medsName,
+                      expression: "medsName"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.medsName },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.medsName = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("label", { staticClass: "form-label" }, [
+                  _vm._v("Manufacturer")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.medsManufac,
+                      expression: "medsManufac"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.medsManufac },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.medsManufac = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("label", { staticClass: "form-label" }, [_vm._v("Cost")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.medsCost,
+                      expression: "medsCost"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number" },
+                  domProps: { value: _vm.medsCost },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.medsCost = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
             _vm._v(" "),
-            _vm._m(3),
-            _vm._v(" "),
-            _vm._m(4),
+            _c("div", { staticClass: "row mb-3" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("label", { staticClass: "form-label" }, [_vm._v("Type")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.medsType,
+                        expression: "medsType"
+                      }
+                    ],
+                    staticClass: "form-select",
+                    attrs: { "aria-label": "Default select example" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.medsType = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { selected: "" } }, [
+                      _vm._v("Open this select menu")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "Type 1" } }, [
+                      _vm._v("One")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "Type 2" } }, [
+                      _vm._v("Two")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "Type 3" } }, [
+                      _vm._v("Three")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("label", { staticClass: "form-label" }, [_vm._v("Dose")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.medsDose,
+                      expression: "medsDose"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.medsDose },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.medsDose = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }, [
+                _c("label", { staticClass: "form-label" }, [_vm._v("Stock")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.medsStock,
+                      expression: "medsStock"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number" },
+                  domProps: { value: _vm.medsStock },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.medsStock = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("div", { staticClass: "col mb-3" }, [
+                  _c("label", { staticClass: "form-label" }, [
+                    _vm._v("Description")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-floating" }, [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.medsDesc,
+                          expression: "medsDesc"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      staticStyle: { height: "100px" },
+                      attrs: {
+                        placeholder: "Leave a comment here",
+                        id: "floatingTextarea2"
+                      },
+                      domProps: { value: _vm.medsDesc },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.medsDesc = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "floatingTextarea2" } }, [
+                      _vm._v("Remark")
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mb-2" }, [
               _c(
                 "div",
                 { staticClass: "col" },
@@ -85001,20 +85249,14 @@ var render = function() {
                     ref: "pond",
                     attrs: {
                       name: "test",
-                      "label-idle": "Drop files here...",
+                      "label-idle":
+                        "Drop files here...please make sure it's a photo.",
                       "allow-multiple": true,
                       "accepted-file-types": "image/jpeg, image/png",
                       server: "/api/medicine",
                       files: _vm.myFiles
                     },
-                    on: { init: _vm.handleFilePondInit },
-                    model: {
-                      value: _vm.myFiles,
-                      callback: function($$v) {
-                        _vm.myFiles = $$v
-                      },
-                      expression: "myFiles"
-                    }
+                    on: { init: _vm.handleFilePondInit }
                   })
                 ],
                 1
@@ -85052,98 +85294,6 @@ var staticRenderFns = [
     return _c("figcaption", { staticClass: "blockquote-footer" }, [
       _vm._v("\n        Someone famous in "),
       _c("cite", { attrs: { title: "Source Title" } }, [_vm._v("Wan-Bissaka")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mb-3" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Manufacturer")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Cost")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "number" } })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mb-3" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Type")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-select",
-            attrs: { "aria-label": "Default select example" }
-          },
-          [
-            _c("option", { attrs: { selected: "" } }, [
-              _vm._v("Open this select menu")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("One")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("Two")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "3" } }, [_vm._v("Three")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Dose")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Stock")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "number" } })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("div", { staticClass: "col mb-3" }, [
-          _c("label", { staticClass: "form-label" }, [_vm._v("Description")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-floating" }, [
-            _c("textarea", {
-              staticClass: "form-control",
-              staticStyle: { height: "100px" },
-              attrs: {
-                placeholder: "Leave a comment here",
-                id: "floatingTextarea2"
-              }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "floatingTextarea2" } }, [
-              _vm._v("Remark")
-            ])
-          ])
-        ])
-      ])
     ])
   }
 ]

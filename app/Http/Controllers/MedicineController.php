@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Medicine;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MedicineController extends Controller
 {
@@ -35,8 +36,25 @@ class MedicineController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            dd($request->file('image'));
+        if ($request->hasFile('image') && $request->file('image')->isValid())
+        {
+            $file_name = $request->file('image')->store('medicine_picture', 's3');
+            Storage::disk('s3')->setVisibility($file_name, 'public');
+
+            $data = new Medicine ([
+                'name' => $request->get('medicineName'),
+                'description' => $request->get('medicineDesc'),
+                'manufacturer' => $request->get('medicineManufac'),
+                'cost' => $request->get('medicineCost'),
+                'type' => $request->get('medicineType'),
+                'dose' => $request->get('medicineDose'),
+                'stock' => $request->get('medicineStock'),
+                'picture' => $request->file('image')->hashName()
+            ]);
+            $data->save();
+            return response()->json($data);
+
+            //dd($request->file('image')->hashName());
         }
     }
 

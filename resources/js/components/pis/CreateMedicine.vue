@@ -7,6 +7,9 @@
         <figcaption class="blockquote-footer">
             Someone famous in <cite title="Source Title">Wan-Bissaka</cite>
         </figcaption>
+        <div v-if="showMessage" class="alert alert-success">
+            {{ message }}
+        </div>
 
         <div class="card">
             <div class="card-body">
@@ -14,15 +17,15 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label class="form-label">Name</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" v-model="medsName" />
                     </div>
                     <div class="col">
                         <label class="form-label">Manufacturer</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" v-model="medsManufac" />
                     </div>
                     <div class="col">
                         <label class="form-label">Cost</label>
-                        <input type="number" class="form-control" />
+                        <input type="number" class="form-control" v-model="medsCost" />
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -31,20 +34,21 @@
                         <select
                             class="form-select"
                             aria-label="Default select example"
+                            v-model="medsType"
                         >
                             <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="Type 1">One</option>
+                            <option value="Type 2">Two</option>
+                            <option value="Type 3">Three</option>
                         </select>
                     </div>
                     <div class="col">
                         <label class="form-label">Dose</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" v-model="medsDose" />
                     </div>
                     <div class="col">
                         <label class="form-label">Stock</label>
-                        <input type="number" class="form-control" />
+                        <input type="number" class="form-control" v-model="medsStock" />
                     </div>
                 </div>
                 <div class="row">
@@ -57,24 +61,24 @@
                                     placeholder="Leave a comment here"
                                     id="floatingTextarea2"
                                     style="height: 100px"
+                                    v-model="medsDesc"
                                 ></textarea>
                                 <label for="floatingTextarea2">Remark</label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mb-2">
                     <div class="col">
                         <file-pond
                             name="test"
                             ref="pond"
-                            label-idle="Drop files here..."
+                            label-idle="Drop files here...please make sure it's a photo."
                             v-bind:allow-multiple="true"
                             accepted-file-types="image/jpeg, image/png"
                             server="/api/medicine"
                             v-bind:files="myFiles"
                             v-on:init="handleFilePondInit"
-                            v-model="myFiles"
                         />
                     </div>
                 </div>
@@ -112,7 +116,14 @@ export default {
         return {
             showMessage: false,
             message: '',
-            myFiles: []
+            myFiles: [],
+            medsName: '',
+            medsManufac: '',
+            medsCost: 0,
+            medsType: '',
+            medsDose: '',
+            medsStock: 0,
+            medsDesc: ''
         };
     },
     methods: {
@@ -125,6 +136,13 @@ export default {
             let formData = new FormData()
 
             formData.append("image", file)
+            formData.append("medicineName", this.medsName)
+            formData.append("medicineManufac", this.medsManufac)
+            formData.append("medicineCost", this.medsCost)
+            formData.append("medicineType", this.medsType)
+            formData.append("medicineDose", this.medsDose)
+            formData.append("medicineStock", this.medsStock)
+            formData.append("medicineDesc", this.medsDesc)
 
             axios.post('/api/medicine', formData).then(res => {
                 this.showMessage = true

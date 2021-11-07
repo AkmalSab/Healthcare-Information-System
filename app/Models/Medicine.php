@@ -18,7 +18,8 @@ class Medicine extends Model
         'dose',
         'stock',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'picture'
     ];
     public function prescriptions()
     {
