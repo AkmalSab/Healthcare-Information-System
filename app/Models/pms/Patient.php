@@ -2,6 +2,7 @@
 
 namespace App\Models\pms;
 
+use App\Models\Consultation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,4 +30,9 @@ class Patient extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function consultations()
+    {
+        return $this->hasMany(Consultation::class);
+    }
 }
