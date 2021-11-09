@@ -8,20 +8,22 @@
             <thead>
                 <tr class="table-dark">
                     <th scope="col">Id</th>
-                    <th scope="col">Name</th>
                     <th scope="col">Patiend Id</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Country</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Medical Card Number</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Expiry Date</th>
                     <th scope="col" colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="insurance in insurances" :key="insurance.id">
                     <th scope="row">{{ insurance.id }}</th>                    
-                    <td>{{ insurance.name }}</td>
                     <td>{{ insurance.patient_id }}</td>
-                    <td>{{ insurance.phone }}</td>
-                    <td>{{ insurance.country }}</td>
+                    <td>{{ insurance.name }}</td>
+                    <td>{{ insurance.medical_card_no }}</td>
+                    <td>{{ insurance.type }}</td>
+                    <td>{{ insurance.expiry_date }}</td>
                     <td>
                         <router-link :to="{name: 'pmsPatientRegisterNextofKin', params: {id: insurance.id}}" class="btn btn-secondary text-white">Edit</router-link>
                     </td>   

@@ -35,3 +35,7 @@ Route::get('{cis}', function(){
 Route::get('{pis}', function(){
     return view('pis.index');
 })->where('pis', '.*')->middleware('auth')->name('pis');
+
+Route::get('{lt}', function(){
+    return view('lt.index');
+})->where('lt', '.*')->middleware('auth')->name('lt');

@@ -11,18 +11,18 @@
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
                                 <label for="PatId" class="form-label">Patient name</label>
-                                <input type="hidden" class="form-control" v-model="form.PatId" id="PatId" aria-describedby="PatIdHelp" disabled>
+                                <input type="hidden" class="form-control" v-model="form.PatId" id="PatId" oninput="this.value = this.value.toUpperCase()" style="text-transform:uppercase" aria-describedby="PatIdHelp" disabled>
                                 <input type="text" class="form-control" v-model="form.PatName" id="PatName" aria-describedby="PatNameHelp" disabled>
                                 <div id="PatIdHelp" class="form-text">This is patient's name.</div>
                             </div>          
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
-                                <label for="DocName" class="form-label">Doctor Name</label>
-                                <select class="form-select" v-model="form.DocName" id="DocName" aria-label="DocNameHelp" aria-describedby="DocNameHelp" required>                                    
-                                    <option v-for="doctor in doctors" v-bind:key="doctor.id" v-bind:value="doctor.id">{{ doctor.name }}</option>                                    
+                                <label for="StaffName" class="form-label">Doctor Name</label>
+                                <select class="form-select" v-model="form.StaffName" id="StaffName" aria-label="StaffNameHelp" aria-describedby="StaffNameHelp" required>                                    
+                                    <option v-for="staff in staffs" v-bind:key="staff.id" v-bind:value="staff.id">{{ staff.name }}</option>                                    
                                 </select>
-                                <div id="DocNameHelp" class="form-text">Please input doctor's name.</div>
+                                <div id="StaffNameHelp" class="form-text">Please select doctor's name.</div>
                             </div>
                         </div>
                     </div>
@@ -46,15 +46,17 @@
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
                                 <label for="AppToc" class="form-label">Type of Case</label>
-                                <input type="text" class="form-control" v-model="form.AppToc" id="AppToc" aria-describedby="AppTocHelp" required>
+                                <select class="form-select" v-model="form.AppToc" id="AppToc" aria-label="AppTocHelp" aria-describedby="AppTocHelp" required>                                    
+                                    <option v-for="casex in cases" v-bind:key="casex.id" v-bind:value="casex.id">{{ casex.name }}</option>                                    
+                                </select>
                                 <div id="AppTocHelp" class="form-text">Please input appointment's case type.</div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
-                                <label for="AppPur" class="form-label">Appointment Purpose</label>
-                                <input type="text" class="form-control" v-model="form.AppPur" id="AppPur" aria-describedby="AppPurHelp" required>
-                                <div id="AppPurHelp" class="form-text">Please input appointment's purpose.</div>
+                                <label for="AppDesc" class="form-label">Appointment Description</label>
+                                <input type="text" class="form-control" v-model="form.AppDesc" id="AppDesc" aria-describedby="AppDescHelp" required>
+                                <div id="AppDescHelp" class="form-text">Please input appointment's purpose.</div>
                             </div>
                         </div>
                     </div>                           
@@ -73,21 +75,23 @@ export default {
     data() {
         return {
             patients: [],
-            doctors: [],
+            staffs: [],
+            cases: [],
             form: {
                 PatName: '',
                 PatId: this.$route.params.id,
-                DocName: '',
+                StaffName: '',
                 AppDate: '',
                 AppTime: '',    
                 AppToc: '',
-                AppPur: ''
+                AppDesc: ''
             },
         }
     },
     created() {
         this.getPatient();
-        this.getDoctor();
+        this.getStaff();
+        this.getCase();
     },
     methods: {
         getPatient() {
@@ -100,10 +104,19 @@ export default {
                     console.log(error)
                 });
         },
-        getDoctor() {
-            axios.get('/api/doctor/')
+        getStaff() {
+            axios.get('/api/staff/')
                 .then(res => {
-                    this.doctors = res.data.data;
+                    this.staffs = res.data.data;
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        },
+        getCase() {
+            axios.get('/api/case/')
+                .then(res => {
+                    this.cases = res.data.data;
                 })
                 .catch(error => {
                     console.log(error)
@@ -113,13 +126,21 @@ export default {
             axios
             .post("/api/appointment", {
                 'patient_id': this.form.PatId,
-                'doctor_id': this.form.DocName,                
+                'staff_id': this.form.StaffName,   
+                'case_id': this.form.AppToc,                
                 'date': this.form.AppDate,
                 'time': this.form.AppTime,
-                'case_type': this.form.AppToc,
-                'purpose': this.form.AppPur
+                'description': this.form.AppDesc,
             }).then(res=> {
-                this.$router.push({name: 'PmsPatientBiodata'});
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Booked',
+                    text: 'Appointment successfully booked!'
+                }).then(res => {
+                    if (res.isConfirmed) {
+                        this.$router.push({name: 'pmsPatientAppointmentInformation'});
+                    }
+                })
             }).catch(error=> {
                 console.log(console.error);
             })

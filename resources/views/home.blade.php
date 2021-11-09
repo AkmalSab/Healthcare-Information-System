@@ -39,6 +39,18 @@
                 </div>
             </div>
         </div>
+        <div class="col mb-3">
+            <div class="card h-100">
+                <img src="/img/s1.jpg" class="card-img-top" height="200" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Lookup Table (LT)</h5>
+                    <p class="card-text">This module will cater for patient registration, appointment and billing.</p>
+                </div>
+                <div class="m-4">
+                    <a href="{{ url('lt') }}" class="btn btn-primary w-100" style="color: white">Visit</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

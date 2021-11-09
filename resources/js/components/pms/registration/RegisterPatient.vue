@@ -11,7 +11,7 @@
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
                                 <label for="patName" class="form-label">Name</label>
-                                <input type="text" class="form-control" v-model="form.patName" id="patName" aria-describedby="patNameHelp" required>
+                                <input type="text" class="form-control" v-model="form.patName" oninput="this.value = this.value.toUpperCase()" style="text-transform:uppercase" id="patName" aria-describedby="patNameHelp" required>
                                 <div id="patNameHelp" class="form-text">Please input patient name.</div>
                             </div>
                         </div>
@@ -321,8 +321,8 @@ export default {
             }).then(res=> {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Inserted',
-                    text: 'Successfully inserted into the system!'
+                    title: 'Registered',
+                    text: 'Patient successfully registered!'
                 }).then(res => {
                     if (res.isConfirmed) {
                         this.$router.push({name: 'PmsIndex'});

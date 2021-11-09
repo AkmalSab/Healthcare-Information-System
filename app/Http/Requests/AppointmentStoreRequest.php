@@ -25,11 +25,11 @@ class AppointmentStoreRequest extends FormRequest
     {
         return [
             'patient_id' => ['required'],
-            'doctor_id' => ['required'],
+            'staff_id' => ['required'],
+            'case_id' => ['required'],
             'date' => ['required'],
             'time' => ['required'],
-            'case_type' => ['required'],
-            'purpose' => ['required']
+            'description' => ['required'],
         ];
     }
 }

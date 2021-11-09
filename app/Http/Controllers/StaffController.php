@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\pms\Doctor;
-use App\Http\Resources\DoctorResource;
+use App\Models\Staff;
+use App\Http\Resources\StaffResource;
 
-class DoctorController extends Controller
+class StaffController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctor = Doctor::all();
+        $staff = Staff::all();
 
-        return DoctorResource::collection($doctor);
+        return StaffResource::collection($staff);
     }
 
     /**
