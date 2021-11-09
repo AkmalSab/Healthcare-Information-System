@@ -15,7 +15,8 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        //
+        $data = Medicine::all();
+        return response()->json($data);
     }
 
     /**
@@ -98,8 +99,14 @@ class MedicineController extends Controller
      * @param  \App\Models\Medicine  $medicine
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Medicine $medicine)
+    public function destroy($id)
     {
-        //
+        $delMeds = Medicine::findOrFail($id);
+
+        // Destroy data in db and aws s3
+        Medicine::destroy($id);
+        Storage::disk('s3')->delete('medicine_picture/'.$delMeds->picture);
+
+        return response()->json('Medicine Deleted Successfully ✔');
     }
 }
