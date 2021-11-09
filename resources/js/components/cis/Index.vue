@@ -380,7 +380,7 @@ export default {
                     function(data) {
                         self.vaxInfo = data;
                     }
-                );
+                ).fail(function(jqXHR, textStatus, errorThrown) { alert('getJSON request failed! ' + textStatus); });
             }
         },
         getPatientName() {
