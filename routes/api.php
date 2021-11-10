@@ -9,6 +9,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CaseController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\PrescriptionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,3 +39,4 @@ Route::apiResource('appointment', AppointmentController::class);
 Route::apiResource('case', CaseController::class);
 Route::apiResource('consultation', ConsultationController::class);
 Route::apiResource('medicine', MedicineController::class);
+Route::apiResource('prescription', PrescriptionController::class);
