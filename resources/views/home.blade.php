@@ -17,7 +17,7 @@
         </div>
         <div class="col mb-3">
             <div class="card h-100">
-                <img src="/img/s1.jpg" class="card-img-top" height="200" alt="...">
+                <img src="/img/test.png" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Consultation Information System (CIS)</h5>
                     <p class="card-text">This module will cater for patient registration, appointment and billing.</p>
@@ -29,7 +29,7 @@
         </div>
         <div class="col mb-3">
             <div class="card h-100">
-                <img src="/img/s1.jpg" class="card-img-top" height="200" alt="...">
+                <img src="/img/test.png" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Prescription Information System (PIS)</h5>
                     <p class="card-text">This module will cater for patient registration, appointment and billing.</p>
