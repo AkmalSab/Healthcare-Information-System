@@ -1,15 +1,19 @@
 <?php
 
-namespace App\Models\pms;
+namespace App\Models;
 
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Doctor extends Model
+class Staff extends Model
 {
     use HasFactory;
 
+    protected $table = 'staffs';
+
     protected $fillable = [
+        'role_id',
         'name',
         'nric',
         'phone',
@@ -29,5 +33,9 @@ class Doctor extends Model
         'updated_at',
         'deleted_at'
     ];
-      
+
+    public function role()
+    {
+        return $this->hasOne(Role::class);
+    }
 }

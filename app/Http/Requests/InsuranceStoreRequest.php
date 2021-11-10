@@ -26,13 +26,9 @@ class InsuranceStoreRequest extends FormRequest
         return [
             'patient_id' => ['required'],
             'name' => ['required'],            
-            'phone' => ['required'],            
-            'country' => ['required'],            
-            'address_1' => ['required'],
-            'address_2' => ['required'],
-            'state' => ['required'],
-            'postcode' => ['required'],
-            'city' => ['required'],
+            'medical_card_no' => ['required'],            
+            'type' => ['required'],            
+            'expiry_date' => ['required']            
         ];
     }
 }

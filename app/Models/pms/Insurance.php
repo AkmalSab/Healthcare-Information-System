@@ -12,12 +12,8 @@ class Insurance extends Model
     protected $fillable = [
         'patient_id',
         'name',        
-        'phone',       
-        'country',
-        'address_1',
-        'address_2',
-        'state',
-        'postcode',
-        'city'
+        'medical_card_no',       
+        'type',
+        'expiry_date'
     ];
 }

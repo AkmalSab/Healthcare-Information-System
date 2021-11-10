@@ -5,9 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use Illuminate\Support\Carbon;
-
-class DoctorSeeder extends Seeder
+class StaffSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +14,8 @@ class DoctorSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('doctors')->insert([
+        DB::table('staffs')->insert([
+            'role_id' => random_int(1, 2),
             'name' => Str::random(10),
             'nric' => random_int(100000000000, 999999999999),
             'phone' => random_int(1000000000, 9999999999),
@@ -32,8 +31,8 @@ class DoctorSeeder extends Seeder
             'state' => Str::random(10),
             'postcode' => random_int(10000, 99999),
             'city' => Str::random(10),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
     }
 }

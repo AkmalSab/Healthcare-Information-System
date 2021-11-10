@@ -18,13 +18,9 @@ class InsuranceResource extends JsonResource
             'id' => $this->id,
             'patient_id' => $this->patient_id,
             'name' => $this->name,
-            'phone' => $this->phone,
-            'country' => $this->country,            
-            'address_1' => $this->address_1,
-            'address_2' => $this->address_2,
-            'state' => $this->state,
-            'postcode' => $this->postcode,
-            'city' => $this->city
+            'medical_card_no' => $this->medical_card_no,
+            'type' => $this->type,            
+            'expiry_date' => $this->expiry_date            
         ];
     }
 }

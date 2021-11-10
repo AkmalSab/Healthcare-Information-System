@@ -19,7 +19,7 @@
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
                                 <label for="NokName" class="form-label">Name</label>
-                                <input type="text" class="form-control" v-model="form.NokName" id="NokName" aria-describedby="NokNameHelp" required>
+                                <input type="text" class="form-control" v-model="form.NokName" oninput="this.value = this.value.toUpperCase()" style="text-transform:uppercase" id="NokName" aria-describedby="NokNameHelp" required>
                                 <div id="NokNameHelp" class="form-text">Please input patient's emergency contact name.</div>
                             </div>
                         </div>
@@ -178,7 +178,15 @@ export default {
                 'postcode': this.form.NokPostcode,
                 'city': this.form.NokCity,
             }).then(res=> {
-                this.$router.push({name: 'PmsPatientBiodata'});
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Inserted',
+                    text: 'Next of Kin successfully registered!'
+                }).then(res => {
+                    if (res.isConfirmed) {
+                        this.$router.push({name: 'PmsSpouseFamilyInformation'});
+                    }
+                })
             }).catch(error=> {
                 console.log(console.error);
             })

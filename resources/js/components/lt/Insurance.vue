@@ -1,8 +1,8 @@
 <template>
     <div class="table-responsive container">
-        <h1 class="">Insurance Information</h1>
+        <h1 class="">Insurance Lookup</h1>
         <blockquote class="blockquote">
-            <p>List of registered patient's insurance.</p>
+            <p>List of Insurance.</p>
         </blockquote>
         <table class="table table-bordered">
             <thead>

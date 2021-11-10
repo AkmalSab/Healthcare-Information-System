@@ -55,9 +55,7 @@
                         </button>  
                     </div> 
                     <div class="col-6"> 
-                        <button type="reset" class="col-12 btn btn-warning">
-                            {{ __('Reset') }}
-                        </button>                    
+                        <input type="reset" class="col-12 btn btn-warning">            
                     </div>           
                 </div>
 

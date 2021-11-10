@@ -15,6 +15,13 @@ import pisIndex from './components/pis/Index';
 import pisCreateMeds from "./components/pis/CreateMedicine";
 import pisCreatePrescription from "./components/pis/CreatePrescription";
 
+import ltIndex from './components/lt/Index';
+import ltTypeofCase from './components/lt/TypeofCase';
+import ltRole from './components/lt/Role';
+import ltInsurance from './components/lt/Insurance';
+import ltMedicine from './components/lt/Medicine';
+import ltStaff from './components/lt/Staff';
+
 export const routes = [
     {
         path: '/pms',
@@ -90,5 +97,36 @@ export const routes = [
         path: '/pis/create-prescription',
         name: 'pisCreatePrescription',
         component: pisCreatePrescription
-    }
+    },
+    {
+        path: '/lt',
+        name: 'ltIndex',
+        component: ltIndex
+    },
+    {
+        path: '/lt/type-of-case',
+        name: 'ltTypeofCase',
+        component: ltTypeofCase
+    },
+    {
+        path: '/lt/role',
+        name: 'ltRole',
+        component: ltRole
+    },
+    {
+        path: '/lt/insurance',
+        name: 'ltInsurance',
+        component: ltInsurance
+    },
+    {
+        path: '/lt/medicine',
+        name: 'ltMedicine',
+        component: ltMedicine
+    },
+    {
+        path: '/lt/staff',
+        name: 'ltStaff',
+        component: ltStaff
+    },
+    
 ];
