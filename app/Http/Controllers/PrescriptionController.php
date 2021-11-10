@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pms\Patient;
 use App\Models\Prescription;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class PrescriptionController extends Controller
      */
     public function index()
     {
-        //
+        $patientData = Patient::all();
+        return response()->json($patientData);
     }
 
     /**
