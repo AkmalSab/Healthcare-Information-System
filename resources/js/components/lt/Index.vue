@@ -23,7 +23,7 @@
                         </p>                
                     </div>
                     <div class="m-4">   
-                        <router-link :to="{name: 'PmsPatientMasterIndex'}" class="btn btn-primary w-100">Visit</router-link>
+                        <router-link :to="{name: 'ltRole'}" class="btn btn-primary w-100">Visit</router-link>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                         </p>
                     </div>
                     <div class="m-4">
-                        <button type="button" class="btn btn-primary w-100">Visit</button>
+                        <router-link :to="{name: 'ltInsurance'}" class="btn btn-primary w-100">Visit</router-link>
                     </div>
                 </div>
             </div>  
@@ -49,7 +49,20 @@
                         </p>
                     </div>
                     <div class="m-4">
-                        <button type="button" class="btn btn-primary w-100">Visit</button>
+                        <router-link :to="{name: 'ltMedicine'}" class="btn btn-primary w-100">Visit</router-link>
+                    </div>
+                </div>
+            </div> 
+            <div class="col mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Staff</h5>
+                        <p class="card-text">
+
+                        </p>
+                    </div>
+                    <div class="m-4">
+                        <router-link :to="{name: 'ltStaff'}" class="btn btn-primary w-100">Visit</router-link>
                     </div>
                 </div>
             </div>          

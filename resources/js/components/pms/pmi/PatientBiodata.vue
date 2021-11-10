@@ -4,9 +4,9 @@
         <blockquote class="blockquote">
             <p>List of registered patient.</p>
         </blockquote>
-        <table class="table table-bordered">
+        <table class="table" id="patientBiodateTable">
             <thead>
-                <tr class="table-dark">
+                <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
                     <th scope="col">NRIC</th>
@@ -40,33 +40,42 @@
 </template>
 
 <script>
-    export default {
-        components:{
+import "datatables.net-dt/js/dataTables.dataTables";
+import "datatables.net-dt/css/jquery.dataTables.min.css";
+import $ from "jquery";
 
-        },
-        data() {
-            return {
-                patients: [],
-            }
-        },
-        watch: {
+export default {
+    components:{
 
-        },
-        created() {
-            this.getPatient();
-        },
-        methods: {
-            getPatient() {
-                axios.get("/api/patient")
-                .then(res => {
-                    this.patients = res.data.data;
-                })
-                .catch(error => {
-                    console.log(error);
-                })
-            },
+    },
+    data() {
+        return {
+            patients: [],
         }
+    },
+    watch: {
+
+    },
+    created() {
+        this.getPatient();
+    },
+    methods: {
+        getPatient() {
+            axios.get("/api/patient")
+            .then(res => {
+                this.patients = res.data.data;
+                $(document).ready( function () {
+                    $('#patientBiodateTable').DataTable({
+                        data: this.patients
+                    });
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        },
     }
+}
 </script>
 
 <style>

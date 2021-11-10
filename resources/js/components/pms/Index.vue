@@ -35,7 +35,9 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Patient Billing</h5>
-                        <p class="card-text"></p>
+                        <p class="card-text">
+                            i. Patient Billing <br>
+                        </p>
                     </div>
                     <div class="m-4">
                         <button type="button" class="btn btn-primary w-100">Visit</button>

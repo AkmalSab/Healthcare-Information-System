@@ -43,10 +43,10 @@
 
         },
         created() {
-            this.getPatientInsurances();
+            this.getTypeofCase();
         },
         methods: {
-            getPatientInsurances() {
+            getTypeofCase() {
                 axios.get("/api/case")
                 .then(res => {
                     this.cases = res.data.data;
