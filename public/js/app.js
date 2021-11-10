@@ -7120,14 +7120,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   data: function data() {
@@ -7331,6 +7323,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -103871,15 +103901,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Email address")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", placeholder: "name@example.com" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
         _c("label", { staticClass: "form-label" }, [_vm._v("Select Patient")]),
         _vm._v(" "),
         _c(
@@ -104359,6 +104380,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "btn btn-primary w-100",
+                    staticStyle: { color: "white" },
                     attrs: { to: { name: "pmsPatientAppointmentInformation" } }
                   },
                   [_vm._v("Visit")]
@@ -104444,11 +104466,28 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-body" }, [
-      _c("h5", { staticClass: "card-title" }, [_vm._v("Patient appointment")]),
+      _c("h5", { staticClass: "card-title" }, [_vm._v("Patient Appointment")]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
+        _vm._v("\n                        To switch directories, type "),
+        _c("kbd", [_vm._v("cd")]),
         _vm._v(
-          "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+          " followed\n                        by the name of the directory."
+        ),
+        _c("br"),
+        _vm._v(
+          "\n                        To edit settings, press\n                        "
+        ),
+        _c("kbd", [
+          _c("kbd", [_vm._v("ctrl")]),
+          _vm._v(" + "),
+          _c("kbd", [_vm._v(",")])
+        ]),
+        _vm._v(" "),
+        _c("br"),
+        _c("br"),
+        _vm._v(
+          "\n                        Last Edited by Ismat - 10/11/2021 🔒\n                    "
         )
       ])
     ])
@@ -104462,7 +104501,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
         _vm._v(
-          "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+          "\n                        This is a longer card with supporting text below as\n                        a natural lead-in to additional content. This\n                        content is a little bit longer.\n                    "
         )
       ])
     ])
@@ -104478,7 +104517,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
         _vm._v(
-          "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+          "\n                        This is a longer card with supporting text below as\n                        a natural lead-in to additional content. This\n                        content is a little bit longer.\n                    "
         )
       ])
     ])
@@ -104494,7 +104533,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
         _vm._v(
-          "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+          "\n                        This is a longer card with supporting text below as\n                        a natural lead-in to additional content. This\n                        content is a little bit longer.\n                    "
         )
       ])
     ])

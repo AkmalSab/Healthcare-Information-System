@@ -8,14 +8,6 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <label class="form-label">Email address</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="name@example.com"
-                        />
-                    </div>
-                    <div class="col">
                         <label class="form-label">Select Patient</label>
                         <select
                             class="form-select"
