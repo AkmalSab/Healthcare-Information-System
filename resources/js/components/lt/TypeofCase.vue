@@ -1,6 +1,7 @@
 <template>
     <div class="table-responsive container">
         <h1 class="">Type of Case Lookup</h1>
+        
         <blockquote class="blockquote">
             <p>List of type of case.</p>
         </blockquote>
