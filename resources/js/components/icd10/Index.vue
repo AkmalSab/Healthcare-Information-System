@@ -10,6 +10,9 @@
             Someone famous in <cite title="Source Title">Source Title</cite>
         </figcaption>
         <div class="card mt-3">
+            <div class="card-header">
+                <strong>ICD Blocks</strong>
+            </div>
             <div class="card-body">
                 <table class="table" id="icdblocksTable">
                     <thead>
@@ -32,6 +35,9 @@
             </div>
         </div>
         <div class="card mt-3">
+            <div class="card-header">
+                <strong>ICD Chapters</strong>
+            </div>
             <div class="card-body">
                 <table class="table" id="icdchaptersTable">
                     <thead>
@@ -50,6 +56,9 @@
             </div>
         </div>
         <div class="card mt-3">
+            <div class="card-header">
+                <strong>ICD Codes</strong>
+            </div>
             <div class="card-body">
                 <table class="table" id="icdcodesTable">
                     <thead>
@@ -76,6 +85,9 @@
             </div>
         </div>
         <div class="card mt-3">
+            <div class="card-header">
+                <strong>ICD Raw</strong>
+            </div>
             <div class="card-body">
                 <table class="table" id="icdrawTable">
                     <thead>
@@ -118,6 +130,9 @@
             </div>
         </div>
         <div class="card mt-3">
+            <div class="card-header">
+                <strong>ICD Report</strong>
+            </div>
             <div class="card-body">
                 <table class="table" id="icdreportTable">
                     <thead>
@@ -154,6 +169,9 @@
             </div>
         </div>
         <div class="card mt-3">
+            <div class="card-header">
+                <strong>ICD Map</strong>
+            </div>
             <div class="card-body">
                 <table class="table" id="icdmapTable">
                     <thead>

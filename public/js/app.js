@@ -6051,6 +6051,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -102337,9 +102355,11 @@ var render = function() {
     _vm._m(1),
     _vm._v(" "),
     _c("div", { staticClass: "card mt-3" }, [
+      _vm._m(2),
+      _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _c("table", { staticClass: "table", attrs: { id: "icdblocksTable" } }, [
-          _vm._m(2),
+          _vm._m(3),
           _vm._v(" "),
           _c(
             "tbody",
@@ -102363,12 +102383,14 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "card mt-3" }, [
+      _vm._m(4),
+      _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _c(
           "table",
           { staticClass: "table", attrs: { id: "icdchaptersTable" } },
           [
-            _vm._m(3),
+            _vm._m(5),
             _vm._v(" "),
             _c(
               "tbody",
@@ -102389,9 +102411,11 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "card mt-3" }, [
+      _vm._m(6),
+      _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _c("table", { staticClass: "table", attrs: { id: "icdcodesTable" } }, [
-          _vm._m(4),
+          _vm._m(7),
           _vm._v(" "),
           _c(
             "tbody",
@@ -102419,9 +102443,11 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "card mt-3" }, [
+      _vm._m(8),
+      _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _c("table", { staticClass: "table", attrs: { id: "icdrawTable" } }, [
-          _vm._m(5),
+          _vm._m(9),
           _vm._v(" "),
           _c(
             "tbody",
@@ -102463,9 +102489,11 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "card mt-3" }, [
+      _vm._m(10),
+      _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _c("table", { staticClass: "table", attrs: { id: "icdreportTable" } }, [
-          _vm._m(6),
+          _vm._m(11),
           _vm._v(" "),
           _c(
             "tbody",
@@ -102503,9 +102531,11 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "card mt-3" }, [
+      _vm._m(12),
+      _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _c("table", { staticClass: "table", attrs: { id: "icdmapTable" } }, [
-          _vm._m(7),
+          _vm._m(13),
           _vm._v(" "),
           _c(
             "tbody",
@@ -102551,6 +102581,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("strong", [_vm._v("ICD Blocks")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
@@ -102567,12 +102605,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("strong", [_vm._v("ICD Chapters")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("First")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("strong", [_vm._v("ICD Codes")])
     ])
   },
   function() {
@@ -102593,6 +102647,14 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Class")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("strong", [_vm._v("ICD Raw")])
     ])
   },
   function() {
@@ -102635,6 +102697,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("strong", [_vm._v("ICD Report")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
@@ -102659,6 +102729,14 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("No.")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("strong", [_vm._v("ICD Map")])
     ])
   },
   function() {
