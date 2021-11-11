@@ -6069,6 +6069,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -102348,210 +102379,314 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h1", [_vm._v("ICD-10 CODE SEARCHING SITE")]),
+    _c("h1", [_vm._v("ICD-10 CODE")]),
     _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
     _vm._m(1),
     _vm._v(" "),
-    _c("div", { staticClass: "card mt-3" }, [
-      _vm._m(2),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("table", { staticClass: "table", attrs: { id: "icdblocksTable" } }, [
-          _vm._m(3),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.icdBlocks, function(blocks) {
-              return _c("tr", { key: blocks.id }, [
-                _c("th", { attrs: { scope: "row" } }, [
-                  _vm._v(_vm._s(blocks.Id))
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(blocks.id2))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(blocks.idc))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(blocks.name))])
-              ])
-            }),
-            0
-          )
-        ])
-      ])
-    ]),
+    _vm._m(2),
     _vm._v(" "),
-    _c("div", { staticClass: "card mt-3" }, [
-      _vm._m(4),
+    _c("div", { staticClass: "tab-content", attrs: { id: "nav-tabContent" } }, [
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade show active",
+          attrs: {
+            id: "icd-blocks",
+            role: "tabpanel",
+            "aria-labelledby": "nav-blocks-tab"
+          }
+        },
+        [
+          _c("div", { staticClass: "card mt-3" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "table",
+                { staticClass: "table", attrs: { id: "icdblocksTable" } },
+                [
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.icdBlocks, function(blocks) {
+                      return _c("tr", { key: blocks.id }, [
+                        _c("th", { attrs: { scope: "row" } }, [
+                          _vm._v(_vm._s(blocks.Id))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(blocks.id2))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(blocks.idc))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(blocks.name))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ])
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c(
-          "table",
-          { staticClass: "table", attrs: { id: "icdchaptersTable" } },
-          [
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "icd-chapters",
+            role: "tabpanel",
+            "aria-labelledby": "nav-chapters-tab"
+          }
+        },
+        [
+          _c("div", { staticClass: "card mt-3" }, [
             _vm._m(5),
             _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.icdChapters, function(chapters) {
-                return _c("tr", { key: chapters.id }, [
-                  _c("th", { attrs: { scope: "row" } }, [
-                    _vm._v(_vm._s(chapters.Id))
-                  ]),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "table",
+                { staticClass: "table", attrs: { id: "icdchaptersTable" } },
+                [
+                  _vm._m(6),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(chapters.name))])
-                ])
-              }),
-              0
-            )
-          ]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "card mt-3" }, [
-      _vm._m(6),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.icdChapters, function(chapters) {
+                      return _c("tr", { key: chapters.id }, [
+                        _c("th", { attrs: { scope: "row" } }, [
+                          _vm._v(_vm._s(chapters.Id))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(chapters.name))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ])
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("table", { staticClass: "table", attrs: { id: "icdcodesTable" } }, [
-          _vm._m(7),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.icdCodes, function(codes) {
-              return _c("tr", { key: codes.id }, [
-                _c("th", { attrs: { scope: "row" } }, [
-                  _vm._v(_vm._s(codes.icd10_code))
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(codes.icd10_chapter))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(codes.icd10_block))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(codes.icd10_desc))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(codes.icd10_digit))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(codes.icd10_class))])
-              ])
-            }),
-            0
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "card mt-3" }, [
-      _vm._m(8),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "icd-codes",
+            role: "tabpanel",
+            "aria-labelledby": "nav-codes-tab"
+          }
+        },
+        [
+          _c("div", { staticClass: "card mt-3" }, [
+            _vm._m(7),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "table",
+                { staticClass: "table", attrs: { id: "icdcodesTable" } },
+                [
+                  _vm._m(8),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.icdCodes, function(codes) {
+                      return _c("tr", { key: codes.id }, [
+                        _c("th", { attrs: { scope: "row" } }, [
+                          _vm._v(_vm._s(codes.icd10_code))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(codes.icd10_chapter))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(codes.icd10_block))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(codes.icd10_desc))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(codes.icd10_digit))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(codes.icd10_class))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ])
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("table", { staticClass: "table", attrs: { id: "icdrawTable" } }, [
-          _vm._m(9),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.icdRaw, function(raw) {
-              return _c("tr", { key: raw.id }, [
-                _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(raw.Id))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.id2))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.id3))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.idc))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.idb))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.id7))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.id8))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.id9))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.mort1))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.mort2))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.mort3))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.mort4))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(raw.mort5))])
-              ])
-            }),
-            0
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "card mt-3" }, [
-      _vm._m(10),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "icd-raw",
+            role: "tabpanel",
+            "aria-labelledby": "nav-raw-tab"
+          }
+        },
+        [
+          _c("div", { staticClass: "card mt-3" }, [
+            _vm._m(9),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "table",
+                { staticClass: "table", attrs: { id: "icdrawTable" } },
+                [
+                  _vm._m(10),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.icdRaw, function(raw) {
+                      return _c("tr", { key: raw.id }, [
+                        _c("th", { attrs: { scope: "row" } }, [
+                          _vm._v(_vm._s(raw.Id))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.id2))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.id3))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.idc))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.idb))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.id7))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.id8))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.id9))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.mort1))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.mort2))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.mort3))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.mort4))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(raw.mort5))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ])
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("table", { staticClass: "table", attrs: { id: "icdreportTable" } }, [
-          _vm._m(11),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.icdReport, function(report) {
-              return _c("tr", { key: report.id }, [
-                _c("th", { attrs: { scope: "row" } }, [
-                  _vm._v(_vm._s(report.report_id))
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(report.report_year))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(report.report_month))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(report.report_day))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(report.report_chapter))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(report.report_chapterdesc))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(report.report_block))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(report.report_blockdesc))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(report.report_code))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(report.report_codedesc))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(report.report_num))])
-              ])
-            }),
-            0
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "card mt-3" }, [
-      _vm._m(12),
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "icd-report",
+            role: "tabpanel",
+            "aria-labelledby": "nav-report-tab"
+          }
+        },
+        [
+          _c("div", { staticClass: "card mt-3" }, [
+            _vm._m(11),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "table",
+                { staticClass: "table", attrs: { id: "icdreportTable" } },
+                [
+                  _vm._m(12),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.icdReport, function(report) {
+                      return _c("tr", { key: report.id }, [
+                        _c("th", { attrs: { scope: "row" } }, [
+                          _vm._v(_vm._s(report.report_id))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(report.report_year))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(report.report_month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(report.report_day))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(report.report_chapter))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(report.report_chapterdesc))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(report.report_block))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(report.report_blockdesc))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(report.report_code))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(report.report_codedesc))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(report.report_num))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ])
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("table", { staticClass: "table", attrs: { id: "icdmapTable" } }, [
-          _vm._m(13),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.icdMap, function(map) {
-              return _c("tr", { key: map.id }, [
-                _c("th", { attrs: { scope: "row" } }, [
-                  _vm._v(_vm._s(map.idr))
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(map.idc))])
-              ])
-            }),
-            0
-          )
-        ])
-      ])
+      _c(
+        "div",
+        {
+          staticClass: "tab-pane fade",
+          attrs: {
+            id: "icd-map",
+            role: "tabpanel",
+            "aria-labelledby": "nav-map-tab"
+          }
+        },
+        [
+          _c("div", { staticClass: "card mt-3" }, [
+            _vm._m(13),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "table",
+                { staticClass: "table", attrs: { id: "icdmapTable" } },
+                [
+                  _vm._m(14),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.icdMap, function(map) {
+                      return _c("tr", { key: map.id }, [
+                        _c("th", { attrs: { scope: "row" } }, [
+                          _vm._v(_vm._s(map.idr))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(map.idc))])
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ])
+        ]
+      )
     ])
   ])
 }
@@ -102563,7 +102698,7 @@ var staticRenderFns = [
     return _c("blockquote", { staticClass: "blockquote" }, [
       _c("p", [
         _vm._v(
-          "\n            This is where we can search for ICD-10 code 🚨\n        "
+          "\n            Standard transaction code set for diagnostic purposes\n        "
         )
       ])
     ])
@@ -102573,8 +102708,127 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("figcaption", { staticClass: "blockquote-footer" }, [
-      _vm._v("\n        Someone famous in "),
-      _c("cite", { attrs: { title: "Source Title" } }, [_vm._v("Source Title")])
+      _vm._v(
+        "\n        International Statistical Classification of Diseases and Related Health Problems "
+      ),
+      _c("cite", { attrs: { title: "Source Title" } }, [_vm._v("(ICD)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("nav", [
+      _c(
+        "div",
+        {
+          staticClass: "nav nav-tabs",
+          attrs: { id: "nav-tab", role: "tablist" }
+        },
+        [
+          _c(
+            "button",
+            {
+              staticClass: "nav-link active",
+              attrs: {
+                id: "nav-blocks-tab",
+                "data-bs-toggle": "tab",
+                "data-bs-target": "#icd-blocks",
+                type: "button",
+                role: "tab",
+                "aria-controls": "nav-blocks",
+                "aria-selected": "true"
+              }
+            },
+            [_vm._v("ICD Blocks")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "nav-chapters-tab",
+                "data-bs-toggle": "tab",
+                "data-bs-target": "#icd-chapters",
+                type: "button",
+                role: "tab",
+                "aria-controls": "nav-chapters",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("ICD Chapters")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "nav-codes-tab",
+                "data-bs-toggle": "tab",
+                "data-bs-target": "#icd-codes",
+                type: "button",
+                role: "tab",
+                "aria-controls": "nav-codes",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("ICD Codes")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "nav-raw-tab",
+                "data-bs-toggle": "tab",
+                "data-bs-target": "#icd-raw",
+                type: "button",
+                role: "tab",
+                "aria-controls": "nav-raw",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("ICD Raw")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "nav-report-tab",
+                "data-bs-toggle": "tab",
+                "data-bs-target": "#icd-report",
+                type: "button",
+                role: "tab",
+                "aria-controls": "nav-report",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("ICD Report")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "nav-map-tab",
+                "data-bs-toggle": "tab",
+                "data-bs-target": "#icd-map",
+                type: "button",
+                role: "tab",
+                "aria-controls": "nav-map",
+                "aria-selected": "false"
+              }
+            },
+            [_vm._v("ICD Map")]
+          )
+        ]
+      )
     ])
   },
   function() {
@@ -123771,7 +124025,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\xampp\\\\htdocs\\\\Healthcare-Information-System"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\xampp\\\\htdocs\\\\Healthcare-Information-System","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\Healthcare-Information-System-ismat-branch"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\Healthcare-Information-System-ismat-branch","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
