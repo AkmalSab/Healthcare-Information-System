@@ -9,6 +9,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CaseController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\ICDCustomController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PrescriptionController;
 use Illuminate\Http\Request;
@@ -31,6 +32,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/patient/patient-info', [PatientCustomController::class, 'getPatientName']);
 Route::get('/patient/patient-info/{patientID}', [PatientCustomController::class, 'getPatientData']);
+
+Route::get('/icd10/blocks', [ICDCustomController::class, 'getICDBlocks']);
+Route::get('/icd10/chapters', [ICDCustomController::class, 'getICDChapters']);
+Route::get('/icd10/codes', [ICDCustomController::class, 'getICDCodes']);
+Route::get('/icd10/map', [ICDCustomController::class, 'getICDMap']);
+Route::get('/icd10/raw', [ICDCustomController::class, 'getICDRaw']);
+Route::get('/icd10/report', [ICDCustomController::class, 'getICDReport']);
 
 Route::apiResource('patient', PatientController::class);
 Route::apiResource('family', FamilyController::class);

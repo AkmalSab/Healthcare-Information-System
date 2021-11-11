@@ -22,6 +22,8 @@ import ltInsurance from './components/lt/Insurance';
 import ltMedicine from './components/lt/Medicine';
 import ltStaff from './components/lt/Staff';
 
+import icd10Index from './components/icd10/Index';
+
 export const routes = [
     {
         path: '/pms',
@@ -128,5 +130,9 @@ export const routes = [
         name: 'ltStaff',
         component: ltStaff
     },
-    
+    {
+        path: '/icd10',
+        name: 'icd10Index',
+        component: icd10Index
+    }
 ];

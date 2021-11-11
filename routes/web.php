@@ -39,3 +39,7 @@ Route::get('{pis}', function(){
 Route::get('{lt}', function(){
     return view('lt.index');
 })->where('lt', '.*')->middleware('auth')->name('lt');
+
+Route::get('{icd10}', function(){
+    return view('icd10.index');
+})->where('icd10', '.*')->middleware('auth')->name('icd10');
