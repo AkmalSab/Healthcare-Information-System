@@ -104077,7 +104077,7 @@ var render = function() {
                       name: "test",
                       "label-idle":
                         "Drop files here...please make sure it's a photo 😊",
-                      "allow-multiple": true,
+                      "allow-multiple": false,
                       "accepted-file-types": "image/jpeg, image/png",
                       server: "/api/medicine",
                       files: _vm.myFiles
