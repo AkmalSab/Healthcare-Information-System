@@ -7589,6 +7589,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var datatables_net_dt_js_dataTables_dataTables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! datatables.net-dt/js/dataTables.dataTables */ "./node_modules/datatables.net-dt/js/dataTables.dataTables.js");
+/* harmony import */ var datatables_net_dt_js_dataTables_dataTables__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(datatables_net_dt_js_dataTables_dataTables__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var datatables_net_dt_css_jquery_dataTables_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! datatables.net-dt/css/jquery.dataTables.min.css */ "./node_modules/datatables.net-dt/css/jquery.dataTables.min.css");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -7705,27 +7710,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   data: function data() {
@@ -7743,6 +7730,15 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/appointment").then(function (res) {
         _this.appointments = res.data.data;
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()(document).ready(function () {
+          jquery__WEBPACK_IMPORTED_MODULE_2___default()('#appointmentInformationTable').DataTable({
+            data: this.appointments // columnDefs: [{
+            //     'targets': [8,9,10], /* column index */
+            //     'orderable': false, /* true or false */
+            // }]
+
+          });
+        });
       })["catch"](function (error) {
         console.log(error);
       });
@@ -7763,6 +7759,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var datatables_net_dt_js_dataTables_dataTables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! datatables.net-dt/js/dataTables.dataTables */ "./node_modules/datatables.net-dt/js/dataTables.dataTables.js");
+/* harmony import */ var datatables_net_dt_js_dataTables_dataTables__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(datatables_net_dt_js_dataTables_dataTables__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var datatables_net_dt_css_jquery_dataTables_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! datatables.net-dt/css/jquery.dataTables.min.css */ "./node_modules/datatables.net-dt/css/jquery.dataTables.min.css");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -7794,13 +7795,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   data: function data() {
@@ -7818,6 +7815,11 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/insurance").then(function (res) {
         _this.insurances = res.data.data;
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()(document).ready(function () {
+          jquery__WEBPACK_IMPORTED_MODULE_2___default()('#insuranceInformationTable').DataTable({
+            data: this.insurances
+          });
+        });
       })["catch"](function (error) {
         console.log(error);
       });
@@ -7906,7 +7908,15 @@ __webpack_require__.r(__webpack_exports__);
         _this.patients = res.data.data;
         jquery__WEBPACK_IMPORTED_MODULE_2___default()(document).ready(function () {
           jquery__WEBPACK_IMPORTED_MODULE_2___default()('#patientBiodateTable').DataTable({
-            data: this.patients
+            data: this.patients,
+            columnDefs: [{
+              'targets': [8, 9, 10],
+
+              /* column index */
+              'orderable': false
+              /* true or false */
+
+            }]
           });
         });
       })["catch"](function (error) {
@@ -8035,6 +8045,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var datatables_net_dt_js_dataTables_dataTables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! datatables.net-dt/js/dataTables.dataTables */ "./node_modules/datatables.net-dt/js/dataTables.dataTables.js");
+/* harmony import */ var datatables_net_dt_js_dataTables_dataTables__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(datatables_net_dt_js_dataTables_dataTables__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var datatables_net_dt_css_jquery_dataTables_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! datatables.net-dt/css/jquery.dataTables.min.css */ "./node_modules/datatables.net-dt/css/jquery.dataTables.min.css");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -8068,13 +8083,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   data: function data() {
@@ -8092,6 +8103,19 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/family").then(function (res) {
         _this.families = res.data.data;
+        jquery__WEBPACK_IMPORTED_MODULE_2___default()(document).ready(function () {
+          jquery__WEBPACK_IMPORTED_MODULE_2___default()('#familyInformationTable').DataTable({
+            data: this.families,
+            columnDefs: [{
+              'targets': [3, 4, 5, 6],
+
+              /* column index */
+              'orderable': false
+              /* true or false */
+
+            }]
+          });
+        });
       })["catch"](function (error) {
         console.log(error);
       });
@@ -105475,7 +105499,7 @@ var render = function() {
                       name: "test",
                       "label-idle":
                         "Drop files here...please make sure it's a photo 😊",
-                      "allow-multiple": false,
+                      "allow-multiple": true,
                       "accepted-file-types": "image/jpeg, image/png",
                       server: "/api/medicine",
                       files: _vm.myFiles
@@ -106287,73 +106311,37 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("table", { staticClass: "table table-bordered" }, [
-      _vm._m(5),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.appointments, function(appointment) {
-          return _c("tr", { key: appointment.id }, [
-            _c("th", { attrs: { scope: "row" } }, [
-              _vm._v(_vm._s(appointment.id))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(appointment.patient_id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(appointment.staff_id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(appointment.case_id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(appointment.description))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(appointment.date))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(appointment.time))]),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-secondary text-white",
-                    attrs: {
-                      to: {
-                        name: "pmsPatientRegisterNextofKin",
-                        params: { id: appointment.id }
-                      }
-                    }
-                  },
-                  [_vm._v("Edit")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-danger text-white",
-                    attrs: {
-                      to: {
-                        name: "PmsPatientMasterIndex",
-                        params: { id: appointment.id }
-                      }
-                    }
-                  },
-                  [_vm._v("Delete")]
-                )
-              ],
-              1
-            )
-          ])
-        }),
-        0
-      )
-    ])
+    _c(
+      "table",
+      { staticClass: "table", attrs: { id: "appointmentInformationTable" } },
+      [
+        _vm._m(5),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.appointments, function(appointment) {
+            return _c("tr", { key: appointment.id }, [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(appointment.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(appointment.patient_id))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(appointment.staff_id))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(appointment.case_id))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(appointment.description))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(appointment.date))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(appointment.time))])
+            ])
+          }),
+          0
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -106498,7 +106486,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("tr", { staticClass: "table-dark" }, [
+      _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Patient ID")]),
@@ -106511,9 +106499,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Date")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Time")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col", colspan: "2" } }, [_vm._v("Action")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Time")])
       ])
     ])
   }
@@ -106545,71 +106531,35 @@ var render = function() {
     _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
-    _c("table", { staticClass: "table table-bordered" }, [
-      _vm._m(1),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.insurances, function(insurance) {
-          return _c("tr", { key: insurance.id }, [
-            _c("th", { attrs: { scope: "row" } }, [
-              _vm._v(_vm._s(insurance.id))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(insurance.patient_id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(insurance.name))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(insurance.medical_card_no))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(insurance.type))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(insurance.expiry_date))]),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-secondary text-white",
-                    attrs: {
-                      to: {
-                        name: "pmsPatientRegisterNextofKin",
-                        params: { id: insurance.id }
-                      }
-                    }
-                  },
-                  [_vm._v("Edit")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-danger text-white",
-                    attrs: {
-                      to: {
-                        name: "PmsPatientMasterIndex",
-                        params: { id: insurance.id }
-                      }
-                    }
-                  },
-                  [_vm._v("Delete")]
-                )
-              ],
-              1
-            )
-          ])
-        }),
-        0
-      )
-    ])
+    _c(
+      "table",
+      { staticClass: "table", attrs: { id: "insuranceInformationTable" } },
+      [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.insurances, function(insurance) {
+            return _c("tr", { key: insurance.id }, [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(insurance.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(insurance.patient_id))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(insurance.name))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(insurance.medical_card_no))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(insurance.type))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(insurance.expiry_date))])
+            ])
+          }),
+          0
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -106626,7 +106576,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("tr", { staticClass: "table-dark" }, [
+      _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Patiend Id")]),
@@ -106637,9 +106587,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Type")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Expiry Date")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col", colspan: "2" } }, [_vm._v("Action")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Expiry Date")])
       ])
     ])
   }
@@ -107036,71 +106984,37 @@ var render = function() {
     _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
-    _c("table", { staticClass: "table table-bordered" }, [
-      _vm._m(1),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.families, function(family) {
-          return _c("tr", { key: family.id }, [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(family.id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(family.name))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(family.patient_id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(family.nric))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(family.phone))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(family.relationship))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(family.country))]),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-secondary text-white",
-                    attrs: {
-                      to: {
-                        name: "pmsPatientRegisterNextofKin",
-                        params: { id: family.id }
-                      }
-                    }
-                  },
-                  [_vm._v("Edit")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-danger text-white",
-                    attrs: {
-                      to: {
-                        name: "PmsPatientMasterIndex",
-                        params: { id: family.id }
-                      }
-                    }
-                  },
-                  [_vm._v("Delete")]
-                )
-              ],
-              1
-            )
-          ])
-        }),
-        0
-      )
-    ])
+    _c(
+      "table",
+      { staticClass: "table", attrs: { id: "familyInformationTable" } },
+      [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.families, function(family) {
+            return _c("tr", { key: family.id }, [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(family.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(family.name))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(family.patient_id))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(family.nric))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(family.phone))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(family.relationship))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(family.country))])
+            ])
+          }),
+          0
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -107117,7 +107031,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("tr", { staticClass: "table-dark" }, [
+      _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
@@ -107130,9 +107044,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Relationship")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Country")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col", colspan: "2" } }, [_vm._v("Action")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Country")])
       ])
     ])
   }
