@@ -6529,16 +6529,235 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   data: function data() {
     return {
-      staffs: []
+      showMessage: false,
+      message: '',
+      staffs: [],
+      role: [],
+      form: {
+        staffName: '',
+        staffRole: '',
+        staffIC: '',
+        staffPhone: '',
+        staffMaritial: '',
+        staffOccupation: '',
+        staffDOB: '',
+        staffGender: '',
+        staffReligion: '',
+        staffCountry: '',
+        staffRace: '',
+        staffAddress1: '',
+        staffAddress2: '',
+        staffState: '',
+        staffPostcode: '',
+        staffCity: ''
+      }
     };
   },
   watch: {},
   created: function created() {
     this.getStaff();
+    this.getRoles();
   },
   methods: {
     getStaff: function getStaff() {
@@ -6548,6 +6767,49 @@ __webpack_require__.r(__webpack_exports__);
         _this.staffs = res.data.data;
       })["catch"](function (error) {
         console.log(error);
+      });
+    },
+    getRoles: function getRoles() {
+      var _this2 = this;
+
+      axios.get('/api/role').then(function (res) {
+        _this2.role = res.data.data;
+      })["catch"](function (error) {
+        console.log(console.error());
+      });
+    },
+    storeStaff: function storeStaff() {
+      var _this3 = this;
+
+      axios.post("/api/staff", {
+        'name': this.form.staffName,
+        'role': this.form.staffRole,
+        'nric': this.form.staffIC,
+        'phone': this.form.staffPhone,
+        'marital_status': this.form.staffMaritial,
+        'occupation': this.form.staffOccupation,
+        'birthdate': this.form.staffDOB,
+        'gender': this.form.staffGender,
+        'religion': this.form.staffReligion,
+        'country': this.form.staffCountry,
+        'race': this.form.staffRace,
+        'address_1': this.form.staffAddress1,
+        'address_2': this.form.staffAddress2,
+        'state': this.form.staffState,
+        'postcode': this.form.staffPostcode,
+        'city': this.form.staffCity
+      }).then(function (res) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Registered',
+          text: 'Patient successfully registered!'
+        }).then(function (res) {
+          if (res.isConfirmed) {
+            _this3.getStaff();
+          }
+        });
+      })["catch"](function (error) {
+        console.log(console.error);
       });
     }
   }
@@ -103342,15 +103604,1116 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "table-responsive container" }, [
-    _c("h1", {}, [_vm._v("Staff Lookup")]),
+    _c("h1", [_vm._v("Staff")]),
     _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm.showMessage
+      ? _c("div", { staticClass: "alert alert-success" }, [
+          _vm._v("\n        " + _vm._s(_vm.message) + "\n    ")
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.storeStaff.apply(null, arguments)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "staffName" } },
+                    [_vm._v("Name")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.staffName,
+                        expression: "form.staffName"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    staticStyle: { "text-transform": "uppercase" },
+                    attrs: {
+                      type: "text",
+                      oninput: "this.value = this.value.toUpperCase()",
+                      id: "staffName",
+                      "aria-describedby": "staffNameHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.staffName },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "staffName", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffNameHelp" }
+                    },
+                    [_vm._v("Please input staff name.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "staffIC" } },
+                    [_vm._v("NRIC")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.staffIC,
+                        expression: "form.staffIC"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "staffIC",
+                      "aria-describedby": "staffICHelp",
+                      maxlength: "12",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.staffIC },
+                    on: {
+                      keypress: function($event) {
+                        return _vm.isNumber($event)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "staffIC", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "staffICHelp" } },
+                    [_vm._v("Please input staff identification number.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mb-3" }, [
+              _c("div", { staticClass: "col" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "staffRole" } },
+                  [_vm._v("Role")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.staffRole,
+                        expression: "form.staffRole"
+                      }
+                    ],
+                    staticClass: "form-select",
+                    attrs: {
+                      id: "patMaritial",
+                      "aria-label": "staffRoleHelp",
+                      "aria-describedby": "staffRoleHelp",
+                      required: ""
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.form,
+                          "staffRole",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { selected: "" } }, [
+                      _vm._v("Open this select menu")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.role, function(roleName) {
+                      return _c(
+                        "option",
+                        { key: roleName.id, domProps: { value: roleName.id } },
+                        [_vm._v(_vm._s(roleName.name))]
+                      )
+                    })
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-text", attrs: { id: "staffRoleHelp" } },
+                  [_vm._v("Please input staff role.")]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "staffPhone" } },
+                    [_vm._v("Phone No.")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.staffPhone,
+                        expression: "form.staffPhone"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "phone",
+                      id: "staffPhone",
+                      "aria-describedby": "staffPhoneHelp",
+                      maxlength: "12",
+                      min: "10",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.staffPhone },
+                    on: {
+                      keypress: function($event) {
+                        return _vm.isNumber($event)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "staffPhone", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffPhoneHelp" }
+                    },
+                    [_vm._v("Please input staff phone number.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "staffMaritial" }
+                    },
+                    [_vm._v("Maritial Status")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.staffMaritial,
+                          expression: "form.staffMaritial"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "staffMaritial",
+                        "aria-label": "staffMaritialHelp",
+                        "aria-describedby": "staffMaritialHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "staffMaritial",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "" } }, [
+                        _vm._v("Open this select menu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Single" } }, [
+                        _vm._v("Single")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Married" } }, [
+                        _vm._v("Married")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Windowed" } }, [
+                        _vm._v("Widowed")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Divorced" } }, [
+                        _vm._v("Divorced")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffMaritialHelp" }
+                    },
+                    [_vm._v("Please input staff maritial status.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "staffOccupation" }
+                    },
+                    [_vm._v("Occupation")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.staffOccupation,
+                          expression: "form.staffOccupation"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "occupation",
+                        "aria-label": "staffOccupation",
+                        "aria-describedby": "staffOccupationHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "staffOccupation",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "" } }, [
+                        _vm._v("Open this select menu")
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(2)
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffOccupationHelp" }
+                    },
+                    [_vm._v("Please input staff occupation.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "staffDOB" } },
+                    [_vm._v("Date of Birth")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.staffDOB,
+                        expression: "form.staffDOB"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "date",
+                      id: "staffDOB",
+                      "aria-describedby": "staffDOBHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.staffDOB },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "staffDOB", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "staffDOBHelp" } },
+                    [_vm._v("Please input staff date of birth.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "staffGender" }
+                    },
+                    [_vm._v("Gender")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.staffGender,
+                          expression: "form.staffGender"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "staffGender",
+                        "aria-label": "staffGender",
+                        "aria-describedby": "staffGenderHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "staffGender",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "" } }, [
+                        _vm._v("Open this select menu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Male" } }, [
+                        _vm._v("Male")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Female" } }, [
+                        _vm._v("Female")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffGenderHelp" }
+                    },
+                    [_vm._v("Please input staff gender.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "staffReligion" }
+                    },
+                    [_vm._v("Religion")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.staffReligion,
+                          expression: "form.staffReligion"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "staffReligion",
+                        "aria-label": "staffReligion",
+                        "aria-describedby": "staffReligionHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "staffReligion",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "" } }, [
+                        _vm._v("Open this select menu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Muslim" } }, [
+                        _vm._v("Muslim")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Buddhist" } }, [
+                        _vm._v("Buddhist")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Christian" } }, [
+                        _vm._v("Christian")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Hindu" } }, [
+                        _vm._v("Hindu")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Chinese Religionist" } },
+                        [_vm._v("Chinese Religionist")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Others" } }, [
+                        _vm._v("Others")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffReligionHelp" }
+                    },
+                    [_vm._v("Please input staff religion.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "staffCountry" }
+                    },
+                    [_vm._v("Country")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.staffCountry,
+                          expression: "form.staffCountry"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "staffCountry",
+                        "aria-label": "staffCountry",
+                        "aria-describedby": "staffCountryHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "staffCountry",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "" } }, [
+                        _vm._v("Open this select menu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Malaysia" } }, [
+                        _vm._v("Malaysia")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffCountryHelp" }
+                    },
+                    [_vm._v("Please input staff nationality.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "staffRace" } },
+                    [_vm._v("Race")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.staffRace,
+                          expression: "form.staffRace"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "staffRace",
+                        "aria-label": "staffRace",
+                        "aria-describedby": "staffRaceHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "staffRace",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { selected: "" } }, [
+                        _vm._v("Open this select menu")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Malay" } }, [
+                        _vm._v("Malay")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Chinese" } }, [
+                        _vm._v("Chinese")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Indian" } }, [
+                        _vm._v("Indian")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Others" } }, [
+                        _vm._v("Others")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffRaceHelp" }
+                    },
+                    [_vm._v("Please input staff race.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "staffAddress1" }
+                    },
+                    [_vm._v("Address 1")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.staffAddress1,
+                        expression: "form.staffAddress1"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "staffAddress1",
+                      "aria-describedby": "staffAddress1Help",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.staffAddress1 },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "staffAddress1", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffAddress1Help" }
+                    },
+                    [_vm._v("Please input staff address line 1.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "staffAddress2" }
+                    },
+                    [_vm._v("Address 2")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.staffAddress2,
+                        expression: "form.staffAddress2"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "staffAddress2",
+                      "aria-describedby": "staffAddress2Help",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.staffAddress2 },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "staffAddress2", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffAddress2Help" }
+                    },
+                    [_vm._v("Please input staff address line 2.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "staffState" } },
+                    [_vm._v("State")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.staffState,
+                          expression: "form.staffState"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "staffState",
+                        "aria-label": "staffStateHelp",
+                        "aria-describedby": "staffStateHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "staffState",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "Johor" } }, [
+                        _vm._v("Johor")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kedah" } }, [
+                        _vm._v("Kedah")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kelantan" } }, [
+                        _vm._v("Kelantan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Kuala Lumpur" } }, [
+                        _vm._v("Kuala Lumpur")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Labuan" } }, [
+                        _vm._v("Labuan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Melaka" } }, [
+                        _vm._v("Melaka")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Negeri Sembilan" } }, [
+                        _vm._v("Negeri Sembilan")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Pahang" } }, [
+                        _vm._v("Pahang")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Penang" } }, [
+                        _vm._v("Penang")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Perak" } }, [
+                        _vm._v("Perak")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Perlis" } }, [
+                        _vm._v("Perlis")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Putrajaya" } }, [
+                        _vm._v("Putrajaya")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sabah" } }, [
+                        _vm._v("Sabah")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Sarawak" } }, [
+                        _vm._v("Sarawak")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Selangor" } }, [
+                        _vm._v("Selangor")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Terengganu" } }, [
+                        _vm._v("Terengganu")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffStateHelp" }
+                    },
+                    [_vm._v("Please input staff state address.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-label",
+                      attrs: { for: "staffPostcode" }
+                    },
+                    [_vm._v("Postcode")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.staffPostcode,
+                        expression: "form.staffPostcode"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "staffPostcode",
+                      "aria-describedby": "staffPostcodeHelp",
+                      maxlength: "6",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.staffPostcode },
+                    on: {
+                      keypress: function($event) {
+                        return _vm.isNumber($event)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "staffPostcode", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffPostcodeHelp" }
+                    },
+                    [_vm._v("Please input postcode address.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "staffCity" } },
+                    [_vm._v("City")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.staffCity,
+                        expression: "form.staffCity"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "staffCity",
+                      "aria-describedby": "staffCityHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.staffCity },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "staffCity", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "staffCityHelp" }
+                    },
+                    [_vm._v("Please input city address.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                staticStyle: { width: "100%", color: "white" },
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Submit")]
+            )
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
     _c(
       "table",
-      { staticClass: "table", attrs: { id: "patientBiodateTable" } },
+      {
+        staticClass: "table text-center mt-3",
+        attrs: { id: "staffBiodateTable" }
+      },
       [
-        _vm._m(1),
+        _vm._m(3),
         _vm._v(" "),
         _c(
           "tbody",
@@ -103370,7 +104733,9 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(staff.religion))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(staff.race))])
+              _c("td", [_vm._v(_vm._s(staff.race))]),
+              _vm._v(" "),
+              _vm._m(4, true)
             ])
           }),
           0
@@ -103385,7 +104750,26 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("blockquote", { staticClass: "blockquote" }, [
-      _c("p", [_vm._v("List of Staff.")])
+      _c("p", [_vm._v("\n            View and Register Staff 🚨\n        ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figcaption", { staticClass: "blockquote-footer" }, [
+      _vm._v("\n        Someone famous in "),
+      _c("cite", { attrs: { title: "Source Title" } }, [_vm._v("Source Title")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("optgroup", { attrs: { label: "Other Occupations:" } }, [
+      _c("option", { attrs: { value: "Doctor" } }, [_vm._v("Doctor")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "Nurse" } }, [_vm._v("Nurse")])
     ])
   },
   function() {
@@ -103394,7 +104778,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "table-dark" }, [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
         _vm._v(" "),
@@ -103408,8 +104792,22 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Religion")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Race")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Race")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c(
+        "button",
+        { staticClass: "btn btn-danger", staticStyle: { color: "white" } },
+        [_vm._v("Delete")]
+      )
     ])
   }
 ]

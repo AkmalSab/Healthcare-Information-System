@@ -38,7 +38,26 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Staff([
+            'name' => $request->get('name'),
+            'role_id' => $request->get('role'),
+            'nric' => $request->get('nric'),
+            'phone' => $request->get('phone'),
+            'marital_status' => $request->get('marital_status'),
+            'occupation' => $request->get('occupation'),
+            'birthdate' => $request->get('birthdate'),
+            'gender' => $request->get('gender'),
+            'religion' => $request->get('religion'),
+            'country' => $request->get('country'),
+            'race' => $request->get('race'),
+            'address_1' => $request->get('address_1'),
+            'address_2' => $request->get('address_2'),
+            'state' => $request->get('state'),
+            'postcode' => $request->get('postcode'),
+            'city' => $request->get('city'),
+        ]);
+        $data->save();
+        return response()->json($data);
     }
 
     /**
