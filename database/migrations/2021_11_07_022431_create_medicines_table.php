@@ -22,6 +22,8 @@ class CreateMedicinesTable extends Migration
             $table->string('type');
             $table->string('dose');
             $table->integer('stock');
+            $table->string('picture');
+            $table->integer('price_per_unit', 7, 2);
             $table->timestamps();
         });
     }
