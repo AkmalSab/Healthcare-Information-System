@@ -20,7 +20,7 @@ class CreateStaffsTable extends Migration
             $table->string('nric');
             $table->string('phone');
             $table->string('marital_status');
-            $table->integer('occupation');
+            $table->string('occupation');
             $table->date('birthdate');
             $table->string('gender');
             $table->string('religion');
