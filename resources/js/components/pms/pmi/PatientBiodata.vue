@@ -66,7 +66,11 @@ export default {
                 this.patients = res.data.data;
                 $(document).ready( function () {
                     $('#patientBiodateTable').DataTable({
-                        data: this.patients
+                        data: this.patients,                        
+                        columnDefs: [{
+                            'targets': [8,9,10], /* column index */
+                            'orderable': false, /* true or false */
+                        }]
                     });
                 });
             })
@@ -77,7 +81,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

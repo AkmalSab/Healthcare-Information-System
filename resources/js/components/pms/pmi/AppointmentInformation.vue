@@ -87,9 +87,9 @@
                 </div>
             </div>
         </div>
-        <table class="table table-bordered">
+        <table class="table" id="appointmentInformationTable">
             <thead>
-                <tr class="table-dark">
+                <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Patient ID</th>
                     <th scope="col">Staff ID</th>
@@ -97,7 +97,6 @@
                     <th scope="col">Description</th>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
-                    <th scope="col" colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -108,27 +107,7 @@
                     <td>{{ appointment.case_id }}</td>
                     <td>{{ appointment.description }}</td>
                     <td>{{ appointment.date }}</td>
-                    <td>{{ appointment.time }}</td>
-                    <td>
-                        <router-link
-                            :to="{
-                                name: 'pmsPatientRegisterNextofKin',
-                                params: { id: appointment.id }
-                            }"
-                            class="btn btn-secondary text-white"
-                            >Edit</router-link
-                        >
-                    </td>
-                    <td>
-                        <router-link
-                            :to="{
-                                name: 'PmsPatientMasterIndex',
-                                params: { id: appointment.id }
-                            }"
-                            class="btn btn-danger text-white"
-                            >Delete</router-link
-                        >
-                    </td>
+                    <td>{{ appointment.time }}</td>                   
                 </tr>
             </tbody>
         </table>
@@ -136,6 +115,10 @@
 </template>
 
 <script>
+import "datatables.net-dt/js/dataTables.dataTables";
+import "datatables.net-dt/css/jquery.dataTables.min.css";
+import $ from "jquery";
+
 export default {
     components: {},
     data() {
@@ -153,6 +136,15 @@ export default {
                 .get("/api/appointment")
                 .then(res => {
                     this.appointments = res.data.data;
+                    $(document).ready( function () {
+                        $('#appointmentInformationTable').DataTable({
+                            data: this.appointments,                        
+                            // columnDefs: [{
+                            //     'targets': [8,9,10], /* column index */
+                            //     'orderable': false, /* true or false */
+                            // }]
+                        });
+                    });
                 })
                 .catch(error => {
                     console.log(error);

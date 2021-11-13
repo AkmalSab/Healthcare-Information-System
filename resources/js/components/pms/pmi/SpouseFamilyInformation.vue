@@ -4,9 +4,9 @@
         <blockquote class="blockquote">
             <p>List of registered patient's next of kin.</p>
         </blockquote>
-        <table class="table table-bordered">
+        <table class="table" id="familyInformationTable">
             <thead>
-                <tr class="table-dark">
+                <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
                     <th scope="col">Patiend Id</th>
@@ -14,7 +14,6 @@
                     <th scope="col">Phone</th>
                     <th scope="col">Relationship</th>
                     <th scope="col">Country</th>
-                    <th scope="col" colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,12 +25,6 @@
                     <td>{{ family.phone }}</td>
                     <td>{{ family.relationship }}</td>
                     <td>{{ family.country }}</td>
-                    <td>
-                        <router-link :to="{name: 'pmsPatientRegisterNextofKin', params: {id: family.id}}" class="btn btn-secondary text-white">Edit</router-link>
-                    </td>   
-                    <td>
-                        <router-link :to="{name: 'PmsPatientMasterIndex', params: {id: family.id}}" class="btn btn-danger text-white">Delete</router-link>
-                    </td> 
                 </tr>                
             </tbody>
         </table>
@@ -39,6 +32,10 @@
 </template>
 
 <script>
+import "datatables.net-dt/js/dataTables.dataTables";
+import "datatables.net-dt/css/jquery.dataTables.min.css";
+import $ from "jquery";
+
     export default {
         components:{
 
@@ -59,6 +56,15 @@
                 axios.get("/api/family")
                 .then(res => {
                     this.families = res.data.data;
+                    $(document).ready( function () {
+                        $('#familyInformationTable').DataTable({
+                            data: this.families,    
+                            columnDefs: [{
+                            'targets': [3,4,5,6], /* column index */
+                            'orderable': false, /* true or false */
+                            }]                  
+                        }); 
+                    });                                  
                 })
                 .catch(error => {
                     console.log(error);
@@ -67,7 +73,3 @@
         }
     }
 </script>
-
-<style>
-
-</style>

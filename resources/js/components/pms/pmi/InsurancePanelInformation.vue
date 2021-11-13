@@ -4,16 +4,15 @@
         <blockquote class="blockquote">
             <p>List of registered patient's insurance.</p>
         </blockquote>
-        <table class="table table-bordered">
+        <table class="table" id="insuranceInformationTable">
             <thead>
-                <tr class="table-dark">
+                <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Patiend Id</th>
                     <th scope="col">Name</th>
                     <th scope="col">Medical Card Number</th>
                     <th scope="col">Type</th>
                     <th scope="col">Expiry Date</th>
-                    <th scope="col" colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,12 +23,6 @@
                     <td>{{ insurance.medical_card_no }}</td>
                     <td>{{ insurance.type }}</td>
                     <td>{{ insurance.expiry_date }}</td>
-                    <td>
-                        <router-link :to="{name: 'pmsPatientRegisterNextofKin', params: {id: insurance.id}}" class="btn btn-secondary text-white">Edit</router-link>
-                    </td>   
-                    <td>
-                        <router-link :to="{name: 'PmsPatientMasterIndex', params: {id: insurance.id}}" class="btn btn-danger text-white">Delete</router-link>
-                    </td> 
                 </tr>                
             </tbody>
         </table>
@@ -37,6 +30,10 @@
 </template>
 
 <script>
+import "datatables.net-dt/js/dataTables.dataTables";
+import "datatables.net-dt/css/jquery.dataTables.min.css";
+import $ from "jquery";
+
     export default {
         components:{
 
@@ -57,6 +54,11 @@
                 axios.get("/api/insurance")
                 .then(res => {
                     this.insurances = res.data.data;
+                    $(document).ready( function () {
+                        $('#insuranceInformationTable').DataTable({
+                            data: this.insurances,                  
+                        });
+                    });
                 })
                 .catch(error => {
                     console.log(error);
@@ -65,7 +67,3 @@
         }
     }
 </script>
-
-<style>
-
-</style>
