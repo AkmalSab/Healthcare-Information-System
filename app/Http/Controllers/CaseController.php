@@ -37,7 +37,12 @@ class CaseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Cases([
+            'name' => $request->get('caseName')
+        ]);
+        $data->save();
+
+        return response()->json($data);
     }
 
     /**

@@ -102,6 +102,8 @@ class StaffController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Staff::destroy($id);
+
+        return response()->json('Staff Deleted Successfully ✔');
     }
 }

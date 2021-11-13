@@ -6757,35 +6757,661 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   data: function data() {
     return {
+      active: 0,
       showMessage: false,
-      message: '',
+      message: "",
       staffs: [],
       role: [],
       form: {
-        staffName: '',
-        staffRole: '',
-        staffIC: '',
-        staffPhone: '',
-        staffMaritial: '',
-        staffOccupation: '',
-        staffDOB: '',
-        staffGender: '',
-        staffReligion: '',
-        staffCountry: '',
-        staffRace: '',
-        staffAddress1: '',
-        staffAddress2: '',
-        staffState: '',
-        staffPostcode: '',
-        staffCity: ''
+        staffName: "",
+        staffRole: "",
+        staffIC: "",
+        staffPhone: "",
+        staffMaritial: "",
+        staffOccupation: "",
+        staffDOB: "",
+        staffGender: "",
+        staffReligion: "",
+        staffCountry: "",
+        staffRace: "",
+        staffAddress1: "",
+        staffAddress2: "",
+        staffState: "",
+        staffPostcode: "",
+        staffCity: ""
+      },
+      editForm: {
+        staffName: "",
+        staffRole: "",
+        staffIC: "",
+        staffPhone: "",
+        staffMaritial: "",
+        staffOccupation: "",
+        staffDOB: "",
+        staffGender: "",
+        staffReligion: "",
+        staffCountry: "",
+        staffRace: "",
+        staffAddress1: "",
+        staffAddress2: "",
+        staffState: "",
+        staffPostcode: "",
+        staffCity: ""
       }
     };
   },
-  watch: {},
   created: function created() {
     this.getStaff();
     this.getRoles();
@@ -6803,37 +7429,56 @@ __webpack_require__.r(__webpack_exports__);
     getRoles: function getRoles() {
       var _this2 = this;
 
-      axios.get('/api/role').then(function (res) {
+      axios.get("/api/role").then(function (res) {
         _this2.role = res.data.data;
       })["catch"](function (error) {
         console.log(console.error());
       });
     },
+    modalOpen: function modalOpen(i) {
+      this.editForm.staffName = this.staffs[i].name;
+      this.editForm.staffIC = this.staffs[i].nric;
+      this.editForm.staffRole = this.staffs[i].role_id;
+      this.editForm.staffPhone = this.staffs[i].phone;
+      this.editForm.staffMaritial = this.staffs[i].marital_status;
+      this.editForm.staffOccupation = this.staffs[i].occupation;
+      this.editForm.staffDOB = this.staffs[i].birthdate;
+      this.editForm.staffGender = this.staffs[i].gender;
+      this.editForm.staffReligion = this.staffs[i].religion;
+      this.editForm.staffCountry = this.staffs[i].country;
+      this.editForm.staffRace = this.staffs[i].race;
+      this.editForm.staffAddress1 = this.staffs[i].address_1;
+      this.editForm.staffAddress2 = this.staffs[i].address_2;
+      this.editForm.staffState = this.staffs[i].state;
+      this.editForm.staffPostcode = this.staffs[i].postcode;
+      this.editForm.staffCity = this.staffs[i].city;
+      return this.active = i;
+    },
     storeStaff: function storeStaff() {
       var _this3 = this;
 
       axios.post("/api/staff", {
-        'name': this.form.staffName,
-        'role': this.form.staffRole,
-        'nric': this.form.staffIC,
-        'phone': this.form.staffPhone,
-        'marital_status': this.form.staffMaritial,
-        'occupation': this.form.staffOccupation,
-        'birthdate': this.form.staffDOB,
-        'gender': this.form.staffGender,
-        'religion': this.form.staffReligion,
-        'country': this.form.staffCountry,
-        'race': this.form.staffRace,
-        'address_1': this.form.staffAddress1,
-        'address_2': this.form.staffAddress2,
-        'state': this.form.staffState,
-        'postcode': this.form.staffPostcode,
-        'city': this.form.staffCity
+        name: this.form.staffName,
+        role: this.form.staffRole,
+        nric: this.form.staffIC,
+        phone: this.form.staffPhone,
+        marital_status: this.form.staffMaritial,
+        occupation: this.form.staffOccupation,
+        birthdate: this.form.staffDOB,
+        gender: this.form.staffGender,
+        religion: this.form.staffReligion,
+        country: this.form.staffCountry,
+        race: this.form.staffRace,
+        address_1: this.form.staffAddress1,
+        address_2: this.form.staffAddress2,
+        state: this.form.staffState,
+        postcode: this.form.staffPostcode,
+        city: this.form.staffCity
       }).then(function (res) {
         Swal.fire({
-          icon: 'success',
-          title: 'Registered',
-          text: 'Patient successfully registered!'
+          icon: "success",
+          title: "Registered",
+          text: "Patient successfully registered!"
         }).then(function (res) {
           if (res.isConfirmed) {
             _this3.getStaff();
@@ -6841,6 +7486,16 @@ __webpack_require__.r(__webpack_exports__);
         });
       })["catch"](function (error) {
         console.log(console.error);
+      });
+    },
+    deleteStaff: function deleteStaff(id) {
+      var _this4 = this;
+
+      axios["delete"]("/api/staff/" + id).then(function (res) {
+        _this4.showMessage = true;
+        _this4.message = res.data;
+
+        _this4.getStaff();
       });
     }
   }
@@ -6890,14 +7545,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {},
   data: function data() {
     return {
-      cases: []
+      active: 0,
+      showMessage: false,
+      message: "",
+      cases: [],
+      caseName: ''
     };
   },
-  watch: {},
   created: function created() {
     this.getTypeofCase();
   },
@@ -6909,6 +7591,25 @@ __webpack_require__.r(__webpack_exports__);
         _this.cases = res.data.data;
       })["catch"](function (error) {
         console.log(error);
+      });
+    },
+    storeCase: function storeCase() {
+      var _this2 = this;
+
+      axios.post("/api/case", {
+        caseName: this.caseName
+      }).then(function (res) {
+        Swal.fire({
+          icon: "success",
+          title: "Registered",
+          text: "Case successfully registered!"
+        }).then(function (res) {
+          if (res.isConfirmed) {
+            _this2.getTypeofCase();
+          }
+        });
+      })["catch"](function (error) {
+        console.log(console.error);
       });
     }
   }
@@ -103334,6 +104035,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "btn btn-primary w-100",
+                    staticStyle: { color: "white" },
                     attrs: { to: { name: "ltTypeofCase" } }
                   },
                   [_vm._v("Visit")]
@@ -103422,6 +104124,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "btn btn-primary w-100",
+                    staticStyle: { color: "white" },
                     attrs: { to: { name: "ltStaff" } }
                   },
                   [_vm._v("Visit")]
@@ -103894,6 +104597,971 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "editStaff",
+          tabindex: "-1",
+          "aria-labelledby": "editStaffLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog modal-dialog-centered modal-xl" },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "editStaffLabel" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Edit Staff - " +
+                        _vm._s(this.editForm.staffName) +
+                        " 🌊\n                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("button", {
+                  staticClass: "btn-close",
+                  attrs: {
+                    type: "button",
+                    "data-bs-dismiss": "modal",
+                    "aria-label": "Close"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Name")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editForm.staffName,
+                            expression: "editForm.staffName"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          oninput: "this.value = this.value.toUpperCase()",
+                          required: ""
+                        },
+                        domProps: { value: _vm.editForm.staffName },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editForm,
+                              "staffName",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff name.\n                            "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("NRIC")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editForm.staffIC,
+                            expression: "editForm.staffIC"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", maxlength: "12", required: "" },
+                        domProps: { value: _vm.editForm.staffIC },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editForm,
+                              "staffIC",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff identification number.\n                            "
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row mb-3" }, [
+                  _c("div", { staticClass: "col" }, [
+                    _c("label", { staticClass: "form-label" }, [
+                      _vm._v("Role")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editForm.staffRole,
+                            expression: "editForm.staffRole"
+                          }
+                        ],
+                        staticClass: "form-select",
+                        attrs: { required: "" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.editForm,
+                              "staffRole",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { selected: "" } }, [
+                          _vm._v("Open this select menu")
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.role, function(roleName) {
+                          return _c(
+                            "option",
+                            {
+                              key: roleName.id,
+                              domProps: { value: roleName.id }
+                            },
+                            [_vm._v(_vm._s(roleName.name))]
+                          )
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-text" }, [
+                      _vm._v(
+                        "\n                            Please input staff role.\n                        "
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Phone No.")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editForm.staffPhone,
+                            expression: "editForm.staffPhone"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "phone",
+                          maxlength: "12",
+                          min: "10",
+                          required: ""
+                        },
+                        domProps: { value: _vm.editForm.staffPhone },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editForm,
+                              "staffPhone",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff phone number.\n                            "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Maritial Status")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editForm.staffMaritial,
+                              expression: "editForm.staffMaritial"
+                            }
+                          ],
+                          staticClass: "form-select",
+                          attrs: { required: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.editForm,
+                                "staffMaritial",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { selected: "" } }, [
+                            _vm._v("Open this select menu")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Single" } }, [
+                            _vm._v("Single")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Married" } }, [
+                            _vm._v("Married")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Windowed" } }, [
+                            _vm._v("Widowed")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Divorced" } }, [
+                            _vm._v("Divorced")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff maritial status.\n                            "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Occupation")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editForm.staffOccupation,
+                              expression: "editForm.staffOccupation"
+                            }
+                          ],
+                          staticClass: "form-select",
+                          attrs: { required: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.editForm,
+                                "staffOccupation",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [_vm._m(2)]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff occupation.\n                            "
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Date of Birth")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editForm.staffDOB,
+                            expression: "editForm.staffDOB"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "date", required: "" },
+                        domProps: { value: _vm.editForm.staffDOB },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editForm,
+                              "staffDOB",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff date of birth.\n                            "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Gender")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editForm.staffGender,
+                              expression: "editForm.staffGender"
+                            }
+                          ],
+                          staticClass: "form-select",
+                          attrs: { required: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.editForm,
+                                "staffGender",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { selected: "" } }, [
+                            _vm._v("Open this select menu")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Male" } }, [
+                            _vm._v("Male")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Female" } }, [
+                            _vm._v("Female")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff gender.\n                            "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Religion")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editForm.staffReligion,
+                              expression: "editForm.staffReligion"
+                            }
+                          ],
+                          staticClass: "form-select",
+                          attrs: { required: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.editForm,
+                                "staffReligion",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { selected: "" } }, [
+                            _vm._v("Open this select menu")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Muslim" } }, [
+                            _vm._v("Muslim")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Buddhist" } }, [
+                            _vm._v("Buddhist")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Christian" } }, [
+                            _vm._v("Christian")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Hindu" } }, [
+                            _vm._v("Hindu")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "option",
+                            { attrs: { value: "Chinese Religionist" } },
+                            [_vm._v("Chinese Religionist")]
+                          ),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Others" } }, [
+                            _vm._v("Others")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff religion.\n                            "
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Country")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editForm.staffCountry,
+                              expression: "editForm.staffCountry"
+                            }
+                          ],
+                          staticClass: "form-select",
+                          attrs: { required: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.editForm,
+                                "staffCountry",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { selected: "" } }, [
+                            _vm._v("Open this select menu")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Malaysia" } }, [
+                            _vm._v("Malaysia")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff nationality.\n                            "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Race")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editForm.staffRace,
+                              expression: "editForm.staffRace"
+                            }
+                          ],
+                          staticClass: "form-select",
+                          attrs: { required: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.editForm,
+                                "staffRace",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { selected: "" } }, [
+                            _vm._v("Open this select menu")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Malay" } }, [
+                            _vm._v("Malay")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Chinese" } }, [
+                            _vm._v("Chinese")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Indian" } }, [
+                            _vm._v("Indian")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Others" } }, [
+                            _vm._v("Others")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff race.\n                            "
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Address 1")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editForm.staffAddress1,
+                            expression: "editForm.staffAddress1"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", required: "" },
+                        domProps: { value: _vm.editForm.staffAddress1 },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editForm,
+                              "staffAddress1",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff address line 1.\n                            "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Address 2")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editForm.staffAddress2,
+                            expression: "editForm.staffAddress2"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", required: "" },
+                        domProps: { value: _vm.editForm.staffAddress2 },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editForm,
+                              "staffAddress2",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff address line 2.\n                            "
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("State")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editForm.staffState,
+                              expression: "editForm.staffState"
+                            }
+                          ],
+                          staticClass: "form-select",
+                          attrs: { required: "" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.editForm,
+                                "staffState",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "Johor" } }, [
+                            _vm._v("Johor")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Kedah" } }, [
+                            _vm._v("Kedah")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Kelantan" } }, [
+                            _vm._v("Kelantan")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Kuala Lumpur" } }, [
+                            _vm._v("Kuala Lumpur")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Labuan" } }, [
+                            _vm._v("Labuan")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Melaka" } }, [
+                            _vm._v("Melaka")
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "option",
+                            { attrs: { value: "Negeri Sembilan" } },
+                            [_vm._v("Negeri Sembilan")]
+                          ),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Pahang" } }, [
+                            _vm._v("Pahang")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Penang" } }, [
+                            _vm._v("Penang")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Perak" } }, [
+                            _vm._v("Perak")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Perlis" } }, [
+                            _vm._v("Perlis")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Putrajaya" } }, [
+                            _vm._v("Putrajaya")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Sabah" } }, [
+                            _vm._v("Sabah")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Sarawak" } }, [
+                            _vm._v("Sarawak")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Selangor" } }, [
+                            _vm._v("Selangor")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Terengganu" } }, [
+                            _vm._v("Terengganu")
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input staff state address.\n                            "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("Postcode")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editForm.staffPostcode,
+                            expression: "editForm.staffPostcode"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", maxlength: "6", required: "" },
+                        domProps: { value: _vm.editForm.staffPostcode },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editForm,
+                              "staffPostcode",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input postcode address.\n                            "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c("label", { staticClass: "form-label" }, [
+                        _vm._v("City")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editForm.staffCity,
+                            expression: "editForm.staffCity"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", required: "" },
+                        domProps: { value: _vm.editForm.staffCity },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editForm,
+                              "staffCity",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-text" }, [
+                        _vm._v(
+                          "\n                                Please input city address.\n                            "
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(3)
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
     _c("div", { staticClass: "card" }, [
       _c("div", { staticClass: "card-body" }, [
         _c(
@@ -103951,7 +105619,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffNameHelp" }
                     },
-                    [_vm._v("Please input staff name.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff name.\n                            "
+                      )
+                    ]
                   )
                 ])
               ]),
@@ -103998,7 +105670,11 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "form-text", attrs: { id: "staffICHelp" } },
-                    [_vm._v("Please input staff identification number.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff identification number.\n                            "
+                      )
+                    ]
                   )
                 ])
               ])
@@ -104069,7 +105745,11 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "form-text", attrs: { id: "staffRoleHelp" } },
-                  [_vm._v("Please input staff role.")]
+                  [
+                    _vm._v(
+                      "\n                            Please input staff role.\n                        "
+                    )
+                  ]
                 )
               ])
             ]),
@@ -104121,7 +105801,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffPhoneHelp" }
                     },
-                    [_vm._v("Please input staff phone number.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff phone number.\n                            "
+                      )
+                    ]
                   )
                 ])
               ]),
@@ -104204,7 +105888,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffMaritialHelp" }
                     },
-                    [_vm._v("Please input staff maritial status.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff maritial status.\n                            "
+                      )
+                    ]
                   )
                 ])
               ]),
@@ -104263,7 +105951,7 @@ var render = function() {
                         _vm._v("Open this select menu")
                       ]),
                       _vm._v(" "),
-                      _vm._m(2)
+                      _vm._m(4)
                     ]
                   ),
                   _vm._v(" "),
@@ -104273,7 +105961,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffOccupationHelp" }
                     },
-                    [_vm._v("Please input staff occupation.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff occupation.\n                            "
+                      )
+                    ]
                   )
                 ])
               ])
@@ -104318,7 +106010,11 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "form-text", attrs: { id: "staffDOBHelp" } },
-                    [_vm._v("Please input staff date of birth.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff date of birth.\n                            "
+                      )
+                    ]
                   )
                 ])
               ]),
@@ -104393,7 +106089,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffGenderHelp" }
                     },
-                    [_vm._v("Please input staff gender.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff gender.\n                            "
+                      )
+                    ]
                   )
                 ])
               ]),
@@ -104486,7 +106186,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffReligionHelp" }
                     },
-                    [_vm._v("Please input staff religion.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff religion.\n                            "
+                      )
+                    ]
                   )
                 ])
               ])
@@ -104559,7 +106263,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffCountryHelp" }
                     },
-                    [_vm._v("Please input staff nationality.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff nationality.\n                            "
+                      )
+                    ]
                   )
                 ])
               ]),
@@ -104639,7 +106347,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffRaceHelp" }
                     },
-                    [_vm._v("Please input staff race.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff race.\n                            "
+                      )
+                    ]
                   )
                 ])
               ])
@@ -104690,7 +106402,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffAddress1Help" }
                     },
-                    [_vm._v("Please input staff address line 1.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff address line 1.\n                            "
+                      )
+                    ]
                   )
                 ])
               ]),
@@ -104739,7 +106455,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffAddress2Help" }
                     },
-                    [_vm._v("Please input staff address line 2.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff address line 2.\n                            "
+                      )
+                    ]
                   )
                 ])
               ])
@@ -104865,7 +106585,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffStateHelp" }
                     },
-                    [_vm._v("Please input staff state address.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input staff state address.\n                            "
+                      )
+                    ]
                   )
                 ])
               ]),
@@ -104918,7 +106642,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffPostcodeHelp" }
                     },
-                    [_vm._v("Please input postcode address.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input postcode address.\n                            "
+                      )
+                    ]
                   )
                 ])
               ]),
@@ -104964,7 +106692,11 @@ var render = function() {
                       staticClass: "form-text",
                       attrs: { id: "staffCityHelp" }
                     },
-                    [_vm._v("Please input city address.")]
+                    [
+                      _vm._v(
+                        "\n                                Please input city address.\n                            "
+                      )
+                    ]
                   )
                 ])
               ])
@@ -104977,7 +106709,7 @@ var render = function() {
                 staticStyle: { width: "100%", color: "white" },
                 attrs: { type: "submit" }
               },
-              [_vm._v("Submit")]
+              [_vm._v("\n                    Submit\n                ")]
             )
           ]
         )
@@ -104991,11 +106723,11 @@ var render = function() {
         attrs: { id: "staffBiodateTable" }
       },
       [
-        _vm._m(3),
+        _vm._m(5),
         _vm._v(" "),
         _c(
           "tbody",
-          _vm._l(_vm.staffs, function(staff) {
+          _vm._l(_vm.staffs, function(staff, index) {
             return _c("tr", { key: staff.id }, [
               _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(staff.id))]),
               _vm._v(" "),
@@ -105013,7 +106745,47 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(staff.race))]),
               _vm._v(" "),
-              _vm._m(4, true)
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    staticStyle: { color: "white" },
+                    attrs: {
+                      "data-bs-toggle": "modal",
+                      "data-bs-target": "#editStaff"
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.modalOpen(index)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Edit\n                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    staticStyle: { color: "white" },
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteStaff(staff.id)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Delete\n                    "
+                    )
+                  ]
+                )
+              ])
             ])
           }),
           0
@@ -105054,6 +106826,41 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" }
+        },
+        [_vm._v("\n                        Close\n                    ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          staticStyle: { color: "white" },
+          attrs: { type: "button" }
+        },
+        [_vm._v("\n                        Save changes\n                    ")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("optgroup", { attrs: { label: "Other Occupations:" } }, [
+      _c("option", { attrs: { value: "Doctor" } }, [_vm._v("Doctor")]),
+      _vm._v(" "),
+      _c("option", { attrs: { value: "Nurse" } }, [_vm._v("Nurse")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "table-dark" }, [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
@@ -105074,18 +106881,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "button",
-        { staticClass: "btn btn-danger", staticStyle: { color: "white" } },
-        [_vm._v("Delete")]
-      )
     ])
   }
 ]
@@ -105112,12 +106907,67 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "table-responsive container" }, [
-    _c("h1", {}, [_vm._v("Type of Case Lookup")]),
+    _c("h1", [_vm._v("Case")]),
     _vm._v(" "),
     _vm._m(0),
     _vm._v(" "),
-    _c("table", { staticClass: "table table-bordered" }, [
-      _vm._m(1),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm.showMessage
+      ? _c("div", { staticClass: "alert alert-success" }, [
+          _vm._v("\n        " + _vm._s(_vm.message) + "\n    ")
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.storeCase.apply(null, arguments)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c("label", [_vm._v("Case Name")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.caseName,
+                      expression: "caseName"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.caseName },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.caseName = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(2)
+          ]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("table", { staticClass: "table text-center mt-2" }, [
+      _vm._m(3),
       _vm._v(" "),
       _c(
         "tbody",
@@ -105127,45 +106977,7 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(casex.name))]),
             _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-secondary text-white",
-                    attrs: {
-                      to: {
-                        name: "pmsPatientRegisterNextofKin",
-                        params: { id: casex.id }
-                      }
-                    }
-                  },
-                  [_vm._v("Edit")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn btn-danger text-white",
-                    attrs: {
-                      to: {
-                        name: "PmsPatientMasterIndex",
-                        params: { id: casex.id }
-                      }
-                    }
-                  },
-                  [_vm._v("Delete")]
-                )
-              ],
-              1
-            )
+            _vm._m(4, true)
           ])
         }),
         0
@@ -105179,7 +106991,34 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("blockquote", { staticClass: "blockquote" }, [
-      _c("p", [_vm._v("List of type of case.")])
+      _c("p", [_vm._v("\n            View and Register Case 🚨\n        ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figcaption", { staticClass: "blockquote-footer" }, [
+      _vm._v("\n        Someone famous in "),
+      _c("cite", { attrs: { title: "Source Title" } }, [_vm._v("Source Title")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mt-2" }, [
+      _c("div", { staticClass: "col" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary w-100",
+            staticStyle: { color: "white" },
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
     ])
   },
   function() {
@@ -105188,12 +107027,30 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", { staticClass: "table-dark" }, [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("ID")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col", colspan: "2" } }, [_vm._v("Action")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", staticStyle: { color: "white" } },
+        [_vm._v("Edit")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-danger", staticStyle: { color: "white" } },
+        [_vm._v("Delete")]
+      )
     ])
   }
 ]
@@ -125335,7 +127192,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\Healthcare-Information-System-ismat-branch"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\Healthcare-Information-System-ismat-branch","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\xampp\\\\htdocs\\\\Healthcare-Information-System"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\xampp\\\\htdocs\\\\Healthcare-Information-System","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
