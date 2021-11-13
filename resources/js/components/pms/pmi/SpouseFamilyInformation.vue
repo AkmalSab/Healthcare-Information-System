@@ -230,7 +230,7 @@ import $ from "jquery";
             modalOpen(familyId) {
                 axios.get('/api/family/' + familyId)
                     .then(res => {
-                        this.familyUpdate = res.data.data;
+                        this.familyUpdate = res.data.data;                        
                         this.form.PatId = this.familyUpdate.patient_id;
                         this.form.NokId = this.familyUpdate.id;
                         this.form.NokName = this.familyUpdate.name;
