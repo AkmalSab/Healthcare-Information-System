@@ -44,22 +44,8 @@
                     <th scope="row">{{ casex.id }}</th>
                     <td>{{ casex.name }}</td>
                     <td>
-                        <router-link
-                            :to="{
-                                name: 'pmsPatientRegisterNextofKin',
-                                params: { id: casex.id }
-                            }"
-                            class="btn btn-secondary text-white"
-                            >Edit</router-link
-                        >
-                        <router-link
-                            :to="{
-                                name: 'PmsPatientMasterIndex',
-                                params: { id: casex.id }
-                            }"
-                            class="btn btn-danger text-white"
-                            >Delete</router-link
-                        >
+                        <button class="btn btn-primary" style="color:white">Edit</button>
+                        <button class="btn btn-danger" style="color:white">Delete</button>
                     </td>
                 </tr>
             </tbody>
