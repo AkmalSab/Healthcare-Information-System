@@ -20,7 +20,7 @@ class StaffSeeder extends Seeder
             'nric' => random_int(100000000000, 999999999999),
             'phone' => random_int(1000000000, 9999999999),
             'marital_status' => Str::random(10),
-            'occupation' => random_int(1, 9),
+            'occupation' => Str::random(6),
             'birthdate' => '1999-08-08',
             'gender' => Str::random(6),
             'religion' => Str::random(10),

@@ -4,11 +4,9 @@
             <div class="col mb-3">
                 <div class="card h-100">            
                     <div class="card-body">
-                        <h5 class="card-title">Register Patient</h5>
+                        <h5 class="card-title">Patient Registration</h5>
                         <p class="card-text">
-                            i. Mobile registration with QR Code (self-registration) <br>
-                            ii. Kiosk registration (self-registration) <br>
-                            iii. Counter registration (register by clinic staff)
+                            i. Counter registration (register by clinic staff)
                         </p>                    
                     </div>
                     <div class="m-4">
@@ -19,7 +17,7 @@
             <div class="col mb-3">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Patient Appointment</h5>
+                        <h5 class="card-title">Patient Master Index</h5>
                         <p class="card-text">
                             i. Patient biodata <br>
                             ii. Spouse/family information <br>

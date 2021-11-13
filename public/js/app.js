@@ -7478,7 +7478,7 @@ __webpack_require__.r(__webpack_exports__);
         Swal.fire({
           icon: "success",
           title: "Registered",
-          text: "Patient successfully registered!"
+          text: "Staff successfully registered!"
         }).then(function (res) {
           if (res.isConfirmed) {
             _this3.getStaff();
@@ -8273,8 +8273,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -8389,28 +8387,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -8418,12 +8394,26 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   data: function data() {
     return {
-      appointments: []
+      appointments: [],
+      patients: [],
+      staffs: [],
+      cases: [],
+      form: {
+        PatName: '',
+        StaffName: '',
+        AppDate: '',
+        AppTime: '',
+        AppToc: '',
+        AppDesc: ''
+      }
     };
   },
   watch: {},
   created: function created() {
     this.getPatientAppointment();
+    this.getPatient();
+    this.getStaff();
+    this.getCase();
   },
   methods: {
     getPatientAppointment: function getPatientAppointment() {
@@ -8433,15 +8423,72 @@ __webpack_require__.r(__webpack_exports__);
         _this.appointments = res.data.data;
         jquery__WEBPACK_IMPORTED_MODULE_2___default()(document).ready(function () {
           jquery__WEBPACK_IMPORTED_MODULE_2___default()('#appointmentInformationTable').DataTable({
-            data: this.appointments // columnDefs: [{
-            //     'targets': [8,9,10], /* column index */
-            //     'orderable': false, /* true or false */
-            // }]
+            data: this.appointments,
+            retrieve: true,
+            columnDefs: [{
+              'targets': [4],
 
+              /* column index */
+              'orderable': false
+              /* true or false */
+
+            }]
           });
         });
       })["catch"](function (error) {
         console.log(error);
+      });
+    },
+    getPatient: function getPatient() {
+      var _this2 = this;
+
+      axios.get('/api/patient/').then(function (res) {
+        _this2.patients = res.data.data;
+        _this2.form.PatName = _this2.patients.name;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getStaff: function getStaff() {
+      var _this3 = this;
+
+      axios.get('/api/staff/').then(function (res) {
+        _this3.staffs = res.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getCase: function getCase() {
+      var _this4 = this;
+
+      axios.get('/api/case/').then(function (res) {
+        _this4.cases = res.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    storePatientAppointment: function storePatientAppointment() {
+      var _this5 = this;
+
+      axios.post("/api/appointment", {
+        'patient_id': this.form.PatName,
+        'staff_id': this.form.StaffName,
+        'case_id': this.form.AppToc,
+        'date': this.form.AppDate,
+        'time': this.form.AppTime,
+        'description': this.form.AppDesc
+      }).then(function (res) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Booked',
+          text: 'Appointment successfully booked!'
+        }).then(function (res) {
+          if (res.isConfirmed) {
+            _this5.getPatientAppointment();
+          }
+        });
+      })["catch"](function (error) {
+        console.log(console.error);
       });
     }
   }
@@ -8784,6 +8831,147 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -8791,7 +8979,22 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   data: function data() {
     return {
-      families: []
+      families: [],
+      familyUpdate: [],
+      form: {
+        PatId: '',
+        NokId: '',
+        NokName: '',
+        NokPhone: '',
+        NokNric: '',
+        NokRelationsip: '',
+        NokNationality: 'Malaysia',
+        NokAddress1: '',
+        NokAddress2: '',
+        NokState: '',
+        NokPostcode: '',
+        NokCity: ''
+      }
     };
   },
   watch: {},
@@ -8807,8 +9010,9 @@ __webpack_require__.r(__webpack_exports__);
         jquery__WEBPACK_IMPORTED_MODULE_2___default()(document).ready(function () {
           jquery__WEBPACK_IMPORTED_MODULE_2___default()('#familyInformationTable').DataTable({
             data: this.families,
+            retrieve: true,
             columnDefs: [{
-              'targets': [3, 4, 5, 6],
+              'targets': [7],
 
               /* column index */
               'orderable': false
@@ -8820,6 +9024,88 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    modalOpen: function modalOpen(familyId) {
+      var _this2 = this;
+
+      axios.get('/api/family/' + familyId).then(function (res) {
+        _this2.familyUpdate = res.data.data;
+        _this2.form.PatId = _this2.familyUpdate.patient_id;
+        _this2.form.NokId = _this2.familyUpdate.id;
+        _this2.form.NokName = _this2.familyUpdate.name;
+        _this2.form.NokPhone = _this2.familyUpdate.phone;
+        _this2.form.NokNric = _this2.familyUpdate.nric;
+        _this2.form.NokRelationsip = _this2.familyUpdate.relationship;
+        _this2.form.NokNationality = _this2.familyUpdate.country;
+        _this2.form.NokAddress1 = _this2.familyUpdate.address_1;
+        _this2.form.NokAddress2 = _this2.familyUpdate.address_2;
+        _this2.form.NokState = _this2.familyUpdate.state;
+        _this2.form.NokPostcode = _this2.familyUpdate.postcode;
+        _this2.form.NokCity = _this2.familyUpdate.city;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    updatePatientNextofKin: function updatePatientNextofKin() {
+      var _this3 = this;
+
+      axios.put("/api/family/" + this.form.NokId, {
+        'id': this.form.NokId,
+        'patient_id': this.form.PatId,
+        'name': this.form.NokName,
+        'nric': this.form.NokNric,
+        'phone': this.form.NokPhone,
+        'relationship': this.form.NokRelationsip,
+        'country': this.form.NokNationality,
+        'address_1': this.form.NokAddress1,
+        'address_2': this.form.NokAddress2,
+        'state': this.form.NokState,
+        'postcode': this.form.NokPostcode,
+        'city': this.form.NokCity
+      }).then(function (res) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Updated',
+          text: 'Next of Kin successfully updated!'
+        }).then(function (res) {
+          if (res.isConfirmed) {
+            jquery__WEBPACK_IMPORTED_MODULE_2___default()('#closeModal').click();
+
+            _this3.getPatientNextofKin();
+          }
+        });
+      })["catch"](function (error) {
+        console.log(console.error);
+      });
+    },
+    deletePatientNextofKin: function deletePatientNextofKin(NokId) {
+      var _this4 = this;
+
+      axios["delete"]("/api/family/" + NokId).then(function (res) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Deleted',
+          text: 'Next of Kin successfully deleted!'
+        }).then(function (res) {
+          if (res.isConfirmed) {
+            jquery__WEBPACK_IMPORTED_MODULE_2___default()('#closeModal').click();
+
+            _this4.getPatientNextofKin();
+          }
+        });
+      })["catch"](function (error) {
+        console.log(console.error);
+      });
+    },
+    isNumber: function isNumber(evt) {
+      evt = evt ? evt : window.event;
+      var charCode = evt.which ? evt.which : evt.keyCode;
+
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        evt.preventDefault();
+      }
+
+      return true;
     }
   }
 });
@@ -9357,101 +9643,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -108049,19 +108240,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-body" }, [
-      _c("h5", { staticClass: "card-title" }, [_vm._v("Register Patient")]),
+      _c("h5", { staticClass: "card-title" }, [_vm._v("Patient Registration")]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
         _vm._v(
-          "\n                        i. Mobile registration with QR Code (self-registration) "
-        ),
-        _c("br"),
-        _vm._v(
-          "\n                        ii. Kiosk registration (self-registration) "
-        ),
-        _c("br"),
-        _vm._v(
-          "\n                        iii. Counter registration (register by clinic staff)\n                    "
+          "\n                        i. Counter registration (register by clinic staff)\n                    "
         )
       ])
     ])
@@ -108071,7 +108254,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-body" }, [
-      _c("h5", { staticClass: "card-title" }, [_vm._v("Patient Appointment")]),
+      _c("h5", { staticClass: "card-title" }, [_vm._v("Patient Master Index")]),
       _vm._v(" "),
       _c("p", { staticClass: "card-text" }, [
         _vm._v("\n                        i. Patient biodata "),
@@ -108139,32 +108322,357 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "card mb-3" }, [
       _c("div", { staticClass: "card-body" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _c("div", { staticClass: "row mt-3" }, [
-          _c(
-            "div",
-            { staticClass: "col-2" },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "btn btn-danger w-100",
-                  staticStyle: { color: "white" },
-                  attrs: { to: { name: "PmsPatientMasterIndex" } }
-                },
-                [_vm._v("Return to PMI")]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm._m(4)
-        ])
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.storePatientAppointment.apply(null, arguments)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "PatName" } },
+                    [_vm._v("Patient name")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.PatName,
+                          expression: "form.PatName"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "PatName",
+                        "aria-label": "PatNameHelp",
+                        "aria-describedby": "PatNameHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "PatName",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.patients, function(patient) {
+                      return _c(
+                        "option",
+                        { key: patient.id, domProps: { value: patient.id } },
+                        [_vm._v(_vm._s(patient.name))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "PatNameHelp" } },
+                    [_vm._v("This is patient's name.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "StaffName" } },
+                    [_vm._v("Doctor Name")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.StaffName,
+                          expression: "form.StaffName"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "StaffName",
+                        "aria-label": "StaffNameHelp",
+                        "aria-describedby": "StaffNameHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "StaffName",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.staffs, function(staff) {
+                      return _c(
+                        "option",
+                        { key: staff.id, domProps: { value: staff.id } },
+                        [_vm._v(_vm._s(staff.name))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "form-text",
+                      attrs: { id: "StaffNameHelp" }
+                    },
+                    [_vm._v("Please select doctor's name.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "AppToc" } },
+                    [_vm._v("Type of Case")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.form.AppToc,
+                          expression: "form.AppToc"
+                        }
+                      ],
+                      staticClass: "form-select",
+                      attrs: {
+                        id: "AppToc",
+                        "aria-label": "AppTocHelp",
+                        "aria-describedby": "AppTocHelp",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "AppToc",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.cases, function(casex) {
+                      return _c(
+                        "option",
+                        { key: casex.id, domProps: { value: casex.id } },
+                        [_vm._v(_vm._s(casex.name))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "AppTocHelp" } },
+                    [_vm._v("Please input appointment's case type.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "AppDesc" } },
+                    [_vm._v("Appointment Description")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.AppDesc,
+                        expression: "form.AppDesc"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "AppDesc",
+                      "aria-describedby": "AppDescHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.AppDesc },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "AppDesc", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "AppDescHelp" } },
+                    [_vm._v("Please input appointment's purpose.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "AppDate" } },
+                    [_vm._v("Appointment Date")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.AppDate,
+                        expression: "form.AppDate"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "date",
+                      id: "AppDate",
+                      "aria-describedby": "AppDateHelp",
+                      required: ""
+                    },
+                    domProps: { value: _vm.form.AppDate },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "AppDate", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "AppDateHelp" } },
+                    [_vm._v("Please input appointment's date.")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form-label", attrs: { for: "AppTime" } },
+                    [_vm._v("Appointment Time")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.AppTime,
+                        expression: "form.AppTime"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "time",
+                      id: "AppTime",
+                      "aria-label": "AppTimeHelp"
+                    },
+                    domProps: { value: _vm.form.AppTime },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "AppTime", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-text", attrs: { id: "AppTimeHelp" } },
+                    [_vm._v("Please input appointment's time.")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                staticStyle: { width: "100%", color: "white" },
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Submit")]
+            )
+          ]
+        )
       ])
     ]),
     _vm._v(" "),
@@ -108172,7 +108680,7 @@ var render = function() {
       "table",
       { staticClass: "table", attrs: { id: "appointmentInformationTable" } },
       [
-        _vm._m(5),
+        _vm._m(1),
         _vm._v(" "),
         _c(
           "tbody",
@@ -108208,134 +108716,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("blockquote", { staticClass: "blockquote" }, [
       _c("p", [_vm._v("List of registered patient's appointment.")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Select Patient")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-select",
-            attrs: { "aria-label": "Default select example" }
-          },
-          [
-            _c("option", { attrs: { selected: "" } }, [
-              _vm._v("Open this select menu")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("One")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("Two")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "3" } }, [_vm._v("Three")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Select Staff")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-select",
-            attrs: { "aria-label": "Default select example" }
-          },
-          [
-            _c("option", { attrs: { selected: "" } }, [
-              _vm._v("Open this select menu")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("One")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("Two")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "3" } }, [_vm._v("Three")])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Select Case")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-select",
-            attrs: { "aria-label": "Default select example" }
-          },
-          [
-            _c("option", { attrs: { selected: "" } }, [
-              _vm._v("Open this select menu")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("One")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("Two")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "3" } }, [_vm._v("Three")])
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mt-3" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Description")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-floating" }, [
-          _c("textarea", {
-            staticClass: "form-control",
-            staticStyle: { height: "100px" },
-            attrs: { placeholder: "Leave a comment here" }
-          }),
-          _vm._v(" "),
-          _c("label", [_vm._v("Comments")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mt-3" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Date")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "date" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("label", { staticClass: "form-label" }, [_vm._v("Time")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "time" } })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary w-100",
-          staticStyle: { color: "white" }
-        },
-        [_vm._v("\n                        Submit\n                    ")]
-      )
     ])
   },
   function() {
@@ -108762,7 +109142,7 @@ var staticRenderFns = [
         _c("br"),
         _c("br"),
         _vm._v(
-          "\n                        Last Edited by Ismat - 10/11/2021 🔒\n                    "
+          "\n                        Last Edited by Akmal Sab - 13/11/2021 🔒\n                    "
         )
       ])
     ])
@@ -108842,10 +109222,770 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModal",
+          "data-bs-backdrop": "static",
+          "data-bs-keyboard": "false",
+          tabindex: "-1",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.updatePatientNextofKin.apply(null, arguments)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-12" }, [
+                      _c("div", { staticClass: "mb-3" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-label",
+                            attrs: { for: "NokName" }
+                          },
+                          [_vm._v("Name")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.NokName,
+                              expression: "form.NokName"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          staticStyle: { "text-transform": "uppercase" },
+                          attrs: {
+                            type: "text",
+                            oninput: "this.value = this.value.toUpperCase()",
+                            id: "NokName",
+                            "aria-describedby": "NokNameHelp",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.NokName },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "NokName", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "form-text",
+                            attrs: { id: "NokNameHelp" }
+                          },
+                          [
+                            _vm._v(
+                              "Please input patient's emergency contact name."
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                      _c("div", { staticClass: "mb-3" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-label",
+                            attrs: { for: "NokPhone" }
+                          },
+                          [_vm._v("Phone No.")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.NokPhone,
+                              expression: "form.NokPhone"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "phone",
+                            id: "NokPhone",
+                            "aria-describedby": "NokPhoneHelp",
+                            maxlength: "12",
+                            min: "10",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.NokPhone },
+                          on: {
+                            keypress: function($event) {
+                              return _vm.isNumber($event)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "NokPhone",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "form-text",
+                            attrs: { id: "NokPhoneHelp" }
+                          },
+                          [
+                            _vm._v(
+                              "Please input patient's emergency contact number."
+                            )
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                      _c("div", { staticClass: "mb-3" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-label",
+                            attrs: { for: "NokNric" }
+                          },
+                          [_vm._v("NRIC")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.NokNric,
+                              expression: "form.NokNric"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "NokNric",
+                            "aria-describedby": "NokNricHelp",
+                            maxlength: "12",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.NokNric },
+                          on: {
+                            keypress: function($event) {
+                              return _vm.isNumber($event)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "NokNric", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "form-text",
+                            attrs: { id: "NokNricHelp" }
+                          },
+                          [
+                            _vm._v(
+                              "Please input patient's emergency contact identification number."
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                      _c("div", { staticClass: "mb-3" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-label",
+                            attrs: { for: "NokRelationsip" }
+                          },
+                          [_vm._v("Relationship Status")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.NokRelationsip,
+                                expression: "form.NokRelationsip"
+                              }
+                            ],
+                            staticClass: "form-select",
+                            attrs: {
+                              id: "NokRelationsip",
+                              "aria-label": "NokRelationsipHelp",
+                              "aria-describedby": "NokRelationsipHelp",
+                              required: ""
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "NokRelationsip",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "Spouse" } }, [
+                              _vm._v("Spouse")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Parent" } }, [
+                              _vm._v("Parent")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Guardian" } }, [
+                              _vm._v("Guardian")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Sibling" } }, [
+                              _vm._v("Sibling")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Friend" } }, [
+                              _vm._v("Friend")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "form-text",
+                            attrs: { id: "NokRelationsipHelp" }
+                          },
+                          [
+                            _vm._v(
+                              "Please input patient's emergency contact relationship status."
+                            )
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                      _c("div", { staticClass: "mb-3" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-label",
+                            attrs: { for: "NokNationality" }
+                          },
+                          [_vm._v("Country")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.NokNationality,
+                              expression: "form.NokNationality"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "NokNationality",
+                            "aria-label": "NokNationality",
+                            disabled: ""
+                          },
+                          domProps: { value: _vm.form.NokNationality },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "NokNationality",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "form-text",
+                            attrs: { id: "NokNationalityHelp" }
+                          },
+                          [
+                            _vm._v(
+                              "Please input patient's emergency contact nationality."
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                      _c("div", { staticClass: "mb-3" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-label",
+                            attrs: { for: "NokAddress1" }
+                          },
+                          [_vm._v("Address 1")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.NokAddress1,
+                              expression: "form.NokAddress1"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "NokAddress1",
+                            "aria-describedby": "NokAddress1Help",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.NokAddress1 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "NokAddress1",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "form-text",
+                            attrs: { id: "NokAddress1Help" }
+                          },
+                          [
+                            _vm._v(
+                              "Please input patient's emergency contact address line 1."
+                            )
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-12 col-md-6 col-lg-6" }, [
+                      _c("div", { staticClass: "mb-3" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-label",
+                            attrs: { for: "NokAddress2" }
+                          },
+                          [_vm._v("Address 2")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.NokAddress2,
+                              expression: "form.NokAddress2"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "NokAddress2",
+                            "aria-describedby": "NokAddress2Help",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.NokAddress2 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "NokAddress2",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "form-text",
+                            attrs: { id: "NokAddress2Help" }
+                          },
+                          [
+                            _vm._v(
+                              "Please input patient's emergency contact address line 2."
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                      _c("div", { staticClass: "mb-3" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-label",
+                            attrs: { for: "NokState" }
+                          },
+                          [_vm._v("State")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.NokState,
+                                expression: "form.NokState"
+                              }
+                            ],
+                            staticClass: "form-select",
+                            attrs: {
+                              id: "NokState",
+                              "aria-label": "NokStateHelp",
+                              "aria-describedby": "NokStateHelp",
+                              required: ""
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "NokState",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "Johor" } }, [
+                              _vm._v("Johor")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Kedah" } }, [
+                              _vm._v("Kedah")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Kelantan" } }, [
+                              _vm._v("Kelantan")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Kuala Lumpur" } }, [
+                              _vm._v("Kuala Lumpur")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Labuan" } }, [
+                              _vm._v("Labuan")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Melaka" } }, [
+                              _vm._v("Melaka")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              { attrs: { value: "Negeri Sembilan" } },
+                              [_vm._v("Negeri Sembilan")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Pahang" } }, [
+                              _vm._v("Pahang")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Penang" } }, [
+                              _vm._v("Penang")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Perak" } }, [
+                              _vm._v("Perak")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Perlis" } }, [
+                              _vm._v("Perlis")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Putrajaya" } }, [
+                              _vm._v("Putrajaya")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Sabah" } }, [
+                              _vm._v("Sabah")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Sarawak" } }, [
+                              _vm._v("Sarawak")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Selangor" } }, [
+                              _vm._v("Selangor")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Terengganu" } }, [
+                              _vm._v("Terengganu")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "form-text",
+                            attrs: { id: "NokStateHelp" }
+                          },
+                          [
+                            _vm._v(
+                              "Please input patient's emergency contact state."
+                            )
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                      _c("div", { staticClass: "mb-3" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-label",
+                            attrs: { for: "NokPostcode" }
+                          },
+                          [_vm._v("Postcode")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.NokPostcode,
+                              expression: "form.NokPostcode"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "NokPostcode",
+                            "aria-describedby": "NokPostcodeHelp",
+                            maxlength: "6",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.NokPostcode },
+                          on: {
+                            keypress: function($event) {
+                              return _vm.isNumber($event)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "NokPostcode",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "form-text",
+                            attrs: { id: "NokPostcodeHelp" }
+                          },
+                          [
+                            _vm._v(
+                              "Please input patient's emergency contact postcode."
+                            )
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-4" }, [
+                      _c("div", { staticClass: "mb-3" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-label",
+                            attrs: { for: "NokCity" }
+                          },
+                          [_vm._v("City")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.NokCity,
+                              expression: "form.NokCity"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "NokCity",
+                            "aria-describedby": "NokCityHelp",
+                            required: ""
+                          },
+                          domProps: { value: _vm.form.NokCity },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "NokCity", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "form-text",
+                            attrs: { id: "NokCityHelp" }
+                          },
+                          [
+                            _vm._v(
+                              "Please input patient's emergency contact city."
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-12" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "w-100 btn btn-primary",
+                          staticStyle: { color: "white" },
+                          attrs: { type: "submit" }
+                        },
+                        [_vm._v("Update " + _vm._s(this.form.NokName))]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c("div", { staticClass: "col" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "w-100 btn btn-danger",
+                    staticStyle: { color: "white" },
+                    on: {
+                      click: function($event) {
+                        return _vm.deletePatientNextofKin(_vm.form.NokId)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete " + _vm._s(this.form.NokName))]
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c(
       "table",
       { staticClass: "table", attrs: { id: "familyInformationTable" } },
       [
-        _vm._m(1),
+        _vm._m(3),
         _vm._v(" "),
         _c(
           "tbody",
@@ -108865,7 +110005,31 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(family.relationship))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(family.country))])
+              _c("td", [_vm._v(_vm._s(family.country))]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-warning",
+                    attrs: {
+                      type: "button",
+                      "data-bs-toggle": "modal",
+                      "data-bs-target": "#exampleModal"
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.modalOpen(family.id)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Edit\n                    "
+                    )
+                  ]
+                )
+              ])
             ])
           }),
           0
@@ -108887,6 +110051,46 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Update Spouse/Family Information")]
+      ),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col" }, [
+      _c(
+        "button",
+        {
+          staticClass: "float-end btn btn-secondary",
+          attrs: {
+            type: "button",
+            id: "closeModal",
+            "data-bs-dismiss": "modal"
+          }
+        },
+        [_vm._v("Close")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Id")]),
@@ -108901,7 +110105,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Relationship")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Country")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Country")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")])
       ])
     ])
   }
@@ -110681,78 +111887,38 @@ var render = function() {
                     [_vm._v("Occupation")]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.patOccupation,
-                          expression: "form.patOccupation"
-                        }
-                      ],
-                      staticClass: "form-select",
-                      attrs: {
-                        id: "occupation",
-                        "aria-label": "patOccupation",
-                        "aria-describedby": "patOccupationHelp",
-                        required: ""
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.form,
-                            "patOccupation",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        }
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.patOccupation,
+                        expression: "form.patOccupation"
                       }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      id: "occupation",
+                      "aria-describedby": "patOccupationHelp",
+                      required: ""
                     },
-                    [
-                      _c("option", { attrs: { selected: "" } }, [
-                        _vm._v("Open this select menu")
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _vm._m(4),
-                      _vm._v(" "),
-                      _vm._m(5),
-                      _vm._v(" "),
-                      _vm._m(6),
-                      _vm._v(" "),
-                      _vm._m(7),
-                      _vm._v(" "),
-                      _vm._m(8),
-                      _vm._v(" "),
-                      _vm._m(9),
-                      _vm._v(" "),
-                      _vm._m(10),
-                      _vm._v(" "),
-                      _vm._m(11)
-                    ]
-                  ),
+                    domProps: { value: _vm.form.patOccupation },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "patOccupation", $event.target.value)
+                      }
+                    }
+                  }),
                   _vm._v(" "),
                   _c(
                     "div",
                     {
                       staticClass: "form-text",
-                      attrs: { id: "patMaritialHelp" }
+                      attrs: { id: "patOccupationHelp" }
                     },
                     [_vm._v("Please input patient occupation.")]
                   )
@@ -111458,397 +112624,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("blockquote", { staticClass: "blockquote" }, [
       _c("p", [_vm._v("This form is for patient registration.")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "optgroup",
-      {
-        attrs: { label: "Healthcare Practitioners and Technical Occupations:" }
-      },
-      [
-        _c("option", { attrs: { value: "1" } }, [_vm._v("-  Chiropractor")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "2" } }, [_vm._v("-  Dentist")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "3" } }, [
-          _vm._v("-  Dietitian or Nutritionist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "4" } }, [_vm._v("-  Optometrist")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "5" } }, [_vm._v("-  Pharmacist")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "6" } }, [_vm._v("-  Physician")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "7" } }, [
-          _vm._v("-  Physician Assistant")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "8" } }, [_vm._v("-  Podiatrist")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "9" } }, [
-          _vm._v("-  Registered Nurse")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "10" } }, [_vm._v("-  Therapist")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "11" } }, [_vm._v("-  Veterinarian")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "12" } }, [
-          _vm._v("-  Health Technologist or Technician")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "13" } }, [
-          _vm._v("-  Other Healthcare Practitioners and Technical Occupation")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "optgroup",
-      { attrs: { label: "Healthcare Support Occupations:" } },
-      [
-        _c("option", { attrs: { value: "14" } }, [
-          _vm._v("-  Nursing, Psychiatric, or Home Health Aide")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "15" } }, [
-          _vm._v("-  Occupational and Physical Therapist Assistant or Aide")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "16" } }, [
-          _vm._v("-  Other Healthcare Support Occupation")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "optgroup",
-      {
-        attrs: {
-          label: "Business, Executive, Management, and Financial Occupations:"
-        }
-      },
-      [
-        _c("option", { attrs: { value: "17" } }, [
-          _vm._v("-  Chief Executive")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "18" } }, [
-          _vm._v("-  General and Operations Manager")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "19" } }, [
-          _vm._v(
-            "-  Advertising, Marketing, Promotions, Public Relations, and Sales Manager"
-          )
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "20" } }, [
-          _vm._v("-  Operations Specialties Manager (e.g., IT or HR Manager)")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "21" } }, [
-          _vm._v("-  Construction Manager")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "22" } }, [
-          _vm._v("-  Engineering Manager")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "23" } }, [
-          _vm._v("-  Accountant, Auditor")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "24" } }, [
-          _vm._v("-  Business Operations or Financial Specialist")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "25" } }, [_vm._v("-  Business Owner")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "26" } }, [
-          _vm._v(
-            "-  Other Business, Executive, Management, Financial Occupation"
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "optgroup",
-      { attrs: { label: "Architecture and Engineering Occupations:" } },
-      [
-        _c("option", { attrs: { value: "27" } }, [
-          _vm._v("-  Architect, Surveyor, or Cartographer")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "28" } }, [_vm._v("-  Engineer")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "29" } }, [
-          _vm._v("-  Other Architecture and Engineering Occupation")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "optgroup",
-      { attrs: { label: "Education, Training, and Library Occupations:" } },
-      [
-        _c("option", { attrs: { value: "30" } }, [
-          _vm._v(
-            "-  Postsecondary Teacher (e.g., col-sm-12 col-md-6 col-lg-6lege Professor)"
-          )
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "31" } }, [
-          _vm._v("-  Primary, Secondary, or Special Education School Teacher")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "32" } }, [
-          _vm._v("-  Other Teacher or Instructor")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "33" } }, [
-          _vm._v("-  Other Education, Training, and Library Occupation")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "optgroup",
-      { attrs: { label: "Other Professional Occupations:" } },
-      [
-        _c("option", { attrs: { value: "34" } }, [
-          _vm._v(
-            "-  Arts, Design, Entertainment, Sports, and Media Occupations"
-          )
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "35" } }, [
-          _vm._v("-  Computer Specialist, Mathematical Science")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "36" } }, [
-          _vm._v(
-            "-  Counselor, Social Worker, or Other Community and Social Service Specialist"
-          )
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "37" } }, [_vm._v("-  Lawyer, Judge")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "38" } }, [
-          _vm._v(
-            "-  Life Scientist (e.g., Animal, Food, Soil, or Biological Scientist, Zoologist)"
-          )
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "39" } }, [
-          _vm._v(
-            "-  Physical Scientist (e.g., Astronomer, Physicist, Chemist, Hydrologist)"
-          )
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "40" } }, [
-          _vm._v(
-            "-  Religious Worker (e.g., Clergy, Director of Religious Activities or Education)"
-          )
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "41" } }, [
-          _vm._v("-  Social Scientist and Related Worker")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "42" } }, [
-          _vm._v("-  Other Professional Occupation")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "optgroup",
-      { attrs: { label: "Office and Administrative Support Occupations:" } },
-      [
-        _c("option", { attrs: { value: "43" } }, [
-          _vm._v("-  Supervisor of Administrative Support Workers")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "44" } }, [
-          _vm._v("-  Financial Clerk")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "45" } }, [
-          _vm._v("-  Secretary or Administrative Assistant")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "46" } }, [
-          _vm._v("-  Material Recording, Scheduling, and Dispatching Worker")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "47" } }, [
-          _vm._v("-  Other Office and Administrative Support Occupation")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("optgroup", { attrs: { label: "Services Occupations:" } }, [
-      _c("option", { attrs: { value: "48" } }, [
-        _vm._v(
-          "-  Protective Service (e.g., Fire Fighting, Police Officer, Correctional Officer)"
-        )
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "49" } }, [
-        _vm._v("-  Chef or Head Cook")
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "50" } }, [
-        _vm._v("-  Cook or Food Preparation Worker")
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "51" } }, [
-        _vm._v(
-          "-  Food and Beverage Serving Worker (e.g., Bartender, Waiter, Waitress)"
-        )
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "52" } }, [
-        _vm._v("-  Building and Grounds Cleaning and Maintenance")
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "53" } }, [
-        _vm._v(
-          "-  Personal Care and Service (e.g., Hairdresser, Flight Attendant, Concierge)"
-        )
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "54" } }, [
-        _vm._v("-  Sales Supervisor, Retail Sales")
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "55" } }, [
-        _vm._v("-  Retail Sales Worker")
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "56" } }, [
-        _vm._v("-  Insurance Sales Agent")
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "57" } }, [
-        _vm._v("-  Sales Representative")
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "58" } }, [
-        _vm._v("-  Real Estate Sales Agent")
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "59" } }, [
-        _vm._v("-  Other Services Occupation")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "optgroup",
-      {
-        attrs: {
-          label:
-            "Agriculture, Maintenance, Repair, and Skilled Crafts Occupations:"
-        }
-      },
-      [
-        _c("option", { attrs: { value: "60" } }, [
-          _vm._v(
-            "-  Construction and Extraction (e.g., Construction Laborer, Electrician)"
-          )
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "61" } }, [
-          _vm._v("-  Farming, Fishing, and Forestry")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "62" } }, [
-          _vm._v("-  Installation, Maintenance, and Repair")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "63" } }, [
-          _vm._v("-  Production Occupations")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "64" } }, [
-          _vm._v(
-            "-  Other Agriculture, Maintenance, Repair, and Skilled Crafts Occupation"
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("optgroup", { attrs: { label: "Transportation Occupations:" } }, [
-      _c("option", { attrs: { value: "65" } }, [
-        _vm._v("-  Aircraft Pilot or Flight Engineer")
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "66" } }, [
-        _vm._v(
-          "-  Motor Vehicle Operator (e.g., Ambulance, Bus, Taxi, or Truck Driver)"
-        )
-      ]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "67" } }, [
-        _vm._v("-  Other Transportation Occupation")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("optgroup", { attrs: { label: "Other Occupations:" } }, [
-      _c("option", { attrs: { value: "68" } }, [_vm._v("-  Military")]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "69" } }, [_vm._v("-  Homemaker")]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "70" } }, [_vm._v("-  Student")]),
-      _vm._v(" "),
-      _c("option", { attrs: { value: "72" } }, [_vm._v("-  Not Applicable")])
     ])
   }
 ]
@@ -127192,7 +127967,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\xampp\\\\htdocs\\\\Healthcare-Information-System"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\xampp\\\\htdocs\\\\Healthcare-Information-System","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","D:\\\\Healthcare-Information-System-ismat-branch"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"D:\\\\Healthcare-Information-System-ismat-branch","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
