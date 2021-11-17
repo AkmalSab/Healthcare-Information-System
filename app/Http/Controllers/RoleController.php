@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Role;
 use App\Http\Resources\RoleResource;
+use App\Http\Requests\RoleStoreRequest;
 
 class RoleController extends Controller
 {
@@ -16,6 +17,7 @@ class RoleController extends Controller
     public function index()
     {
         $role = Role::all();
+
         return RoleResource::collection($role);
     }
 
@@ -35,9 +37,11 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleStoreRequest $request)
     {
-        //
+        $role = Role::create($request->validated());
+
+        return response()->json($role);
     }
 
     /**
@@ -48,7 +52,9 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+        $role = Role::findOrFail($id);
+
+        return new RoleResource($role);
     }
 
     /**
@@ -69,9 +75,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RoleStoreRequest $request, Role $role)
     {
-        //
+        $role->update($request->validated());
     }
 
     /**
@@ -80,8 +86,8 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Role $role)
     {
-        //
+        $role->delete();
     }
 }
