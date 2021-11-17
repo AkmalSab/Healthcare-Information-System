@@ -955,7 +955,7 @@ export default {
                     Swal.fire({
                         icon: "success",
                         title: "Registered",
-                        text: "Patient successfully registered!"
+                        text: "Staff successfully registered!"
                     }).then(res => {
                         if (res.isConfirmed) {
                             this.getStaff();

@@ -53,7 +53,9 @@ class FamilyController extends Controller
      */
     public function show($id)
     {
-        //
+        $family = Family::findOrFail($id);
+
+        return new FamilyResource($family);
     }
 
     /**
@@ -64,7 +66,9 @@ class FamilyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $family = Family::create($request->validated());
+
+        return response()->json($family);
     }
 
     /**
@@ -74,9 +78,9 @@ class FamilyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FamilyStoreRequest $request, Family $family)
     {
-        //
+        $family->update($request->validated());
     }
 
     /**
@@ -85,8 +89,8 @@ class FamilyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Family $family)
     {
-        //
+        $family->delete();
     }
 }

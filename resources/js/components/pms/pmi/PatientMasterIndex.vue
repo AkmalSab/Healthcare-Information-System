@@ -15,7 +15,7 @@
                             To edit settings, press
                             <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
                             <br><br>
-                            Last Edited by Ismat - 10/11/2021 🔒
+                            Last Edited by Akmal Sab - 13/11/2021 🔒
                         </p>
                     </div>
                     <div class="m-4 d-flex flex-row">

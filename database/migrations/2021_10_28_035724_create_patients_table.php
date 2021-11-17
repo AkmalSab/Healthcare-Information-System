@@ -21,7 +21,7 @@ class CreatePatientsTable extends Migration
             $table->string('gender');
             $table->date('birthdate');
             $table->string('marital_status');
-            $table->integer('occupation');                        
+            $table->string('occupation');                        
             $table->string('religion');
             $table->string('country');
             $table->string('race');
