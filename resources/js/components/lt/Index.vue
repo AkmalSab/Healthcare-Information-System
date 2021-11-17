@@ -10,7 +10,7 @@
                         </p>
                     </div>
                     <div class="m-4">
-                        <router-link :to="{name: 'ltTypeofCase'}" class="btn btn-primary w-100" style="color:white">Visit</router-link>
+                        <router-link :to="{name: 'ltTypeofCase'}" class="btn btn-primary w-100 text-white">Visit</router-link>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                         </p>
                     </div>
                     <div class="m-4">
-                        <router-link :to="{name: 'ltRole'}" class="btn btn-primary w-100">Visit</router-link>
+                        <router-link :to="{name: 'ltRole'}" class="btn btn-primary w-100 text-white">Visit</router-link>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                         </p>
                     </div>
                     <div class="m-4">
-                        <router-link :to="{name: 'ltInsurance'}" class="btn btn-primary w-100">Visit</router-link>
+                        <router-link :to="{name: 'ltInsurance'}" class="btn btn-primary w-100 text-white">Visit</router-link>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                         </p>
                     </div>
                     <div class="m-4">
-                        <router-link :to="{name: 'ltStaff'}" class="btn btn-primary w-100" style="color:white">Visit</router-link>
+                        <router-link :to="{name: 'ltStaff'}" class="btn btn-primary w-100 text-white">Visit</router-link>
                     </div>
                 </div>
             </div>
