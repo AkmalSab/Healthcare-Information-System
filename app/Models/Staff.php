@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\pms\Appointment;
 use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -37,5 +38,10 @@ class Staff extends Model
     public function role()
     {
         return $this->hasOne(Role::class);
+    }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
     }
 }
