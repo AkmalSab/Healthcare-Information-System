@@ -3,11 +3,14 @@
 namespace App\Models\pms;
 
 use App\Models\Cases;
+use App\Models\Staff;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Appointment extends Model
 {
+    // https://laravel.com/docs/8.x/eloquent-relationships#one-to-many
+
     use HasFactory;
 
     protected $fillable = [
@@ -17,11 +20,21 @@ class Appointment extends Model
         'case_id',
         'description',
         'date',
-        'time',        
+        'time',
     ];
 
     public function case()
     {
-        return $this->hasOne(Cases::class);
+        return $this->belongsTo(Cases::class);
+    }
+
+    public function staff()
+    {
+        return $this->belongsTo(Staff::class);
+    }
+
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
     }
 }

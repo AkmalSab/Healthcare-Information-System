@@ -11,28 +11,28 @@
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
                                 <label for="PatName" class="form-label">Patient name</label>
-                                <select class="form-select" v-model="form.PatName" id="PatName" aria-label="PatNameHelp" aria-describedby="PatNameHelp" required>                                    
-                                    <option v-for="patient in patients" v-bind:key="patient.id" v-bind:value="patient.id">{{ patient.name }}</option>                                    
+                                <select class="form-select" v-model="form.PatName" id="PatName" aria-label="PatNameHelp" aria-describedby="PatNameHelp" required>
+                                    <option v-for="patient in patients" v-bind:key="patient.id" v-bind:value="patient.id">{{ patient.name }}</option>
                                 </select>
                                 <div id="PatNameHelp" class="form-text">This is patient's name.</div>
-                            </div>          
+                            </div>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
                                 <label for="StaffName" class="form-label">Doctor Name</label>
-                                <select class="form-select" v-model="form.StaffName" id="StaffName" aria-label="StaffNameHelp" aria-describedby="StaffNameHelp" required>                                    
-                                    <option v-for="staff in staffs" v-bind:key="staff.id" v-bind:value="staff.id">{{ staff.name }}</option>                                    
+                                <select class="form-select" v-model="form.StaffName" id="StaffName" aria-label="StaffNameHelp" aria-describedby="StaffNameHelp" required>
+                                    <option v-for="staff in staffs" v-bind:key="staff.id" v-bind:value="staff.id">{{ staff.name }}</option>
                                 </select>
                                 <div id="StaffNameHelp" class="form-text">Please select doctor's name.</div>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
                                 <label for="AppToc" class="form-label">Type of Case</label>
-                                <select class="form-select" v-model="form.AppToc" id="AppToc" aria-label="AppTocHelp" aria-describedby="AppTocHelp" required>                                    
-                                    <option v-for="casex in cases" v-bind:key="casex.id" v-bind:value="casex.id">{{ casex.name }}</option>                                    
+                                <select class="form-select" v-model="form.AppToc" id="AppToc" aria-label="AppTocHelp" aria-describedby="AppTocHelp" required>
+                                    <option v-for="casex in cases" v-bind:key="casex.id" v-bind:value="casex.id">{{ casex.name }}</option>
                                 </select>
                                 <div id="AppTocHelp" class="form-text">Please input appointment's case type.</div>
                             </div>
@@ -44,7 +44,7 @@
                                 <div id="AppDescHelp" class="form-text">Please input appointment's purpose.</div>
                             </div>
                         </div>
-                    </div>    
+                    </div>
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
@@ -52,15 +52,15 @@
                                 <input type="date" class="form-control" v-model="form.AppDate" id="AppDate" aria-describedby="AppDateHelp" required>
                                 <div id="AppDateHelp" class="form-text">Please input appointment's date.</div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <div class="mb-3">
                                 <label for="AppTime" class="form-label">Appointment Time</label>
-                                <input type="time" class="form-control" v-model="form.AppTime" id="AppTime" aria-label="AppTimeHelp">                              
+                                <input type="time" class="form-control" v-model="form.AppTime" id="AppTime" aria-label="AppTimeHelp">
                                 <div id="AppTimeHelp" class="form-text">Please input appointment's time.</div>
                             </div>
-                        </div>                        
-                    </div>                       
+                        </div>
+                    </div>
                     <button type="submit" style="width: 100%; color: white" class="btn btn-primary">Submit</button>
                 </form>
             </div>
@@ -80,12 +80,12 @@
             <tbody>
                 <tr v-for="appointment in appointments" :key="appointment.id">
                     <th scope="row">{{ appointment.id }}</th>
-                    <td>{{ appointment.patient_id }}</td>
-                    <td>{{ appointment.staff_id }}</td>
-                    <td>{{ appointment.case_id }}</td>
+                    <td>{{ appointment.patient.name }}</td>
+                    <td>{{ appointment.staff.name }}</td>
+                    <td>{{ appointment.case.name }}</td>
                     <td>{{ appointment.description }}</td>
                     <td>{{ appointment.date }}</td>
-                    <td>{{ appointment.time }}</td>                   
+                    <td>{{ appointment.time }}</td>
                 </tr>
             </tbody>
         </table>
@@ -109,7 +109,7 @@ export default {
                 PatName: '',
                 StaffName: '',
                 AppDate: '',
-                AppTime: '',    
+                AppTime: '',
                 AppToc: '',
                 AppDesc: ''
             },
@@ -130,8 +130,8 @@ export default {
                     this.appointments = res.data.data;
                     $(document).ready( function () {
                         $('#appointmentInformationTable').DataTable({
-                            data: this.appointments,     
-                            retrieve: true,                   
+                            data: this.appointments,
+                            retrieve: true,
                             columnDefs: [{
                                 'targets': [4], /* column index */
                                 'orderable': false, /* true or false */
@@ -142,7 +142,7 @@ export default {
                 .catch(error => {
                     console.log(error);
                 });
-        },        
+        },
         getPatient() {
             axios.get('/api/patient/')
                 .then(res => {
@@ -175,8 +175,8 @@ export default {
             axios
             .post("/api/appointment", {
                 'patient_id': this.form.PatName,
-                'staff_id': this.form.StaffName,   
-                'case_id': this.form.AppToc,                
+                'staff_id': this.form.StaffName,
+                'case_id': this.form.AppToc,
                 'date': this.form.AppDate,
                 'time': this.form.AppTime,
                 'description': this.form.AppDesc,
@@ -193,7 +193,7 @@ export default {
             }).catch(error=> {
                 console.log(console.error);
             })
-        },     
+        },
     }
 };
 </script>
