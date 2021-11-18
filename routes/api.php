@@ -32,6 +32,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/patient/patient-info', [PatientCustomController::class, 'getPatientName']);
 Route::get('/patient/patient-info/{patientID}', [PatientCustomController::class, 'getPatientData']);
+Route::get('/patient/family/{patID}', [PatientCustomController::class, 'getNextOfKind']);
+Route::get('/patient/insurance/{patID}', [PatientCustomController::class, 'getInsurance']);
 
 Route::get('/icd10/blocks', [ICDCustomController::class, 'getICDBlocks']);
 Route::get('/icd10/chapters', [ICDCustomController::class, 'getICDChapters']);

@@ -48,8 +48,13 @@
 
                         </p>
                     </div>
-                    <div class="m-4">
-                        <router-link :to="{name: 'ltMedicine'}" class="btn btn-primary w-100">Visit</router-link>
+                    <div class="row m-4">
+                        <div class="col">
+                            <router-link :to="{name: 'ltMedicine'}" class="btn btn-primary w-100">Visit</router-link>
+                        </div>
+                        <div class="col">
+                            <router-link :to="{name: 'pisCreateMeds'}" class="btn btn-success w-100" style="color: white">Go</router-link>
+                        </div>
                     </div>
                 </div>
             </div>
