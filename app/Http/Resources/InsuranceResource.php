@@ -20,7 +20,8 @@ class InsuranceResource extends JsonResource
             'name' => $this->name,
             'medical_card_no' => $this->medical_card_no,
             'type' => $this->type,            
-            'expiry_date' => $this->expiry_date            
+            'expiry_date' => $this->expiry_date,
+            'patient' => $this->patient,          
         ];
     }
 }

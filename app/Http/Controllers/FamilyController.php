@@ -39,7 +39,6 @@ class FamilyController extends Controller
      */
     public function store(FamilyStoreRequest $request)
     {
-        //
         $family = Family::create($request->validated());
 
         return response()->json($family);
@@ -66,9 +65,7 @@ class FamilyController extends Controller
      */
     public function edit($id)
     {
-        $family = Family::create($request->validated());
-
-        return response()->json($family);
+       //
     }
 
     /**

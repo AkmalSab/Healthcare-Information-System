@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cases;
 use App\Http\Resources\CaseResource;
+use App\Http\Requests\CaseStoreRequest;
+
 class CaseController extends Controller
 {
     /**
@@ -53,7 +55,9 @@ class CaseController extends Controller
      */
     public function show($id)
     {
-        //
+        $case = Cases::findOrFail($id);
+
+        return new CaseResource($case);
     }
 
     /**
@@ -74,9 +78,9 @@ class CaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CaseStoreRequest $request, Cases $case)
     {
-        //
+        $case->update($request->validated());
     }
 
     /**
@@ -85,8 +89,8 @@ class CaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cases $case)
     {
-        //
+        $case->delete();
     }
 }

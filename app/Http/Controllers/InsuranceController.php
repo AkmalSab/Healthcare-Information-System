@@ -52,7 +52,9 @@ class InsuranceController extends Controller
      */
     public function show($id)
     {
-        //
+        $insurance = Insurance::findOrFail($id);
+
+        return new InsuranceResource($insurance);
     }
 
     /**
@@ -73,9 +75,9 @@ class InsuranceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InsuranceStoreRequest $request, Insurance $insurance)
     {
-        //
+        $insurance->update($request->validated());
     }
 
     /**
@@ -84,8 +86,8 @@ class InsuranceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Insurance $insurance)
     {
-        //
+        $insurance->delete();
     }
 }
