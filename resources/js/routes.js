@@ -9,6 +9,8 @@ import pmsPatientRegisterInsurance from './components/pms/registration/RegisterI
 import pmsPatientRegisterAppointment from './components/pms/registration/RegisterAppointment';
 import pmsPatientAppointmentInformation from './components/pms/pmi/AppointmentInformation';
 
+import pmsPatientBilling from './components/pms/billing/Index.vue';
+
 import cisIndex from './components/cis/Index';
 import cisConsultationHistory from './components/cis/ViewConsultation';
 import pisIndex from './components/pis/Index';
@@ -74,6 +76,11 @@ export const routes = [
         path: '/pms/pmi/appointmentInformation',
         name: 'pmsPatientAppointmentInformation',
         component: pmsPatientAppointmentInformation
+    },
+    {
+        path: '/pms/billing',
+        name: 'pmsPatientBilling',
+        component: pmsPatientBilling
     },
     {
         path: '/cis',

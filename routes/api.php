@@ -11,7 +11,9 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ICDCustomController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PrescriptionController;
+use App\Http\Controllers\PrescriptionCustomController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +44,8 @@ Route::get('/icd10/map', [ICDCustomController::class, 'getICDMap']);
 Route::get('/icd10/raw', [ICDCustomController::class, 'getICDRaw']);
 Route::get('/icd10/report', [ICDCustomController::class, 'getICDReport']);
 
+Route::get('/prescription/all', [PrescriptionCustomController::class, 'getPrescription']);
+
 Route::apiResource('patient', PatientController::class);
 Route::apiResource('family', FamilyController::class);
 Route::apiResource('insurance', InsuranceController::class);
@@ -52,3 +56,4 @@ Route::apiResource('role', RoleController::class);
 Route::apiResource('consultation', ConsultationController::class);
 Route::apiResource('medicine', MedicineController::class);
 Route::apiResource('prescription', PrescriptionController::class);
+Route::apiResource('payment', PaymentController::class);

@@ -3,6 +3,7 @@
 namespace App\Models\pms;
 
 use App\Models\Cases;
+use App\Models\Prescription;
 use App\Models\Staff;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -36,5 +37,10 @@ class Appointment extends Model
     public function patient()
     {
         return $this->belongsTo(Patient::class);
+    }
+
+    public function prescription()
+    {
+        return $this->hasOne(Prescription::class);
     }
 }

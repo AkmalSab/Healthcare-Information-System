@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\pms\Appointment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,5 +21,10 @@ class Prescription extends Model
     public function medicines()
     {
         return $this->belongsToMany(Medicine::class);
+    }
+
+    public function appointment()
+    {
+        return $this->belongsTo(Appointment::class);
     }
 }
