@@ -35,355 +35,358 @@
                         ></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Name</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        v-model="editForm.staffName"
-                                        oninput="this.value = this.value.toUpperCase()"
-                                        required
-                                    />
-                                    <div class="form-text">
-                                        Please input staff name.
+                        <form @submit.prevent="updateStaff"> 
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Name</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            v-model="editForm.staffName"
+                                            oninput="this.value = this.value.toUpperCase()"
+                                            required
+                                        />
+                                        <div class="form-text">
+                                            Please input staff name.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">NRIC</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            v-model="editForm.staffIC"
+                                            maxlength="12"
+                                            required
+                                        />
+                                        <div class="form-text">
+                                            Please input staff identification
+                                            number.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <div class="mb-3">
-                                    <label class="form-label">NRIC</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        v-model="editForm.staffIC"
-                                        maxlength="12"
-                                        required
-                                    />
-                                    <div class="form-text">
-                                        Please input staff identification
-                                        number.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col">
-                                <label class="form-label">Role</label>
-                                <select
-                                    class="form-select"
-                                    v-model="editForm.staffRole"
-                                    required
-                                >
-                                    <option selected
-                                        >Open this select menu</option
-                                    >
-                                    <option
-                                        v-for="roleName in role"
-                                        :key="roleName.id"
-                                        :value="roleName.id"
-                                        >{{ roleName.name }}</option
-                                    >
-                                </select>
-                                <div class="form-text">
-                                    Please input staff role.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Phone No.</label>
-                                    <input
-                                        type="phone"
-                                        class="form-control"
-                                        v-model="editForm.staffPhone"
-                                        maxlength="12"
-                                        min="10"
-                                        required
-                                    />
-                                    <div class="form-text">
-                                        Please input staff phone number.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <div class="mb-3">
-                                    <label class="form-label"
-                                        >Maritial Status</label
-                                    >
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label class="form-label">Role</label>
                                     <select
                                         class="form-select"
-                                        v-model="editForm.staffMaritial"
+                                        v-model="editForm.staffRole"
                                         required
                                     >
                                         <option selected
                                             >Open this select menu</option
                                         >
-                                        <option value="Single">Single</option>
-                                        <option value="Married">Married</option>
-                                        <option value="Windowed"
-                                            >Widowed</option
-                                        >
-                                        <option value="Divorced"
-                                            >Divorced</option
+                                        <option
+                                            v-for="roleName in role"
+                                            :key="roleName.id"
+                                            :value="roleName.id"
+                                            >{{ roleName.name }}</option
                                         >
                                     </select>
                                     <div class="form-text">
-                                        Please input staff maritial status.
+                                        Please input staff role.
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Occupation</label>
-                                    <select
-                                        class="form-select"
-                                        v-model="editForm.staffOccupation"
-                                        required
-                                    >
-                                        <optgroup label="Other Occupations:">
-                                            <option value="Doctor"
-                                                >Doctor</option
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Phone No.</label>
+                                        <input
+                                            type="phone"
+                                            class="form-control"
+                                            v-model="editForm.staffPhone"
+                                            maxlength="12"
+                                            min="10"
+                                            required
+                                        />
+                                        <div class="form-text">
+                                            Please input staff phone number.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="mb-3">
+                                        <label class="form-label"
+                                            >Maritial Status</label
+                                        >
+                                        <select
+                                            class="form-select"
+                                            v-model="editForm.staffMaritial"
+                                            required
+                                        >
+                                            <option selected
+                                                >Open this select menu</option
                                             >
-                                            <option value="Nurse">Nurse</option>
-                                        </optgroup>
-                                    </select>
-                                    <div class="form-text">
-                                        Please input staff occupation.
+                                            <option value="Single">Single</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Windowed"
+                                                >Widowed</option
+                                            >
+                                            <option value="Divorced"
+                                                >Divorced</option
+                                            >
+                                        </select>
+                                        <div class="form-text">
+                                            Please input staff maritial status.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Occupation</label>
+                                        <select
+                                            class="form-select"
+                                            v-model="editForm.staffOccupation"
+                                            required
+                                        >
+                                            <optgroup label="Other Occupations:">
+                                                <option value="Doctor"
+                                                    >Doctor</option
+                                                >
+                                                <option value="Nurse">Nurse</option>
+                                            </optgroup>
+                                        </select>
+                                        <div class="form-text">
+                                            Please input staff occupation.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <div class="mb-3">
-                                    <label class="form-label"
-                                        >Date of Birth</label
-                                    >
-                                    <input
-                                        type="date"
-                                        class="form-control"
-                                        v-model="editForm.staffDOB"
-                                        required
-                                    />
-                                    <div class="form-text">
-                                        Please input staff date of birth.
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="mb-3">
+                                        <label class="form-label"
+                                            >Date of Birth</label
+                                        >
+                                        <input
+                                            type="date"
+                                            class="form-control"
+                                            v-model="editForm.staffDOB"
+                                            required
+                                        />
+                                        <div class="form-text">
+                                            Please input staff date of birth.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Gender</label>
+                                        <select
+                                            class="form-select"
+                                            v-model="editForm.staffGender"
+                                            required
+                                        >
+                                            <option selected
+                                                >Open this select menu</option
+                                            >
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                        <div class="form-text">
+                                            Please input staff gender.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Religion</label>
+                                        <select
+                                            class="form-select"
+                                            v-model="editForm.staffReligion"
+                                            required
+                                        >
+                                            <option selected
+                                                >Open this select menu</option
+                                            >
+                                            <option value="Muslim">Muslim</option>
+                                            <option value="Buddhist"
+                                                >Buddhist</option
+                                            >
+                                            <option value="Christian"
+                                                >Christian</option
+                                            >
+                                            <option value="Hindu">Hindu</option>
+                                            <option value="Chinese Religionist"
+                                                >Chinese Religionist</option
+                                            >
+                                            <option value="Others">Others</option>
+                                        </select>
+                                        <div class="form-text">
+                                            Please input staff religion.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Gender</label>
-                                    <select
-                                        class="form-select"
-                                        v-model="editForm.staffGender"
-                                        required
-                                    >
-                                        <option selected
-                                            >Open this select menu</option
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Country</label>
+                                        <select
+                                            class="form-select"
+                                            v-model="editForm.staffCountry"
+                                            required
                                         >
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
-                                    <div class="form-text">
-                                        Please input staff gender.
+                                            <option selected
+                                                >Open this select menu</option
+                                            >
+                                            <option value="Malaysia"
+                                                >Malaysia</option
+                                            >
+                                        </select>
+                                        <div class="form-text">
+                                            Please input staff nationality.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Race</label>
+                                        <select
+                                            class="form-select"
+                                            v-model="editForm.staffRace"
+                                            required
+                                        >
+                                            <option selected
+                                                >Open this select menu</option
+                                            >
+                                            <option value="Malay">Malay</option>
+                                            <option value="Chinese">Chinese</option>
+                                            <option value="Indian">Indian</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                        <div class="form-text">
+                                            Please input staff race.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Religion</label>
-                                    <select
-                                        class="form-select"
-                                        v-model="editForm.staffReligion"
-                                        required
-                                    >
-                                        <option selected
-                                            >Open this select menu</option
-                                        >
-                                        <option value="Muslim">Muslim</option>
-                                        <option value="Buddhist"
-                                            >Buddhist</option
-                                        >
-                                        <option value="Christian"
-                                            >Christian</option
-                                        >
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Chinese Religionist"
-                                            >Chinese Religionist</option
-                                        >
-                                        <option value="Others">Others</option>
-                                    </select>
-                                    <div class="form-text">
-                                        Please input staff religion.
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Address 1</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            v-model="editForm.staffAddress1"
+                                            required
+                                        />
+                                        <div class="form-text">
+                                            Please input staff address line 1.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Address 2</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            v-model="editForm.staffAddress2"
+                                            required
+                                        />
+                                        <div class="form-text">
+                                            Please input staff address line 2.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Country</label>
-                                    <select
-                                        class="form-select"
-                                        v-model="editForm.staffCountry"
-                                        required
-                                    >
-                                        <option selected
-                                            >Open this select menu</option
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">State</label>
+                                        <select
+                                            class="form-select"
+                                            v-model="editForm.staffState"
+                                            required
                                         >
-                                        <option value="Malaysia"
-                                            >Malaysia</option
-                                        >
-                                    </select>
-                                    <div class="form-text">
-                                        Please input staff nationality.
+                                            <option value="Johor">Johor</option>
+                                            <option value="Kedah">Kedah</option>
+                                            <option value="Kelantan"
+                                                >Kelantan</option
+                                            >
+                                            <option value="Kuala Lumpur"
+                                                >Kuala Lumpur</option
+                                            >
+                                            <option value="Labuan">Labuan</option>
+                                            <option value="Melaka">Melaka</option>
+                                            <option value="Negeri Sembilan"
+                                                >Negeri Sembilan</option
+                                            >
+                                            <option value="Pahang">Pahang</option>
+                                            <option value="Penang">Penang</option>
+                                            <option value="Perak">Perak</option>
+                                            <option value="Perlis">Perlis</option>
+                                            <option value="Putrajaya"
+                                                >Putrajaya</option
+                                            >
+                                            <option value="Sabah">Sabah</option>
+                                            <option value="Sarawak">Sarawak</option>
+                                            <option value="Selangor"
+                                                >Selangor</option
+                                            >
+                                            <option value="Terengganu"
+                                                >Terengganu</option
+                                            >
+                                        </select>
+                                        <div class="form-text">
+                                            Please input staff state address.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Postcode</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            v-model="editForm.staffPostcode"
+                                            maxlength="6"
+                                            required
+                                        />
+                                        <div class="form-text">
+                                            Please input postcode address.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">City</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            v-model="editForm.staffCity"
+                                            required
+                                        />
+                                        <div class="form-text">
+                                            Please input city address.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Race</label>
-                                    <select
-                                        class="form-select"
-                                        v-model="editForm.staffRace"
-                                        required
-                                    >
-                                        <option selected
-                                            >Open this select menu</option
-                                        >
-                                        <option value="Malay">Malay</option>
-                                        <option value="Chinese">Chinese</option>
-                                        <option value="Indian">Indian</option>
-                                        <option value="Others">Others</option>
-                                    </select>
-                                    <div class="form-text">
-                                        Please input staff race.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Address 1</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        v-model="editForm.staffAddress1"
-                                        required
-                                    />
-                                    <div class="form-text">
-                                        Please input staff address line 1.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Address 2</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        v-model="editForm.staffAddress2"
-                                        required
-                                    />
-                                    <div class="form-text">
-                                        Please input staff address line 2.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <div class="mb-3">
-                                    <label class="form-label">State</label>
-                                    <select
-                                        class="form-select"
-                                        v-model="editForm.staffState"
-                                        required
-                                    >
-                                        <option value="Johor">Johor</option>
-                                        <option value="Kedah">Kedah</option>
-                                        <option value="Kelantan"
-                                            >Kelantan</option
-                                        >
-                                        <option value="Kuala Lumpur"
-                                            >Kuala Lumpur</option
-                                        >
-                                        <option value="Labuan">Labuan</option>
-                                        <option value="Melaka">Melaka</option>
-                                        <option value="Negeri Sembilan"
-                                            >Negeri Sembilan</option
-                                        >
-                                        <option value="Pahang">Pahang</option>
-                                        <option value="Penang">Penang</option>
-                                        <option value="Perak">Perak</option>
-                                        <option value="Perlis">Perlis</option>
-                                        <option value="Putrajaya"
-                                            >Putrajaya</option
-                                        >
-                                        <option value="Sabah">Sabah</option>
-                                        <option value="Sarawak">Sarawak</option>
-                                        <option value="Selangor"
-                                            >Selangor</option
-                                        >
-                                        <option value="Terengganu"
-                                            >Terengganu</option
-                                        >
-                                    </select>
-                                    <div class="form-text">
-                                        Please input staff state address.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <div class="mb-3">
-                                    <label class="form-label">Postcode</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        v-model="editForm.staffPostcode"
-                                        maxlength="6"
-                                        required
-                                    />
-                                    <div class="form-text">
-                                        Please input postcode address.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-4 col-lg-4">
-                                <div class="mb-3">
-                                    <label class="form-label">City</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        v-model="editForm.staffCity"
-                                        required
-                                    />
-                                    <div class="form-text">
-                                        Please input city address.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <button
+                            type="submit"
+                            class="btn btn-primary float-end"
+                            style="color:white"
+                            >
+                                Save changes
+                            </button>
+                        </form>                       
                     </div>
                     <div class="modal-footer">
                         <button
+                            id="closeModal"
                             type="button"
                             class="btn btn-secondary"
                             data-bs-dismiss="modal"
                         >
                             Close
-                        </button>
-                        <button
-                            type="button"
-                            class="btn btn-primary"
-                            style="color:white"
-                        >
-                            Save changes
-                        </button>
+                        </button>                        
                     </div>
                 </div>
             </div>
@@ -869,6 +872,7 @@ export default {
                 staffCity: ""
             },
             editForm: {
+                staffId: "",
                 staffName: "",
                 staffRole: "",
                 staffIC: "",
@@ -920,6 +924,7 @@ export default {
                 });
         },
         modalOpen: function(i) {
+            this.editForm.staffId = this.staffs[i].id;
             this.editForm.staffName = this.staffs[i].name;
             this.editForm.staffIC = this.staffs[i].nric;
             this.editForm.staffRole = this.staffs[i].role_id;
@@ -966,6 +971,45 @@ export default {
                         text: "Staff successfully registered!"
                     }).then(res => {
                         if (res.isConfirmed) {
+                            $("#staffBiodateTable")
+                                .DataTable()
+                                .destroy();
+                            this.getStaff();
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.log(console.error);
+                });
+        },
+        updateStaff() {
+            axios
+                .put("/api/staff/" + this.editForm.staffId, {
+                    name: this.editForm.staffName,
+                    role: this.editForm.staffRole,
+                    nric: this.editForm.staffIC,
+                    phone: this.editForm.staffPhone,
+                    marital_status: this.editForm.staffMaritial,
+                    occupation: this.editForm.staffOccupation,
+                    birthdate: this.editForm.staffDOB,
+                    gender: this.editForm.staffGender,
+                    religion: this.editForm.staffReligion,
+                    country: this.editForm.staffCountry,
+                    race: this.editForm.staffRace,
+                    address_1: this.editForm.staffAddress1,
+                    address_2: this.editForm.staffAddress2,
+                    state: this.editForm.staffState,
+                    postcode: this.editForm.staffPostcode,
+                    city: this.editForm.staffCity
+                })
+                .then(res => {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Updated",
+                        text: "Staff successfully updated!"
+                    }).then(res => {
+                        if (res.isConfirmed) {
+                            $("#closeModal").click();
                             $("#staffBiodateTable")
                                 .DataTable()
                                 .destroy();

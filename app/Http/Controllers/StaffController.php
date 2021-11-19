@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Staff;
 use App\Http\Resources\StaffResource;
+use App\Http\Requests\StaffStoreRequest;
+
 
 class StaffController extends Controller
 {
@@ -89,11 +91,11 @@ class StaffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StaffStoreRequest $request, Staff $staff)
     {
-        //
+        $staff->update($request->validated());
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
