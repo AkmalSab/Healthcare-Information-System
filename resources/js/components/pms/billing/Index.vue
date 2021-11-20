@@ -13,16 +13,21 @@
                 <div class="row">
                     <div class="col">
                         <label>Prescription ID</label>
-                        <select class="form-select" aria-label="Default select example" v-model="form.prescID">
-                            <option selected>Select</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
+                        <v-select
+                            class="mt-2"
+                            :options="Data"
+                            label="pat_name"
+                            v-model="form.prescID"
+                        ></v-select>
                     </div>
                     <div class="col">
                         <label>Insurance ID</label>
-                        <input type="text" class="form-control" readonly v-model="form.insID">
+                        <v-select
+                            class="mt-2"
+                            :options="Insurance"
+                            label="name"
+                            v-model="form.insID"
+                        ></v-select>
                     </div>
                     <div class="col">
                         <label>Payment Type</label>
@@ -51,13 +56,16 @@
 </template>
 
 <script>
+import "vue-select/dist/vue-select.css";
+
 export default {
     data() {
         return {
             Data: [],
+            Insurance: [],
             form: {
                 prescID: 'Select',
-                insID: '',
+                insID: 'Select',
                 paymentType: 'Select',
                 desc: ''
             }
@@ -65,6 +73,7 @@ export default {
     },
     created() {
         this.getPresData()
+        // this.getInsurance()
     },
     methods: {
         getPresData() {
@@ -74,7 +83,24 @@ export default {
                 }).catch(error => {
                 console.log(console.error())
             })
-        }
+        },
+        // getInsurance() {
+        //     axios.get('/api/insurance/all')
+        //         .then(res => {
+        //             this.Insurance = res.data.data
+        //         }).catch(error => {
+        //         console.log(console.error())
+        //     })
+        // }
+    },
+    watch: {
+      'form.prescID': function(val) {
+          //do something when the data changes.
+          if (val) {
+              console.log(val.insurance)
+              this.Insurance = val.insurance
+          }
+      }
     }
 }
 </script>
