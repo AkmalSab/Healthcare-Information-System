@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\PrescriptionResource;
+use App\Http\Resources\InsuranceResource;
 use App\Models\Prescription;
+use App\Models\pms\Insurance;
 use Illuminate\Http\Request;
 
 class PrescriptionCustomController extends Controller
@@ -13,5 +15,12 @@ class PrescriptionCustomController extends Controller
         $data = Prescription::all();
         // return response()->json($data);
         return PrescriptionResource::collection($data);
+    }
+
+    public function getInsurance()
+    {
+        $data = Insurance::all();
+        // return response()->json($data);
+        return InsuranceResource::collection($data);
     }
 }
