@@ -16,7 +16,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //test-ismat-lappy
+        $data = Payment::all();
+        // return response()->json($data);
+        return PaymentResource::collection($data);
     }
 
     /**
@@ -37,7 +39,28 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        foreach ($request->all('insurance') as $key => $data) {
+            $ins = json_decode($data);
+        }
+        foreach ($request->all('prescription') as $key => $data) {
+            $pres = json_decode($data);
+        }
+
+        $status = $request->get('status');
+        $payment = $request->get('paymentType');
+        $description = $request->get('desc');
+
+        $presData = new Payment ([
+            'desc' => $status,
+            'type' => $payment,
+            'insurance_id' => $ins->id,
+            'prescription_id' => $pres->id,
+            'status' => $status
+        ]);
+        $presData->save();
+        return response()->json($presData);
+
+        // dd($ins->id, $pres->id, $status, $payment, $description);
     }
 
     /**

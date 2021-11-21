@@ -15,7 +15,10 @@ class PaymentResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id
+            'id' => $this->id,
+            'payment' => $this->type,
+            'insurance' => $this->insurance,
+            'patient' => $this->insurance->patient
         ];
     }
 }

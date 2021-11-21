@@ -10,6 +10,7 @@
 
         <div class="card">
             <div class="card-body">
+                <form @submit.prevent="storeBilling">
                 <div class="row">
                     <div class="col">
                         <label>Prescription ID</label>
@@ -30,13 +31,15 @@
                         ></v-select>
                     </div>
                     <div class="col">
-                        <label>Payment Type</label>
-                        <select class="form-select" aria-label="Default select example" v-model="form.paymentType">
-                            <option selected>Select</option>
-                            <option value="Cash">Cash</option>
-                            <option value="Online Banking">Online Banking</option>
-                            <option value="Credit Card">Credit Card</option>
-                        </select>
+                        <label>Payment Type</label><br>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Online Banking" v-model="form.paymentType">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Online Banking
+                        </label><br>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Cash" checked v-model="form.paymentType">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Cash
+                        </label>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -47,9 +50,39 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col">
-                        <button class="btn btn-primary" style="color: white">Pay</button>
+                        <button type="submit" class="btn btn-primary w-100" style="color: white">Create</button>
                     </div>
                 </div>
+                </form>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Insurance Name</th>
+                            <th scope="col">Insurance Type</th>
+                            <th scope="col">Payment Type</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="pay in Payment" :key="pay.id">
+                            <th scope="row">1</th>
+                            <td>{{ pay.patient.name }}</td>
+                            <td>{{ pay.insurance.name }}</td>
+                            <td>{{ pay.insurance.type }}</td>
+                            <td>{{ pay.payment }}</td>
+                            <td>
+                                <button class="btn btn-primary" style="color:white">Edit</button>
+                                <button class="btn btn-danger" style="color:white">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -62,6 +95,7 @@ export default {
     data() {
         return {
             Data: [],
+            Payment: [],
             Insurance: [],
             form: {
                 prescID: 'Select',
@@ -73,6 +107,7 @@ export default {
     },
     created() {
         this.getPresData()
+        this.getPaymentData()
         // this.getInsurance()
     },
     methods: {
@@ -84,6 +119,36 @@ export default {
                 console.log(console.error())
             })
         },
+        getPaymentData() {
+            axios.get('/api/payment')
+                .then(res => {
+                    this.Payment = res.data.data
+                }).catch(error => {
+                console.log(console.error())
+            })
+        },
+        storeBilling() {
+            axios
+            .post("/api/payment", {
+                'desc': this.form.desc,
+                'paymentType': this.form.paymentType,
+                'insurance': JSON.stringify(this.form.insID),
+                'prescription': JSON.stringify(this.form.prescID),
+                'status': 'Ongoing'
+            }).then(res=> {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Created',
+                    text: 'New billing successfully created!'
+                }).then(res => {
+                    if (res.isConfirmed) {
+                        this.getPaymentData();
+                    }
+                })
+            }).catch(error=> {
+                console.log(console.error);
+            })
+        }
         // getInsurance() {
         //     axios.get('/api/insurance/all')
         //         .then(res => {
