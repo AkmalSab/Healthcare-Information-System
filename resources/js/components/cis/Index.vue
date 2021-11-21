@@ -1,12 +1,9 @@
 <template>
     <div class="container">
-        <h1>Patient Consultation Form</h1>
+        <h1>Consultation Information System</h1>
         <blockquote class="blockquote">
             <p>This form is for patient consultation form.</p>
         </blockquote>
-        <figcaption class="blockquote-footer">
-            Someone famous in <cite title="Source Title">Source Title</cite>
-        </figcaption>
         <div v-if="showMessage" class="alert alert-success">
             {{ message }}
         </div>
