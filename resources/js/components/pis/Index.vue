@@ -4,10 +4,6 @@
         <blockquote class="blockquote">
             <p>This home is for PIS, there will be such functions available in this section.</p>
         </blockquote>
-        <figcaption class="blockquote-footer">
-            Someone famous in <cite title="Source Title">Wan-Bissaka</cite>
-        </figcaption>
-
         <div class="card">
             <div class="card-body">
                 <div class="row">

@@ -3,7 +3,7 @@
         <h1 class="">Role Lookup</h1>
 
         <blockquote class="blockquote">
-            <p>List of role.</p>
+            <p>View and Register Role 🚨</p>
         </blockquote>
 
         <!-- Modal -->

@@ -1,14 +1,11 @@
 <template>
     <div class="table-responsive container">
-        <h1>Staff</h1>
+        <h1>Staff Lookup</h1>
         <blockquote class="blockquote">
             <p>
                 View and Register Staff 🚨
             </p>
         </blockquote>
-        <figcaption class="blockquote-footer">
-            Someone famous in <cite title="Source Title">Source Title</cite>
-        </figcaption>
         <div v-if="showMessage" class="alert alert-success">
             {{ message }}
         </div>
