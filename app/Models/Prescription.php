@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\pms\Appointment;
+use App\Models\Medicine;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +15,7 @@ class Prescription extends Model
         'description',
         'instruction',
         'appointment_id',
+        'medicine_id',
         'created_at',
         'updated_at'
     ];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Http\Resources\PaymentResource;
 use App\Models\Payment;
 use App\Models\Prescription;
@@ -49,6 +50,7 @@ class PaymentController extends Controller
         $status = $request->get('status');
         $payment = $request->get('paymentType');
         $description = $request->get('desc');
+        $medsQty = $request->get('medsQty');
 
         $presData = new Payment ([
             'desc' => $status,
@@ -57,6 +59,13 @@ class PaymentController extends Controller
             'prescription_id' => $pres->id,
             'status' => $status
         ]);
+
+        $bridgeTable = DB::table('medicine_prescription')->insert([
+            'medicine_id'=> 1,
+            'prescription_id' => $pres->id,
+            'quantity' => $medsQty
+        ]);
+
         $presData->save();
         return response()->json($presData);
 
@@ -103,8 +112,9 @@ class PaymentController extends Controller
      * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Payment $payment)
+    public function destroy($id)
     {
-        //
+        Payment::destroy($id);
+        return response()->json('Billing Deleted Successfully ✔');
     }
 }
