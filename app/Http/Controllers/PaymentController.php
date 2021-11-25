@@ -61,12 +61,6 @@ class PaymentController extends Controller
             'status' => $status
         ]);
 
-        $bridgeTable = DB::table('medicine_prescription')->insert([
-            'medicine_id'=> $findMeds->medicine_id,
-            'prescription_id' => $pres->id,
-            'quantity' => $medsQty
-        ]);
-
         $presData->save();
         return response()->json($presData);
 
