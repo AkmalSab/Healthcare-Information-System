@@ -8,6 +8,7 @@ use App\Http\Resources\PrescriptionResource;
 use App\Http\Resources\InsuranceResource;
 use App\Models\Prescription;
 use App\Models\Medicine;
+use App\Models\medicine_prescription;
 use App\Models\pms\Insurance;
 use Illuminate\Http\Request;
 
@@ -46,21 +47,21 @@ class PrescriptionCustomController extends Controller
             return response()->json($data);
     }
 
-    public function getPatientMedsAkmal(Request $request)
-    {
-        $data = DB::table('medicine_prescription')
-            ->join('medicines', 'medicines.id', '=', 'medicine_prescription.medicine_id')
-            ->join('prescriptions', 'prescriptions.id', '=', 'medicine_prescription.prescription_id')
-            ->join('appointments', 'appointments.id', '=', 'prescriptions.appointment_id')
-            ->where('appointments.patient_id', '=', $request->route('patID'))
-            ->get();
-        
-        // return response()->json($data);
-        
-        $Prescription = Prescription::find(1);
+    public function getPatientMedPresAkmal(Request $request)
+    {        
+        $medicine_prescription = medicine_prescription::all();
+        return response()->json($medicine_prescription);
+    }
 
-        foreach ($Prescription->medicines as $role) {
-            echo $role;
-        }
+    public function getPatientMedsAkmal(Request $request)
+    {        
+        $medicine_prescription = medicine_prescription::find(1);
+        return response()->json($medicine_prescription->medicines);
+    }
+
+    public function getPatientPressAkmal(Request $request)
+    {        
+        $medicine_prescription = medicine_prescription::find(1);
+        return response()->json($medicine_prescription->prescriptions);
     }
 }

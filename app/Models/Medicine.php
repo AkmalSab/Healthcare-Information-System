@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Prescription;
+use App\Models\medicine_prescription;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,5 +27,10 @@ class Medicine extends Model
     public function prescriptions()
     {
         return $this->belongsToMany(Prescription::class, 'medicine_prescription', 'medicine_id', 'prescription_id')->withPivot('quantity');
+    }
+
+    public function medicine_prescriptions()
+    {
+        return $this->belongsToMany(medicine_prescription::class, 'medicine_id');
     }
 }

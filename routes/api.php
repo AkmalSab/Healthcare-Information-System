@@ -52,6 +52,8 @@ Route::get('/patientMeds/{patID}', [PrescriptionCustomController::class, 'getPat
 
 // akmalsab try eloquent bridge
 Route::get('/akmal/patientMeds/{patID}', [PrescriptionCustomController::class, 'getPatientMedsAkmal']);
+Route::get('/akmal/patientPress/{patID}', [PrescriptionCustomController::class, 'getPatientPressAkmal']);
+Route::get('/akmal/patientMedPress/{patID}', [PrescriptionCustomController::class, 'getPatientMedPresAkmal']);
 
 Route::apiResource('patient', PatientController::class);
 Route::apiResource('family', FamilyController::class);

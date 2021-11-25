@@ -32,4 +32,9 @@ class Prescription extends Model
     {
         return $this->belongsTo(Appointment::class);
     }
+
+    public function medicine_prescriptions()
+    {
+        return $this->belongsToMany(medicine_prescription::class, 'prescription_id');
+    }
 }
