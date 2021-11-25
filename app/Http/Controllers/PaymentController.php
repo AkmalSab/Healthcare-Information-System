@@ -51,6 +51,7 @@ class PaymentController extends Controller
         $payment = $request->get('paymentType');
         $description = $request->get('desc');
         $medsQty = $request->get('medsQty');
+        $findMeds = Prescription::findOrFail($pres->id);
 
         $presData = new Payment ([
             'desc' => $status,
@@ -61,7 +62,7 @@ class PaymentController extends Controller
         ]);
 
         $bridgeTable = DB::table('medicine_prescription')->insert([
-            'medicine_id'=> 1,
+            'medicine_id'=> $findMeds->medicine_id,
             'prescription_id' => $pres->id,
             'quantity' => $medsQty
         ]);

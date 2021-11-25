@@ -22,7 +22,7 @@ class Prescription extends Model
 
     public function medicines()
     {
-        return $this->belongsToMany(Medicine::class);
+        return $this->belongsToMany(Medicine::class, 'medicine_prescription', 'medicine_id', 'prescription_id')->withPivot('quantity');
     }
 
     public function appointment()

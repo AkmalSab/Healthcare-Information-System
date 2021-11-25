@@ -16,7 +16,8 @@ class PrescriptionResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'meds' => $this->medicine_id,
+            'pres_desc' => $this->description,
+            'meds' => $this->medicines,
             'appt' => $this->appointment,
             'pat_id' => $this->appointment->patient_id,
             'pat_name' => $this->appointment->patient->name,

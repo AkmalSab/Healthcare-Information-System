@@ -72,6 +72,18 @@
                             Cash
                         </label>
                     </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-10">
+                        <label>Prescription Desc</label>
+                        <select
+                            class="form-select"
+                            v-model="form.presc"
+                        >
+                            <option selected>Open this select menu</option>
+                            <option v-for="(patientMeds, index) in SelectedPatMeds" :key="patientMeds.index" :value="patientMeds.description">{{ patientMeds.description }}</option>
+                        </select>
+                    </div>
                     <div class="col">
                         <label>Medicine Qty</label>
                         <input type="number" class="form-control" v-model="form.qty">
@@ -89,6 +101,17 @@
                     </div>
                 </div>
                 </form>
+
+                <div class="row mt-3">
+                    <div class="col">
+                        <h5>Description</h5>
+                        <h6>{{ SelectedPat.pres_desc }}</h6>
+                    </div>
+                    <div class="col">
+                        <h5>Description</h5>
+                        <h6>{{ SelectedPatMeds.pres_desc }}</h6>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card mt-3">
@@ -134,8 +157,12 @@ export default {
             Data: [],
             Payment: [],
             Insurance: [],
+            PivotM: [],
+            SelectedPat: [],
+            SelectedPatMeds: [],
             form: {
                 prescID: 'Select',
+                presc: 'Select',
                 insID: 'Select',
                 paymentType: 'Select',
                 desc: '',
@@ -149,6 +176,7 @@ export default {
     created() {
         this.getPresData()
         this.getPaymentData()
+        this.getPivotMeds()
         // this.getInsurance()
     },
     methods: {
@@ -168,6 +196,22 @@ export default {
             axios.get('/api/payment')
                 .then(res => {
                     this.Payment = res.data.data
+                }).catch(error => {
+                console.log(console.error())
+            })
+        },
+        getPivotMeds() {
+            axios.get('/api/pivotMeds/all')
+                .then(res => {
+                    this.PivotM = res.data
+                }).catch(error => {
+                console.log(console.error())
+            })
+        },
+        getPatientMeds() {
+            axios.get('/api/patientMeds/' + this.SelectedPat.id)
+                .then(res => {
+                    this.SelectedPatMeds = res.data
                 }).catch(error => {
                 console.log(console.error())
             })
@@ -217,6 +261,8 @@ export default {
           if (val) {
               console.log(val.insurance)
               this.Insurance = val.insurance
+              this.SelectedPat = val
+              this.getPatientMeds()
           }
       }
     }

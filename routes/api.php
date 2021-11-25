@@ -46,6 +46,8 @@ Route::get('/icd10/report', [ICDCustomController::class, 'getICDReport']);
 
 Route::get('/prescription/all', [PrescriptionCustomController::class, 'getPrescription']);
 Route::get('/insurance/all', [PrescriptionCustomController::class, 'getInsurance']);
+Route::get('/pivotMeds/all', [PrescriptionCustomController::class, 'getPivotMeds']);
+Route::get('/patientMeds/{patID}', [PrescriptionCustomController::class, 'getPatientMeds']);
 
 Route::apiResource('patient', PatientController::class);
 Route::apiResource('family', FamilyController::class);
