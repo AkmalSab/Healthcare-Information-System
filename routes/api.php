@@ -17,6 +17,7 @@ use App\Http\Controllers\PrescriptionCustomController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -48,6 +49,9 @@ Route::get('/prescription/all', [PrescriptionCustomController::class, 'getPrescr
 Route::get('/insurance/all', [PrescriptionCustomController::class, 'getInsurance']);
 Route::get('/pivotMeds/all', [PrescriptionCustomController::class, 'getPivotMeds']);
 Route::get('/patientMeds/{patID}', [PrescriptionCustomController::class, 'getPatientMeds']);
+
+// akmalsab try eloquent bridge
+Route::get('/akmal/patientMeds/{patID}', [PrescriptionCustomController::class, 'getPatientMedsAkmal']);
 
 Route::apiResource('patient', PatientController::class);
 Route::apiResource('family', FamilyController::class);
