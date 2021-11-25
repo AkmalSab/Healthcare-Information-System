@@ -47,7 +47,7 @@ class PrescriptionCustomController extends Controller
             return response()->json($data);
     }
 
-    public function getPatientMedPresAkmal(Request $request)
+    public function getPatientMedPresAkmal()
     {        
         $medicine_prescription = medicine_prescription::all();
         return response()->json($medicine_prescription);
@@ -55,13 +55,13 @@ class PrescriptionCustomController extends Controller
 
     public function getPatientMedsAkmal(Request $request)
     {        
-        $medicine_prescription = medicine_prescription::find(1);
+        $medicine_prescription = medicine_prescription::find($request['patID']);
         return response()->json($medicine_prescription->medicines);
     }
 
     public function getPatientPressAkmal(Request $request)
     {        
-        $medicine_prescription = medicine_prescription::find(1);
+        $medicine_prescription = medicine_prescription::find($request['patID']);
         return response()->json($medicine_prescription->prescriptions);
     }
 }
