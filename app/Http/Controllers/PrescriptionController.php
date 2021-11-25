@@ -37,7 +37,30 @@ class PrescriptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        foreach ($request->all('patient') as $key => $data) {
+            $pat = json_decode($data);
+        }
+        foreach ($request->all('medicine') as $key => $data) {
+            $meds = json_decode($data);
+        }
+
+        $desc = $request->get('desc');
+        $ins = $request->get('instruction');
+        $start = $request->get('start');
+        $freq = $request->get('frequency');
+        $qty = $request->get('quantity');
+
+        $presData = new Prescription ([
+            'patient_id' => $pat->id,
+            'description' => $desc,
+            'instruction' => $ins,
+            'start_consume' => $start,
+            'frequency' => $freq,
+            'quantity' => $qty
+        ]);
+        $presData->save();
+
+        dd($pat, $meds, $desc, $ins, $presData->id, $pat->id, $start, $freq, $qty);
     }
 
     /**

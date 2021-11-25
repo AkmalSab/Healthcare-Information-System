@@ -7,6 +7,9 @@
         <figcaption class="blockquote-footer">
             Someone famous in <cite title="Source Title">Wan-Bissaka</cite>
         </figcaption>
+        <div v-if="showMessage" class="alert alert-success">
+            {{ message }}
+        </div>
 
         <div class="card">
             <div class="card-body">
@@ -21,6 +24,18 @@
                             >
                                 Add Multiple Medicine ➕
                             </button>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label">Appointment ID</label>
+                            <select class="form-select">
+                                <option value="n/a" selected
+                                    >Not Available</option
+                                >
+                                <option value="Type 2">Two</option>
+                                <option value="Type 3">Three</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -75,28 +90,24 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <label class="form-label">Appointment ID</label>
-                            <select class="form-select">
-                                <option value="n/a" selected
-                                    >Not Available</option
-                                >
-                                <option value="Type 2">Two</option>
-                                <option value="Type 3">Three</option>
-                            </select>
-                        </div>
-                        <div class="col">
                             <label class="form-label"
-                                >Start Date Taking Drugs</label
+                                >Start Date Consume Drug</label
                             >
                             <div class="input-group">
-                                <span class="input-group-text">Date</span>
-                                <input type="date" class="form-control" />
+                                <span class="input-group-text">📅</span>
+                                <input type="date" class="form-control" v-model="form.startDate" />
                             </div>
                         </div>
                         <div class="col">
                             <label class="form-label">Drug Frequency</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" />
+                                <input type="number" class="form-control" v-model="form.drugFrequency" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="form-label">Drug Quantity</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" v-model="form.drugQuantity" />
                             </div>
                         </div>
                     </div>
@@ -109,6 +120,7 @@
                                         class="form-control"
                                         placeholder="Leave a comment here"
                                         style="height: 100px"
+                                        v-model="form.description"
                                     ></textarea>
                                     <label
                                         >Description for this
@@ -125,6 +137,7 @@
                                         class="form-control"
                                         placeholder="Leave a comment here"
                                         style="height: 100px"
+                                        v-model="form.instruction"
                                     ></textarea>
                                     <label>Instructions for patient</label>
                                 </div>
@@ -162,10 +175,18 @@ import "vue-select/dist/vue-select.css";
 export default {
     data() {
         return {
+            showMessage: false,
             patientData: [],
             medicineData: [],
             selectedPatient: 0,
-            selectedMedicine: []
+            selectedMedicine: [],
+            form: {
+                description: '',
+                instruction: '',
+                startDate: '',
+                drugFrequency: '',
+                drugQuantity: ''
+            }
         };
     },
     created() {
@@ -193,6 +214,29 @@ export default {
                 .catch(error => {
                     console.log(error);
                 });
+        },
+        postData() {
+            axios.post("/api/prescription", {
+                'desc': this.form.description,
+                'instruction': this.form.instruction,
+                'start': this.form.startDate,
+                'frequency': this.form.drugFrequency,
+                'quantity': this.form.drugQuantity,
+                'patient': JSON.stringify(this.selectedPatient),
+                'medicine': JSON.stringify(this.selectedMedicine)
+            }).then(res=> {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Created',
+                    text: 'New Prescription successfully created!'
+                }).then(res => {
+                    if (res.isConfirmed) {
+                        this.$router.push({name: 'pisIndex'});
+                    }
+                })
+            }).catch(error=> {
+                console.log(console.error);
+            })
         },
         addRow() {
             this.selectedMedicine.push("");
