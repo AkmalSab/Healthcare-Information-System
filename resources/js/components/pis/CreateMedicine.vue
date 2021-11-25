@@ -100,7 +100,7 @@
                                 name="test"
                                 ref="pond"
                                 label-idle="Drop files here...please make sure it's a photo 😊"
-                                v-bind:allow-multiple="true"
+                                v-bind:allow-multiple="false"
                                 accepted-file-types="image/jpeg, image/png"
                                 server="/api/medicine"
                                 v-bind:files="myFiles"
