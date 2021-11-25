@@ -14,8 +14,11 @@ class Prescription extends Model
     protected $fillable = [
         'description',
         'instruction',
+        'start_consume',
+        'frequency',
+        'quantity',
         'appointment_id',
-        'medicine_id',
+        'patient_id',
         'created_at',
         'updated_at'
     ];
