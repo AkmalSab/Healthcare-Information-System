@@ -56,7 +56,7 @@ class PaymentController extends Controller
         $presData = new Payment ([
             'desc' => $status,
             'type' => $payment,
-            'insurance_id' => $ins->id,
+            // 'insurance_id' => $ins->id,
             'prescription_id' => $pres->id,
             'status' => $status
         ]);

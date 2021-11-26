@@ -52,7 +52,7 @@
                             v-model="form.prescID"
                         ></v-select>
                     </div>
-                    <div class="col">
+                    <div class="col" v-if="form.paymentType === 'Insurance'">
                         <label>Insurance ID</label>
                         <v-select
                             class="mt-2"
@@ -62,7 +62,6 @@
                         ></v-select>
                     </div>
                     <div class="col">
-                        <label>Payment Type</label><br>
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Online Banking" v-model="form.paymentType">
                         <label class="form-check-label" for="flexRadioDefault1">
                             Online Banking
@@ -70,23 +69,22 @@
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Cash" checked v-model="form.paymentType">
                         <label class="form-check-label" for="flexRadioDefault2">
                             Cash
+                        </label><br>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="Insurance" checked v-model="form.paymentType">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Insurance
                         </label>
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-10">
+                    <div class="col">
                         <label>Prescription Desc</label>
                         <select
                             class="form-select"
                             v-model="form.presc"
                         >
-                            <option selected>Open this select menu</option>
                             <option v-for="(patientMeds, index) in SelectedPatMeds" :key="patientMeds.index" :value="patientMeds.description">{{ patientMeds.description }}</option>
                         </select>
-                    </div>
-                    <div class="col">
-                        <label>Medicine Qty</label>
-                        <input type="number" class="form-control" v-model="form.qty">
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -101,17 +99,6 @@
                     </div>
                 </div>
                 </form>
-
-                <div class="row mt-3">
-                    <div class="col">
-                        <h5>Description</h5>
-                        <h6>{{ SelectedPat.pres_desc }}</h6>
-                    </div>
-                    <div class="col">
-                        <h5>Description</h5>
-                        <h6>{{ SelectedPatMeds.pres_desc }}</h6>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="card mt-3">
@@ -129,10 +116,10 @@
                     </thead>
                     <tbody>
                         <tr v-for="(pay, index) in Payment" :key="pay.id">
-                            <th scope="row">1</th>
+                            <th scope="row">{{ pay.patient.id }}</th>
                             <td>{{ pay.patient.name }}</td>
-                            <td>{{ pay.insurance.name }}</td>
-                            <td>{{ pay.insurance.type }}</td>
+                            <td>{{ pay.patient.id }}</td>
+                            <td>{{ pay.patient.id }}</td>
                             <td>{{ pay.payment }}</td>
                             <td>
                                 <button class="btn btn-primary" style="color:white" data-bs-toggle="modal" data-bs-target="#billingModal" @click="modalOpen(index)">Create Billing</button>
@@ -209,7 +196,7 @@ export default {
             })
         },
         getPatientMeds() {
-            axios.get('/api/patientMeds/' + this.SelectedPat.id)
+            axios.get('/api/patientMeds/' + this.SelectedPat.pat.id)
                 .then(res => {
                     this.SelectedPatMeds = res.data
                 }).catch(error => {

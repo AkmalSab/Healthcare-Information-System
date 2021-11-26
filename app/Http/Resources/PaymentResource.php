@@ -17,8 +17,9 @@ class PaymentResource extends JsonResource
         return [
             'id' => $this->id,
             'payment' => $this->type,
-            'insurance' => $this->insurance,
-            'patient' => $this->insurance->patient
+            'patient' => $this->prescription->patient,
+            // 'insurance' => $this->insurance,
+            // 'patient' => $this->insurance->patient
         ];
     }
 }
