@@ -34,7 +34,7 @@ class Prescription extends Model
     {
         return $this->belongsTo(Appointment::class);
     }
-
+  
     public function patient()
     {
         return $this->belongsTo(Patient::class);
@@ -43,5 +43,10 @@ class Prescription extends Model
     public function payment()
     {
         return $this->hasOne(Payment::class);
+    }
+
+    public function medicine_prescriptions()
+    {
+        return $this->belongsToMany(medicine_prescription::class, 'prescription_id');
     }
 }
