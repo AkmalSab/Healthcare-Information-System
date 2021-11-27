@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+// use DB;
+use Illuminate\Support\Facades\DB;
 use App\Models\pms\Patient;
 use App\Models\Prescription;
 use Illuminate\Http\Request;
