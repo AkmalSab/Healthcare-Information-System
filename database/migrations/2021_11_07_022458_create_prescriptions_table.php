@@ -21,7 +21,6 @@ class CreatePrescriptionsTable extends Migration
             $table->string('instruction');
             $table->date('start_consume');
             $table->integer('frequency');
-            $table->integer('quantity');
             $table->timestamps();
         });
     }

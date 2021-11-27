@@ -15,7 +15,6 @@ class CreateStaffsTable extends Migration
     {
         Schema::create('staffs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('role_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('nric');
             $table->string('phone');
@@ -31,8 +30,8 @@ class CreateStaffsTable extends Migration
             $table->string('state');
             $table->string('postcode');
             $table->string('city');
+            $table->foreignId('role_id')->constrained()->onDelete('cascade');
             $table->timestamps();
-            $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
     }
 

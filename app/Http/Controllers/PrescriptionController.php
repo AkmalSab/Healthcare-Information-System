@@ -57,15 +57,14 @@ class PrescriptionController extends Controller
             'description' => $desc,
             'instruction' => $ins,
             'start_consume' => $start,
-            'frequency' => $freq,
-            'quantity' => $qty
+            'frequency' => $freq
         ]);
         $presData->save();
 
         $bridgeTable = DB::table('medicine_prescription')->insert([
             'medicine_id'=> $meds[0]->id,
             'prescription_id' => $presData->id,
-            'quantity' => $presData->quantity,
+            'quantity' => $qty,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);

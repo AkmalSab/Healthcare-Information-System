@@ -18,10 +18,8 @@ class CreatePatientsTable extends Migration
             $table->string('name');
             $table->string('nric');
             $table->string('phone');
-            $table->string('gender');
             $table->date('birthdate');
-            $table->string('marital_status');
-            $table->string('occupation');                        
+            $table->string('gender');
             $table->string('religion');
             $table->string('country');
             $table->string('race');
@@ -30,6 +28,8 @@ class CreatePatientsTable extends Migration
             $table->string('state');
             $table->string('postcode');
             $table->string('city');
+            $table->string('marital_status');
+            $table->string('occupation');                                    
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });

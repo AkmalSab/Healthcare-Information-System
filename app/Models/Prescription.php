@@ -18,7 +18,6 @@ class Prescription extends Model
         'instruction',
         'start_consume',
         'frequency',
-        'quantity',
         'appointment_id',
         'patient_id',
         'created_at',
