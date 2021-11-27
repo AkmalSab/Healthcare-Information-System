@@ -57,15 +57,9 @@ class PaymentController extends Controller
         $presData = new Payment ([
             'desc' => $status,
             'type' => $payment,
-            'insurance_id' => $ins->id,
+            // 'insurance_id' => $ins->id,
             'prescription_id' => $pres->id,
             'status' => $status
-        ]);
-
-        $bridgeTable = DB::table('medicine_prescription')->insert([
-            'medicine_id'=> $findMeds->medicine_id,
-            'prescription_id' => $pres->id,
-            'quantity' => $medsQty
         ]);
 
         $presData->save();

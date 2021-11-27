@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use App\Models\pms\Appointment;
+use App\Models\pms\Patient;
 use App\Models\Medicine;
+use App\Models\Payment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,6 +33,16 @@ class Prescription extends Model
     public function appointment()
     {
         return $this->belongsTo(Appointment::class);
+    }
+  
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
+
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
     }
 
     public function medicine_prescriptions()

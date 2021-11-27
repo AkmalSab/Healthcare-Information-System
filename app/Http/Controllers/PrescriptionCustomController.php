@@ -40,8 +40,7 @@ class PrescriptionCustomController extends Controller
         $data = DB::table('medicine_prescription')
             ->join('medicines', 'medicines.id', '=', 'medicine_prescription.medicine_id')
             ->join('prescriptions', 'prescriptions.id', '=', 'medicine_prescription.prescription_id')
-            ->join('appointments', 'appointments.id', '=', 'prescriptions.appointment_id')
-            ->where('appointments.patient_id', '=', $request->route('patID'))
+            ->where('prescriptions.patient_id', '=', $request->route('patID'))
             ->get();
         
             return response()->json($data);

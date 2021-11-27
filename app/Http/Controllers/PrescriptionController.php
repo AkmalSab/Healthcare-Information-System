@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Models\pms\Patient;
 use App\Models\Prescription;
 use Illuminate\Http\Request;
@@ -59,6 +60,14 @@ class PrescriptionController extends Controller
             'quantity' => $qty
         ]);
         $presData->save();
+
+        $bridgeTable = DB::table('medicine_prescription')->insert([
+            'medicine_id'=> $meds[0]->id,
+            'prescription_id' => $presData->id,
+            'quantity' => $presData->quantity,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
 
         dd($pat, $meds, $desc, $ins, $presData->id, $pat->id, $start, $freq, $qty);
     }
