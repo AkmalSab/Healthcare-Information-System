@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+// use DB;
+use Illuminate\Support\Facades\DB;
 use App\Http\Resources\PrescriptionResource;
 use App\Http\Resources\InsuranceResource;
 use App\Models\Prescription;
 use App\Models\Medicine;
+use App\Models\medicine_prescription;
 use App\Models\pms\Insurance;
 use Illuminate\Http\Request;
 
@@ -42,5 +44,23 @@ class PrescriptionCustomController extends Controller
             ->get();
         
             return response()->json($data);
+    }
+
+    public function getPatientMedPresAkmal()
+    {        
+        $medicine_prescription = medicine_prescription::all();
+        return response()->json($medicine_prescription);
+    }
+
+    public function getPatientMedsAkmal(Request $request)
+    {        
+        $medicine_prescription = medicine_prescription::find($request['patID']);
+        return response()->json($medicine_prescription->medicines);
+    }
+
+    public function getPatientPressAkmal(Request $request)
+    {        
+        $medicine_prescription = medicine_prescription::find($request['patID']);
+        return response()->json($medicine_prescription->prescriptions);
     }
 }

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+// use DB;
+use Illuminate\Support\Facades\DB;
 use App\Http\Resources\PaymentResource;
 use App\Models\Payment;
 use App\Models\Prescription;
