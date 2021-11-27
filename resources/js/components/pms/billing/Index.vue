@@ -122,7 +122,7 @@
                             <td>{{ pay.patient.id }}</td>
                             <td>{{ pay.payment }}</td>
                             <td>
-                                <button class="btn btn-primary" style="color:white" data-bs-toggle="modal" data-bs-target="#billingModal" @click="modalOpen(index)">Create Billing</button>
+                                <button class="btn btn-primary" style="color:white" data-bs-toggle="modal" data-bs-target="#billingModal" @click="modalOpen(index)">Edit</button>
                                 <button class="btn btn-danger" style="color:white" @click="deleteBilling(pay.id)">Delete</button>
                             </td>
                         </tr>
