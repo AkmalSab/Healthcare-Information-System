@@ -15,11 +15,12 @@ class CreateFamiliesTable extends Migration
     {
         Schema::create('families', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->constrained()->onDelete('cascade');
+            $table->foreignId('insurance_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('nric');
             $table->string('phone');
             $table->string('relationship');
+            $table->string('gender');
             $table->string('country');
             $table->string('address_1');
             $table->string('address_2');
