@@ -22,9 +22,9 @@ class PatientCustomController extends Controller
         return response()->json($patient);
     }
 
-    public function getNextOfKind(Request $request)
+    public function getNextOfKin(Request $request)
     {
-        $next = Family::all()->where('patient_id', '=', $request->route('patID'));
+        $next = Family::all()->where('insurance_id', '=', $request->route('patID'));
         return response()->json($next);
     }
 

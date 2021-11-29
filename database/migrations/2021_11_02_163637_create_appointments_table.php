@@ -21,7 +21,7 @@ class CreateAppointmentsTable extends Migration
             $table->foreignId('patient_id')->constrained()->onDelete('cascade');
             $table->foreignId('staff_id')->constrained('staffs')->onDelete('cascade');
             $table->foreignId('case_id')->constrained('cases')->onDelete('cascade');
-            $table->foreignId('consultation_id')->constrained('cases')->onDelete('cascade');
+            $table->foreignId('consultation_id')->constrained('cases')->onDelete('cascade')->nullable();
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });

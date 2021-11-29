@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
                             <div class="mb-3">
                                 <label for="NokRelationsip" class="form-label"
                                     >Relationship Status</label
@@ -127,7 +127,29 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="mb-3">
+                                <label for="NokGender" class="form-label"
+                                    >Gender</label
+                                >
+                                <select
+                                    class="form-select"
+                                    v-model="form.NokGender"
+                                    id="NokGender"
+                                    aria-label="NokGenderHelp"
+                                    aria-describedby="NokGenderHelp"
+                                    required
+                                >
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <div id="NokGenderHelp" class="form-text">
+                                    Please input patient's emergency contact
+                                    gender.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
                             <div class="mb-3">
                                 <label for="NokNationality" class="form-label"
                                     >Country</label
@@ -379,7 +401,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div class="col-sm-12 col-md-4 col-lg-4">
                                     <div class="mb-3">
                                         <label
                                             for="NokRelationsip"
@@ -419,7 +441,29 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="mb-3">
+                                <label for="NokGender" class="form-label"
+                                    >Gender</label
+                                >
+                                <select
+                                    class="form-select"
+                                    v-model="modal.NokGender"
+                                    id="NokGender"
+                                    aria-label="NokGenderHelp"
+                                    aria-describedby="NokGenderHelp"
+                                    required
+                                >
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <div id="NokGenderHelp" class="form-text">
+                                    Please input patient's emergency contact
+                                    gender.
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
                                     <div class="mb-3">
                                         <label
                                             for="NokNationality"
@@ -677,14 +721,7 @@
                                     @click="modalOpen(index)"
                                 >
                                     Edit
-                                </button>
-                                <button
-                                    class="btn btn-danger"
-                                    style="color: white"
-                                    @click="deletePatientNextofKin(modal.NokId)"
-                                >
-                                    Delete
-                                </button>
+                                </button>                        
                             </td>
                         </tr>
                     </tbody>
@@ -699,7 +736,7 @@ export default {
     components: {},
     data() {
         return {
-            patients: [],
+            patientsInsurance: [],
             families: [],
             form: {
                 PatName: "",
@@ -708,6 +745,7 @@ export default {
                 NokPhone: "",
                 NokNric: "",
                 NokRelationsip: "",
+                NokGender: "",
                 NokNationality: "Malaysia",
                 NokAddress1: "",
                 NokAddress2: "",
@@ -717,11 +755,12 @@ export default {
             },
             modal: {
                 PatName: "",
-                PatId: this.$route.params.id,
+                InsId: "",
                 NokName: "",
                 NokPhone: "",
                 NokNric: "",
                 NokRelationsip: "",
+                NokGender: "",
                 NokNationality: "Malaysia",
                 NokAddress1: "",
                 NokAddress2: "",
@@ -732,7 +771,7 @@ export default {
         };
     },
     created() {
-        this.getPatient();
+        this.getPatientInsurance();
         this.getPatientNextofKin();
     },
     methods: {
@@ -752,25 +791,26 @@ export default {
                     console.log(error);
                 });
         },
-        getPatient() {
+        getPatientInsurance() {
             axios
-                .get("/api/patient/" + this.$route.params.id)
-                .then(res => {
-                    this.patients = res.data.data;
-                    this.form.PatName = this.patients.name;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+            .get("/api/patient/insurance/" + this.$route.params.id)
+            .then(res => {
+                this.patientsInsurance = res.data.data;
+                this.form.PatName = this.patientsInsurance[0].patient.name;
+            })
+            .catch(error => {
+                console.log(error);
+            });
         },
         storePatientNextofKin() {
             axios
                 .post("/api/family", {
-                    patient_id: this.form.PatId,
+                    insurance_id: this.patientsInsurance[0].id,
                     name: this.form.NokName,
                     nric: this.form.NokNric,
                     phone: this.form.NokPhone,
                     relationship: this.form.NokRelationsip,
+                    gender: this.form.NokGender,
                     country: this.form.NokNationality,
                     address_1: this.form.NokAddress1,
                     address_2: this.form.NokAddress2,
@@ -797,12 +837,12 @@ export default {
                 });
         },
         modalOpen(familyId) {
-            this.modal.PatId = this.families[familyId].patient_id;
             this.modal.NokId = this.families[familyId].id;
             this.modal.NokName = this.families[familyId].name;
             this.modal.NokPhone = this.families[familyId].phone;
             this.modal.NokNric = this.families[familyId].nric;
             this.modal.NokRelationsip = this.families[familyId].relationship;
+            this.modal.NokGender = this.families[familyId].gender;
             this.modal.NokNationality = this.families[familyId].country;
             this.modal.NokAddress1 = this.families[familyId].address_1;
             this.modal.NokAddress2 = this.families[familyId].address_2;
@@ -833,14 +873,16 @@ export default {
                 });
         },
         updatePatientNextofKin() {
+            // this.patientsInsurance[0].id
             axios
                 .put("/api/family/" + this.modal.NokId, {
                     id: this.modal.NokId,
-                    patient_id: this.modal.PatId,
+                    insurance_id: this.patientsInsurance[0].id,
                     name: this.modal.NokName,
                     nric: this.modal.NokNric,
                     phone: this.modal.NokPhone,
                     relationship: this.modal.NokRelationsip,
+                    gender: this.modal.NokGender,
                     country: this.modal.NokNationality,
                     address_1: this.modal.NokAddress1,
                     address_2: this.modal.NokAddress2,

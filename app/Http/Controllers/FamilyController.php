@@ -53,8 +53,8 @@ class FamilyController extends Controller
     public function show($id)
     {
         $family = Family::findOrFail($id);
-
-        return new FamilyResource($family);
+        dd($family);
+        // return new FamilyResource($family);
     }
 
     /**

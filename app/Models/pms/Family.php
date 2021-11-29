@@ -12,11 +12,12 @@ class Family extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'patient_id',
+        'insurance_id',
         'name',
         'nric',
         'phone',
-        'relationship',        
+        'relationship',
+        'gender',
         'country',
         'address_1',
         'address_2',

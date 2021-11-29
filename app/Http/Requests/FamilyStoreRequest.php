@@ -24,11 +24,12 @@ class FamilyStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'patient_id' => ['required'],
+            'insurance_id' => ['required'],
             'name' => ['required'],
             'nric' => ['required'],
             'phone' => ['required'],
-            'relationship' => ['required'],            
+            'relationship' => ['required'],
+            'gender' => ['required'],         
             'country' => ['required'],            
             'address_1' => ['required'],
             'address_2' => ['required'],
