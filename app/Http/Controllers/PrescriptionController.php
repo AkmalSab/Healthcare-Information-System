@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Models\pms\Patient;
 use App\Models\Prescription;
 use Illuminate\Http\Request;
@@ -37,7 +38,37 @@ class PrescriptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        foreach ($request->all('patient') as $key => $data) {
+            $pat = json_decode($data);
+        }
+        foreach ($request->all('medicine') as $key => $data) {
+            $meds = json_decode($data);
+        }
+
+        $desc = $request->get('desc');
+        $ins = $request->get('instruction');
+        $start = $request->get('start');
+        $freq = $request->get('frequency');
+        $qty = $request->get('quantity');
+
+        $presData = new Prescription ([
+            'patient_id' => $pat->id,
+            'description' => $desc,
+            'instruction' => $ins,
+            'start_consume' => $start,
+            'frequency' => $freq
+        ]);
+        $presData->save();
+
+        $bridgeTable = DB::table('medicine_prescription')->insert([
+            'medicine_id'=> $meds[0]->id,
+            'prescription_id' => $presData->id,
+            'quantity' => $qty,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        dd($pat, $meds, $desc, $ins, $presData->id, $pat->id, $start, $freq, $qty);
     }
 
     /**

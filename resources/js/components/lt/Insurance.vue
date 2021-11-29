@@ -2,7 +2,7 @@
     <div class="table-responsive container">
         <h1 class="">Insurance Lookup</h1>
         <blockquote class="blockquote">
-            <p>List of Insurance.</p>
+            <p>View and Register Insurance 🚨</p>
         </blockquote>
 
         <div class="card mb-2">

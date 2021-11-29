@@ -4,6 +4,7 @@ namespace App\Models\pms;
 
 use App\Models\Consultation;
 use App\Models\pms\Insurance;
+use App\Models\pms\Prescription;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -46,5 +47,10 @@ class Patient extends Model
     public function insurances()
     {
         return $this->hasMany(Insurance::class);
+    }
+
+    public function prescription()
+    {
+        return $this->hasOne(Prescription::class);
     }
 }

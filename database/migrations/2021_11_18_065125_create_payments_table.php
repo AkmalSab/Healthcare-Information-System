@@ -17,8 +17,8 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->string('desc');
             $table->string('type');
-            $table->foreignId('insurance_id')->constrained()->onDelete('cascade')->nullable();
-            $table->foreignId('prescription_id')->constrained()->onDelete('cascade')->nullable();
+            $table->foreignId('insurance_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('prescription_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('status');
             $table->timestamps();
         });

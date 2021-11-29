@@ -16,8 +16,15 @@ class PrescriptionResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'pres_desc' => $this->description,
             'appt' => $this->appointment,
-            'pat_id' => $this->appointment->patient_id
+            // 'pat_id' => $this->appointment->patient_id,
+            // 'pat_name' => $this->appointment->patient->name,
+            // 'pat' => $this->appointment->patient,
+            'pat' => $this->patient,
+            'pat_name' => $this->patient->name,
+            // 'insurance' => $this->appointment->patient->insurances->where('patient_id', '=', $this->appointment->patient_id)
+            'insurance' => $this->patient->insurances->where('patient_id', '=', $this->patient->id)
         ];
     }
 }

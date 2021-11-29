@@ -47,12 +47,12 @@
                                 Modules
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Patient Management System</a></li>
-                                <li><a class="dropdown-item" href="#">Doctor-Patient Consultation</a></li>
-                                <li><a class="dropdown-item" href="#">Pharmacy</a></li>
+                                <li><a class="dropdown-item" href="{{ url('pms') }}">Patient Management System</a></li>
+                                <li><a class="dropdown-item" href="{{ url('cis') }}">Consultation Information System</a></li>
+                                <li><a class="dropdown-item" href="{{ url('pis') }}">Prescription Information System</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Billing</a></li>
-                                <li><a class="dropdown-item" href="#">Calling System</a></li>
+                                <li><a class="dropdown-item" href="{{ url('lt') }}">Lookup Table</a></li>
+                                <li><a class="dropdown-item" href="{{ url('icd10') }}">ICD-10</a></li>
                             </ul>
                         </li>
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+// use DB;
+use Illuminate\Support\Facades\DB;
 use App\Http\Resources\PaymentResource;
 use App\Models\Payment;
 use App\Models\Prescription;
@@ -16,7 +18,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        $data = Payment::all();
+        // return response()->json($data);
+        return PaymentResource::collection($data);
     }
 
     /**
@@ -37,7 +41,31 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        foreach ($request->all('insurance') as $key => $data) {
+            $ins = json_decode($data);
+        }
+        foreach ($request->all('prescription') as $key => $data) {
+            $pres = json_decode($data);
+        }
+
+        $status = $request->get('status');
+        $payment = $request->get('paymentType');
+        $description = $request->get('desc');
+        $medsQty = $request->get('medsQty');
+        $findMeds = Prescription::findOrFail($pres->id);
+
+        $presData = new Payment ([
+            'desc' => $status,
+            'type' => $payment,
+            // 'insurance_id' => $ins->id,
+            'prescription_id' => $pres->id,
+            'status' => $status
+        ]);
+
+        $presData->save();
+        return response()->json($presData);
+
+        // dd($ins->id, $pres->id, $status, $payment, $description);
     }
 
     /**
@@ -80,8 +108,9 @@ class PaymentController extends Controller
      * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Payment $payment)
+    public function destroy($id)
     {
-        //
+        Payment::destroy($id);
+        return response()->json('Billing Deleted Successfully ✔');
     }
 }

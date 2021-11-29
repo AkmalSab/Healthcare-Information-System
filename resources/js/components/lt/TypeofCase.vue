@@ -1,6 +1,6 @@
 <template>
     <div class="table-responsive container">
-        <h1>Case</h1>
+        <h1>Case Lookup</h1>
         <blockquote class="blockquote">
             <p>
                 View and Register Case 🚨
