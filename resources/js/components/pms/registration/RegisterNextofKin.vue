@@ -687,6 +687,32 @@
         </div>
         <!-- End Modal -->
 
+        <!-- error modal -->
+
+        <!-- Button trigger modal -->
+        <button v-if="patientsInsurance.length == 0" type="button" id="errorBackdropButton" class="btn btn-primary invisble" data-bs-toggle="modal" data-bs-target="#errorBackdrop">
+            error
+        </button>
+
+        <!-- Modal -->
+        <div v-if="patientsInsurance.length == 0" class="modal fade" id="errorBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="errorBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorBackdropLabel">Insurance Information Not Found</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Please register patient's insurance first.</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" v-on:click="returnPatientBiodata">Add Insurance Information</button>             
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- end error modal -->
+
         <div class="card mt-2">
             <div class="card-body">
                 <table class="table text-center" id="patNextOfKinTable">
@@ -765,7 +791,7 @@ export default {
                 NokAddress1: "",
                 NokAddress2: "",
                 NokState: "",
-                NokPostcode: "",
+                NokPostcode: "",    
                 NokCity: ""
             }
         };
@@ -790,13 +816,18 @@ export default {
                 .catch(error => {
                     console.log(error);
                 });
-        },
+        },  
         getPatientInsurance() {
             axios
             .get("/api/patient/insurance/" + this.$route.params.id)
             .then(res => {
                 this.patientsInsurance = res.data.data;
-                this.form.PatName = this.patientsInsurance[0].patient.name;
+                if(this.patientsInsurance.length != 0){
+                    this.form.PatName = this.patientsInsurance[0].patient.name;
+                    }
+                else{   
+                    $("#errorBackdropButton").click();
+                }
             })
             .catch(error => {
                 console.log(error);
@@ -916,6 +947,9 @@ export default {
                 evt.preventDefault();
             }
             return true;
+        },
+        returnPatientBiodata: function(event) {
+            this.$router.push({name: 'PmsPatientBiodata'});            
         }
     }
 };
