@@ -69,6 +69,7 @@ class PrescriptionController extends Controller
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
+        return response()->json('Prescription Created Successfully ✔');
         dd($pat, $meds, $desc, $ins, $presData->id, $pat->id, $start, $freq, $qty);
     }
 
