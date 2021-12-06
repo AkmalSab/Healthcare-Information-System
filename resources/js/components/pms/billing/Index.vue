@@ -171,10 +171,10 @@
                         <div class="row mt-3">
                             <div class="col">
                                 <p>
-                                    <strong>Wan Ismat</strong><br>
-                                    Xmiryna Technology<br>
-                                    Housten TX, United States<br>
-                                    017-2178319
+                                    <strong>{{ printPaymentPDF.patName }}</strong><br>
+                                    {{ printPaymentPDF.patLine1 }}<br>
+                                    {{ printPaymentPDF.patLine2 }}, {{ printPaymentPDF.patState }}, {{ printPaymentPDF.patPostcode }}<br>
+                                    {{ printPaymentPDF.patPhone }}
                                 </p>
                             </div>
                             <div class="col">
@@ -182,15 +182,15 @@
                                     <tbody class="float-end">
                                         <tr>
                                             <th>Invoice: </th>
-                                            <td>#0123</td>
+                                            <td>#INV-{{ Math.floor(Math.random() * 10000) }}</td>
                                         </tr>
                                         <tr>
                                             <th>Date: </th>
-                                            <td>30-11-2021</td>
+                                            <td>{{ printPaymentPDF.paymentCreateOn | formatDateSimple }}</td>
                                         </tr>
                                         <tr>
                                             <th>Customer Name: </th>
-                                            <td>WAN MUHAMMAD ISMAT</td>
+                                            <td>{{ printPaymentPDF.patName }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -200,34 +200,18 @@
                         <table class="table table-sm mt-2">
                             <thead class="table-dark">
                                 <tr>
-                                    <th scope="col">No.</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Price (RM)</th>
                                     <th scope="col">Quantity</th>
-                                    <th scope="col">Total</th>
+                                    <th scope="col">Total (RM)</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    <td>@mdo</td>
+                                    <td>{{ printPaymentPDF.medsName }}</td>
+                                    <td>{{ printPaymentPDF.medsPrice }}</td>
+                                    <td>{{ printPaymentPDF.medsQty }}</td>
+                                    <td>{{ printPaymentPDF.medsPrice * printPaymentPDF.medsQty }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -248,7 +232,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                2. If you give us less than 48 hours notice when cancelling a booking or do not attend an appointment, you agree to pay the cancellation charge of £25 or the full cost of your treatment (whichever amount is smaller). These charges may be waived in exceptional circumstances.
+                                                2. If you give us less than 48 hours notice when cancelling a booking or do not attend an appointment, you agree to pay the cancellation charge of RM 25 or the full cost of your treatment (whichever amount is smaller). These charges may be waived in exceptional circumstances.
                                             </td>
                                         </tr>
                                         <tr>
@@ -263,12 +247,16 @@
                                 <table class="table table-borderless table-sm">
                                     <tbody class="float-end">
                                         <tr>
+                                            <th>Payment Type: </th>
+                                            <td>{{ printPaymentPDF.paymentType }}</td>
+                                        </tr>
+                                        <tr>
                                             <th>Subtotal: </th>
-                                            <td>RM 1,000.00</td>
+                                            <td>RM {{ printPaymentPDF.medsPrice * printPaymentPDF.medsQty }}.00</td>
                                         </tr>
                                         <tr>
                                             <th>Total: </th>
-                                            <td>RM 1,000.00</td>
+                                            <td>RM {{ printPaymentPDF.medsPrice * printPaymentPDF.medsQty }}.00</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -297,6 +285,7 @@ export default {
             PivotM: [],
             SelectedPat: [],
             SelectedPatMeds: [],
+            fetchInfo: [],
             form: {
                 prescID: 'Select',
                 presc: 'Select',
@@ -307,6 +296,26 @@ export default {
             },
             modalForm: {
                 medsQty: 0
+            },
+            printPaymentPDF: {
+                medsName: '',
+                medsCost: '',
+                medsQty: '',
+                medsPrice: '',
+                patName: '',
+                patPhone: '',
+                patIC: '',
+                patLine1: '',
+                patLine2: '',
+                patState: '',
+                patPostcode: '',
+                patCity: '',
+                patCountry: '',
+                paymentCreateOn: '',
+                paymentType: '',
+                paymentStatus: '',
+                prescDesc: '',
+                prescInstruct: ''
             }
         };
     },
@@ -314,6 +323,7 @@ export default {
         this.getPresData()
         this.getPaymentData()
         this.getPivotMeds()
+        this.fetchPayment()
         // this.getInsurance()
     },
     components: {
@@ -325,8 +335,28 @@ export default {
             return (this.active = i);
         },
         generateReceipt (i) {
-            this.$refs.PDFReceipt.generatePdf();
-            return this.active = i;
+            this.$refs.PDFReceipt.generatePdf()
+
+            this.printPaymentPDF.medsName = this.fetchInfo[i].meds_name
+            this.printPaymentPDF.medsCost = this.fetchInfo[i].meds_cost
+            this.printPaymentPDF.medsQty = this.fetchInfo[i].meds_qty
+            this.printPaymentPDF.medsPrice = this.fetchInfo[i].meds_price
+            this.printPaymentPDF.patName = this.fetchInfo[i].pat_name
+            this.printPaymentPDF.patPhone = this.fetchInfo[i].phone
+            this.printPaymentPDF.patIC = this.fetchInfo[i].nric
+            this.printPaymentPDF.patLine1 = this.fetchInfo[i].address_1
+            this.printPaymentPDF.patLine2 = this.fetchInfo[i].address_2
+            this.printPaymentPDF.patState = this.fetchInfo[i].state
+            this.printPaymentPDF.patPostcode = this.fetchInfo[i].postcode
+            this.printPaymentPDF.patCity = this.fetchInfo[i].city
+            this.printPaymentPDF.patCountry = this.fetchInfo[i].country
+            this.printPaymentPDF.paymentCreateOn = this.fetchInfo[i].payment_created_on
+            this.printPaymentPDF.paymentType = this.fetchInfo[i].payment_type
+            this.printPaymentPDF.paymentStatus = this.fetchInfo[i].payment_status
+            this.printPaymentPDF.prescDesc = this.fetchInfo[i].presc_desc
+            this.printPaymentPDF.prescInstruct = this.fetchInfo[i].instruction
+
+            return this.active = i
         },
         getPresData() {
             axios.get('/api/prescription/all')
@@ -356,6 +386,14 @@ export default {
             axios.get('/api/patientMeds/' + this.SelectedPat.pat.id)
                 .then(res => {
                     this.SelectedPatMeds = res.data
+                }).catch(error => {
+                console.log(console.error())
+            })
+        },
+        fetchPayment() {
+            axios.get('/api/fetch-payment-data')
+                .then(res => {
+                    this.fetchInfo = res.data
                 }).catch(error => {
                 console.log(console.error())
             })

@@ -12,6 +12,7 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ICDCustomController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PaymentCustomController;
 use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\PrescriptionCustomController;
 use Illuminate\Http\Request;
@@ -49,6 +50,8 @@ Route::get('/prescription/all', [PrescriptionCustomController::class, 'getPrescr
 Route::get('/insurance/all', [PrescriptionCustomController::class, 'getInsurance']);
 Route::get('/pivotMeds/all', [PrescriptionCustomController::class, 'getPivotMeds']);
 Route::get('/patientMeds/{patID}', [PrescriptionCustomController::class, 'getPatientMeds']);
+
+Route::get('/fetch-payment-data', [PaymentCustomController::class, 'getPayment']);
 
 Route::apiResource('patient', PatientController::class);
 Route::apiResource('family', FamilyController::class);
