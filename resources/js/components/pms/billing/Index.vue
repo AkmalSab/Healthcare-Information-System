@@ -11,34 +11,6 @@
             {{ message }}
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="billingModal" tabindex="-1" aria-labelledby="billingModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="billingModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label">Quantity</label>
-                        <input type="number" class="form-control" v-model="modalForm.medsQty">
-                        <div class="form-text">
-                            Please input medicine quantity.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" style="color:white">Save changes</button>
-            </div>
-            </div>
-        </div>
-        </div>
-        <!-- End Modal -->
-
         <div class="card">
             <div class="card-body">
                 <form @submit.prevent="storeBilling">
@@ -105,17 +77,23 @@
             <div class="card-body">
                 <table class="table" id="billingTable">
                     <thead>
-                        <tr>
+                        <!-- <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Insurance Name</th>
                             <th scope="col">Insurance Type</th>
                             <th scope="col">Payment Type</th>
                             <th scope="col">Actions</th>
+                        </tr> -->
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Payment Type</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(pay, index) in Payment" :key="pay.id">
+                        <!-- <tr v-for="(pay, index) in Payment" :key="pay.id">
                             <th scope="row">{{ pay.patient.id }}</th>
                             <td>{{ pay.patient.name }}</td>
                             <td>{{ pay.patient.id }}</td>
@@ -123,8 +101,16 @@
                             <td>{{ pay.payment }}</td>
                             <td>
                                 <button class="btn btn-success" @click="generateReceipt(index)" style="color:white">Print</button>
-                                <button class="btn btn-primary" style="color:white" data-bs-toggle="modal" data-bs-target="#billingModal" @click="modalOpen(index)">Edit</button>
                                 <button class="btn btn-danger" style="color:white" @click="deleteBilling(pay.id)">Delete</button>
+                            </td>
+                        </tr> -->
+                        <tr v-for="(pay, index) in fetchInfo" :key="pay.paymentID">
+                            <td>{{ pay.pat_name }}</td>
+                            <td>{{ pay.presc_desc }}</td>
+                            <td>{{ pay.payment_type }}</td>
+                            <td>
+                                <button class="btn btn-success" @click="generateReceipt(index)" style="color:white">Print</button>
+                                <button class="btn btn-danger" style="color:white" @click="deleteBilling(pay.paymentID)">Delete</button>
                             </td>
                         </tr>
                     </tbody>
@@ -330,10 +316,6 @@ export default {
         VueHtml2pdf
     },
     methods: {
-        modalOpen: function(i) {
-
-            return (this.active = i);
-        },
         generateReceipt (i) {
             this.$refs.PDFReceipt.generatePdf()
 

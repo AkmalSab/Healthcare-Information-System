@@ -14,7 +14,7 @@ class PaymentCustomController extends Controller
         'medicines.price_per_unit AS meds_price', 'patients.name AS pat_name', 'patients.phone', 'patients.nric', 'patients.address_1', 'patients.address_2',
         'patients.state', 'patients.postcode', 'patients.city', 'patients.country', 'payments.created_at AS payment_created_on',
         'payments.type AS payment_type', 'payments.status AS payment_status', 'prescriptions.description AS presc_desc',
-        'prescriptions.instruction')
+        'prescriptions.instruction', 'payments.id AS paymentID')
         ->join('medicine_prescription', 'medicine_prescription.prescription_id', '=', 'payments.prescription_id')
         ->join('prescriptions', 'prescriptions.id', '=', 'medicine_prescription.prescription_id')
         ->join('medicines', 'medicines.id', '=', 'medicine_prescription.medicine_id')
