@@ -16,16 +16,16 @@
                 <form @submit.prevent="storeBilling">
                 <div class="row">
                     <div class="col">
-                        <label>Prescription ID</label>
+                        <label>Select Patient</label>
                         <v-select
                             class="mt-2"
-                            :options="Data"
-                            label="pat_name"
+                            :options="fetchName"
+                            label="name"
                             v-model="form.prescID"
                         ></v-select>
                     </div>
                     <div class="col" v-if="form.paymentType === 'Insurance'">
-                        <label>Insurance ID</label>
+                        <label>Select Prescription</label>
                         <v-select
                             class="mt-2"
                             :options="Insurance"
@@ -34,6 +34,7 @@
                         ></v-select>
                     </div>
                     <div class="col">
+                        <label>Payment Type</label><br>
                         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Online Banking" v-model="form.paymentType">
                         <label class="form-check-label" for="flexRadioDefault1">
                             Online Banking
@@ -50,18 +51,18 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col">
-                        <label>Prescription Desc</label>
+                        <label class="mb-2">Prescription Desc</label>
                         <select
                             class="form-select"
                             v-model="form.presc"
                         >
-                            <option v-for="(patientMeds, index) in SelectedPatMeds" :key="patientMeds.index" :value="patientMeds.description">{{ patientMeds.description }}</option>
+                            <option v-for="(patientMeds, index) in SelectedPatMeds" :key="patientMeds.index" :value="patientMeds.id">{{ patientMeds.description }}</option>
                         </select>
                     </div>
                 </div>
                 <div class="row mt-2">
                     <div class="col">
-                        <label>Description</label>
+                        <label class="mb-2">Billing Description</label>
                         <textarea class="form-control" cols="10" rows="5" v-model="form.desc"></textarea>
                     </div>
                 </div>
@@ -75,7 +76,7 @@
         </div>
         <div class="card mt-3">
             <div class="card-body">
-                <table class="table" id="billingTable">
+                <table class="table text-center" id="billingTable">
                     <thead>
                         <!-- <tr>
                             <th scope="col">#</th>
@@ -272,6 +273,7 @@ export default {
             SelectedPat: [],
             SelectedPatMeds: [],
             fetchInfo: [],
+            fetchName: [],
             form: {
                 prescID: 'Select',
                 presc: 'Select',
@@ -310,6 +312,7 @@ export default {
         this.getPaymentData()
         this.getPivotMeds()
         this.fetchPayment()
+        this.fetchPatientName()
         // this.getInsurance()
     },
     components: {
@@ -365,7 +368,7 @@ export default {
             })
         },
         getPatientMeds() {
-            axios.get('/api/patientMeds/' + this.SelectedPat.pat.id)
+            axios.get('/api/patientMeds/' + this.SelectedPat.id)
                 .then(res => {
                     this.SelectedPatMeds = res.data
                 }).catch(error => {
@@ -376,6 +379,14 @@ export default {
             axios.get('/api/fetch-payment-data')
                 .then(res => {
                     this.fetchInfo = res.data
+                }).catch(error => {
+                console.log(console.error())
+            })
+        },
+        fetchPatientName() {
+            axios.get('/api/patient-name')
+                .then(res => {
+                    this.fetchName = res.data
                 }).catch(error => {
                 console.log(console.error())
             })

@@ -20,9 +20,45 @@ class Prescription extends Model
         'frequency',
         'appointment_id',
         'patient_id',
+        'medicine',
+        'quantity',
         'created_at',
         'updated_at'
     ];
+
+    protected $medicine, $quantity;
+
+    /**
+     * Mutator method to set bar's value
+     */
+    public function setMedicineAttribute($value)
+    {
+        $this->medicine = $value;
+    }
+
+    /**
+     * Accessor method to retrieve bar's value
+     */
+    public function getMedicineAttribute()
+    {
+        return $this->medicine;
+    }
+
+    /**
+     * Mutator method to set bar's value
+     */
+    public function setQuantityAttribute($value)
+    {
+        $this->quantity = $value;
+    }
+
+    /**
+     * Accessor method to retrieve bar's value
+     */
+    public function getQuantityAttribute()
+    {
+        return $this->quantity;
+    }
 
     public function medicines()
     {
@@ -33,7 +69,7 @@ class Prescription extends Model
     {
         return $this->belongsTo(Appointment::class);
     }
-  
+
     public function patient()
     {
         return $this->belongsTo(Patient::class);

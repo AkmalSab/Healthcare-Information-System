@@ -93,21 +93,21 @@
                             <label class="form-label"
                                 >Start Date Consume Drug</label
                             >
-                            <div class="input-group">
+                            <div class="input-group mb-2" v-for="(date, index) in startDateMedicine" :key="date.id">
                                 <span class="input-group-text">📅</span>
-                                <input type="date" class="form-control" v-model="form.startDate" />
+                                <input type="date" class="form-control" v-model="startDateMedicine[index]" />
                             </div>
                         </div>
                         <div class="col">
                             <label class="form-label">Drug Frequency</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" v-model="form.drugFrequency" />
+                            <div class="input-group mb-2" v-for="(frequency, index) in medicineFrequency" :key="frequency.id">
+                                <input type="number" class="form-control" v-model="medicineFrequency[index]" />
                             </div>
                         </div>
                         <div class="col">
                             <label class="form-label">Drug Quantity</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" v-model="form.drugQuantity" />
+                            <div class="input-group mb-2" v-for="(quantity, index) in medicineQuantity" :key="quantity.id">
+                                <input type="number" class="form-control" v-model="medicineQuantity[index]" />
                             </div>
                         </div>
                     </div>
@@ -180,6 +180,9 @@ export default {
             medicineData: [],
             selectedPatient: 0,
             selectedMedicine: [],
+            startDateMedicine:[],
+            medicineFrequency: [],
+            medicineQuantity: [],
             form: {
                 description: '',
                 instruction: '',
@@ -216,30 +219,37 @@ export default {
                 });
         },
         postData() {
-            axios.post("/api/prescription", {
+            for (let z = 0; z < this.selectedMedicine.length; z++) {
+                axios.post("/api/prescription", {
                 'desc': this.form.description,
                 'instruction': this.form.instruction,
-                'start': this.form.startDate,
-                'frequency': this.form.drugFrequency,
-                'quantity': this.form.drugQuantity,
+                'start': JSON.stringify(this.startDateMedicine[z]),
+                'frequency': JSON.stringify(this.medicineFrequency[z]),
+                'quantity': JSON.stringify(this.medicineQuantity[z]),
                 'patient': JSON.stringify(this.selectedPatient),
-                'medicine': JSON.stringify(this.selectedMedicine)
-            }).then(res=> {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Created',
-                    text: 'New Prescription successfully created!'
-                }).then(res => {
-                    if (res.isConfirmed) {
-                        this.$router.push({name: 'pisIndex'});
-                    }
+                'medicine': JSON.stringify(this.selectedMedicine[z])
+                }).then(res=> {
+                    // Swal.fire({
+                    //     icon: 'success',
+                    //     title: 'Created',
+                    //     text: 'New Prescription successfully created!'
+                    // }).then(res => {
+                    //     if (res.isConfirmed) {
+                    //         this.$router.push({name: 'pisIndex'});
+                    //     }
+                    // })
+                    this.showMessage = true;
+                    this.message = 'Successfully inserted! 💥';
+                }).catch(error=> {
+                    console.log(console.error);
                 })
-            }).catch(error=> {
-                console.log(console.error);
-            })
+            }
         },
         addRow() {
-            this.selectedMedicine.push("");
+            this.selectedMedicine.push('')
+            this.startDateMedicine.push('')
+            this.medicineFrequency.push('')
+            this.medicineQuantity.push('')
         }
     }
 };
