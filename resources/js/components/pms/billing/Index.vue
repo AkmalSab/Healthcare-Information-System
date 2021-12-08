@@ -79,7 +79,7 @@
                 <option
                   v-for="(patientMeds, index) in SelectedPatMeds"
                   :key="patientMeds.index"
-                  :value="patientMeds.id"
+                  :value="patientMeds.prescription_id"
                 >
                   {{ patientMeds.description }}
                 </option>
@@ -143,13 +143,13 @@
                             </td>
                         </tr> -->
             <tr v-for="(pay, index) in fetchInfo" :key="pay.paymentID">
-              <td>{{ pay.pat_name }}</td>
-              <td>{{ pay.presc_desc }}</td>
-              <td>{{ pay.payment_type }}</td>
+              <td>{{ pay.name }}</td>
+              <td>{{ pay.description }}</td>
+              <td>{{ pay.instruction }}</td>
               <td>
                 <button
                   class="btn btn-success"
-                  @click="generateReceipt(index)"
+                  @click="generateReceipt(pay.id)"
                   style="color: white"
                 >
                   Print
@@ -351,6 +351,7 @@ export default {
       SelectedPatMeds: [],
       fetchInfo: [],
       fetchName: [],
+      fetchPDFInfo: [],
       form: {
         prescID: "Select",
         presc: "Select",
@@ -399,25 +400,33 @@ export default {
     generateReceipt(i) {
       this.$refs.PDFReceipt.generatePdf();
 
-      this.printPaymentPDF.medsName = this.fetchInfo[i].meds_name;
-      this.printPaymentPDF.medsCost = this.fetchInfo[i].meds_cost;
-      this.printPaymentPDF.medsQty = this.fetchInfo[i].meds_qty;
-      this.printPaymentPDF.medsPrice = this.fetchInfo[i].meds_price;
-      this.printPaymentPDF.patName = this.fetchInfo[i].pat_name;
-      this.printPaymentPDF.patPhone = this.fetchInfo[i].phone;
-      this.printPaymentPDF.patIC = this.fetchInfo[i].nric;
-      this.printPaymentPDF.patLine1 = this.fetchInfo[i].address_1;
-      this.printPaymentPDF.patLine2 = this.fetchInfo[i].address_2;
-      this.printPaymentPDF.patState = this.fetchInfo[i].state;
-      this.printPaymentPDF.patPostcode = this.fetchInfo[i].postcode;
-      this.printPaymentPDF.patCity = this.fetchInfo[i].city;
-      this.printPaymentPDF.patCountry = this.fetchInfo[i].country;
-      this.printPaymentPDF.paymentCreateOn =
-        this.fetchInfo[i].payment_created_on;
-      this.printPaymentPDF.paymentType = this.fetchInfo[i].payment_type;
-      this.printPaymentPDF.paymentStatus = this.fetchInfo[i].payment_status;
-      this.printPaymentPDF.prescDesc = this.fetchInfo[i].presc_desc;
-      this.printPaymentPDF.prescInstruct = this.fetchInfo[i].instruction;
+      axios
+        .get("/api/fetch-payment/" + i)
+        .then((res) => {
+          this.fetchPDFInfo = res.data;
+        })
+        .catch((error) => {
+          console.log(console.error());
+        });
+
+    //   this.printPaymentPDF.medsName = this.fetchInfo[i].meds_name;
+    //   this.printPaymentPDF.medsCost = this.fetchInfo[i].meds_cost;
+    //   this.printPaymentPDF.medsQty = this.fetchInfo[i].meds_qty;
+    //   this.printPaymentPDF.medsPrice = this.fetchInfo[i].meds_price;
+    //   this.printPaymentPDF.patName = this.fetchInfo[i].pat_name;
+    //   this.printPaymentPDF.patPhone = this.fetchInfo[i].phone;
+    //   this.printPaymentPDF.patIC = this.fetchInfo[i].nric;
+    //   this.printPaymentPDF.patLine1 = this.fetchInfo[i].address_1;
+    //   this.printPaymentPDF.patLine2 = this.fetchInfo[i].address_2;
+    //   this.printPaymentPDF.patState = this.fetchInfo[i].state;
+    //   this.printPaymentPDF.patPostcode = this.fetchInfo[i].postcode;
+    //   this.printPaymentPDF.patCity = this.fetchInfo[i].city;
+    //   this.printPaymentPDF.patCountry = this.fetchInfo[i].country;
+    //   this.printPaymentPDF.paymentCreateOn = this.fetchInfo[i].payment_created_on;
+    //   this.printPaymentPDF.paymentType = this.fetchInfo[i].payment_type;
+    //   this.printPaymentPDF.paymentStatus = this.fetchInfo[i].payment_status;
+    //   this.printPaymentPDF.prescDesc = this.fetchInfo[i].presc_desc;
+    //   this.printPaymentPDF.prescInstruct = this.fetchInfo[i].instruction;
 
       return (this.active = i);
     },
@@ -494,7 +503,7 @@ export default {
           desc: this.form.desc,
           paymentType: this.form.paymentType,
           insurance: JSON.stringify(this.form.insID),
-          prescription: JSON.stringify(this.form.prescID),
+          prescription: this.form.presc,
           status: "Ongoing",
           medsQty: this.form.qty,
         })

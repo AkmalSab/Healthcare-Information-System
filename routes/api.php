@@ -55,6 +55,7 @@ Route::post('/prescription/save', [PrescriptionCustomController::class, 'storePr
 Route::get('/prescription/json', [PrescriptionCustomController::class, 'fetchPrescription']);
 
 Route::get('/fetch-payment-data', [PaymentCustomController::class, 'getPayment']);
+Route::get('/fetch-payment/{prescID}', [PaymentCustomController::class, 'getPaymentDetails']);
 
 Route::apiResource('patient', PatientController::class);
 Route::apiResource('family', FamilyController::class);

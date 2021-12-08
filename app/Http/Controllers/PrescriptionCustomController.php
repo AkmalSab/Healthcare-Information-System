@@ -38,9 +38,11 @@ class PrescriptionCustomController extends Controller
     public function getPatientMeds(Request $request)
     {
         $data = DB::table('medicine_prescription')
+            ->select('medicine_prescription.prescription_id', 'prescriptions.description')
             ->join('medicines', 'medicines.id', '=', 'medicine_prescription.medicine_id')
             ->join('prescriptions', 'prescriptions.id', '=', 'medicine_prescription.prescription_id')
             ->where('prescriptions.patient_id', '=', $request->route('patID'))
+            ->groupBy('medicine_prescription.prescription_id', 'prescriptions.description')
             ->get();
 
             return response()->json($data);

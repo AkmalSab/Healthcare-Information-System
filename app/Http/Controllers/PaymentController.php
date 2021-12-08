@@ -44,21 +44,22 @@ class PaymentController extends Controller
         foreach ($request->all('insurance') as $key => $data) {
             $ins = json_decode($data);
         }
-        foreach ($request->all('prescription') as $key => $data) {
-            $pres = json_decode($data);
-        }
+        // foreach ($request->all('prescription') as $key => $data) {
+        //     $pres = json_decode($data);
+        // }
 
         $status = $request->get('status');
         $payment = $request->get('paymentType');
         $description = $request->get('desc');
         $medsQty = $request->get('medsQty');
-        $findMeds = Prescription::findOrFail($pres->id);
+        // $findMeds = Prescription::findOrFail($pres->id);
+        $prescData = $request->get('prescription');
 
         $presData = new Payment ([
             'desc' => $status,
             'type' => $payment,
             // 'insurance_id' => $ins->id,
-            'prescription_id' => $pres->id,
+            'prescription_id' => $prescData,
             'status' => $status
         ]);
 
