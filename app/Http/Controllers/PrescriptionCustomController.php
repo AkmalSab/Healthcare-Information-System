@@ -56,4 +56,28 @@ class PrescriptionCustomController extends Controller
 
         return response()->json($data);
     }
+
+    public function fetchPrescription()
+    {
+        $data = Prescription::latest()->first();
+        return response()->json($data);
+    }
+
+    public function storePrescription(Request $request)
+    {
+        foreach ($request->all('patient') as $key => $data) {
+            $pat = json_decode($data);
+        }
+        $desc = $request->get('desc');
+        $ins = $request->get('instruction');
+
+        $prescData = new Prescription([
+            'patient_id' => $pat->id,
+            'description' => $desc,
+            'instruction' => $ins
+        ]);
+        $prescData->save();
+
+        return response()->json('Prescription Created Successfully ✔');
+    }
 }

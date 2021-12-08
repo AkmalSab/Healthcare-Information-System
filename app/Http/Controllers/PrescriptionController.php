@@ -54,36 +54,61 @@ class PrescriptionController extends Controller
         foreach ($request->all('quantity') as $key => $data) {
             $qty = json_decode($data);
         }
+        foreach ($request->all('prescription') as $key => $data) {
+            $p = json_decode($data);
+        }
         $desc = $request->get('desc');
         $ins = $request->get('instruction');
-        // dd($pat, $meds->id);
+        // dd($p);
+
+        // $prescData = new Prescription([
+        //     'patient_id' => $pat->id,
+        //     'description' => $desc,
+        //     'instruction' => $ins
+        // ]);
+        // $prescData->save();
 
         $data = collect([
-            $pat->id, $start, $freq, $qty, $meds->id, $desc, $ins
+            $p->id, $start, $freq, $qty, $meds->id
         ])->transpose()->map(function ($snData) {
             // dd($snData);
-            return new Prescription([
-                'patient_id' => $snData[0],
-                'description' => $snData[5],
-                'instruction' => $snData[6],
+            DB::table('medicine_prescription')->insert([
+                'medicine_id'=> $snData[4],
+                'prescription_id' => $snData[0],
                 'start_consume' => $snData[1],
                 'frequency' => $snData[2],
                 'quantity' => $snData[3],
-                'medicine' => $snData[4]
-            ]);
-        })->each(function ($storeExpense) {
-            // dd($storeExpense->medicine);
-            $storeExpense->save();
-
-            DB::table('medicine_prescription')->insert([
-                'medicine_id'=> $storeExpense->medicine,
-                'prescription_id' => $storeExpense->id,
-                'quantity' => $storeExpense->quantity,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
-            // dd($storeExpense->id);
         });
+
+        // $data = collect([
+        //     $pat->id, $start, $freq, $qty, $meds->id, $desc, $ins
+        // ])->transpose()->map(function ($snData) {
+        //     // dd($snData);
+        //     return new Prescription([
+        //         'patient_id' => $snData[0],
+        //         'description' => $snData[5],
+        //         'instruction' => $snData[6],
+        //         'start_consume' => $snData[1],
+        //         'frequency' => $snData[2],
+        //         'quantity' => $snData[3],
+        //         'medicine' => $snData[4]
+        //     ]);
+        // })->each(function ($storeExpense) {
+        //     // dd($storeExpense->medicine);
+        //     $storeExpense->save();
+
+        //     DB::table('medicine_prescription')->insert([
+        //         'medicine_id'=> $storeExpense->medicine,
+        //         'prescription_id' => $storeExpense->id,
+        //         'quantity' => $storeExpense->quantity,
+        //         'created_at' => date('Y-m-d H:i:s'),
+        //         'updated_at' => date('Y-m-d H:i:s')
+        //     ]);
+        //     // dd($storeExpense->id);
+        // });
 
         // $presData = new Prescription ([
         //     'patient_id' => $pat->id,

@@ -51,6 +51,8 @@ Route::get('/insurance/all', [PrescriptionCustomController::class, 'getInsurance
 Route::get('/pivotMeds/all', [PrescriptionCustomController::class, 'getPivotMeds']);
 Route::get('/patientMeds/{patID}', [PrescriptionCustomController::class, 'getPatientMeds']);
 Route::get('/patient-name', [PrescriptionCustomController::class, 'getPatientName']);
+Route::post('/prescription/save', [PrescriptionCustomController::class, 'storePrescription']);
+Route::get('/prescription/json', [PrescriptionCustomController::class, 'fetchPrescription']);
 
 Route::get('/fetch-payment-data', [PaymentCustomController::class, 'getPayment']);
 
