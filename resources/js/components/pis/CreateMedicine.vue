@@ -147,8 +147,8 @@
                     </thead>
                     <tbody>
                         <tr v-for="meds in medsData" :key="meds.id">
-                            <th scope="row">
-                                <img
+                            <th scope="row" v-if="meds.picture">
+                                <img                                    
                                     :src="
                                         'https://e-techify-storage.s3.ap-southeast-1.amazonaws.com/medicine_picture/' +
                                             meds.picture
@@ -156,6 +156,9 @@
                                     width="100"
                                     height="100"
                                 />
+                            </th>
+                            <th scope="row" v-else>
+                                No image
                             </th>
                             <td>{{ meds.name }}</td>
                             <td>{{ meds.manufacturer }}</td>
@@ -235,9 +238,14 @@ export default {
             this.$refs.pond.getFiles();
         },
         postData() {
-            const file = this.$refs.pond.getFiles()[0].file;
-            let formData = new FormData();
+            // const file = this.$refs.pond.getFiles()[0].file;
 
+            if(this.$refs.pond.getFiles()[0] != null)
+                var file = this.$refs.pond.getFiles()[0].file;
+            else
+                var file = '';
+
+            let formData = new FormData();
             formData.append("image", file);
             formData.append("medicineName", this.medsName);
             formData.append("medicineManufac", this.medsManufac);
@@ -251,10 +259,11 @@ export default {
                 .post("/api/medicine", formData)
                 .then(res => {
                     this.showMessage = true;
-                    this.message = "Image successfully uploaded! 💥";
-                    $("#medicineTable")
-                        .DataTable()
-                        .destroy();
+                    this.message = "Medicine successfully added! 💥";
+                    this.getMedicineData();
+                    // $("#medicineTable")
+                    //     .DataTable()
+                    //     .destroy();
                 })
                 .catch(error => {
                     this.showMessage = true;
@@ -273,12 +282,12 @@ export default {
         },
         getMedicineData() {
             axios
-                .get("/api/medicine")
+                .get("/api/medicine")   
                 .then(res => {
                     this.medsData = res.data;
                     this.$nextTick(() => {
                         $("#medicineTable").DataTable({
-                            bRetrieve: true,
+                            retrieve: true,
                             columnDefs: [{ orderable: false, targets: [0, 6] }]
                         });
                     });

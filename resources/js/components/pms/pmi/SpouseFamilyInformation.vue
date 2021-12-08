@@ -142,7 +142,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Patiend Id</th>
+                    <th scope="col">Insurance Id</th>
                     <th scope="col">NRIC</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Relationship</th>
@@ -154,7 +154,7 @@
                 <tr v-for="family in families" :key="family.id">
                     <th scope="row">{{ family.id }}</th>                    
                     <td>{{ family.name }}</td>
-                    <td>{{ family.patient_id }}</td>
+                    <td>{{ family.insurance_id }}</td>
                     <td>{{ family.nric }}</td>
                     <td>{{ family.phone }}</td>
                     <td>{{ family.relationship }}</td>
