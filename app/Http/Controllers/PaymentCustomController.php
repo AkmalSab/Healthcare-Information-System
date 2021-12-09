@@ -32,8 +32,11 @@ class PaymentCustomController extends Controller
     public function getPaymentDetails(Request $request)
     {
         $data = DB::table('payments')
-        ->select('medicine_prescription.medicine_id', 'medicine_prescription.prescription_id', 'medicine_prescription.frequency', 'medicine_prescription.quantity')
+        ->select('medicine_prescription.medicine_id', 'medicine_prescription.prescription_id', 'medicine_prescription.frequency', 
+        'medicine_prescription.quantity', 'patients.name')
         ->join('medicine_prescription', 'medicine_prescription.prescription_id', '=', 'payments.prescription_id')
+        ->join('prescriptions', 'prescriptions.id', '=', 'medicine_prescription.prescription_id')
+        ->join('patients', 'patients.id', '=', 'prescriptions.patient_id')
         ->where('payments.prescription_id', '=', $request->route('prescID'))
         ->get();
 
