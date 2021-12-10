@@ -52,10 +52,24 @@ class MedicineController extends Controller
                 'stock' => $request->get('medicineStock'),
                 'picture' => $request->file('image')->hashName()
             ]);
-            $data->save();
+            $data->save();  
             return response()->json($data);
 
             //dd($request->file('image')->hashName());
+        }
+        else {
+            $data = new Medicine ([
+                'name' => $request->get('medicineName'),
+                'description' => $request->get('medicineDesc'),
+                'manufacturer' => $request->get('medicineManufac'),
+                'cost' => $request->get('medicineCost'),
+                'type' =>   $request->get('medicineType'),
+                'dose' => $request->get('medicineDose'),
+                'stock' => $request->get('medicineStock'),
+                'price_per_unit' => $request->get('medicineCost')
+            ]);
+            $data->save();
+            return response()->json($data);
         }
     }
 
@@ -104,8 +118,13 @@ class MedicineController extends Controller
         $delMeds = Medicine::findOrFail($id);
 
         // Destroy data in db and aws s3
-        Medicine::destroy($id);
-        Storage::disk('s3')->delete('medicine_picture/'.$delMeds->picture);
+        if($delMeds->picture != null){
+            Medicine::destroy($id);
+            Storage::disk('s3')->delete('medicine_picture/'.$delMeds->picture);
+        }
+        else{
+            Medicine::destroy($id);
+        }       
 
         return response()->json('Medicine Deleted Successfully ✔');
     }
