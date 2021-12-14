@@ -26,15 +26,24 @@ class PaymentCustomController extends Controller
         ->join('patients', 'patients.id', '=', 'prescriptions.patient_id')
         ->get();
 
+        $data = DB::table('payments')
+        ->select('patients.name', 'prescriptions.description', 'prescriptions.instruction', 'payments.id')
+        ->join('prescriptions', 'prescriptions.id', '=', 'payments.prescription_id')
+        ->join('patients', 'patients.id', '=', 'prescriptions.patient_id')
+        ->get();
+
         return response()->json($data);
     }
 
     public function getPaymentDetails(Request $request)
     {
         $data = DB::table('payments')
-        ->select('medicine_prescription.medicine_id', 'medicine_prescription.prescription_id', 'medicine_prescription.frequency', 
-        'medicine_prescription.quantity', 'patients.name')
+        ->select('medicine_prescription.medicine_id', 'medicine_prescription.prescription_id', 'medicine_prescription.frequency',
+        'medicine_prescription.quantity', 'patients.name', 'patients.address_1', 'patients.address_2', 'patients.state', 'patients.postcode',
+        'patients.phone', 'medicines.name AS medsName', 'medicines.price_per_unit AS medsPrice', 'prescriptions.created_at AS date',
+        'payments.type AS paymentType')
         ->join('medicine_prescription', 'medicine_prescription.prescription_id', '=', 'payments.prescription_id')
+        ->join('medicines', 'medicines.id', '=', 'medicine_prescription.medicine_id')
         ->join('prescriptions', 'prescriptions.id', '=', 'medicine_prescription.prescription_id')
         ->join('patients', 'patients.id', '=', 'prescriptions.patient_id')
         ->where('payments.prescription_id', '=', $request->route('prescID'))

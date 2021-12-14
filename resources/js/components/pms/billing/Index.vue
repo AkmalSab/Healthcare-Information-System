@@ -86,7 +86,7 @@
               </select>
             </div>
           </div>
-          <div class="row mt-2">
+          <div class="row mt-3">
             <div class="col">
               <label class="mb-2">Billing Description</label>
               <textarea
@@ -97,7 +97,7 @@
               ></textarea>
             </div>
           </div>
-          <div class="row mt-2">
+          <div class="row mt-4">
             <div class="col">
               <button
                 type="submit"
@@ -251,12 +251,16 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>{{ printPaymentPDF.medsName }}</td>
-                  <td>{{ printPaymentPDF.medsPrice }}</td>
-                  <td>{{ printPaymentPDF.medsQty }}</td>
+                <tr
+                  v-for="medicineData in fetchPDFInfo"
+                  :key="medicineData.id"
+                  :value="medicineData.id"
+                >
+                  <td>{{ medicineData.medsName }}</td>
+                  <td>{{ medicineData.medsPrice }}</td>
+                  <td>{{ medicineData.quantity }}</td>
                   <td>
-                    {{ printPaymentPDF.medsPrice * printPaymentPDF.medsQty }}
+                    {{ medicineData.medsPrice * medicineData.quantity }}
                   </td>
                 </tr>
               </tbody>
@@ -310,7 +314,7 @@
                       <td>
                         RM
                         {{
-                          printPaymentPDF.medsPrice * printPaymentPDF.medsQty
+                          printPaymentPDF.paymentTotal
                         }}.00
                       </td>
                     </tr>
@@ -319,7 +323,7 @@
                       <td>
                         RM
                         {{
-                          printPaymentPDF.medsPrice * printPaymentPDF.medsQty
+                          printPaymentPDF.paymentTotal
                         }}.00
                       </td>
                     </tr>
@@ -382,6 +386,7 @@ export default {
         paymentStatus: "",
         prescDesc: "",
         prescInstruct: "",
+        paymentTotal: ""
       },
     };
   },
@@ -398,38 +403,26 @@ export default {
   },
   methods: {
     generateReceipt(i) {
-      
-
       axios
         .get("/api/fetch-payment/" + i)
         .then((res) => {
           this.fetchPDFInfo = res.data
-          console.log(this.fetchPDFInfo[0].name);
-          this.printPaymentPDF.patName = this.fetchPDFInfo[0].name;
-          this.$refs.PDFReceipt.generatePdf();
+          this.printPaymentPDF.patName = this.fetchPDFInfo[0].name
+          this.printPaymentPDF.patLine1 = this.fetchPDFInfo[0].address_1
+          this.printPaymentPDF.patLine2 = this.fetchPDFInfo[0].address_2
+          this.printPaymentPDF.patState = this.fetchPDFInfo[0].state
+          this.printPaymentPDF.patPostcode = this.fetchPDFInfo[0].postcode
+          this.printPaymentPDF.patPhone = this.fetchPDFInfo[0].phone
+          this.printPaymentPDF.paymentCreateOn = this.fetchPDFInfo[0].date
+          this.printPaymentPDF.paymentType = this.fetchPDFInfo[0].paymentType
+
+          this.totalItem
+
+          this.$refs.PDFReceipt.generatePdf()
         })
         .catch((error) => {
           console.log(console.error());
         });
-
-    //   this.printPaymentPDF.medsName = this.fetchInfo[i].meds_name;
-    //   this.printPaymentPDF.medsCost = this.fetchInfo[i].meds_cost;
-    //   this.printPaymentPDF.medsQty = this.fetchInfo[i].meds_qty;
-    //   this.printPaymentPDF.medsPrice = this.fetchInfo[i].meds_price;
-    //   this.printPaymentPDF.patName = this.fetchInfo[i].pat_name;
-    //   this.printPaymentPDF.patPhone = this.fetchInfo[i].phone;
-    //   this.printPaymentPDF.patIC = this.fetchInfo[i].nric;
-    //   this.printPaymentPDF.patLine1 = this.fetchInfo[i].address_1;
-    //   this.printPaymentPDF.patLine2 = this.fetchInfo[i].address_2;
-    //   this.printPaymentPDF.patState = this.fetchInfo[i].state;
-    //   this.printPaymentPDF.patPostcode = this.fetchInfo[i].postcode;
-    //   this.printPaymentPDF.patCity = this.fetchInfo[i].city;
-    //   this.printPaymentPDF.patCountry = this.fetchInfo[i].country;
-    //   this.printPaymentPDF.paymentCreateOn = this.fetchInfo[i].payment_created_on;
-    //   this.printPaymentPDF.paymentType = this.fetchInfo[i].payment_type;
-    //   this.printPaymentPDF.paymentStatus = this.fetchInfo[i].payment_status;
-    //   this.printPaymentPDF.prescDesc = this.fetchInfo[i].presc_desc;
-    //   this.printPaymentPDF.prescInstruct = this.fetchInfo[i].instruction;
 
       return (this.active = i);
     },
@@ -533,6 +526,16 @@ export default {
     //         console.log(console.error())
     //     })
     // }
+  },
+  computed: {
+    totalItem: function() {
+        let sum = 0;
+        for(let i = 0; i < this.fetchPDFInfo.length; i++){
+            sum += (parseFloat(this.fetchPDFInfo[i].medsPrice) * parseFloat(this.fetchPDFInfo[i].quantity));
+        }
+        this.printPaymentPDF.paymentTotal = sum
+        return sum;
+    }
   },
   watch: {
     "form.prescID": function (val) {
