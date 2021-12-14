@@ -147,8 +147,8 @@
                     </thead>
                     <tbody>
                         <tr v-for="meds in medsData" :key="meds.id">
-                            <th scope="row">
-                                <img
+                            <th scope="row" v-if="meds.picture">
+                                <img                                    
                                     :src="
                                         'https://e-techify-storage.s3.ap-southeast-1.amazonaws.com/medicine_picture/' +
                                             meds.picture
@@ -156,6 +156,9 @@
                                     width="100"
                                     height="100"
                                 />
+                            </th>
+                            <th scope="row" v-else>
+                                No image
                             </th>
                             <td>{{ meds.name }}</td>
                             <td>{{ meds.manufacturer }}</td>
@@ -193,23 +196,18 @@ import "datatables.net-dt/css/jquery.dataTables.min.css";
 import $ from "jquery";
 // Import Vue FilePond
 import vueFilePond from "vue-filepond";
-
 // Import FilePond styles
 import "filepond/dist/filepond.min.css";
-
 // Import image preview plugin styles
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
-
 // Import image preview and file type validation plugins
 import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
-
 // Create component
 const FilePond = vueFilePond(
     FilePondPluginFileValidateType,
     FilePondPluginImagePreview
 );
-
 export default {
     data: function() {
         return {
@@ -235,9 +233,12 @@ export default {
             this.$refs.pond.getFiles();
         },
         postData() {
-            const file = this.$refs.pond.getFiles()[0].file;
+            // const file = this.$refs.pond.getFiles()[0].file;
+            if(this.$refs.pond.getFiles()[0] != null)
+                var file = this.$refs.pond.getFiles()[0].file;
+            else
+                var file = '';
             let formData = new FormData();
-
             formData.append("image", file);
             formData.append("medicineName", this.medsName);
             formData.append("medicineManufac", this.medsManufac);
@@ -246,15 +247,15 @@ export default {
             formData.append("medicineDose", this.medsDose);
             formData.append("medicineStock", this.medsStock);
             formData.append("medicineDesc", this.medsDesc);
-
             axios
                 .post("/api/medicine", formData)
                 .then(res => {
                     this.showMessage = true;
-                    this.message = "Image successfully uploaded! 💥";
-                    $("#medicineTable")
-                        .DataTable()
-                        .destroy();
+                    this.message = "Medicine successfully added! 💥";
+                    this.getMedicineData();
+                    // $("#medicineTable")
+                    //     .DataTable()
+                    //     .destroy();
                 })
                 .catch(error => {
                     this.showMessage = true;
@@ -273,12 +274,12 @@ export default {
         },
         getMedicineData() {
             axios
-                .get("/api/medicine")
+                .get("/api/medicine")   
                 .then(res => {
                     this.medsData = res.data;
                     this.$nextTick(() => {
                         $("#medicineTable").DataTable({
-                            bRetrieve: true,
+                            retrieve: true,
                             columnDefs: [{ orderable: false, targets: [0, 6] }]
                         });
                     });

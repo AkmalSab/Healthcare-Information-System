@@ -19,6 +19,7 @@ class Medicine extends Model
         'type',
         'dose',
         'stock',
+        'price_per_unit',
         'created_at',
         'updated_at',
         'picture'

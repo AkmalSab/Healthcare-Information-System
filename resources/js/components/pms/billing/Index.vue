@@ -173,7 +173,7 @@
       :enable-download="false"
       :preview-modal="true"
       :paginate-elements-by-height="2000"
-      filename="Klinik Billing - 2021"
+      filename="Klinik Bonos-Sowe Billing"
       :pdf-quality="2"
       :manual-pagination="false"
       pdf-format="a4"
@@ -398,12 +398,15 @@ export default {
   },
   methods: {
     generateReceipt(i) {
-      this.$refs.PDFReceipt.generatePdf();
+      
 
       axios
         .get("/api/fetch-payment/" + i)
         .then((res) => {
-          this.fetchPDFInfo = res.data;
+          this.fetchPDFInfo = res.data
+          console.log(this.fetchPDFInfo[0].name);
+          this.printPaymentPDF.patName = this.fetchPDFInfo[0].name;
+          this.$refs.PDFReceipt.generatePdf();
         })
         .catch((error) => {
           console.log(console.error());
@@ -541,6 +544,13 @@ export default {
         this.getPatientMeds();
       }
     },
+    // "fetchPDFInfo": function (val) {
+    //   //do something when the data changes.
+    //   if (val) {
+    //     console.log(val[0].name)
+    //     this.printPaymentPDF.patName = val[0].name
+    //   }
+    // },
   },
 };
 </script>
