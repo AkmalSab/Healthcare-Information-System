@@ -52,7 +52,7 @@ class MedicineController extends Controller
                 'stock' => $request->get('medicineStock'),
                 'picture' => $request->file('image')->hashName()
             ]);
-            $data->save();  
+            $data->save();
             return response()->json($data);
 
             //dd($request->file('image')->hashName());
@@ -79,9 +79,10 @@ class MedicineController extends Controller
      * @param  \App\Models\Medicine  $medicine
      * @return \Illuminate\Http\Response
      */
-    public function show(Medicine $medicine)
+    public function show($id)
     {
-        //
+        $meds = Medicine::findOrFail($id);
+        return response()->json($meds);
     }
 
     /**
@@ -102,9 +103,21 @@ class MedicineController extends Controller
      * @param  \App\Models\Medicine  $medicine
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Medicine $medicine)
+    public function update($id, Request $request)
     {
-        //
+        $affected = Medicine::where('id', $id)
+              ->update([
+                  'name' => $request->get('name'),
+                  'manufacturer' => $request->get('manufacturer'),
+                  'dose' => $request->get('dosage'),
+                  'cost' => $request->get('cost'),
+                  'price_per_unit' => $request->get('unitPrice'),
+                  'type' => $request->get('type'),
+                  'description' => $request->get('description'),
+                  'stock' => $request->get('stock')
+                ]);
+
+        return response()->json($affected);
     }
 
     /**
@@ -124,7 +137,7 @@ class MedicineController extends Controller
         }
         else{
             Medicine::destroy($id);
-        }       
+        }
 
         return response()->json('Medicine Deleted Successfully ✔');
     }

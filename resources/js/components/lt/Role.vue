@@ -100,7 +100,7 @@
         </div>
         <!-- End Modal -->
 
-        <div class="card mb-2">
+        <div class="card">
             <div class="card-body">
                 <form @submit.prevent="storeRole">
                     <div class="row">
@@ -128,13 +128,15 @@
             </div>
         </div>
 
-        <div class="card mt-2">
+        <div class="card mt-3">
             <div class="card-body">
                 <table class="table text-center" id="roleInformationTable">
                     <thead>
-                        <tr class="table-dark">
+                        <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Created</th>
+                            <th scope="col">Updated</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -142,6 +144,8 @@
                         <tr v-for="role in roles" :key="role.id">
                             <th scope="row">{{ role.id }}</th>
                             <td>{{ role.name }}</td>
+                            <td>{{ role.created_at | formatDate }}</td>
+                            <td>{{ role.updated_at | formatDate }}</td>
                             <td>
                                 <!-- open modal -->
                                 <button
@@ -194,7 +198,7 @@ export default {
                     $(document).ready(function() {
                         $("#roleInformationTable").DataTable({
                             bRetrieve: true,
-                            columnDefs: [{ orderable: false, targets: 2 }]
+                            columnDefs: [{ orderable: false, targets: [2, 3, 4] }]
                         });
                     });
                 })
@@ -227,7 +231,8 @@ export default {
                         text: "Role successfully registered!"
                     }).then(res => {
                         if (res.isConfirmed) {
-                            this.getRoles();
+                            $("#roleInformationTable").DataTable().destroy()
+                            this.getRoles()
                         }
                     });
                 })
