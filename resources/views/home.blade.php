@@ -43,7 +43,7 @@
             <div class="card h-100">
                 <img src="/img/s4.jpg" class="card-img-top" height="200" alt="LT">
                 <div class="card-body">
-                    <h5 class="card-title">Lookup Table (LT)</h5>
+                    <h5 class="card-title">Lookup Table (LT) ✅</h5>
                     <p class="card-text">This module will cater for system information references.</p>
                 </div>
                 <div class="m-4">
