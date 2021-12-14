@@ -19,7 +19,7 @@
             <div class="card h-100">
                 <img src="/img/s2.jpg" class="card-img-top" height="200" alt="CIS">
                 <div class="card-body">
-                    <h5 class="card-title">Consultation Information System (CIS)</h5>
+                    <h5 class="card-title">Consultation Information System (CIS) ✅</h5>
                     <p class="card-text">This module will cater for patient consultation and immunisation record</p>
                 </div>
                 <div class="m-4">
@@ -31,7 +31,7 @@
             <div class="card h-100">
                 <img src="/img/s3.jpg" class="card-img-top" height="200" alt="PIS">
                 <div class="card-body">
-                    <h5 class="card-title">Prescription Information System (PIS)</h5>
+                    <h5 class="card-title">Prescription Information System (PIS) ✅</h5>
                     <p class="card-text">This module will cater for patient medicine and prescription.</p>
                 </div>
                 <div class="m-4">
@@ -55,7 +55,7 @@
             <div class="card h-100">
                 <img src="/img/s5.jpg" class="card-img-top" height="200" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">ICD-10 SEARCH ENGINE</h5>
+                    <h5 class="card-title">ICD-10 SEARCH ENGINE ✅</h5>
                     <p class="card-text">This module will cater for International Classification of Diseases</p>
                 </div>
                 <div class="m-4">
