@@ -325,7 +325,7 @@
                     id="insuranceInformationTable"
                 >
                     <thead>
-                        <tr class="table-dark">
+                        <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Patient Name</th>
                             <th scope="col">Name</th>
