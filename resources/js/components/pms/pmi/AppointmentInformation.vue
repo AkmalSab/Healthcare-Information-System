@@ -216,13 +216,32 @@ export default {
     };
   },
   watch: {},
-  created() {
+  created() {    
     this.getPatientAppointment();
     this.getPatient();
     this.getStaff();
     this.getCase();
+    this.getTodayDate();
   },
   methods: {
+    getTodayDate() {
+      var dtToday = new Date();
+    
+      var month = dtToday.getMonth() + 1;
+      var day = dtToday.getDate();
+      var year = dtToday.getFullYear();
+      if(month < 10)
+          month = '0' + month.toString();
+      if(day < 10)
+          day = '0' + day.toString();
+      
+      var maxDate = year + '-' + month + '-' + day;
+      
+      $(document).ready(function(){
+        $('#AppDate').attr('min', maxDate);
+      });
+            
+    },
     getPatientAppointment() {
       axios
         .get("/api/appointment")
@@ -304,10 +323,10 @@ export default {
     },
     deleteAppointment(id) {
       axios.delete("/api/appointment/" + id).then((res) => {
-        this.showMessage = true
-        this.message = res.data
-        $("#appointmentInformationTable").DataTable().destroy()
-        this.getPatientAppointment()
+        this.showMessage = true;
+        this.message = res.data;
+        $("#appointmentInformationTable").DataTable().destroy();
+        this.getPatientAppointment();
       });
     },
   },

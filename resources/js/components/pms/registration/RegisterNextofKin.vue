@@ -651,8 +651,8 @@
                   <!-- open modal -->
                   <button
                     type="button"
-                    class="btn btn-primary"
-                    style="color: white"
+                    class="btn btn-warning"
+                    style="color: black"
                     data-bs-toggle="modal"
                     data-bs-target="#alterFamilyModal"
                     @click="modalOpen(index)"

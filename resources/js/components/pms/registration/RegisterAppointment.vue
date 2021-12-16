@@ -88,12 +88,31 @@ export default {
             },
         }
     },
-    created() {
+    created() {        
         this.getPatient();
         this.getStaff();
         this.getCase();
+        this.getTodayDate();
     },
     methods: {
+        getTodayDate() {
+            var dtToday = new Date();
+            
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if(month < 10)
+                month = '0' + month.toString();
+            if(day < 10)
+                day = '0' + day.toString();
+            
+            var maxDate = year + '-' + month + '-' + day;
+            
+            $(document).ready(function(){
+                $('#AppDate').attr('min', maxDate);
+            });
+                    
+        }, 
         getPatient() {
             axios.get('/api/patient/' + this.$route.params.id)
                 .then(res => {
