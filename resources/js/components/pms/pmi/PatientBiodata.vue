@@ -4,38 +4,42 @@
         <blockquote class="blockquote">
             <p>List of registered patient.</p>
         </blockquote>
-        <table class="table" id="patientBiodateTable">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">NRIC</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Birthdate</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Religion</th>
-                    <th scope="col">Race</th>
-                    <th scope="col">Next-of-Kin</th>
-                    <th scope="col">Insurance</th>
-                    <th scope="col">Appointment</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="patient in patients" :key="patient.id">
-                    <th scope="row">{{ patient.id }}</th>                    
-                    <td>{{ patient.name }}</td>
-                    <td>{{ patient.nric }}</td>
-                    <td>{{ patient.phone }}</td>
-                    <td>{{ patient.birthdate }}</td>
-                    <td>{{ patient.gender }}</td>
-                    <td>{{ patient.religion }}</td>
-                    <td>{{ patient.race }}</td>
-                    <td><router-link :to="{name: 'pmsPatientRegisterNextofKin', params: {id: patient.id}}" class="btn btn-primary text-white w-100">Add</router-link></td>
-                    <td><router-link :to="{name: 'pmsPatientRegisterInsurance', params: {id: patient.id}}" class="btn btn-primary text-white w-100">Add</router-link></td>
-                    <td><router-link :to="{name: 'pmsPatientRegisterAppointment', params: {id: patient.id}}" class="btn btn-primary text-white w-100">Create</router-link></td>
-                </tr>                
-            </tbody>
-        </table>
+        <div class="card">
+            <div class="card-body">
+                <table class="table" id="patientBiodateTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">NRIC</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Birthdate</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Religion</th>
+                            <th scope="col">Race</th>
+                            <th scope="col">Next-of-Kin</th>
+                            <th scope="col">Insurance</th>
+                            <th scope="col">Appointment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="patient in patients" :key="patient.id">
+                            <th scope="row">{{ patient.id }}</th>
+                            <td>{{ patient.name }}</td>
+                            <td>{{ patient.nric }}</td>
+                            <td>{{ patient.phone }}</td>
+                            <td>{{ patient.birthdate }}</td>
+                            <td>{{ patient.gender }}</td>
+                            <td>{{ patient.religion }}</td>
+                            <td>{{ patient.race }}</td>
+                            <td><router-link :to="{name: 'pmsPatientRegisterNextofKin', params: {id: patient.id}}" class="btn btn-primary text-white w-100">Add</router-link></td>
+                            <td><router-link :to="{name: 'pmsPatientRegisterInsurance', params: {id: patient.id}}" class="btn btn-primary text-white w-100">Add</router-link></td>
+                            <td><router-link :to="{name: 'pmsPatientRegisterAppointment', params: {id: patient.id}}" class="btn btn-primary text-white w-100">Create</router-link></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -66,7 +70,7 @@ export default {
                 this.patients = res.data.data;
                 $(document).ready( function () {
                     $('#patientBiodateTable').DataTable({
-                        data: this.patients,                        
+                        data: this.patients,
                         columnDefs: [{
                             'targets': [8,9,10], /* column index */
                             'orderable': false, /* true or false */
