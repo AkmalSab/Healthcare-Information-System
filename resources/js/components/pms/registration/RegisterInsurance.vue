@@ -141,7 +141,7 @@
                                             type="date"
                                             class="form-control"
                                             v-model="form.InsExpiryDate"
-                                            id="InsExpiryDate"
+                                            id="InsExpiryDateModal"
                                             aria-describedby="InsExpiryDateHelp"
                                             required
                                         />
@@ -384,8 +384,28 @@ export default {
     created() {
         this.getPatient();
         this.getPatientInsurances();
+        this.getTodayDate();
     },
     methods: {
+        getTodayDate() {
+            var dtToday = new Date();
+            
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if(month < 10)
+                month = '0' + month.toString();
+            if(day < 10)
+                day = '0' + day.toString();
+            
+            var maxDate = year + '-' + month + '-' + day;
+            
+            $(document).ready(function(){
+                $('#InsExpiryDate').attr('min', maxDate);
+                $('#InsExpiryDateModal').attr('min', maxDate);
+            });
+                    
+        },
         getPatient() {
             axios
                 .get("/api/patient/" + this.$route.params.id)

@@ -21,7 +21,7 @@
             <div class="col mb-3">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Patient Master Index</h5>
+                        <h5 class="card-title">Patient Master Index ✅</h5>
                         <p class="card-text">
                             i. Patient biodata <br>
                             ii. Spouse/family information <br>

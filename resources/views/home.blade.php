@@ -7,7 +7,7 @@
             <div class="card h-100">
                 <img src="/img/s1.jpg" class="card-img-top" height="200" alt="PMS">
                 <div class="card-body">
-                    <h5 class="card-title">Patient Management System (PMS)</h5>
+                    <h5 class="card-title">Patient Management System (PMS) ✅</h5>
                     <p class="card-text">This module will cater for patient registration, appointment and billing.</p>
                 </div>
                 <div class="m-4">
