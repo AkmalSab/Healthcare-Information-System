@@ -41,15 +41,17 @@ class QueueController extends Controller
             $data = json_decode($data);
         }
 
-        $lastRecord = Queue::select('id')->latest('queue_no')->first();
-        if ($lastRecord) {
-            foreach ($lastRecord as $key => $dataa) {
-                $last = json_decode($dataa);
-            }
 
+        
+
+        $lastRecord = Queue::latest()->first();
+
+        
+
+        if ($lastRecord) {
             $store = new Queue([
                 'patient_id' => $data->id,
-                'queue_no' => $last += 1
+                'queue_no' => $lastRecord->queue_no + 1
             ]);
         }
         else {
