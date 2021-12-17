@@ -15,6 +15,8 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentCustomController;
 use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\PrescriptionCustomController;
+use App\Http\Controllers\QueueController;
+use App\Http\Controllers\QueueCustomController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -57,6 +59,8 @@ Route::get('/prescription/json', [PrescriptionCustomController::class, 'fetchPre
 Route::get('/fetch-payment-data', [PaymentCustomController::class, 'getPayment']);
 Route::get('/fetch-payment/{prescID}', [PaymentCustomController::class, 'getPaymentDetails']);
 
+Route::get('/fetch-latest-queue', [QueueCustomController::class, 'displayLatest']);
+
 Route::apiResource('patient', PatientController::class);
 Route::apiResource('family', FamilyController::class);
 Route::apiResource('insurance', InsuranceController::class);
@@ -68,3 +72,4 @@ Route::apiResource('consultation', ConsultationController::class);
 Route::apiResource('medicine', MedicineController::class);
 Route::apiResource('prescription', PrescriptionController::class);
 Route::apiResource('payment', PaymentController::class);
+Route::apiResource('queue', QueueController::class);

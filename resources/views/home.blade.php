@@ -63,6 +63,18 @@
                 </div>
             </div>
         </div>
+        <div class="col mb-3">
+            <div class="card h-100">
+                <img src="/img/s5.jpg" class="card-img-top" height="200" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">QUEUE</h5>
+                    <p class="card-text">This module will cater for patient queue system.</p>
+                </div>
+                <div class="m-4">
+                    <a href="{{ url('his/queue') }}" class="btn btn-primary w-100" style="color: white">Visit</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
