@@ -144,7 +144,7 @@ export const routes = [
         component: icd10Index
     },
     {
-        path: '/his/queue',
+        path: '/queue',
         name: 'queueIndex',
         component: queueIndex
     }

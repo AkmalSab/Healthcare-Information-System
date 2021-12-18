@@ -118,8 +118,8 @@ export default {
           console.log(console.error());
         });
 
-        setTimeout(this.getLatestQueue, 5000);
-        setTimeout(this.getAllQueues, 5000);
+      setTimeout(this.getLatestQueue, 5000);
+      setTimeout(this.getAllQueues, 5000);
     },
     getLatestQueue() {
       axios
@@ -139,11 +139,40 @@ export default {
         .then((res) => {
           this.showMessage = true;
           this.message = "Successfull 💥";
+          this.sendSMS();
           this.getPatient();
         })
         .catch((error) => {
           console.log(console.error);
         });
+    },
+    sendSMS() {
+      // POST method
+      axios({
+        method: "post",
+        url: "https://terminal.adasms.com/api/v1/send",
+        data: {
+          _token: "Hi6p4Y0syP6ivs5ljQdLAyyfx4SmsxcK",
+          phone: "6" + this.selectedPatient.phone,
+          message: "Now, is your turn" + this.selectedPatient.name,
+        },
+      })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(res.data);
+        });
+
+      // GET method
+      // axios
+      //   .get("https://terminal.adasms.com/api/v1/send?_token=Hi6p4Y0syP6ivs5ljQdLAyyfx4SmsxcK&phone=6" + this.selectedPatient.phone + "&message=Your Turn is now ready " + this.selectedPatient.name)
+      //   .then((res) => {
+      //     console.log(res.data);
+      //   })
+      //   .catch((error) => {
+      //     console.log(console.error());
+      //   });
     },
   },
 };
