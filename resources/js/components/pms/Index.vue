@@ -1,14 +1,14 @@
 <template>
     <div class="container">
-        <h1 class="mb-2">Patient Management System</h1>     
+        <h1 class="mb-2">Patient Management System</h1>
         <blockquote class="blockquote">
             <p>This home is for PMS, there will be such functions available in this section.</p>
-        </blockquote>  
+        </blockquote>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 g-4">
             <div class="col mb-3">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Patient Registration</h5>
+                        <h5 class="card-title">Patient Registration ✅</h5>
                         <p class="card-text">
                             i. Counter registration (register by clinic staff)
                         </p>
@@ -21,7 +21,7 @@
             <div class="col mb-3">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Patient Master Index</h5>
+                        <h5 class="card-title">Patient Master Index ✅</h5>
                         <p class="card-text">
                             i. Patient biodata <br>
                             ii. Spouse/family information <br>
@@ -36,7 +36,7 @@
             <div class="col mb-3">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h5 class="card-title">Patient Billing</h5>
+                        <h5 class="card-title">Patient Billing ✅</h5>
                         <p class="card-text">
                             i. Patient Billing <br>
                         </p>

@@ -32,7 +32,7 @@
                         ></button>
                     </div>
                     <div class="modal-body">
-                        <form @submit.prevent="updateStaff"> 
+                        <form @submit.prevent="updateStaff">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     <div class="mb-3">
@@ -373,7 +373,7 @@
                             >
                                 Save changes
                             </button>
-                        </form>                       
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button
@@ -383,7 +383,7 @@
                             data-bs-dismiss="modal"
                         >
                             Close
-                        </button>                        
+                        </button>
                     </div>
                 </div>
             </div>
@@ -792,7 +792,7 @@
             <div class="card-body">
                 <table class="table text-center" id="staffBiodateTable">
                     <thead>
-                        <tr class="table-dark">
+                        <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">NRIC</th>

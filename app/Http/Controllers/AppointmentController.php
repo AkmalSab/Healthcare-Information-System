@@ -86,6 +86,8 @@ class AppointmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Appointment::destroy($id);
+
+        return response()->json('Appointment Deleted Successfully ✔');
     }
 }
