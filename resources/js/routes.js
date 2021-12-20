@@ -26,6 +26,7 @@ import ltStaff from './components/lt/Staff';
 
 import icd10Index from './components/icd10/Index';
 import queueIndex from './components/queue/Index';
+import queueDisplay from './components/queue/Display';
 
 export const routes = [
     {
@@ -147,5 +148,10 @@ export const routes = [
         path: '/queue',
         name: 'queueIndex',
         component: queueIndex
+    },
+    {
+        path: '/queue/display',
+        name: 'queueDisplay',
+        component: queueDisplay
     }
 ];
