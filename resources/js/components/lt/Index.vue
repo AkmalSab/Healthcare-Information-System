@@ -9,8 +9,8 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title text-center">Type of Case</h5>
-                        <p class="card-text">
-
+                        <p class="card-text text-center">
+                            List of type of case.
                         </p>
                     </div>
                     <div class="m-4">
@@ -22,8 +22,8 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title text-center">Role</h5>
-                        <p class="card-text">
-
+                        <p class="card-text text-center">
+                            List of role.
                         </p>
                     </div>
                     <div class="m-4">
@@ -35,8 +35,8 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title text-center">Insurance</h5>
-                        <p class="card-text">
-
+                        <p class="card-text text-center">
+                            List of insurance.
                         </p>
                     </div>
                     <div class="m-4">
@@ -48,8 +48,8 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title text-center">Medicine</h5>
-                        <p class="card-text">
-
+                        <p class="card-text text-center">
+                            List of medicine.
                         </p>
                     </div>
                     <div class="row m-4">
@@ -66,8 +66,8 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title text-center">Staff</h5>
-                        <p class="card-text">
-
+                        <p class="card-text text-center">
+                            List of staff.
                         </p>
                     </div>
                     <div class="m-4">

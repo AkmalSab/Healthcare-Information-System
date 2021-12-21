@@ -8,7 +8,7 @@
             <div class="col mb-3">
                 <div class="card h-100">
                     <div class="card-header">
-                        Registration
+                        Patient Registration ✅
                     </div>
                     <div class="card-body text-center">
                         <img src="/img/drugs.png" alt="drugs-icon" class="mb-3">
