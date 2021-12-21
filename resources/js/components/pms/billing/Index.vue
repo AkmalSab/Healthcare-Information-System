@@ -11,6 +11,19 @@
       {{ message }}
     </div>
 
+    <div class="alert alert-danger" role="alert">
+      <h3 class="alert-heading">Alert!</h3>
+      <p>
+        If the patient is empty, please make sure patient have prescription 
+        in the clinic. Otherwise, it will not display patient in patient selection.
+      </p>
+      <hr />
+      <p class="mb-0">
+        If the patient does not have insurance, please opt for other payment option.
+        Otherwise, please insert insurance information for the patient.
+      </p>
+    </div>
+
     <div class="card">
       <div class="card-body">
         <form @submit.prevent="storeBilling">
@@ -313,18 +326,14 @@
                       <th>Subtotal:</th>
                       <td>
                         RM
-                        {{
-                          printPaymentPDF.paymentTotal
-                        }}.00
+                        {{ printPaymentPDF.paymentTotal }}.00
                       </td>
                     </tr>
                     <tr>
                       <th>Total:</th>
                       <td>
                         RM
-                        {{
-                          printPaymentPDF.paymentTotal
-                        }}.00
+                        {{ printPaymentPDF.paymentTotal }}.00
                       </td>
                     </tr>
                   </tbody>
@@ -386,7 +395,7 @@ export default {
         paymentStatus: "",
         prescDesc: "",
         prescInstruct: "",
-        paymentTotal: ""
+        paymentTotal: "",
       },
     };
   },
@@ -406,19 +415,19 @@ export default {
       axios
         .get("/api/fetch-payment/" + i)
         .then((res) => {
-          this.fetchPDFInfo = res.data
-          this.printPaymentPDF.patName = this.fetchPDFInfo[0].name
-          this.printPaymentPDF.patLine1 = this.fetchPDFInfo[0].address_1
-          this.printPaymentPDF.patLine2 = this.fetchPDFInfo[0].address_2
-          this.printPaymentPDF.patState = this.fetchPDFInfo[0].state
-          this.printPaymentPDF.patPostcode = this.fetchPDFInfo[0].postcode
-          this.printPaymentPDF.patPhone = this.fetchPDFInfo[0].phone
-          this.printPaymentPDF.paymentCreateOn = this.fetchPDFInfo[0].date
-          this.printPaymentPDF.paymentType = this.fetchPDFInfo[0].paymentType
+          this.fetchPDFInfo = res.data;
+          this.printPaymentPDF.patName = this.fetchPDFInfo[0].name;
+          this.printPaymentPDF.patLine1 = this.fetchPDFInfo[0].address_1;
+          this.printPaymentPDF.patLine2 = this.fetchPDFInfo[0].address_2;
+          this.printPaymentPDF.patState = this.fetchPDFInfo[0].state;
+          this.printPaymentPDF.patPostcode = this.fetchPDFInfo[0].postcode;
+          this.printPaymentPDF.patPhone = this.fetchPDFInfo[0].phone;
+          this.printPaymentPDF.paymentCreateOn = this.fetchPDFInfo[0].date;
+          this.printPaymentPDF.paymentType = this.fetchPDFInfo[0].paymentType;
 
-          this.totalItem
+          this.totalItem;
 
-          this.$refs.PDFReceipt.generatePdf()
+          this.$refs.PDFReceipt.generatePdf();
         })
         .catch((error) => {
           console.log(console.error());
@@ -528,14 +537,16 @@ export default {
     // }
   },
   computed: {
-    totalItem: function() {
-        let sum = 0;
-        for(let i = 0; i < this.fetchPDFInfo.length; i++){
-            sum += (parseFloat(this.fetchPDFInfo[i].medsPrice) * parseFloat(this.fetchPDFInfo[i].quantity));
-        }
-        this.printPaymentPDF.paymentTotal = sum
-        return sum;
-    }
+    totalItem: function () {
+      let sum = 0;
+      for (let i = 0; i < this.fetchPDFInfo.length; i++) {
+        sum +=
+          parseFloat(this.fetchPDFInfo[i].medsPrice) *
+          parseFloat(this.fetchPDFInfo[i].quantity);
+      }
+      this.printPaymentPDF.paymentTotal = sum;
+      return sum;
+    },
   },
   watch: {
     "form.prescID": function (val) {
