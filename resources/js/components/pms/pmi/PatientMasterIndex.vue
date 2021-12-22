@@ -10,12 +10,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Patient Appointment ✅</h5>
                         <p class="card-text">
-                            To switch directories, type <kbd>cd</kbd> followed
-                            by the name of the directory.<br />
-                            To edit settings, press
-                            <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
-                            <br><br>
-                            Last Edited by Akmal Sab - 13/11/2021 🔒
+                            Create patient appointment.
                         </p>
                     </div>
                     <div class="m-4 d-flex flex-row">
@@ -33,15 +28,14 @@
                     <div class="card-body">
                         <h5 class="card-title">Patient biodata ✅</h5>
                         <p class="card-text">
-                            This is a longer card with supporting text below as
-                            a natural lead-in to additional content. This
-                            content is a little bit longer.
+                            Display list of registered patient.
                         </p>
                     </div>
                     <div class="m-4 d-flex flex-row">
                         <router-link
                             :to="{ name: 'PmsPatientBiodata' }"
                             class="btn btn-primary w-100"
+                            style="color:white"
                             >Visit</router-link
                         >
                     </div>
@@ -52,15 +46,14 @@
                     <div class="card-body">
                         <h5 class="card-title">Spouse/family information ✅</h5>
                         <p class="card-text">
-                            This is a longer card with supporting text below as
-                            a natural lead-in to additional content. This
-                            content is a little bit longer.
+                            Display list of patient's next of kin.
                         </p>
                     </div>
                     <div class="m-4">
                         <router-link
                             :to="{ name: 'PmsSpouseFamilyInformation' }"
                             class="btn btn-primary w-100"
+                            style="color:white"
                             >Visit</router-link
                         >
                     </div>
@@ -71,15 +64,14 @@
                     <div class="card-body">
                         <h5 class="card-title">Insurance/panel information ✅</h5>
                         <p class="card-text">
-                            This is a longer card with supporting text below as
-                            a natural lead-in to additional content. This
-                            content is a little bit longer.
+                            Display list of patient's insurance.
                         </p>
                     </div>
                     <div class="m-4">
                         <router-link
                             :to="{ name: 'PmsInsurancePanelInformation' }"
                             class="btn btn-primary w-100"
+                            style="color:white"
                             >Visit</router-link
                         >
                     </div>
