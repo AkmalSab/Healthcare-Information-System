@@ -28,16 +28,6 @@
           </div>
           <div class="row mb-3">
             <div class="col">
-              <label class="form-label">Appointment ID</label>
-              <select class="form-select">
-                <option value="n/a" selected>Not Available</option>
-                <option value="Type 2">Two</option>
-                <option value="Type 3">Three</option>
-              </select>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col">
               <label class="form-label">Select Patient</label>
               <!-- <select
                                 class="form-select"
@@ -81,6 +71,16 @@
                   v-model="selectedMedicine[index]"
                 ></v-select>
               </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="form-label">Consultation ID</label>
+                <v-select
+                  :options="appointmentData"
+                  label="description"
+                  v-model="appt"
+                ></v-select>
             </div>
           </div>
           <div class="row mb-3">
@@ -198,6 +198,8 @@ export default {
       medicineFrequency: [],
       medicineQuantity: [],
       prescriptionJSON: [],
+      appointmentData: [],
+      appt: "",
       form: {
         description: "",
         instruction: "",
@@ -211,7 +213,7 @@ export default {
     this.getPatientData();
     this.getMedicineData();
     this.addRow();
-    this.fetchJSON()
+    this.fetchJSON();
   },
   methods: {
     getPatientData() {
@@ -234,12 +236,23 @@ export default {
           console.log(error);
         });
     },
+    getAppointment() {
+      axios
+        .get("/api/patient/appointment/" + this.selectedPatient.id)
+        .then((res) => {
+          this.appointmentData = res.data;
+        })
+        .catch((error) => {
+          console.log(console.error());
+        });
+    },
     postData() {
       axios
         .post("/api/prescription/save", {
           desc: this.form.description,
           instruction: this.form.instruction,
           patient: JSON.stringify(this.selectedPatient),
+          appointment: JSON.stringify(this.appt)
         })
         .then((res) => {
           axios
@@ -256,7 +269,7 @@ export default {
                     quantity: JSON.stringify(this.medicineQuantity[z]),
                     patient: JSON.stringify(this.selectedPatient),
                     medicine: JSON.stringify(this.selectedMedicine[z]),
-                    prescription: JSON.stringify(this.prescriptionJSON),
+                    prescription: JSON.stringify(this.prescriptionJSON)
                   })
                   .then((res) => {
                     this.showMessage = true;
@@ -287,6 +300,14 @@ export default {
       this.startDateMedicine.push("");
       this.medicineFrequency.push("");
       this.medicineQuantity.push("");
+    },
+  },
+  watch: {
+    'selectedPatient': function (val) {
+      //do something when the data changes.
+      if (val) {
+        this.getAppointment();
+      }
     },
   },
 };

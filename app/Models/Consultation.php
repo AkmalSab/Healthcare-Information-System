@@ -12,6 +12,7 @@ class Consultation extends Model
 
     protected $fillable = [
         'patient_id',
+        'appointment_id',
         'diagnosis',
         'symptoms',
         'blood',

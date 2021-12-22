@@ -558,7 +558,7 @@ export default {
             text: "Payment successfully approved!",
           }).then((res) => {
             if (res.isConfirmed) {
-              this.getPaymentData();
+              this.fetchPayment();
             }
           });
         })

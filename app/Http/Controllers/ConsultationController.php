@@ -37,8 +37,13 @@ class ConsultationController extends Controller
      */
     public function store(Request $request)
     {
+        foreach ($request->all('appointmentID') as $key => $data) {
+            $aaa = json_decode($data);
+        }
+
         $data = new Consultation([
             'patient_id' => $request->get('patientID'),
+            'appointment_id' => $aaa->id,
             'diagnosis' => $request->get('diagnose'),
             'symptoms' => $request->get('symptoms'),
             'blood' => $request->get('blood'),
