@@ -70,11 +70,15 @@ class PrescriptionCustomController extends Controller
         foreach ($request->all('patient') as $key => $data) {
             $pat = json_decode($data);
         }
+        foreach ($request->all('appointment') as $key => $data) {
+            $appt = json_decode($data);
+        }
         $desc = $request->get('desc');
         $ins = $request->get('instruction');
 
         $prescData = new Prescription([
             'patient_id' => $pat->id,
+            'appointment_id' => $appt->id,
             'description' => $desc,
             'instruction' => $ins
         ]);

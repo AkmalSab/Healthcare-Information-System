@@ -31,6 +31,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col">
+                        <label class="form-label">Select Appointment</label>
+                        <v-select
+                            :options="appointmentData"
+                            label="description"
+                            v-model="appt"
+                        ></v-select>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col mb-3">
@@ -326,6 +334,7 @@
 <script>
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import "vue-select/dist/vue-select.css";
 
 export default {
     data() {
@@ -334,6 +343,7 @@ export default {
             message: '',
             vaxInfo: [],
             patientData: [],
+            appointmentData: [],
             selectedPatientData: [],
             nric: "",
             phoneNo: "",
@@ -345,7 +355,8 @@ export default {
             medication: "",
             socialHistory: "",
             familyHistory: "",
-            disabilityHistory: ""
+            disabilityHistory: "",
+            appt: ""
         };
     },
     created () {
@@ -388,12 +399,21 @@ export default {
                 console.log(console.error())
             })
         },
+        getAppointment() {
+            axios.get('/api/patient/appointment/' + this.patientID)
+                .then(res => {
+                    this.appointmentData = res.data
+                }).catch(error => {
+                console.log(console.error())
+            })
+        },
         assignPatientData() {
             axios.get('/api/patient/patient-info/' + this.patientID)
                 .then(res => {
                     this.selectedPatientData = res.data
                     this.nric = res.data[0].nric
                     this.phoneNo = res.data[0].phone
+                    // this.getAppointment()
                 }).catch(error => {
                 console.log(console.error())
             })
@@ -410,6 +430,7 @@ export default {
             formData.append("socialHistory", this.socialHistory)
             formData.append("familyHistory", this.familyHistory)
             formData.append("disabilityHistory", this.disabilityHistory)
+            formData.append("appointmentID", JSON.stringify(this.appt))
 
             axios.post('/api/consultation', formData).then(res => {
                 this.showMessage = true
@@ -419,7 +440,15 @@ export default {
                 this.message = error
             })
         }
-    }
+    },
+    watch: {
+        "patientID": function (val) {
+            //do something when the data changes.
+            if (val) {
+                this.getAppointment()
+            }
+        }
+    },
 };
 </script>
 

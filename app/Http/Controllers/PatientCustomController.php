@@ -6,6 +6,7 @@ use App\Http\Resources\InsuranceResource;
 use App\Models\pms\Family;
 use App\Models\pms\Insurance;
 use App\Models\pms\Patient;
+use App\Models\pms\Appointment;
 use Illuminate\Http\Request;
 
 class PatientCustomController extends Controller
@@ -32,5 +33,11 @@ class PatientCustomController extends Controller
     {
         $insurance = Insurance::all()->where('patient_id', '=', $request->route('patID'));
         return InsuranceResource::collection($insurance);
+    }
+
+    public function getAppointment(Request $request)
+    {
+        $appt = Appointment::all()->where('patient_id', '=', $request->route('patID'));
+        return response()->json($appt);
     }
 }
