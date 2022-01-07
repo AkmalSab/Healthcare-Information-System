@@ -2,7 +2,7 @@
     <div class="container">
         <h1>Consultation Information System</h1>
         <blockquote class="blockquote">
-            <p>This form is for patient consultation form.</p>
+            <p>This form is for patient consultation</p>
         </blockquote>
         <div v-if="showMessage" class="alert alert-success">
             {{ message }}

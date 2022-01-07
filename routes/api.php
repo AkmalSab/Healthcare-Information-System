@@ -11,6 +11,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ICDCustomController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\MedicineCustomController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentCustomController;
 use App\Http\Controllers\PrescriptionController;
@@ -62,6 +63,7 @@ Route::get('/fetch-payment-data', [PaymentCustomController::class, 'getPayment']
 Route::get('/fetch-payment/{prescID}', [PaymentCustomController::class, 'getPaymentDetails']);
 
 Route::get('/fetch-latest-queue', [QueueCustomController::class, 'displayLatest']);
+Route::post('/temp-meds-pic', [MedicineCustomController::class, 'tempMedicinePic']);
 
 Route::apiResource('patient', PatientController::class);
 Route::apiResource('family', FamilyController::class);

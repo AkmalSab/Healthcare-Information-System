@@ -20,7 +20,7 @@
                 <img src="/img/s2.jpg" class="card-img-top" height="200" alt="CIS">
                 <div class="card-body">
                     <h5 class="card-title">Consultation Information System (CIS) ✅</h5>
-                    <p class="card-text">This module will cater for patient consultation and immunisation record</p>
+                    <p class="card-text">This module will cater for patient consultation.</p>
                 </div>
                 <div class="m-4">
                     <a href="{{ url('cis') }}" class="btn btn-primary w-100" style="color: white">Visit</a>

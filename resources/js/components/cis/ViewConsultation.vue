@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Patient Consultation History</h1>
     <blockquote class="blockquote">
-      <p>This form is for patient consultation form.</p>
+      <p>View past consultation history</p>
     </blockquote>
 
     <!-- Modal -->
