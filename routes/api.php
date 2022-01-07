@@ -41,6 +41,7 @@ Route::get('/patient/patient-info/{patientID}', [PatientCustomController::class,
 Route::get('/patient/family/{patID}', [PatientCustomController::class, 'getNextOfKin']);
 Route::get('/patient/insurance/{patID}', [PatientCustomController::class, 'getInsurance']);
 Route::get('/patient/appointment/{patID}', [PatientCustomController::class, 'getAppointment']);
+Route::get('/patient/consultation/{patID}', [PatientCustomController::class, 'getConsultation']);
 
 Route::get('/icd10/blocks', [ICDCustomController::class, 'getICDBlocks']);
 Route::get('/icd10/chapters', [ICDCustomController::class, 'getICDChapters']);

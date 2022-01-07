@@ -29,18 +29,6 @@
           <div class="row mb-3">
             <div class="col">
               <label class="form-label">Select Patient</label>
-              <!-- <select
-                                class="form-select"
-                                v-model="selectedPatient"
-                            >
-                                <option
-                                    v-for="patientNameList in patientData"
-                                    :key="patientNameList.id"
-                                    :value="patientNameList.id"
-                                    >{{ patientNameList.name }}</option
-                                >
-                            </select> -->
-
               <v-select
                 class="mt-2"
                 :options="patientData"
@@ -52,18 +40,6 @@
               <label class="form-label">Select Medicine</label>
 
               <div v-for="(meds, index) in selectedMedicine" :key="meds.id">
-                <!-- <select
-                                    class="form-select mb-2"
-                                    v-model="selectedMedicine[index]"
-                                >
-                                    <option
-                                        v-for="medsList in medicineData"
-                                        :key="medsList.id"
-                                        :value="medsList.id"
-                                        >{{ medsList.name }}</option
-                                    >
-                                </select> -->
-
                 <v-select
                   class="mt-2"
                   :options="medicineData"
@@ -73,13 +49,27 @@
               </div>
             </div>
           </div>
-          <div class="row mb-3">
+          <div class="form-check form-switch mb-2">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" v-model="form.switch" ref="switchFunction" @click="switchFunction">
+            <label class="form-check-label" for="flexSwitchCheckDefault">By Consultation</label>
+          </div>
+          <div class="row mb-3" v-if="form.switch === false">
             <div class="col">
-              <label class="form-label">Consultation ID</label>
+              <label class="form-label">Appointment ID</label>
                 <v-select
                   :options="appointmentData"
                   label="description"
                   v-model="appt"
+                ></v-select>
+            </div>
+          </div>
+          <div class="row mb-3" v-if="form.switch === true">
+            <div class="col">
+              <label class="form-label">Consultation ID</label>
+                <v-select
+                  :options="consultationData"
+                  label="diagnosis"
+                  v-model="consult"
                 ></v-select>
             </div>
           </div>
@@ -199,13 +189,16 @@ export default {
       medicineQuantity: [],
       prescriptionJSON: [],
       appointmentData: [],
+      consultationData: [],
       appt: "",
+      consult: "",
       form: {
         description: "",
         instruction: "",
         startDate: "",
         drugFrequency: "",
         drugQuantity: "",
+        switch: false,
       },
     };
   },
@@ -216,6 +209,13 @@ export default {
     this.fetchJSON();
   },
   methods: {
+      switchFunction() {
+        if(this.$refs.switchFunction.checked == false) {
+            this.form.switch = false
+        } else {
+            this.form.switch = true
+        }
+    },
     getPatientData() {
       axios
         .get("/api/prescription")
@@ -246,13 +246,24 @@ export default {
           console.log(console.error());
         });
     },
+    getConsultation() {
+      axios
+        .get("/api/patient/consultation/" + this.selectedPatient.id)
+        .then((res) => {
+          this.consultationData = res.data;
+        })
+        .catch((error) => {
+          console.log(console.error());
+        });
+    },
     postData() {
       axios
         .post("/api/prescription/save", {
           desc: this.form.description,
           instruction: this.form.instruction,
           patient: JSON.stringify(this.selectedPatient),
-          appointment: JSON.stringify(this.appt)
+          appointment: JSON.stringify(this.appt),
+          consultation: JSON.stringify(this.consult)
         })
         .then((res) => {
           axios
@@ -307,6 +318,7 @@ export default {
       //do something when the data changes.
       if (val) {
         this.getAppointment();
+        this.getConsultation();
       }
     },
   },

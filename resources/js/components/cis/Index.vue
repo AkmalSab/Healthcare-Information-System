@@ -167,7 +167,7 @@
                         </div>
                     </div>
                 </div>
-                <h4>
+                <!-- <h4>
                     Immunisation Record (Vaccine)<span
                         ><button
                             class="btn btn-outline-danger btn-sm ms-3"
@@ -197,7 +197,7 @@
                             v-model="phoneNo"
                         />
                     </div>
-                </div>
+                </div> -->
                 <div v-if="vaxInfo.length !== 0" data-aos="fade-down">
                     <div class="row">
                         <div class="col">
