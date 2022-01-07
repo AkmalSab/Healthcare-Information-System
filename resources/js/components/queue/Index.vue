@@ -154,7 +154,7 @@ export default {
         data: {
           _token: "Hi6p4Y0syP6ivs5ljQdLAyyfx4SmsxcK",
           phone: "6" + this.selectedPatient.phone,
-          message: "Now, is your turn" + this.selectedPatient.name,
+          message: "Now, is your turn " + this.selectedPatient.name + ". Please proceed to the room.",
         },
       })
         .then((res) => {

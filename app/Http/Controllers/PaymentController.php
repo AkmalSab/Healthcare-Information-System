@@ -41,6 +41,9 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
+
+        // dd($request);
+
         foreach ($request->all('insurance') as $key => $data) {
             $ins = json_decode($data);
         }
@@ -55,8 +58,8 @@ class PaymentController extends Controller
         // $findMeds = Prescription::findOrFail($pres->id);
         $prescData = $request->get('prescription');
 
-        $presData = new Payment ([
-            'desc' => $status,
+        $presData = new Payment([
+            'desc' => $description,
             'type' => $payment,
             // 'insurance_id' => $ins->id,
             'prescription_id' => $prescData,
@@ -98,9 +101,13 @@ class PaymentController extends Controller
      * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Payment $payment)
+    public function update(Request $request)
     {
-        //
+        $payment = Payment::find($request->id);
+
+        $payment->status = 'Approved';
+
+        $payment->save();
     }
 
     /**

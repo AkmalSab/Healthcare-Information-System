@@ -7,20 +7,28 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 g-4">
             <div class="col mb-3">
                 <div class="card h-100">
-                    <div class="card-body">
+                    <div class="card-header">
+                        Patient Registration ✅
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="/img/drugs.png" alt="drugs-icon" class="mb-3">
                         <h5 class="card-title">Patient Registration ✅</h5>
                         <p class="card-text">
                             i. Counter registration (register by clinic staff)
                         </p>
                     </div>
                     <div class="m-4">
-                        <router-link :to="{name: 'pmsPatientRegister'}" class="btn btn-primary w-100">Visit</router-link>
+                        <router-link :to="{name: 'pmsPatientRegister'}" class="btn btn-primary w-100" style="color: white">Visit</router-link>
                     </div>
                 </div>
             </div>
             <div class="col mb-3">
                 <div class="card h-100">
-                    <div class="card-body">
+                    <div class="card-header">
+                        Patient Master Index ✅
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="/img/drugs.png" alt="drugs-icon" class="mb-3">
                         <h5 class="card-title">Patient Master Index ✅</h5>
                         <p class="card-text">
                             i. Patient biodata <br>
@@ -29,13 +37,17 @@
                         </p>
                     </div>
                     <div class="m-4">
-                        <router-link :to="{name: 'PmsPatientMasterIndex'}" class="btn btn-primary w-100">Visit</router-link>
+                        <router-link :to="{name: 'PmsPatientMasterIndex'}" class="btn btn-primary w-100" style="color: white">Visit</router-link>
                     </div>
                 </div>
             </div>
             <div class="col mb-3">
                 <div class="card h-100">
-                    <div class="card-body">
+                    <div class="card-header">
+                        Billing
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="/img/drugs.png" alt="drugs-icon" class="mb-3">
                         <h5 class="card-title">Patient Billing ✅</h5>
                         <p class="card-text">
                             i. Patient Billing <br>
