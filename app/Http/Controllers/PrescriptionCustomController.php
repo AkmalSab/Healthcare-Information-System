@@ -73,15 +73,40 @@ class PrescriptionCustomController extends Controller
         foreach ($request->all('appointment') as $key => $data) {
             $appt = json_decode($data);
         }
+        foreach ($request->all('consultation') as $key => $data) {
+            $cons = json_decode($data);
+        }
         $desc = $request->get('desc');
         $ins = $request->get('instruction');
 
-        $prescData = new Prescription([
-            'patient_id' => $pat->id,
-            'appointment_id' => $appt->id,
-            'description' => $desc,
-            'instruction' => $ins
-        ]);
+        // dd($appt, $cons);
+
+        if ($appt == '') {
+            $prescData = new Prescription([
+                'patient_id' => $pat->id,
+                'appointment_id' => null,
+                'consultation_id' => $cons->id,
+                'description' => $desc,
+                'instruction' => $ins
+            ]);
+        } else if ($cons == '') {
+            $prescData = new Prescription([
+                'patient_id' => $pat->id,
+                'appointment_id' => $appt->id,
+                'consultation_id' => null,
+                'description' => $desc,
+                'instruction' => $ins
+            ]);
+        } else {
+            $prescData = new Prescription([
+                'patient_id' => $pat->id,
+                'appointment_id' => $appt->id,
+                'consultation_id' => $cons->id,
+                'description' => $desc,
+                'instruction' => $ins
+            ]);
+        }
+
         $prescData->save();
 
         return response()->json('Prescription Created Successfully ✔');

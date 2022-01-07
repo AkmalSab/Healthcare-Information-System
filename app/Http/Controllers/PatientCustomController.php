@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\InsuranceResource;
+use App\Models\Consultation;
 use App\Models\pms\Family;
 use App\Models\pms\Insurance;
 use App\Models\pms\Patient;
@@ -39,5 +40,11 @@ class PatientCustomController extends Controller
     {
         $appt = Appointment::all()->where('patient_id', '=', $request->route('patID'));
         return response()->json($appt);
+    }
+
+    public function getConsultation(Request $request)
+    {
+        $consult = Consultation::all()->where('patient_id', '=', $request->route('patID'));
+        return response()->json($consult);
     }
 }
