@@ -11,6 +11,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ICDCustomController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\MedicineCustomController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentCustomController;
 use App\Http\Controllers\PrescriptionController;
@@ -41,6 +42,7 @@ Route::get('/patient/patient-info/{patientID}', [PatientCustomController::class,
 Route::get('/patient/family/{patID}', [PatientCustomController::class, 'getNextOfKin']);
 Route::get('/patient/insurance/{patID}', [PatientCustomController::class, 'getInsurance']);
 Route::get('/patient/appointment/{patID}', [PatientCustomController::class, 'getAppointment']);
+Route::get('/patient/consultation/{patID}', [PatientCustomController::class, 'getConsultation']);
 
 Route::get('/icd10/blocks', [ICDCustomController::class, 'getICDBlocks']);
 Route::get('/icd10/chapters', [ICDCustomController::class, 'getICDChapters']);
@@ -61,6 +63,7 @@ Route::get('/fetch-payment-data', [PaymentCustomController::class, 'getPayment']
 Route::get('/fetch-payment/{prescID}', [PaymentCustomController::class, 'getPaymentDetails']);
 
 Route::get('/fetch-latest-queue', [QueueCustomController::class, 'displayLatest']);
+Route::post('/temp-meds-pic', [MedicineCustomController::class, 'tempMedicinePic']);
 
 Route::apiResource('patient', PatientController::class);
 Route::apiResource('family', FamilyController::class);

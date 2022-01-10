@@ -40,19 +40,36 @@ class ConsultationController extends Controller
         foreach ($request->all('appointmentID') as $key => $data) {
             $aaa = json_decode($data);
         }
+        // dd($aaa);
 
-        $data = new Consultation([
-            'patient_id' => $request->get('patientID'),
-            'appointment_id' => $aaa->id,
-            'diagnosis' => $request->get('diagnose'),
-            'symptoms' => $request->get('symptoms'),
-            'blood' => $request->get('blood'),
-            'allergy' => $request->get('allergy'),
-            'medication' => $request->get('medication'),
-            'social_hist' => $request->get('socialHistory'),
-            'family_hist' => $request->get('familyHistory'),
-            'disability_hist' => $request->get('disabilityHistory')
-        ]);
+        if ($aaa == '') {
+            $data = new Consultation([
+                'patient_id' => $request->get('patientID'),
+                'appointment_id' => null,
+                'diagnosis' => $request->get('diagnose'),
+                'symptoms' => $request->get('symptoms'),
+                'blood' => $request->get('blood'),
+                'allergy' => $request->get('allergy'),
+                'medication' => $request->get('medication'),
+                'social_hist' => $request->get('socialHistory'),
+                'family_hist' => $request->get('familyHistory'),
+                'disability_hist' => $request->get('disabilityHistory')
+            ]);
+        }
+        else {
+            $data = new Consultation([
+                'patient_id' => $request->get('patientID'),
+                'appointment_id' => $aaa->id,
+                'diagnosis' => $request->get('diagnose'),
+                'symptoms' => $request->get('symptoms'),
+                'blood' => $request->get('blood'),
+                'allergy' => $request->get('allergy'),
+                'medication' => $request->get('medication'),
+                'social_hist' => $request->get('socialHistory'),
+                'family_hist' => $request->get('familyHistory'),
+                'disability_hist' => $request->get('disabilityHistory')
+            ]);
+        }
 
         $data->save();
         return response()->json($data);

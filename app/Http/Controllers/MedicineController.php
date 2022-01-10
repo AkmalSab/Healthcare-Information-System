@@ -50,6 +50,7 @@ class MedicineController extends Controller
                 'type' => $request->get('medicineType'),
                 'dose' => $request->get('medicineDose'),
                 'stock' => $request->get('medicineStock'),
+                'price_per_unit' => $request->get('medicineCost'),
                 'picture' => $request->file('image')->hashName()
             ]);
             $data->save();
@@ -66,7 +67,8 @@ class MedicineController extends Controller
                 'type' =>   $request->get('medicineType'),
                 'dose' => $request->get('medicineDose'),
                 'stock' => $request->get('medicineStock'),
-                'price_per_unit' => $request->get('medicineCost')
+                'price_per_unit' => $request->get('medicineCost'),
+                'picture' => null
             ]);
             $data->save();
             return response()->json($data);

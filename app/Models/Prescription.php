@@ -19,6 +19,7 @@ class Prescription extends Model
         'start_consume',
         'frequency',
         'appointment_id',
+        'consultation_id',
         'patient_id',
         'medicine',
         'quantity',

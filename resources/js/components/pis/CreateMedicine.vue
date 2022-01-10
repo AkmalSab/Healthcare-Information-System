@@ -189,7 +189,7 @@
                 label-idle="Drop files here...please make sure it's a photo 😊"
                 v-bind:allow-multiple="false"
                 accepted-file-types="image/jpeg, image/png"
-                server="/api/medicine"
+                server="/api/temp-meds-pic"
                 v-bind:files="myFiles"
                 v-on:init="handleFilePondInit"
               />
@@ -390,6 +390,8 @@ export default {
       if (this.$refs.pond.getFiles()[0] != null)
         var file = this.$refs.pond.getFiles()[0].file;
       else var file = "";
+
+      console.log(this.$refs.pond.getFiles()[0].file);
       let formData = new FormData();
       formData.append("image", file);
       formData.append("medicineName", this.medsName);
